@@ -1,0 +1,146 @@
+.fig-1{
+    height: auto;
+    float: right;
+    margin-left: 4vw;
+    position: relative;
+}
+
+.fig-1__image{
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+}
+
+.fig-1::before{
+    content:'FIG. 1.4-1.';
+    display: block;
+    background: rgb(110, 80, 80);
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+/* Figure 2 is for Example 1. Center-aligned.*/
+.fig-2{
+    height: auto;
+    float: right;
+    position: relative;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.fig-2__image{
+    width: 100%;
+    height: auto;
+}
+
+.fig-2::before{
+    content:'FIG. 1.4-2.';
+    display: block;
+    background: rgb(110, 80, 80);
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+/* Figure 3 is right-aligned, homogeneous w/ Figure 1.*/
+.fig-3{
+    height: auto;
+    float: right;
+    margin-left: 4vw;
+    position: relative;
+}
+
+.fig-3__image{
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+}
+
+.fig-3::before{
+    content:'FIG. 1.4-3.';
+    display: block;
+    background: rgb(110, 80, 80);
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.left-list{
+    float: left; 
+    width: 50%;
+}
+
+.continuity-list{
+    margin-left: 3%;
+}
+
+.continuity-list__left{
+    float:left;
+    width: 50%;
+    margin-left: 5%;
+}
+
+.continuity-list__right{
+    float:right;
+    width: 35%;
+}
+
+@media only screen and (min-width: 900px) {
+    .fig-1__image{
+        width: 30vw;
+    }
+    .fig-3__image{
+        width: 30vw;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .fig-1__image{
+        width: 30vw;
+    }
+    .fig-3__image{
+        width: 30vw;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .fig-1::before,
+    .fig-2::before,
+    .fig-3::before{
+        font-size: 14px
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .continuity-list{
+        font-size: 2.4px;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+
+    .fig-1, 
+    .fig-2, 
+    .fig-3{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .fig-2{
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 3000px) {
+    .fig-1::before,
+    .fig-2::before,
+    .fig-3::before{
+        font-size: 2rem;
+    }
+}

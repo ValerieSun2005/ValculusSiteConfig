@@ -1,0 +1,226 @@
+
+.fig-1{
+    height: auto;
+    float: right;
+    margin-left: 4vw;
+    position: relative;
+}
+
+.fig-1__image{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.fig-1::before{
+    content:'FIGURE 1';
+}
+
+
+
+.fig-2{
+    height: auto;
+    float: right;
+    margin-left: 4vw;
+    position: relative;
+}
+
+.fig-2__image{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.fig-2::before{
+    content:'FIGURE 2';
+}
+
+
+
+.fig-3{
+    height: auto;
+    float: right;
+    margin-left: 4vw;
+    position: relative;
+}
+
+.fig-3__image{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.fig-3::before{
+    content:'FIGURE 3';
+}
+
+
+
+.fig-4{
+    height: auto;
+    float: right;
+    margin-left: 4vw;
+    position: relative;
+}
+
+.fig-4__image{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.fig-4::before{
+    content:'FIGURE 4';
+}
+
+
+
+.fig-5{
+    height: auto;
+    float: right;
+    margin-left: 4vw;
+    position: relative;
+}
+
+.fig-5__image{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.fig-5::before{
+    content:'FIGURE 5';
+}
+
+
+
+.fig-6{
+    height: auto;
+    float: right;
+    margin-left: 4vw;
+    position: relative;
+}
+
+.fig-6__image{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.fig-6::before{
+    content:'FIGURE 6';
+}
+
+
+
+.fig-7{
+    height: auto;
+    float: right;
+    margin-left: 4vw;
+    position: relative;
+}
+
+.fig-7__image{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.fig-7::before{
+    content:'FIGURE 7';
+}
+
+
+
+.fig-8{
+    height: auto;
+    float: right;
+    margin-left: 4vw;
+    position: relative;
+}
+
+.fig-8__image{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.fig-8::before{
+    content:'FIGURE 8';
+}
+
+
+
+.fig-9{
+    height: auto;
+    float: right;
+    margin-left: 4vw;
+    position: relative;
+}
+
+.fig-9__image{
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
+.fig-9::before{
+    content:'FIGURE 9';
+}
+
+
+
+.fig-10{
+    height: auto;
+    float: right;
+    margin-left: 4vw;
+    position: relative;
+}
+
+.fig-10__image{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.fig-10::before{
+    content:'FIGURE 10';
+}
+
+
+
+.fig-11{
+    height: auto;
+    float: right;
+    margin-left: 4vw;
+    position: relative;
+}
+
+.fig-11__image{
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
+.fig-11::before{
+    content:'FIGURE 11';
+}
+
+
+
+.fig-12{
+    height: auto;
+    float: right;
+    margin-left: 4vw;
+    position: relative;
+}
+
+.fig-12__image{
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
+.fig-12::before{
+    content:'FIGURE 12';
+}

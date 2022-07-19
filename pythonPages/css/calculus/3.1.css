@@ -1,0 +1,84 @@
+body{
+    counter-reset: figure;
+}
+
+img{
+    counter-increment: figure;
+    content: "Fig. " counter(figure) ".";
+}
+
+/* figure 1  */
+
+.fig-1-body{
+    display: flex;
+    flex-direction: row;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.fig-1A, .fig-1B{
+    margin-left: 0px;
+    position: relative;
+}
+
+.fig-1A::before{
+    content:'FIGURE 1A';
+}
+
+.fig-1B::before{
+    content:'FIGURE 1B';
+}
+
+.fig-2::before{
+    content:'FIGURE 2';
+}
+
+.fig-3::before{
+    content:'FIGURE 3';
+}
+
+/* figure 4 */
+
+
+.fig-4::before{
+    content:'FIGURE 4';
+}
+
+.fig-5::before{
+    content:'FIGURE 5'
+}
+
+.fig-5::after{
+    content: "Photo by Stephan Louis on Unsplash.";
+}
+
+@media screen and (max-width: 1150px) {
+    .fig-1__image{
+        width: 100%;
+    }
+
+    .fig-1-body{
+        flex-direction: column;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
+    .fig-6, .fig-6 img, .fig-7, .fig-7 img{
+        width: 500px;
+    }
+}
+
+.fig-6, .fig-6 img, .fig-7, .fig-7 img{
+    width: 650px;
+    float: none;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.fig-6::before{
+    content:'FIGURE 6'
+}
+
+.fig-7::before{
+    content: 'FIGURE 7'
+}

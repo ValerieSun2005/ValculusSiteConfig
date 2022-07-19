@@ -1,0 +1,56 @@
+h1, .background-text{
+    width: 1350px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.background-text{ /* background body */
+    font-size: 1.5rem;
+    line-height: 2.5;
+}
+
+h1{ /* section title */
+    font-size: 200%;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    font-weight: bold;
+}
+
+.section-unit{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    margin-bottom: 2%;
+}
+
+.sections{
+    flex: 1.5;
+    margin-right: 4%;
+}
+
+.resources{
+    flex: 1;
+}
+
+.header-image{
+    float: right;
+    width: 100%;
+    max-width: 350px;
+    max-height: auto;
+    margin: 0% 1% 2% 2%;
+    align-self: center;
+}
+
+.section-unit ul{
+    margin-left: 0%;
+    padding-left: 0%;
+}
+
+.section-unit li{
+    list-style-type:none;
+    margin-left: 0%;
+    padding-left: 0%;
+}

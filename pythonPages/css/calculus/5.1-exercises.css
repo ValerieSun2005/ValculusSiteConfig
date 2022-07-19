@@ -1,0 +1,164 @@
+table{
+    width: 100%;
+    display: flexbox;
+}
+
+td{
+    width: 33.33333333%;
+    border: none;
+    text-align: left;
+    padding-left: 0px;
+    font-size: 100%;
+}
+
+.background-text__5-1{ /* background body */
+    margin-left: 17%;
+    margin-right: 14%;
+    color: white;
+    font-size: 1.5rem;
+    line-height: 2.5;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.problem-special-body{
+    margin-left: 60px;
+    position: absolute;
+    z-index: 1;
+}
+
+.problem-6{
+    height: auto;
+    margin-left: 33%;
+}
+
+.problem-6__image{
+    width: 100%;
+    max-width: 330px;
+    height: auto;
+}
+
+.problem-11{
+    height: auto;
+    margin-left: 33%;
+}
+
+.problem-11__image{
+    width: 100%;
+    max-width: 330px;
+    height: auto;
+}
+
+.problem-13{
+    height: auto;
+    margin-left: 35%;
+}
+
+.problem-13__image{
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+}
+
+.problem-14{
+    height: auto;
+    margin-left: 32%;
+}
+
+.problem-14__image{
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+}
+
+.problem-15{
+    height: auto;
+    margin-left: 32%;
+}
+
+.problem-15__image{
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+}
+
+.problem-16{
+    height: auto;
+    margin-left: 35%;
+}
+
+.problem-16__image{
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+}
+
+.problem-17{
+    height: auto;
+    margin-left: 32%;
+}
+
+.problem-17__image{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.problem-18{
+    height: auto;
+    margin-left: 32%;
+}
+
+.problem-18__image{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.problem-19{
+    height: auto;
+    margin-left: 35%;
+}
+
+.problem-19__image{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.problem-21{
+    height: auto;
+    margin-left: 33%;
+}
+
+.problem-21__image{
+    width: 100%;
+    max-width: 330px;
+    height: auto;
+}
+
+.problem-27{
+    height: auto;
+    margin-left: 33%;
+}
+
+.problem-27__image{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.problem-37__table{
+    width: 33%;
+    margin-left: 32%;
+}
+
+.problem-37{
+    height: auto;
+    margin-left: 31%;
+}
+
+.problem-37__image{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}

@@ -1,0 +1,36 @@
+.test-body{
+    border: 5px solid rgb(0, 0, 0);
+    background-color: rgb(104, 96, 96);
+    width: 100%;
+    padding: 10px 20px 200px 20px;
+    position: relative;
+    right: 10px;
+}
+
+.question-title{
+    font-size: 120%;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.question-body{
+    padding-bottom: 30px;
+}
+
+.answer-choices-panel{
+    display: flex;
+}
+
+.answer-choice{
+    flex: 1;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.answer-choice:hover {
+    background-color:  rgb(172, 142, 142);
+}
+
+.answer-letter{
+    margin: 4% 4% 4% 4%;
+}

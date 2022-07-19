@@ -1,0 +1,285 @@
+@import "bourbon";
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+p{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.pdf-panel ul{
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+    display: none;
+}
+
+.pdf-panel li{
+    display: inline-block;
+    margin-right: 5%;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.invisible-text{
+    display: none;
+    opacity: 0;
+}
+
+.proof{
+    color: rgb(147, 98, 151);
+    text-decoration: underline;
+    padding-right: 0.5%;
+}
+
+.warning{
+    color: rgb(212, 75, 75);
+    text-decoration: underline;
+}
+
+.numbered-equations p{
+    line-height: 0;
+    text-align: center;
+}
+
+.numbered-equations span{
+    float: right;
+}
+
+.box{ /* for theorems and facts */
+    text-align: left;
+    line-height: 2.5;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    border: 0.4rem solid rgb(147, 98, 151);
+}
+
+.box-title{
+    background-color: rgb(147, 98, 151);
+    line-height: 1.5;
+    padding: 10px;
+    font-size: 140%;
+    text-align: center;
+    padding-bottom: 0;
+}
+
+.steps{ /* box for steps */
+    text-align: left;
+    line-height: 2.5;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    border: 0.4rem solid rgb(63, 124, 73);
+}
+
+.steps-title{
+    background-color: rgb(63, 124, 73);
+    line-height: 1.5;
+    padding: 10px;
+    font-size: 140%;
+    text-align: center;
+    padding-bottom: 0;
+}
+
+.example-image::before{
+    display: block;
+    background: rgb(110, 80, 80);
+    font-size: 90%;
+    color: white;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.example{ /* for example problems */
+    border-bottom: none;
+    text-align: left;
+    background-color: rgb(53, 46, 46);
+    border: 2px solid rgb(96, 150, 182);
+}
+
+.example-title{ /* Example 1, 2, 3, etc. */
+    background-color: rgb(96, 150, 182);
+    font-style: normal;
+    line-height: 1.5;
+    padding: 1vh;
+    font-size: 14px;
+    text-align: center;
+    padding-bottom: 0;
+    margin-top: 2%;
+}
+
+.example-problem{ /*example problem */
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+.example-list{
+    padding-top: 20px; 
+    padding-bottom: 20px; 
+    line-height: 3; 
+    font-style: normal;
+}
+
+.example-problem ol {
+    counter-reset: list;
+}
+
+.example-problem li{
+    padding-left: 3%;
+}
+.example-problem ol > li {
+    list-style: none;
+    position: relative;
+}
+
+.example-problem ol > li:before {
+    counter-increment: list;
+    content: "(" counter(list, lower-roman) ")\a0";
+    position: absolute;
+    left: -1.4em;
+}
+
+.solution ol {
+    counter-reset: list;
+}
+
+.solution li{
+    padding-left: 3%;
+}
+.solution ol > li {
+    list-style: none;
+    position: relative;
+}
+
+.solution ol > li:before {
+    counter-increment: list;
+    content: "(" counter(list, lower-roman) ")\a0";
+    position: absolute;
+    left: -1.4em;
+}
+
+.solution{ /* solution body to example problems */
+    border: 2px solid rgb(96, 150, 182);
+    line-height: 2.5;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 2%;
+    padding-top: 4%;
+    text-align: left;
+    font-style: normal;
+    margin-left: 0;
+}
+
+.solution-button { /*button to show/hide solution */
+    font-size: 110%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(96, 150, 182);
+    color: white;
+    border: none;
+    transition-duration: 0.9s;
+    width: 100%;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+    z-index: 2;
+}
+
+.solution-button:hover {
+    background-color:  rgb(172, 142, 142);
+}
+
+.solution-hr{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.border{
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    padding: 4px;
+}
+
+.section-summary{ 
+    text-align: left;
+    line-height: 2.5;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    border: 0.4rem solid rgb(163, 123, 48);
+}
+
+.section-summary__title{
+    background-color: rgb(163, 123, 48);
+    line-height: 1.5;
+    padding: 10px;
+    font-size: 140%;
+    text-align: center;
+    padding-bottom: 0;
+    margin-top: 6%;
+}
+
+.section-summary li{ 
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.list-item{
+    display: flex;
+    flex-direction: row;
+    padding: 0.3% 2% 0.3% 0%;
+}
+
+.list-number{
+    flex: 0.4;
+    width: 10%;
+    margin-right: 1%;
+}
+
+.list-text{
+    flex: 10;
+    
+}
+
+
+/* @media screen and (max-width: 800px) {
+
+    .box-title{
+        font-size: 15px;
+    }
+
+    .steps-title{
+        font-size: 15px;
+    } 
+
+    .example-title{
+        font-size: 15px;
+    }
+
+    .solution-button{
+        font-size: 15px;
+    }
+
+} */
+
+
+@media screen and (min-width: 2500px) {
+    .invisible-text{ /* when width >= 2500 px, show invisible text to take up space*/
+        display: inline;
+    }
+} 

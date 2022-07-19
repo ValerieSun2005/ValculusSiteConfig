@@ -1,0 +1,80 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.links{
+    padding: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: right;
+    background: rgb(110, 23, 103);
+    color:rgb(124, 114, 114);
+    font-size: 30px;
+    font-family:"Verdana, Geneva, Tahoma, sans-serif";
+    opacity: 0.8;
+}
+
+a.button {
+    background-color: none;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.background{
+    background-color: rgb(185, 127, 61);
+    opacity: 1;
+    padding: 10px;
+    font-size: 150%;
+    color:white;
+    text-align: left;
+    line-height: 200%;
+    border: 10px solid rgb(0, 0, 0);
+    width: 75%;
+    position: static;
+    left: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.background2{
+    background-image: url(../images/math-background.jpg);
+    background-color:rgb(185, 127, 61);
+    opacity: 1;
+    text-align: center;
+    background-size: cover;
+    font-size: 120%;
+}
+
+.title{
+    font-size: 200%;
+    line-height: 2;
+    font-weight: bold;
+    color: rgb(61, 111, 168);
+}
+
+.text{
+    font-size: 150%;
+    text-align: center;
+}
+
+.text2{
+    text-align: justify;
+
+}
+
+.top-menu{
+    color: plum;
+    background-color: rgb(91, 111, 111);
+    padding: 0px;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    font-size: 150%;
+}
