@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import dominate
 from dominate.tags import *
 import re
-import pageCreate
+# import pageCreate
 
 topics_unit_0 = ["Quadratics",
                  "Exponential and Logarithmic Functions",
@@ -116,26 +116,22 @@ topics_list = [topics_unit_0,
 
 
 for i in range(0, 11):
-    try:
-        os.mkdir(f"F:/Valculus/sectionMaterials/{i}")
-    except:
-        pass
-
     for j in range(0, len(topics_list[i])):
-        # try:
-        #     os.mkdir(f"F:/Valculus/sectionMaterials/{i}/{i}.{j + 1}-{topics_list[i][j]}")
-        # except:
-        #     pass
-
-        # with open(f"F:/Valculus/sectionMaterials/{i}/{i}.{j + 1}-{topics_list[i][j]}/{i}.{j + 1}-exerciseList.html",
-        #           'w') as htmlContent:
-        #     htmlContent.write('')
-        # with open(f"F:/Valculus/sectionMaterials/{i}/{i}.{j + 1}-{topics_list[i][j]}/{i}.{j + 1}-content.html",
-        #           'w') as htmlExerciseList:
-        #     htmlExerciseList.write('')
+        sectionLabelHyphenated = topics_list[i][j].replace(' ', '-')  # convert spaces in file name to hyphens
         try:
-            pageCreate.create_all_pages(f'{i}.{j + 1}', f'{topics_list[i][j]}', f'{i}')
+            os.mkdir(f"F:/Valculus/sectionMaterials/{topics_list[i][j]}")
         except:
             pass
+
+        with open(f"F:/Valculus/sectionMaterials/{topics_list[i][j]}/content-{sectionLabelHyphenated}.html",
+                  'x') as htmlContent:
+            htmlContent.write('')
+        with open(f"F:/Valculus/sectionMaterials/{topics_list[i][j]}/exerciseList-{sectionLabelHyphenated}.html",
+                  'x') as htmlExerciseList:
+            htmlExerciseList.write('')
+        # try:
+        #     pageCreate.create_all_pages(f'{i}.{j + 1}', f'{topics_list[i][j]}', f'{i}')
+        # except:
+        #     pass
 
 
