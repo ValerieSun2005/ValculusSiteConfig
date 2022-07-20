@@ -320,7 +320,7 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
         with open(f"pythonPages/calculus/{sectionNumber}.html", 'w') as file:
             file.write(doc.render())
 
-        with open("pythonPages/logDiff.html") as body:
+        with open(f"sectionMaterials/{unitNumber}/{sectionNumber}-{sectionLabel}/{sectionNumber}-content.html") as body:
             soup = BeautifulSoup(body, "html.parser")
 
         with open(f"pythonPages/calculus/{sectionNumber}.html", "r") as f:
@@ -348,7 +348,7 @@ def create_all_pages(sectionNumber, sectionLabel, unitNumber):
     create_page('solution', f'{sectionNumber}', f'{sectionLabel}', unitNumber)  # MAKE SOLUTION PAGE
 
 
-# create_all_pages('3.5', 'Curve Sketching', '3')
+create_all_pages('3.5', 'Curve Sketching', '3')
 
 # for i in ['home', 'about', 'contact']:
 # li(a(i.title(), href='/%s.html' % i))

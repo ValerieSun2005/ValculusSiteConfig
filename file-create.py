@@ -122,10 +122,10 @@ for i in range(0, 11):
         pass
 
     for j in range(0, len(topics_list[i])):
-        try:
-            os.mkdir(f"F:/Valculus/sectionMaterials/{i}/{i}.{j + 1}-{topics_list[i][j]}")
-        except:
-            pass
+        # try:
+        #     os.mkdir(f"F:/Valculus/sectionMaterials/{i}/{i}.{j + 1}-{topics_list[i][j]}")
+        # except:
+        #     pass
 
         # with open(f"F:/Valculus/sectionMaterials/{i}/{i}.{j + 1}-{topics_list[i][j]}/{i}.{j + 1}-exerciseList.html",
         #           'w') as htmlContent:
