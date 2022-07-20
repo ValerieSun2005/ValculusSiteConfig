@@ -1,4 +1,8 @@
 import os
+from bs4 import BeautifulSoup
+import dominate
+from dominate.tags import *
+import re
 import pageCreate
 
 topics_unit_0 = ["Quadratics",
@@ -111,12 +115,27 @@ topics_list = [topics_unit_0,
                topics_unit_10]
 
 
-# for i in range(0, 11):
-#     generateUnitFolders = f"F:/Valculus/sectionMaterials/{i}"
-#     os.mkdir(generateUnitFolders)
-#
-#     for j in range(0, len(topics_list[i])):
-#         generateSectionFolders = f"F:/Valculus/sectionMaterials/{i}/{i}.{j + 1}-{topics_list[i][j]}"
-#         os.mkdir(generateSectionFolders)
+for i in range(0, 11):
+    try:
+        os.mkdir(f"F:/Valculus/sectionMaterials/{i}")
+    except:
+        pass
+
+    for j in range(0, len(topics_list[i])):
+        try:
+            os.mkdir(f"F:/Valculus/sectionMaterials/{i}/{i}.{j + 1}-{topics_list[i][j]}")
+        except:
+            pass
+
+        # with open(f"F:/Valculus/sectionMaterials/{i}/{i}.{j + 1}-{topics_list[i][j]}/{i}.{j + 1}-exerciseList.html",
+        #           'w') as htmlContent:
+        #     htmlContent.write('')
+        # with open(f"F:/Valculus/sectionMaterials/{i}/{i}.{j + 1}-{topics_list[i][j]}/{i}.{j + 1}-content.html",
+        #           'w') as htmlExerciseList:
+        #     htmlExerciseList.write('')
+        try:
+            pageCreate.create_all_pages(f'{i}.{j + 1}', f'{topics_list[i][j]}', f'{i}')
+        except:
+            pass
 
 

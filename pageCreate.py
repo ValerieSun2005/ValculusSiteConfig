@@ -9,11 +9,10 @@ import re
 # sectionNumber = "3.5"
 # sectionLabel = "Ur Mom Walrus XXVideos"
 
-modeList = ['section', 'exercise', 'solution']
 modeDisplayList = ['Section', 'Exercises', 'Exercise Solutions']
 
 
-# mode = input(f"Select Page Mode ({modeList[0]}, {modeList[1]}, {modeList[2]}): ")
+# mode = input(f"Select Page Mode ({'section'}, {'exercise'}, {'solution'}): ")
 
 
 def italics_check(txt):
@@ -30,9 +29,9 @@ def italics_check(txt):
                 span(txtSplitItalics[j])
 
 
-def print_exercises(sectionNumber):
+def print_exercises(sectionNumber, sectionLabel, unitNumber):
     p('Click on a problem number to view its solution.', cls='exercises-hint')
-    with open(f'pythonPages/exerciseList/{sectionNumber}-exerciseList.html') as body:
+    with open(f'sectionMaterials/{unitNumber}/{sectionNumber}-{sectionLabel}/{sectionNumber}-exerciseList.html') as body:
         soup = BeautifulSoup(body, 'html.parser')
     sectionCount = len(soup.findAll('section'))
     exerciseNumber = 0
@@ -146,8 +145,8 @@ def print_exercises(sectionNumber):
                                 div(soup2.find_all('span')[k].string, cls='problem-display-body')
 
 
-def print_exercise_solutions(sectionNumber):
-    with open(f'pythonPages/exerciseList/{sectionNumber}-exerciseList.html') as body:
+def print_exercise_solutions(sectionNumber, sectionLabel, unitNumber):
+    with open(f'sectionMaterials/{unitNumber}/{sectionNumber}-{sectionLabel}/{sectionNumber}-exerciseList.html') as body:
         soup = BeautifulSoup(body, 'html.parser')
     sectionCount = len(soup.findAll('section'))
     exerciseNumber = 0
@@ -207,12 +206,12 @@ def print_exercise_solutions(sectionNumber):
                             span(soup2.find_all('div')[k].string)
 
 
-def create_page(mode, sectionNumber, sectionLabel):
-    if mode.lower() == modeList[0]:
+def create_page(mode, sectionNumber, sectionLabel, unitNumber):
+    if mode.lower() == 'section':
         doc = dominate.document(title=f'{sectionNumber}: {sectionLabel}')
-    if mode.lower() == modeList[1]:
+    if mode.lower() == 'exercise':
         doc = dominate.document(title=f'{sectionNumber} Exercises: {sectionLabel}')
-    if mode.lower() == modeList[2]:
+    if mode.lower() == 'solution':
         doc = dominate.document(title=f'{sectionNumber} Exercise Solutions: {sectionLabel}')
 
     with doc.head:
@@ -234,19 +233,19 @@ def create_page(mode, sectionNumber, sectionLabel):
     with doc:
         script(type='text/javascript', src='../js/header-load.js')
         header(id='header', cls='tab')
-        if mode.lower() == modeList[0]:
+        if mode.lower() == 'section':
             with doc.head:
                 # SCREEN LAYOUT
                 link(rel='stylesheet', href='../css/notes-style.css')
                 # PRINT LAYOUT
                 link(rel='stylesheet', media='print', href='../css/notes-style-print.css')
             h1(f'{sectionNumber} — {sectionLabel}')
-        if mode.lower() == modeList[1]:
+        if mode.lower() == 'exercise':
             with doc.head:
                 # SCREEN LAYOUT
                 link(rel='stylesheet', href='../css/exercises-style.css')
             h1(f'{sectionNumber} Exercises — {sectionLabel}')
-        if mode.lower() == modeList[2]:
+        if mode.lower() == 'solution':
             with doc.head:
                 # SCREEN LAYOUT
                 link(rel='stylesheet', href='../css/exercises-style.css')
@@ -254,7 +253,7 @@ def create_page(mode, sectionNumber, sectionLabel):
         with main():
             with div(cls='pdf-panel'):
                 with div(cls='pdf-panel-left').add(ul()):
-                    if mode.lower() == modeList[0]:
+                    if mode.lower() == 'section':
                         with li():
                             with button():
                                 with a(f'{modeDisplayList[0]}', cls='link-deactivate', rel='noopener'):
@@ -267,7 +266,7 @@ def create_page(mode, sectionNumber, sectionLabel):
                             with button():
                                 with a(f'{modeDisplayList[2]}', href=f'{sectionNumber}-exercises-solutions.html'):
                                     i(cls='fa fa-external-link')
-                    if mode.lower() == modeList[1]:
+                    if mode.lower() == 'exercise':
                         with li():
                             with button():
                                 with a(f'{modeDisplayList[0]}', href=f'{sectionNumber}.html'):
@@ -280,7 +279,7 @@ def create_page(mode, sectionNumber, sectionLabel):
                             with button():
                                 with a(f'{modeDisplayList[2]}', href=f'{sectionNumber}-exercises-solutions.html'):
                                     i(cls='fa fa-external-link')
-                    if mode.lower() == modeList[2]:
+                    if mode.lower() == 'solution':
                         with li():
                             with button():
                                 with a(f'{modeDisplayList[0]}', href=f'{sectionNumber}.html'):
@@ -301,11 +300,11 @@ def create_page(mode, sectionNumber, sectionLabel):
             hr(id='mainBodyBegin')
             comment('BEGIN BODY')
 
-            if mode.lower() == modeList[1]:
-                print_exercises(sectionNumber)
+            if mode.lower() == 'exercise':
+                print_exercises(sectionNumber, sectionLabel, unitNumber)
 
-            if mode.lower() == modeList[2]:
-                print_exercise_solutions(sectionNumber)
+            if mode.lower() == 'solution':
+                print_exercise_solutions(sectionNumber, sectionLabel, unitNumber)
 
         script(type='text/javascript', src='../js/footer-load.js')
         div(id='footer')
@@ -317,7 +316,7 @@ def create_page(mode, sectionNumber, sectionLabel):
         script(src='../js/toggle-solutions.js')
 
     # for main section: python renders html page, then another html page - content[...].html - is inserted
-    if mode.lower() == modeList[0]:
+    if mode.lower() == 'section':
         with open(f"pythonPages/calculus/{sectionNumber}.html", 'w') as file:
             file.write(doc.render())
 
@@ -334,22 +333,22 @@ def create_page(mode, sectionNumber, sectionLabel):
             output.write(str(doc))
 
 
-    if mode.lower() == modeList[1]:
+    if mode.lower() == 'exercise':
         with open(f"pythonPages/calculus/{sectionNumber}-exercises.html", 'w') as file:
             file.write(doc.render())
 
-    if mode.lower() == modeList[2]:
+    if mode.lower() == 'solution':
         with open(f"pythonPages/calculus/{sectionNumber}-exercises-solutions.html", 'w') as file:
             file.write(doc.render())
 
 
-def create_all_pages(sectionNumber, sectionLabel):
-    create_page('section', f'{sectionNumber}', f'{sectionLabel}')  # MAKE MAIN SECTION PAGE
-    create_page('exercise', f'{sectionNumber}', f'{sectionLabel}')  # MAKE EXERCISE PAGE
-    create_page('solution', f'{sectionNumber}', f'{sectionLabel}')  # MAKE SOLUTION PAGE
+def create_all_pages(sectionNumber, sectionLabel, unitNumber):
+    create_page('section', f'{sectionNumber}', f'{sectionLabel}', unitNumber)  # MAKE MAIN SECTION PAGE
+    create_page('exercise', f'{sectionNumber}', f'{sectionLabel}', unitNumber)  # MAKE EXERCISE PAGE
+    create_page('solution', f'{sectionNumber}', f'{sectionLabel}', unitNumber)  # MAKE SOLUTION PAGE
 
 
-create_all_pages('3.5', 'ur mom')
+# create_all_pages('3.5', 'Curve Sketching', '3')
 
 # for i in ['home', 'about', 'contact']:
 # li(a(i.title(), href='/%s.html' % i))
