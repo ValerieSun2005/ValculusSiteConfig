@@ -89,8 +89,7 @@ def print_exercises(sectionNumber, sectionLabel, unitNumber):
                                     j -= 1
 
         except:
-            figureCountSection = 2
-            figureCount = figureCountSection
+            figureCount = 0
             figureLabels = []
             for k in range(0, len(soup2.find_all('span'))):
                 displayBody = str(soup2.find_all('span')[k])
@@ -129,7 +128,7 @@ def print_exercises(sectionNumber, sectionLabel, unitNumber):
                                 div(txtSplitFigure[0].split('<span>')[1], cls='problem-display-body')
                         style(f".fig-{figureCount}::before{{content: 'FIGURE {figureCount}'}}")
                         with figure(cls=f'fig-{figureCount}'):
-                            img(src=f'{txtSplitFigure[2]}', alt='')
+                            img(src=f'{txtSplitFigure[1]}', alt='')
                         br()
 
 
@@ -160,8 +159,7 @@ def print_exercise_solutions(sectionNumber, sectionLabel, unitNumber):
         problemsCount = len(soup2.findAll('span'))
         exerciseNumber += problemsCount
         exerciseNumberList.append(exerciseNumber)
-        figureCountSection = 2
-        figureCount = figureCountSection
+        figureCount = 0
         for k in range(0, len(soup2.find_all('span'))):
             with div(id=f'problem-{exerciseNumberList[v] + 1 + k}'):
                 div(f'QUESTION {exerciseNumberList[v] + 1 + k}', cls='box-solution__head')
