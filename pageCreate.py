@@ -70,7 +70,7 @@ def print_exercises(sectionNumber, sectionLabel, unitNumber):
                                         a(f'\({k + tableNumberStart - j + problemsCount}.\)',
                                           rel='noopener',
                                           target='_blank',
-                                          href=f'{sectionNumber}-exercises-solutions.html#problem-{k + tableNumberStart - j + problemsCount}'
+                                          href=f'{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html#problem-{k + tableNumberStart - j + problemsCount}'
                                           )
                                         span(soup2.find_all('span')[
                                                  k - j].string)
@@ -83,7 +83,7 @@ def print_exercises(sectionNumber, sectionLabel, unitNumber):
                                         a(f'\({problemsCount - j + tableNumberStart}.\)',
                                           rel='noopener',
                                           target='_blank',
-                                          href=f'{sectionNumber}-exercises-solutions.html#problem-{problemsCount - j + tableNumberStart}'
+                                          href=f'{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html#problem-{problemsCount - j + tableNumberStart}'
                                           )
                                         span(soup2.find_all('span')[problemsCount - j].string)
                                     j -= 1
@@ -99,7 +99,7 @@ def print_exercises(sectionNumber, sectionLabel, unitNumber):
                     a(f'\({exerciseNumberList[v] + 1 + k}.\)',
                       rel='noopener',
                       target='_blank',
-                      href=f'{sectionNumber}-exercises-solutions.html#problem-{exerciseNumberList[v] + 1 + k}'
+                      href=f'{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html#problem-{exerciseNumberList[v] + 1 + k}'
                       )  # number label of each problem
 
                     if len(soup2.find_all('span')[k]('figure')) > 0:
