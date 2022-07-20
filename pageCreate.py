@@ -316,6 +316,7 @@ def create_page(mode, sectionNumber, sectionLabel):
         script(src='http://code.jquery.com/jquery-latest.min.js')
         script(src='../js/toggle-solutions.js')
 
+    # for main section: python renders html page, then another html page - content[...].html - is inserted
     if mode.lower() == modeList[0]:
         with open(f"pythonPages/calculus/{sectionNumber}.html", 'w') as file:
             file.write(doc.render())
@@ -332,6 +333,7 @@ def create_page(mode, sectionNumber, sectionLabel):
         with open(f"pythonPages/calculus/{sectionNumber}.html", "w") as output:
             output.write(str(doc))
 
+
     if mode.lower() == modeList[1]:
         with open(f"pythonPages/calculus/{sectionNumber}-exercises.html", 'w') as file:
             file.write(doc.render())
@@ -342,12 +344,12 @@ def create_page(mode, sectionNumber, sectionLabel):
 
 
 def create_all_pages(sectionNumber, sectionLabel):
-    create_page('solution', f'{sectionNumber}', f'{sectionLabel}')  # MAKE MAIN SECTION PAGE
+    create_page('section', f'{sectionNumber}', f'{sectionLabel}')  # MAKE MAIN SECTION PAGE
     create_page('exercise', f'{sectionNumber}', f'{sectionLabel}')  # MAKE EXERCISE PAGE
     create_page('solution', f'{sectionNumber}', f'{sectionLabel}')  # MAKE SOLUTION PAGE
 
 
-create_all_pages('solution', '3.5', 'ur mom')
+create_all_pages('3.5', 'ur mom')
 
 # for i in ['home', 'about', 'contact']:
 # li(a(i.title(), href='/%s.html' % i))
