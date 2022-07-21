@@ -43,6 +43,7 @@ topicsUnit1 = ["Defining a Limit",
                "Determining Continuity",
                "Intermediate Value Theorem",
                "Squeeze Theorem",
+               "Formal Definition of a Limit"
                ]
 
 unit1SectionInfo = {topicsUnit1[0]: "Definition of a limit."
@@ -62,6 +63,8 @@ unit1SectionInfo = {topicsUnit1[0]: "Definition of a limit."
                                     "Derivation of the fundamental limits \(\lim_{x \to 0} \frac{\sin x}{x} = 0\),"
                                     "\(\lim_{x \to 0} \frac{\cos x}{x} = 1,\)"
                                     "and \(\lim_{x \to 0} \frac{e^x - 1}{x} = 1.\)",
+                    topicsUnit1[6]: "Use of error analysis, the Delta-Epsilon definition, to formally define a limit."
+                                    "Inclusion of geometric intuition and algebraic problem-solving."
                     }
 
 topicsUnit2 = ["Defining a Derivative",
@@ -74,24 +77,24 @@ topicsUnit2 = ["Defining a Derivative",
                ]
 
 unit2SectionInfo = {topicsUnit2[0]: "Limit definition of a derivative, with geometric intuition and motivation."
-                                    "Use of limits to evaluate simple derivatives."
-                                    "Finding tangent and normal lines."
-                                    "linear approximation.",
-                    topicsUnit2[1]: "Properties of limits."
-                                    "Limits of sums, differences, products, quotients, and compositions of limits.",
-                    topicsUnit2[2]: "Calculating limits of indeterminate form \(0/0\) by algebraic manipulation."
-                                    "Techniques of factoring, rationalization, adding of fractions,"
-                                    "and trig identities.",
-                    topicsUnit2[3]: "Formal definition of continuity."
-                                    "Finding intervals on which a sum, difference, product, quotient, or composition"
-                                    "of functions is continuous, using limit properties."
-                                    "vertical translations, and horizontal and vertical dilation.",
-                    topicsUnit2[4]: "Introduction and proof of Intermediate Value Theorem."
-                                    "Use of theorem to prove existence of numbers in an interval.",
-                    topicsUnit2[5]: "Introduction and proof of Squeeze Theorem."
-                                    "Derivation of the fundamental limits \(\lim_{x \to 0} \frac{\sin x}{x} = 0\),"
-                                    "\(\lim_{x \to 0} \frac{\cos x}{x} = 1,\)"
-                                    "and \(\lim_{x \to 0} \frac{e^x - 1}{x} = 1.\)",
+                                    "Finding tangent and normal lines to establish linear approximations."
+                                    "First- and second-order derivatives."
+                                    "Derivatives of transcendental functions:"
+                                    "\(\sin x,\) \(\cos x,\) \(e^x,\) and \(\ln x.\)",
+                    topicsUnit2[1]: "Differentiating products and quotients of functions."
+                                    "Algebraic and graphical applications."
+                                    "Contains geometric intuition and proof.",
+                    topicsUnit2[2]: "Differentiating compositions of functions."
+                                    "Algebraic and graphical applications."
+                                    "Contains geometric intuition and proof.",
+                    topicsUnit2[3]: "Differentiating implicit equations. First- and second-order derivatives.",
+                    topicsUnit2[4]: "Differentiating inverse functions. "
+                                    "Contains proof and geometric intuition."
+                                    "Algebraic, graphical, and tabular applications.",
+                    topicsUnit2[5]: "Introduction to hyperbolic functions and their derivatives."
+                                    "Contains applications to physics and structural design.",
+                    topicsUnit2[6]: "The use of natural logarithms to simplify products, quotients, and compositions"
+                                    "of functions for easier differentiation."
                     }
 
 topicsUnit3 = ["Minimum and Maximum Values",
@@ -103,6 +106,24 @@ topicsUnit3 = ["Minimum and Maximum Values",
                "Optimization",
                "Newton's Method"
                ]
+
+unit3SectionInfo = {topicsUnit3[0]: "Overview of critical points and the First Derivative Test."
+                                    "Extreme Value Theorem to establish presence of a function's minimum or maximum."
+                                    "Process of finding relative and absolute extrema.",
+                    topicsUnit3[1]: "Definition of concavity and points of inflection."
+                                     "Geometric interpretation of concavity and its effect on a graph's shape.",
+                    topicsUnit3[2]: "Overview and proof of Mean Value Theorem and Rolle's Theorem."
+                                    "Use of Rolle's Theorem to prove the existence of zeros on an interval.",
+                    topicsUnit3[3]: "Evaluating limits of indeterminate forms: \(\frac{0}{0},\)"
+                                    "\(\frac{\infty}{\infty},\) \(0 \times \infty,\) \(\infty - \infty,\)"
+                                    "\(0^0,\) \(1^\infty,\) and \(\infty^0.\)",
+                    topicsUnit3[4]: "Link graphs of \(f,\) \(f',\) and \(f''.\)"
+                                    "Using calculus-based procedures to sketch graphs of curves.",
+                    topicsUnit3[5]: "Problems in which quantities change."
+                                    "Inclusion of geometric, physical, and map problems.",
+                    topicsUnit3[6]: "The use of natural logarithms to simplify products, quotients, and compositions"
+                                    "of functions for easier differentiation."
+                    }
 
 topicsUnit4 = ["Defining an Antiderivative",
                "Definite Integrals",
