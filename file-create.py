@@ -1,9 +1,17 @@
+#-*- coding: utf-8 -*-
+
 import os
 from bs4 import BeautifulSoup
 import dominate
 from dominate.tags import *
 import re
-# import pageCreate
+import pageCreate
+
+
+def hyphenateText(text):
+    newText = text.replace(' ', '-')
+    return(newText)
+
 
 topics_unit_0 = ["Quadratics",
                  "Exponential and Logarithmic Functions",
@@ -15,14 +23,14 @@ topics_unit_1 = ["Defining a Limit",
                  "Limit Properties",
                  "Evaluating Limits Algebraically",
                  "Determining Continuity",
-                 "The Intermediate Value Theorem",
-                 "The Squeeze Theorem",
+                 "Intermediate Value Theorem",
+                 "Squeeze Theorem",
                  "Important Limits"
                  ]
 
 topics_unit_2 = ["Defining a Derivative",
-                 "The Product and Quotient Rules",
-                 "The Chain Rule",
+                 "Product and Quotient Rules",
+                 "Chain Rule",
                  "Implicit Differentiation",
                  "Inverse Differentiation",
                  "Hyperbolic Functions",
@@ -31,7 +39,7 @@ topics_unit_2 = ["Defining a Derivative",
 
 topics_unit_3 = ["Minimum and Maximum Values",
                  "Concavity and Inflection Points",
-                 "The Mean Value Theorem and Rolle's Theorem",
+                 "Mean Value Theorem and Rolle's Theorem",
                  "Indeterminate Forms and L'Hopital's Rule",
                  "Curve Sketching",
                  "Related Rates",
@@ -43,7 +51,7 @@ topics_unit_4 = ["Defining an Antiderivative",
                  "Definite Integrals",
                  "Fundamental Theorem of Calculus",
                  "U-Substitution",
-                 "Mean Value Theorem for Integrlas"
+                 "Mean Value Theorem for Integrals"
                  ]
 
 topics_unit_5 = ["Areas Between Curves",
@@ -115,23 +123,38 @@ topics_list = [topics_unit_0,
                topics_unit_10]
 
 
-for i in range(0, 11):
-    for j in range(0, len(topics_list[i])):
-        sectionLabelHyphenated = topics_list[i][j].replace(' ', '-')  # convert spaces in file name to hyphens
-        try:
-            os.mkdir(f"F:/Valculus/sectionMaterials/{topics_list[i][j]}")
-        except:
-            pass
+# for i in range(0, 1 + len(topics_list)):
+#     for j in range(0, len(topics_list[i])):
+#         sectionLabelHyphenated = hyphenateText(topics_list[i][j])   # convert spaces in file name to hyphens
+#         try:
+#             os.mkdir(f"F:/Valculus/sectionMaterials/{topics_list[i][j]}")
+#             with open(f"F:/Valculus/sectionMaterials/{topics_list[i][j]}/content-{sectionLabelHyphenated}.html",
+#                       'x') as htmlContent:
+#                 htmlContent.write('')
+#             with open(f"F:/Valculus/sectionMaterials/{topics_list[i][j]}/exerciseList-{sectionLabelHyphenated}.html",
+#                       'x') as htmlExerciseList:
+#                 htmlExerciseList.write('')
+#         except:
+#             pass
+#
+#         try:
+#             pageCreate.create_all_pages(f'{i}.{j + 1}', f'{topics_list[i][j]}', f'{i}')
+#         except:
+#             pass
 
-        with open(f"F:/Valculus/sectionMaterials/{topics_list[i][j]}/content-{sectionLabelHyphenated}.html",
-                  'x') as htmlContent:
-            htmlContent.write('')
-        with open(f"F:/Valculus/sectionMaterials/{topics_list[i][j]}/exerciseList-{sectionLabelHyphenated}.html",
-                  'x') as htmlExerciseList:
-            htmlExerciseList.write('')
-        # try:
-        #     pageCreate.create_all_pages(f'{i}.{j + 1}', f'{topics_list[i][j]}', f'{i}')
-        # except:
-        #     pass
+fin = open("sectionMaterials/content-sections.html", "rt", encoding='utf-8')
+fout = open("pythonPages/sections.html", "wt", encoding='utf-8')
+
+sectionListPrint = "<ul>"
+
+for j in range(0, len(topics_unit_2)):
+    sectionListPrint = sectionListPrint + \
+                       f'<li><a href="2.{j + 1}-{hyphenateText(topics_unit_2[j])}.html">2.{j + 1} — {topics_unit_2[j]}</a></li>'
+
+print(sectionListPrint)
+
+for i in range(0, 1 + len(topics_list)):
+    for line in fin:
+            fout.write(line.replace(f'<!--#unit{i + 2}sections#-->', sectionListPrint))
 
 

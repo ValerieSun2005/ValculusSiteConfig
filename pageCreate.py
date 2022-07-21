@@ -128,7 +128,7 @@ def print_exercises(sectionNumber, sectionLabel, unitNumber):
                                 div(txtSplitFigure[0].split('<span>')[1], cls='problem-display-body')
                         style(f".fig-{figureCount}::before{{content: 'FIGURE {figureCount}'}}")
                         with figure(cls=f'fig-{figureCount}'):
-                            img(src=f'{txtSplitFigure[1]}', alt='')
+                            img(src=f'{txtSplitFigure[1]}', alt=f'fig-{figureCount}')
                         br()
 
 
@@ -224,6 +224,7 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         meta(http_equiv='X-UA-Compatible', content='ie-edge')
         meta(name='author', content='Valerie')
+        # meta(charset='UTF-8')
         link(rel='stylesheet',
              href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
         # SCREEN LAYOUT
@@ -323,28 +324,28 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
 
     # for main section: python renders html page, then another html page - content[...].html - is inserted
     if mode.lower() == 'section':
-        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", 'w') as file:
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", 'w', encoding='utf-8') as file:
             file.write(doc.render())
 
-        with open(f'sectionMaterials/{sectionLabel}/content-{sectionLabelHyphenated}.html') as body:
+        with open(f'sectionMaterials/{sectionLabel}/content-{sectionLabelHyphenated}.html', encoding='utf-8') as body:
             soup = BeautifulSoup(body, "html.parser")
 
-        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", "r") as f:
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", "r", encoding='utf-8') as f:
             doc = BeautifulSoup(f, "html.parser")
             appendSpot = doc.select_one("#mainBodyBegin")
         content = str(soup.find_all("section")[0])
         appendSpot.append(BeautifulSoup(content, 'html.parser'))
 
-        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", "w") as output:
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", "w", encoding='utf-8') as output:
             output.write(str(doc))
 
 
     if mode.lower() == 'exercise':
-        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", 'w') as file:
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", 'w', encoding='utf-8') as file:
             file.write(doc.render())
 
     if mode.lower() == 'solution':
-        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html", 'w') as file:
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html", 'w', encoding='utf-8') as file:
             file.write(doc.render())
 
 
