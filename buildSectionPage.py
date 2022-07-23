@@ -1,10 +1,19 @@
+import openpyxl
+from bs4 import BeautifulSoup
 import dominate
 from dominate.tags import *
+import re
+from openpyxl import Workbook
+from openpyxl import load_workbook
 import sectionCreate
+import pandas as pd
 
 # print(sectionCreate.topics_unit_10)
 
+spreadsheet = openpyxl.load_workbook('sections.xlsx')
 doc = dominate.document(title='Sections')
+
+
 
 with doc:
     img(cls='header-image', src='../images/Calculus/home/calculus.jpg', alt='')
@@ -21,18 +30,19 @@ with doc:
     If you catch any mistakes, please contact me. \
     Happy studying!')
 
-    for i in range(0, len(sectionCreate.topicsList)):
+    for i in range(0, len(spreadsheet.sheetnames)):
+        sectionSheet = spreadsheet[f'{spreadsheet.sheetnames[i]}']
         # here i = unitNumber
         hr()
-        h3(str(i) + ' — ' + sectionCreate.topicsUnitNames[i])
+        h3(str(i) + ' — ' + f'{spreadsheet.sheetnames[i]}')
         with div(cls='section-unit'):
             with div(cls='sections'):
                 with ul():
-                    for j in range(0, len(sectionCreate.topicsList[i])):
-                        # here j = sectionNumber, so i.j+1 = sectionLabel
+                    for j in range(1, sectionSheet.max_row + 1):
+                        # here j = sectionNumber; thus, i.j+1 = sectionLabel
                         with li():
-                            a(f'{i}.{j + 1} — {sectionCreate.topicsList[i][j]}',
-                              href=f'{i}.{j + 1}-{sectionCreate.hyphenateText(sectionCreate.topicsList[i][j])}')
+                            a(f'{i}.{j} — {sectionSheet.cell(row = j, column = 1).value}',
+                              href=f'{i}.{j}-{sectionCreate.hyphenateText(sectionSheet.cell(row = j, column = 1).value)}')
                             span('ⓘ', cls='section-info')
             with div(cls='resources'):
                 with ul():
