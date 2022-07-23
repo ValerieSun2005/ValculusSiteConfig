@@ -188,6 +188,8 @@ topicsUnit10 = ["Overview of Infinite Sequences and Series",
                 "Remainders with Integral Test"
                 ]
 
+topicsInfo = [unit0SectionInfo, unit1SectionInfo, unit2SectionInfo, unit3SectionInfo]
+
 topicsList = [topicsUnit0,
               topicsUnit1,
               topicsUnit2,
@@ -213,6 +215,9 @@ topicsUnitNames = [
     "Polar Calculus",
     "Infinite Series and Sequences",
 ]
+
+for i in range(0, len(unit3SectionInfo)):
+    print(unit3SectionInfo[topicsUnit3[i]])
 
 # for i in range(0, 1 + len(topics_list)):
 #     for j in range(0, len(topics_list[i])):
