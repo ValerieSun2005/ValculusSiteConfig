@@ -1,13 +1,14 @@
+import openpyxl
 from bs4 import BeautifulSoup
 import dominate
 from dominate.tags import *
 import re
 from openpyxl import Workbook
 from openpyxl import load_workbook
-import sectionCreate
+# import sectionCreate
 import pandas as pd
 
-
+#
 # generates spreadsheet. warning: overrides
 # def createSpreadsheet():
 #     wb = Workbook()
@@ -31,6 +32,17 @@ import pandas as pd
 #                 pass
 #
 #         wb.save(filepath)
-
-# sheet = workbook.active
 #
+# sheet = workbook.active
+
+
+spreadsheet = openpyxl.load_workbook('sections.xlsx')
+# print(spreadsheet.sheetnames)
+
+
+for i in range(0, len(spreadsheet.sheetnames)):
+    sectionSheet = spreadsheet[f'{spreadsheet.sheetnames[i]}']
+    for j in range(1, sectionSheet.max_row + 1):
+        print(sectionSheet.cell(row = j, column = 1).value)
+
+# cell_obj = employees_sheet.cell(row=1, column=1)

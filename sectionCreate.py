@@ -203,7 +203,7 @@ topicsList = [topicsUnit0,
               topicsUnit10]
 
 topicsUnitNames = [
-    "Precalculus Review",
+    "Preliminaries",
     "Limits and Continuity",
     "Differentiation",
     "Applications of Differentiation",
@@ -216,8 +216,8 @@ topicsUnitNames = [
     "Infinite Series and Sequences",
 ]
 
-for i in range(0, len(unit3SectionInfo)):
-    print(unit3SectionInfo[topicsUnit3[i]])
+# for i in range(0, len(unit3SectionInfo)):
+#     print(unit3SectionInfo[topicsUnit3[i]])
 
 # for i in range(0, 1 + len(topics_list)):
 #     for j in range(0, len(topics_list[i])):
