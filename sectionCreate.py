@@ -19,48 +19,69 @@ spreadsheet = openpyxl.load_workbook('sections.xlsx')
 # for i in range(0, len(unit3SectionInfo)):
 #     print(unit3SectionInfo[topicsUnit3[i]])
 
-for i in range(0, len(spreadsheet.sheetnames)):
-    sectionSheet = spreadsheet[f'{spreadsheet.sheetnames[i]}']
-    for j in range(1, sectionSheet.max_row + 1):
-        sectionLabelHyphenated = hyphenateText(
-            sectionSheet.cell(row=j, column=1).value)  # convert spaces in file name to hyphens
-        try:
-            os.mkdir(f"F:/Valculus/sectionMaterials/{sectionSheet.cell(row=j, column=1).value}")
-            with open(
-                    f"F:/Valculus/sectionMaterials/{sectionSheet.cell(row=j, column=1).value}/content-{sectionLabelHyphenated}.html",
-                    'x') as htmlContent:
-                htmlContent.write('')
-            with open(
-                    f"F:/Valculus/sectionMaterials/{sectionSheet.cell(row=j, column=1).value}/exerciseList-{sectionLabelHyphenated}.html",
-                    'x') as htmlExerciseList:
-                htmlExerciseList.write('')
-        except:
-            pass
+# for i in range(0, len(spreadsheet.sheetnames)):
+#     sectionSheet = spreadsheet[f'{spreadsheet.sheetnames[i]}']
+#     for j in range(1, sectionSheet.max_row + 1):
+#         sectionLabelHyphenated = hyphenateText(
+#             sectionSheet.cell(row=j, column=1).value)  # convert spaces in file name to hyphens
+#         try:
+#             os.mkdir(f"F:/Valculus/sectionMaterials/{sectionSheet.cell(row=j, column=1).value}")
+#             with open(
+#                     f"F:/Valculus/sectionMaterials/{sectionSheet.cell(row=j, column=1).value}/content-{sectionLabelHyphenated}.html",
+#                     'x') as htmlContent:
+#                 htmlContent.write('')
+#             with open(
+#                     f"F:/Valculus/sectionMaterials/{sectionSheet.cell(row=j, column=1).value}/exerciseList-{sectionLabelHyphenated}.html",
+#                     'x') as htmlExerciseList:
+#                 htmlExerciseList.write('')
+#         except:
+#             pass
 
         # try:
         #     pageCreate.create_all_pages(f'{i}.{j + 1}', f'{topics_list[i][j]}', f'{i}')
         # except:
         #     pass
 
-unitOfRenamedSection = int(input('In What Unit Is the Section You Want to Rename? Unit: '))
+unitOfRenamedSection = int(input('In What Unit Is the Section You Want To Rename? Unit: '))
 
 try:
     sheetRenamedSection = spreadsheet[
         f'{spreadsheet.sheetnames[unitOfRenamedSection]}']  # finds sheet of unit to rename
-    oldSectionName = input('Old Section Name: ')
+    oldSectionNameInput = input('Old Section Name (Case Insensitive): ').lower()
     for i in range(1, sheetRenamedSection.max_row + 1):
-        if sheetRenamedSection.cell(row=i, column=1).value == oldSectionName:  # searches all the rows in column A
-            print('hi', i)
-            break
+        if sheetRenamedSection.cell(row=i, column=1).value.lower() == oldSectionNameInput:  # searches all the rows
+            # in column A
+            newSectionName = input('New Section Name (Case Sensitive): ')
+            oldSectionName = sheetRenamedSection[f'A{i}'].value  # gets old section name, before it is overwritten
+            sheetRenamedSection[f'A{i}'] = newSectionName  # overwrites section name
+            spreadsheet.save(filename = 'sections.xlsx')  # saves changes. writing done
+
+            # renames sectionMaterials/{unit}
+            os.rename(f"sectionMaterials/{oldSectionName}",
+                      f'sectionMaterials/{newSectionName}')
+
+            # renames all the html content in the sectionMaterials/{unit} folder
+            os.rename(f"sectionMaterials/{newSectionName}/content-{hyphenateText(oldSectionName)}.html",
+                      f"sectionMaterials/{newSectionName}/content-{hyphenateText(newSectionName)}.html")
+            os.rename(f"sectionMaterials/{newSectionName}/exerciseList-{hyphenateText(oldSectionName)}.html",
+                      f"sectionMaterials/{newSectionName}/exerciseList-{hyphenateText(newSectionName)}.html")
+
+            # all done <3
+            print(f"New Section: {unitOfRenamedSection}.{i}: {sheetRenamedSection[f'A{i}'].value}")
+            print('Success! :)')
+
         else:
             pass
-    newSectionName = input('New Section Name (Rename as): ')
-    sheetRenamedSection[f'A{i}'] = newSectionName
-    spreadsheet.save('sections.xlsx')
+
+
 except IndexError:
     print(f"Error: '{unitOfRenamedSection}' is not between 0 and {len(spreadsheet.sheetnames) - 1}")
 except ValueError:
     print(f"Error: '{unitOfRenamedSection}' is not an integer between 0 and {len(spreadsheet.sheetnames) - 1}")
+
+
+import buildSectionPage
+buildSectionPage.createSectionPage()
 
 # sectionListPrint = "<ul>"
 #
@@ -89,3 +110,4 @@ except ValueError:
 
 # hey u hoe, u see those placeholders in the content-sections.html file for the section list? yea bitch, \
 # u gotta figure out how to make a loop that replaces each one of those placeholders with the appropriate unit number.
+# buildSectionPage.createSectionPage()
