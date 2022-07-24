@@ -35,114 +35,8 @@ def print_exercises(sectionNumber, sectionLabel, unitNumber):
     with open(f'sectionMaterials/{sectionLabel}/exerciseList-{sectionLabelHyphenated}.html') as body:
         soup = BeautifulSoup(body, 'html.parser')
     sectionCount = len(soup.findAll('section'))
-    exerciseNumber = 0
-    exerciseNumberList = [0]
-    for v in range(0, sectionCount):
-        doc = f'''{soup.find_all('section')[v]}'''
-        soup2 = BeautifulSoup(doc, 'html.parser')
-        problemsCount = len(soup2.findAll('span'))
-        exerciseNumber += problemsCount
-        exerciseNumberList.append(exerciseNumber)
-        try:
-            if soup2.find_all('p')[0].string.lower() == 'grid':
-                columns = int(soup2.find('p', {'class': 'columns'}).string)
-                directions = soup2.find('p', {'class': 'directions'}).string
-                if exerciseNumberList[v + 1] - exerciseNumberList[v] - 1 > 1:
-                    with tbody():
-                        p(f'For each of exercises {exerciseNumberList[v] + 1}–{exerciseNumberList[v + 1]}, {directions}.',
-                          cls='problems-note')
-                elif exerciseNumberList[v + 1] - exerciseNumberList[v] - 1 == 1:
-                    with tbody():
-                        p(f'For each of exercises {exerciseNumberList[v] + 1} and {exerciseNumberList[v + 1]}, {directions}.',
-                          cls='problems-note')
-                elif exerciseNumberList[v + 1] - exerciseNumberList[v] - 1 == 0:
-                    with tbody():
-                        p(f'For exercise {exerciseNumberList[v] + 1}, {directions}.',
-                          cls='problems-note')
-                j = problemsCount
-                tableNumberStart = exerciseNumberList[v] + 1
-                with table(cls='problems-grid'):
-                    with tbody():
-                        while j - columns > 0:
-                            with tr():
-                                for k in range(0, columns):
-                                    with td():
-                                        a(f'\({k + tableNumberStart - j + problemsCount}.\)',
-                                          rel='noopener',
-                                          target='_blank',
-                                          href=f'{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html#problem-{k + tableNumberStart - j + problemsCount}'
-                                          )
-                                        span(soup2.find_all('span')[
-                                                 k - j].string)
-                            j -= columns
-
-                        if j > 0:
-                            with tr():
-                                while j > 0:
-                                    with td():
-                                        a(f'\({problemsCount - j + tableNumberStart}.\)',
-                                          rel='noopener',
-                                          target='_blank',
-                                          href=f'{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html#problem-{problemsCount - j + tableNumberStart}'
-                                          )
-                                        span(soup2.find_all('span')[problemsCount - j].string)
-                                    j -= 1
-
-        except:
-            figureCount = 0
-            figureLabels = []
-            for k in range(0, len(soup2.find_all('span'))):
-                displayBody = str(soup2.find_all('span')[k])
-                soup2Italics = BeautifulSoup(displayBody, 'html.parser')
-                with div(cls='problem-display'):
-                    a(f'\({exerciseNumberList[v] + 1 + k}.\)',
-                      rel='noopener',
-                      target='_blank',
-                      href=f'{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html#problem-{exerciseNumberList[v] + 1 + k}'
-                      )  # number label of each problem
-
-                    if len(soup2.find_all('span')[k]('figure')) > 0:
-                        txtSplitFigure = re.split('<figure><img src="|"/></figure>', displayBody)
-                        # the txtSplitFigure has three components:
-                        # (0) the problem, which is the body text;
-                        # (1) the alt tag, which is the figure label we use as a reference;
-                        # (2) the url of the image, which is where the html is to find the image; and
-                        # (3) the ending tag.
-
-                        figureLabels.append(txtSplitFigure[1])  # add the alt tag, the figure label,
-                        # to the list # figureLabels
-
-                        figureCount += 1
-
-                        if '{fig}' in txtSplitFigure[0]:
-                            txtSplitFigure[0] = txtSplitFigure[0].replace(
-                                '{fig}', f'Figure {figureCount}')
-
-                        if len(soup2Italics.find_all('i')) > 0:
-                            with div(cls='problem-display-body'):
-                                txt2 = txtSplitFigure[0]
-                                italics_check(txt2)
-
-                        else:
-                            if '<span>' in txtSplitFigure[0]:
-                                div(txtSplitFigure[0].split('<span>')[1], cls='problem-display-body')
-                        style(f".fig-{figureCount}::before{{content: 'FIGURE {figureCount}'}}")
-                        with figure(cls=f'fig-{figureCount}'):
-                            img(src=f'{txtSplitFigure[1]}', alt=f'fig-{figureCount}')
-                        br()
 
 
-                    else:
-                        if len(soup2Italics.find_all('i')) > 0:
-                            with div(cls='problem-display-body'):
-                                italics_check(displayBody)
-                        else:
-                            if '<span>' in soup2.find_all('span')[k].string:
-                                div(soup2.find_all('span')[k].string.split('<span>')[1], cls='problem-display-body')
-                            elif '</span>' in soup2.find_all('span')[k].string:
-                                div(soup2.find_all('span')[k].string.split('</span>')[0], cls='problem-display-body')
-                            else:
-                                div(soup2.find_all('span')[k].string, cls='problem-display-body')
 
 
 def print_exercise_solutions(sectionNumber, sectionLabel, unitNumber):
@@ -343,6 +237,18 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
     if mode.lower() == 'exercise':
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", 'w', encoding='utf-8') as file:
             file.write(doc.render())
+
+        with open(f'sectionMaterials/{sectionLabel}/exerciseList-{sectionLabelHyphenated}.html', encoding='utf-8') as body:
+            soup = BeautifulSoup(body, "html.parser")
+
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", "r", encoding='utf-8') as f:
+            doc = BeautifulSoup(f, "html.parser")
+            appendSpot = doc.select_one("#mainBodyBegin")
+        content = str(soup.find_all("section")[0])
+        appendSpot.append(BeautifulSoup(content, 'html.parser'))
+
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", "w", encoding='utf-8') as output:
+            output.write(str(doc))
 
     if mode.lower() == 'solution':
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html", 'w', encoding='utf-8') as file:
