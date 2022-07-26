@@ -14,99 +14,10 @@ modeDisplayList = ['Section', 'Exercises', 'Exercise Solutions']
 
 # mode = input(f"Select Page Mode ({'section'}, {'exercise'}, {'solution'}): ")
 
-
-def italics_check(txt):
-    txtSplitItalics = re.split('<i>|</i>', txt)
-    for j in range(0, len(txtSplitItalics)):
-        if j % 2 == 1:
-            i(txtSplitItalics[j])
-        else:
-            if '<span>' in txtSplitItalics[j]:
-                span(txtSplitItalics[j].split('<span>')[1])
-            elif '</span>' in txtSplitItalics[j]:
-                span(txtSplitItalics[j].split('</span>')[0])
-            else:
-                span(txtSplitItalics[j])
-
-
-def print_exercises(sectionNumber, sectionLabel, unitNumber):
-    sectionLabelHyphenated = sectionLabel.replace(' ', '-')
-    p('Click on a problem number to view its solution.', cls='exercises-hint')
-    with open(f'sectionMaterials/{sectionLabel}/exerciseList-{sectionLabelHyphenated}.html') as body:
-        soup = BeautifulSoup(body, 'html.parser')
-    sectionCount = len(soup.findAll('section'))
-
-
-
-
-def print_exercise_solutions(sectionNumber, sectionLabel, unitNumber):
-    sectionLabelHyphenated = sectionLabel.replace(' ', '-')
-    with open(f'sectionMaterials/{sectionLabel}/exerciseList-{sectionLabelHyphenated}.html') as body:
-        soup = BeautifulSoup(body, 'html.parser')
-    sectionCount = len(soup.findAll('section'))
-    exerciseNumber = 0
-    exerciseNumberList = [0]
-    for v in range(0, sectionCount):
-        test = soup.find_all('section')[v]
-        doc = f'''{test}'''
-        soup2 = BeautifulSoup(doc, 'html.parser')
-        problemsCount = len(soup2.findAll('span'))
-        exerciseNumber += problemsCount
-        exerciseNumberList.append(exerciseNumber)
-        figureCount = 0
-        for k in range(0, len(soup2.find_all('span'))):
-            with div(id=f'problem-{exerciseNumberList[v] + 1 + k}'):
-                div(f'QUESTION {exerciseNumberList[v] + 1 + k}', cls='box-solution__head')
-                with div(cls='box-solution'):
-                    with div(cls='box-solution__body'):
-                        displayBody = str(soup2.find_all('span')[k])
-                        soup2Italics = BeautifulSoup(displayBody, 'html.parser')
-                        with div(cls='problem-display'):
-                            if len(soup2.find_all('span')[k]('figure')) > 0:
-                                txtSplitFigure = re.split('<figure><img src="|"/></figure>', displayBody)
-                                figureCount += 1
-                                if '{fig}' in txtSplitFigure[0]:
-                                    txtSplitFigure[0] = txtSplitFigure[0].replace(
-                                        '{fig}', f'Figure {figureCount}')
-                                if len(soup2Italics.find_all('i')) > 0:
-                                    with div(cls='problem-display-body'):
-                                        txt2 = txtSplitFigure[0]
-                                        italics_check(txt2)
-                                else:
-                                    if '<span>' in txtSplitFigure[0]:
-                                        div(txtSplitFigure[0].split('<span>')[1], cls='problem-display-body')
-                                style(f".fig-{figureCount}::before{{content: 'FIGURE {figureCount}'}}")
-                                with figure(cls=f'fig-{figureCount}'):
-                                    img(src=f'{txtSplitFigure[1]}', alt='')
-                                br()
-
-                            else:
-                                if len(soup2Italics.find_all('i')) > 0:
-                                    with div(cls='problem-display-body'):
-                                        italics_check(displayBody)
-                                else:
-                                    if '<span>' in soup2.find_all('span')[k].string:
-                                        div(soup2.find_all('span')[k].string.split('<span>')[1],
-                                            cls='problem-display-body')
-                                    elif '</span>' in soup2.find_all('span')[k].string:
-                                        div(soup2.find_all('span')[k].string.split('</span>')[0],
-                                            cls='problem-display-body')
-                                    else:
-                                        try:
-                                            if soup2.find_all('p')[0].string.lower() == 'grid':
-                                                directions = soup2.find('p', {'class': 'directions'}).string
-                                                div('For' + soup2.find_all('span')[k].string+', ' + directions + '.', style='width: 100%')
-                                        except:
-                                            div(soup2.find_all('span')[k].string, style='width: 100%')
-
-                        hr()
-                        with div(id=f'solution-{exerciseNumberList[v] + 1 + k}'):
-                            span('SOLUTION', cls='solution-text')
-                            span(soup2.find_all('div')[k].string)
-
-
 def create_page(mode, sectionNumber, sectionLabel, unitNumber):
     sectionLabelHyphenated = sectionLabel.replace(' ', '-')
+
+    # title of html page
     if mode.lower() == 'section':
         doc = dominate.document(title=f'{sectionNumber}: {sectionLabel}')
     if mode.lower() == 'exercise':
@@ -114,6 +25,7 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
     if mode.lower() == 'solution':
         doc = dominate.document(title=f'{sectionNumber} Exercise Solutions: {sectionLabel}')
 
+    # head of html page
     with doc.head:
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         meta(http_equiv='X-UA-Compatible', content='ie-edge')
@@ -131,6 +43,7 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
         script(src='https://code.jquery.com/jquery-3.3.1.js',
                integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=', crossorigin='anonymous')
 
+    # body of html page
     with doc:
         script(type='text/javascript', src='../js/header-load.js')
         header(id='header', cls='tab')
@@ -151,7 +64,10 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
                 # SCREEN LAYOUT
                 link(rel='stylesheet', href='../css/exercises-style.css')
             h1(f'{sectionNumber} Exercise Solutions — {sectionLabel}')
+
+        # main()
         with main():
+            # pdf panel
             with div(cls='pdf-panel'):
                 with div(cls='pdf-panel-left').add(ul()):
                     if mode.lower() == 'section':
@@ -198,14 +114,12 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
                         with button():
                             with a('Download', rel='noopener', target='_blank'):
                                 i(cls='fa fa-file-pdf-o')
+
             hr(id='mainBodyBegin')
-            comment('BEGIN BODY')
+            comment('BEGIN BODY')  # APPEND FILE CONTENTS HERE
 
-            if mode.lower() == 'exercise':
-                print_exercises(sectionNumber, sectionLabel, unitNumber)
 
-            if mode.lower() == 'solution':
-                print_exercise_solutions(sectionNumber, sectionLabel, unitNumber)
+
 
         script(type='text/javascript', src='../js/footer-load.js')
         div(id='footer')
@@ -216,38 +130,47 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
         script(src='http://code.jquery.com/jquery-latest.min.js')
         script(src='../js/toggle-solutions.js')
 
-    # for main section: python renders html page, then another html page - content[...].html - is inserted
+    # for main section: python renders html page, then another html page, content[...].html,  is inserted
     if mode.lower() == 'section':
-        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", 'w', encoding='utf-8') as file:
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", 'w',
+                  encoding='utf-8') as file:
             file.write(doc.render())
 
-        with open(f'sectionMaterials/{sectionLabel}/content-{sectionLabelHyphenated}.html', encoding='utf-8') as body:
-            soup = BeautifulSoup(body, "html.parser")
+        with open(f'sectionMaterials/{sectionLabel}/content-{sectionLabelHyphenated}.html',
+                  encoding='utf-8') as sectionContent:
+            soup = BeautifulSoup(sectionContent, 'html.parser')
 
-        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", "r", encoding='utf-8') as f:
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", 'r',
+                  encoding='utf-8') as f:
             doc = BeautifulSoup(f, "html.parser")
             appendSpot = doc.select_one("#mainBodyBegin")
-        content = str(soup.find_all("section")[0])
+
+        content = str(soup.find_all("section")[0])  # searches content-{sectionLabel}.html for 'section' tag
         appendSpot.append(BeautifulSoup(content, 'html.parser'))
 
-        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", "w", encoding='utf-8') as output:
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", 'w',
+                  encoding='utf-8') as output:
             output.write(str(doc))
 
 
     if mode.lower() == 'exercise':
-        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", 'w', encoding='utf-8') as file:
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", 'w',
+                  encoding='utf-8') as file:
             file.write(doc.render())
 
-        with open(f'sectionMaterials/{sectionLabel}/exerciseList-{sectionLabelHyphenated}.html', encoding='utf-8') as body:
+        with open(f'sectionMaterials/{sectionLabel}/exerciseList-{sectionLabelHyphenated}.html',
+                  encoding='utf-8') as body:
             soup = BeautifulSoup(body, "html.parser")
 
-        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", "r", encoding='utf-8') as f:
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", "r",
+                  encoding='utf-8') as f:
             doc = BeautifulSoup(f, "html.parser")
             appendSpot = doc.select_one("#mainBodyBegin")
         content = str(soup.find_all("section")[0])
         appendSpot.append(BeautifulSoup(content, 'html.parser'))
 
-        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", "w", encoding='utf-8') as output:
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", "w",
+                  encoding='utf-8') as output:
             output.write(str(doc))
 
     if mode.lower() == 'solution':
@@ -261,7 +184,7 @@ def create_all_pages(sectionNumber, sectionLabel, unitNumber):
     create_page('solution', f'{sectionNumber}', f'{sectionLabel}', unitNumber)  # MAKE SOLUTION PAGE
 
 
-create_all_pages('3.5', 'Curve Sketching', '3')
+create_page('section', '3.5', 'Curve Sketching', '3')
 
 # for i in ['home', 'about', 'contact']:
 # li(a(i.title(), href='/%s.html' % i))
