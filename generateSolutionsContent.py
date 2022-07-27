@@ -22,7 +22,7 @@ def generate_solution_content(sectionLabel):
                       f'  <div class="box-solution">\n' \
                       f'   <div class="box-solution__body"> \n' \
                       f'        <div class="box-solution__problem"> \n ' \
-                      f'           {exerciseHtml} \n' \
+                      f'           For {exerciseHtml}, {} \n' \
                       f'        </div> \n' \
                       f'        <hr> \n' \
                       f'        <div id="solution-{1 + k}"> \n' \

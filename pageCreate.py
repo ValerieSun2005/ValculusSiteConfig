@@ -139,14 +139,14 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
         with open(f'sectionMaterials/{sectionLabel}/content-{sectionLabelHyphenated}.html',
                   encoding='utf-8') as sectionContent:
             soup = BeautifulSoup(sectionContent, 'html.parser')
+            appendContent = f'''{soup}'''
 
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", 'r',
                   encoding='utf-8') as f:
             doc = BeautifulSoup(f, "html.parser")
             appendSpot = doc.select_one("#mainBodyBegin")
 
-        content = str(soup.find_all("section")[0])  # searches content-{sectionLabel}.html for 'section' tag
-        appendSpot.append(BeautifulSoup(content, 'html.parser'))
+        appendSpot.append(BeautifulSoup(appendContent, 'html.parser'))
 
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", 'w',
                   encoding='utf-8') as output:
@@ -158,24 +158,40 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
                   encoding='utf-8') as file:
             file.write(doc.render())
 
-        with open(f'sectionMaterials/{sectionLabel}/exerciseList-{sectionLabelHyphenated}.html',
-                  encoding='utf-8') as body:
-            soup = BeautifulSoup(body, "html.parser")
+        with open(f'sectionMaterials/{sectionLabel}/exerciseContent-{sectionLabelHyphenated}.html',
+                  encoding='utf-8') as exerciseContent:
+            soup = BeautifulSoup(exerciseContent, "html.parser")
+            appendContent = f'''{soup}'''
 
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", "r",
                   encoding='utf-8') as f:
             doc = BeautifulSoup(f, "html.parser")
             appendSpot = doc.select_one("#mainBodyBegin")
-        content = str(soup.find_all("section")[0])
-        appendSpot.append(BeautifulSoup(content, 'html.parser'))
+        appendSpot.append(BeautifulSoup(appendContent, 'html.parser'))
 
-        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", "w",
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", "w",
                   encoding='utf-8') as output:
             output.write(str(doc))
 
     if mode.lower() == 'solution':
-        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html", 'w', encoding='utf-8') as file:
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html", 'w',
+                  encoding='utf-8') as file:
             file.write(doc.render())
+
+        with open(f'sectionMaterials/{sectionLabel}/solutionContent-{sectionLabelHyphenated}.html',
+                  encoding='utf-8') as exerciseContent:
+            soup = BeautifulSoup(exerciseContent, "html.parser")
+            appendContent = f'''{soup}'''
+
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html", "r",
+                  encoding='utf-8') as f:
+            doc = BeautifulSoup(f, "html.parser")
+            appendSpot = doc.select_one("#mainBodyBegin")
+        appendSpot.append(BeautifulSoup(appendContent, 'html.parser'))
+
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html", "w",
+                  encoding='utf-8') as output:
+            output.write(str(doc))
 
 
 def create_all_pages(sectionNumber, sectionLabel, unitNumber):
@@ -185,6 +201,9 @@ def create_all_pages(sectionNumber, sectionLabel, unitNumber):
 
 
 create_page('section', '3.5', 'Curve Sketching', '3')
+create_page('exercise', '3.5', 'Curve Sketching', '3')
+create_page('solution', '3.5', 'Curve Sketching', '3')
+# create_all_pages('3.5', 'Curve Sketching', '3')
 
 # for i in ['home', 'about', 'contact']:
 # li(a(i.title(), href='/%s.html' % i))

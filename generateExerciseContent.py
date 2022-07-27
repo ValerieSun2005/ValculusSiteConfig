@@ -14,7 +14,7 @@ def generate_exercise_content(sectionLabel):
 
     exerciseNumber = 0
     exerciseNumberList = [0]
-    appendText = ''
+    appendText = '<section>'
     for v in range(0, len(soup.find_all('section'))):
         sectionHtml = f'''{soup.find_all('section')[v]}'''
         soupSection = BeautifulSoup(sectionHtml, 'html.parser')
@@ -100,7 +100,7 @@ def generate_exercise_content(sectionLabel):
                                            '</div> \n'
 
             appendText += displayProblemsPrintHTML
-
+        appendText += '</section>'
     with open(f'sectionMaterials/{sectionLabel}/exerciseContent-{sectionLabelHyphenated}.html', 'w',
               encoding='utf-8') as file:
         file.write(appendText)
