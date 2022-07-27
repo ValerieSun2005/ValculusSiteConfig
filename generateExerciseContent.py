@@ -18,7 +18,7 @@ def generate_exercise_content(sectionLabel):
     for v in range(0, len(soup.find_all('section'))):
         sectionHtml = f'''{soup.find_all('section')[v]}'''
         soupSection = BeautifulSoup(sectionHtml, 'html.parser')
-        problemsCount = len(soupSection.find_all('span'))
+        problemsCount = len(soupSection.find_all('div'))
         exerciseNumber += problemsCount
         exerciseNumberList.append(exerciseNumber)
 
@@ -65,7 +65,7 @@ def generate_exercise_content(sectionLabel):
                         gridProblemsPrintHTML += '<td> \n' \
                                                  f'<a href="">' \
                                                  f'\({k + tableNumberStart - j + problemsCount}.\)</a> ' \
-                                                 f'{soupSection.find_all("span")[k - j].string} \n' \
+                                                 f'{soupSection.find_all("div")[k - j].string} \n' \
                                                  '</td> \n'
                     j -= columns
                     gridProblemsPrintHTML += '</tr> \n'
@@ -77,7 +77,7 @@ def generate_exercise_content(sectionLabel):
                                                  f'<a href="">' \
                                                  f'\({problemsCount - j + tableNumberStart}.\)' \
                                                  f'</a>' \
-                                                 f'{soupSection.find_all("span")[problemsCount - j].string} \n' \
+                                                 f'{soupSection.find_all("div")[problemsCount - j].string} \n' \
                                                  '</td> \n'
                         j -= 1
                     gridProblemsPrintHTML += '</tr> \n'
@@ -88,14 +88,14 @@ def generate_exercise_content(sectionLabel):
                 pass
         else:
             displayProblemsPrintHTML = ''
-            for k in range(0, len(soupSection.find_all('span'))):
-                spanHtml = f'''{soupSection.find_all('span')[k]}'''
+            for k in range(0, len(soupSection.find_all('div'))):
+                divHtml = f'''{soupSection.find_all('div')[k]}'''
                 displayProblemsPrintHTML += f'<!--q{exerciseNumberList[v] + 1 + k}--> \n' \
                                            '<div class="problem-display"> \n' \
                                            f'   <a href="{exerciseNumberList[v] + 1 + k}" target="_blank" rel="noopener">' \
                                            f'\({exerciseNumberList[v] + 1 + k}.\)</a> \n' \
                                            '    <div class="problem-display-body">\n' \
-                                           f'       {spanHtml} \n' \
+                                           f'       {divHtml} \n' \
                                            '   </div>  \n' \
                                            '</div> \n'
 

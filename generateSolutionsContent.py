@@ -14,26 +14,55 @@ def generate_solution_content(sectionLabel):
     with open(f'sectionMaterials/{sectionLabel}/exerciseList-{sectionLabelHyphenated}.html') as body:
         soup = BeautifulSoup(body, 'html.parser')
     appendText = ''
-    for k in range(0, len(soup.find_all('span'))):
-        exerciseHtml = f'''{soup.find_all('span')[k]}'''
-        solutionHtml = f'''{soup.find_all('div')[k]}'''
-        appendText += f'<div id="problem-{1 + k}"> \n' \
-                      f'  <div class="box-solution__head"> QUESTION {1 + k} </div> \n' \
-                      f'  <div class="box-solution">\n' \
-                      f'   <div class="box-solution__body"> \n' \
-                      f'        <div class="box-solution__problem"> \n ' \
-                      f'           For {exerciseHtml}, {} \n' \
-                      f'        </div> \n' \
-                      f'        <hr> \n' \
-                      f'        <div id="solution-{1 + k}"> \n' \
-                      f'            <span class="solution-text">SOLUTION</span> \n' \
-                      f'            {solutionHtml} \n' \
-                      f'        </div> \n' \
-                      '       </div>  \n' \
-                      '   </div> \n' \
-                      '</div> \n'
-        with open(f'sectionMaterials/{sectionLabel}/solutionContent-{sectionLabelHyphenated}.html', 'w',
-                  encoding='utf-8') as file:
-            file.write(appendText)
+    exerciseNumber = 0
+    exerciseNumberList = [0]
+    for v in range(0, len(soup.find_all('section'))):
+        sectionHtml = f'''{soup.find_all('section')[v]}'''
+        soupSection = BeautifulSoup(sectionHtml, 'html.parser')
+        problemsCount = len(soupSection.find_all('div'))
+        exerciseNumber += problemsCount
+        exerciseNumberList.append(exerciseNumber)
+
+        for k in range(0, len(soupSection.find_all('div'))):
+            exerciseHtml = f'''{soup.find_all('div')[k + exerciseNumberList[v]]}'''
+            solutionHtml = f'''{soup.find_all('span')[k + exerciseNumberList[v]]}'''
+            if len(soupSection.find_all('p')) > 0:
+                directions = soupSection.find('p', {'class': 'directions'}).string
+                exerciseSplitDiv = re.split('<div>|</div>', exerciseHtml)[1]
+                exerciseDisplayMode = exerciseSplitDiv.replace('\(', '\[').replace('\)', '\, ,\]')
+                appendText += f"<div id=\"problem-{1 + exerciseNumberList[v] + k}\"> \n" \
+                              f"  <div class=\"box-solution__head\"> QUESTION {1 + exerciseNumberList[v] + k} </div> \n" \
+                              f"  <div class=\"box-solution\">\n" \
+                              f"   <div class=\"box-solution__body\"> \n" \
+                              f"        <div class=\"box-solution__problem\"> \n " \
+                              f"           For {exerciseDisplayMode} {directions}. \n" \
+                              f"        </div> \n" \
+                              f"        <hr> \n" \
+                              f"        <div id=\"solution-{1 + exerciseNumberList[v] + k}\"> \n" \
+                              f"            <span class=\"solution-text\">SOLUTION</span> \n" \
+                              f"            {solutionHtml} \n" \
+                              "        </div> \n" \
+                              "       </div>  \n" \
+                              "   </div> \n" \
+                              "</div>"
+            else:
+                appendText += f"<div id=\"problem-{1 + exerciseNumberList[v] + k}\"> \n" \
+                              f"  <div class=\"box-solution__head\"> QUESTION {1 + exerciseNumberList[v] + k} </div> \n" \
+                              f"  <div class=\"box-solution\">\n" \
+                              f"   <div class=\"box-solution__body\"> \n" \
+                              f"        <div class=\"box-solution__problem\"> \n " \
+                              f"           {exerciseHtml} \n" \
+                              f"        </div> \n" \
+                              f"        <hr> \n" \
+                              f"        <div id=\"solution-{1 + exerciseNumberList[v] + k}\"> \n" \
+                              f"            <span class=\"solution-text\">SOLUTION</span> \n" \
+                              f"            {solutionHtml} \n" \
+                              "        </div> \n" \
+                              "       </div>  \n" \
+                              "   </div> \n" \
+                              "</div>"
+            with open(f'sectionMaterials/{sectionLabel}/solutionContent-{sectionLabelHyphenated}.html', 'w',
+                      encoding='utf-8') as file:
+                file.write(appendText)
 
 generate_solution_content('Curve Sketching')
