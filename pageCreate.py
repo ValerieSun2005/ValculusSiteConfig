@@ -2,6 +2,10 @@ from bs4 import BeautifulSoup
 import dominate
 from dominate.tags import *
 import re
+import os
+import generateExerciseContent  # creates exerciseContent.html page from exerciseList.html
+import generateSolutionsContent  # creates solutionContent.html page from exerciseList.html
+
 
 # sectionNumber = input("Input Section Number: ")
 # sectionLabel = input("Input Section Label: ")
@@ -47,6 +51,8 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
     with doc:
         script(type='text/javascript', src='../js/header-load.js')
         header(id='header', cls='tab')
+
+        # create headers of created page
         if mode.lower() == 'section':
             with doc.head:
                 # SCREEN LAYOUT
@@ -70,6 +76,8 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
             # pdf panel
             with div(cls='pdf-panel'):
                 with div(cls='pdf-panel-left').add(ul()):
+
+                    # create button display panel directly below header
                     if mode.lower() == 'section':
                         with li():
                             with button():
@@ -77,11 +85,13 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
                                     i(cls='fa fa-external-link')
                         with li():
                             with button():
-                                with a(f'{modeDisplayList[1]}', href=f'{sectionNumber}-{sectionLabelHyphenated}-exercises.html'):
+                                with a(f'{modeDisplayList[1]}',
+                                       href=f'{sectionNumber}-{sectionLabelHyphenated}-exercises.html'):
                                     i(cls='fa fa-external-link')
                         with li():
                             with button():
-                                with a(f'{modeDisplayList[2]}', href=f'{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html'):
+                                with a(f'{modeDisplayList[2]}',
+                                       href=f'{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html'):
                                     i(cls='fa fa-external-link')
                     if mode.lower() == 'exercise':
                         with li():
@@ -94,16 +104,19 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
                                     i(cls='fa fa-external-link')
                         with li():
                             with button():
-                                with a(f'{modeDisplayList[2]}', href=f'{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html'):
+                                with a(f'{modeDisplayList[2]}',
+                                       href=f'{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html'):
                                     i(cls='fa fa-external-link')
                     if mode.lower() == 'solution':
                         with li():
                             with button():
-                                with a(f'{modeDisplayList[0]}', href=f'{sectionNumber}-{sectionLabelHyphenated}.html'):
+                                with a(f'{modeDisplayList[0]}',
+                                       href=f'{sectionNumber}-{sectionLabelHyphenated}.html'):
                                     i(cls='fa fa-external-link')
                         with li():
                             with button():
-                                with a(f'{modeDisplayList[1]}', href=f'{sectionNumber}-{sectionLabelHyphenated}-exercises.html'):
+                                with a(f'{modeDisplayList[1]}',
+                                       href=f'{sectionNumber}-{sectionLabelHyphenated}-exercises.html'):
                                     i(cls='fa fa-external-link')
                         with li():
                             with button():
@@ -115,11 +128,9 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
                             with a('Download', rel='noopener', target='_blank'):
                                 i(cls='fa fa-file-pdf-o')
 
+            comment('BEGIN BODY')
             hr(id='mainBodyBegin')
-            comment('BEGIN BODY')  # APPEND FILE CONTENTS HERE
-
-
-
+            comment('APPEND CONTENT HERE')  # APPEND FILE CONTENTS HERE
 
         script(type='text/javascript', src='../js/footer-load.js')
         div(id='footer')
@@ -130,7 +141,12 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
         script(src='http://code.jquery.com/jquery-latest.min.js')
         script(src='../js/toggle-solutions.js')
 
-    # for main section: python renders html page, then another html page, content[...].html,  is inserted
+    # append content pages to main page body. process:
+
+    # (1) the doc of the html page is rendered by Dominate library and labeled as an official section;
+    # (2) the content page is parsed and converted into a string, appendContent;
+    # (3) appendContent is appended to the labeled, official section
+
     if mode.lower() == 'section':
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", 'w',
                   encoding='utf-8') as file:
@@ -152,46 +168,47 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
                   encoding='utf-8') as output:
             output.write(str(doc))
 
-
+    # exercise
     if mode.lower() == 'exercise':
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", 'w',
                   encoding='utf-8') as file:
             file.write(doc.render())
 
-        with open(f'sectionMaterials/{sectionLabel}/exerciseContent-{sectionLabelHyphenated}.html',
-                  encoding='utf-8') as exerciseContent:
-            soup = BeautifulSoup(exerciseContent, "html.parser")
-            appendContent = f'''{soup}'''
+        appendContent = generateExerciseContent.generate_exercise_content(sectionLabel, sectionNumber)
 
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", "r",
-                  encoding='utf-8') as f:
-            doc = BeautifulSoup(f, "html.parser")
-            appendSpot = doc.select_one("#mainBodyBegin")
-        appendSpot.append(BeautifulSoup(appendContent, 'html.parser'))
+                  encoding='utf-8') as file:
+            data = file.read()
+            data = data.replace('<!--APPEND CONTENT HERE-->', appendContent)
 
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", "w",
                   encoding='utf-8') as output:
             output.write(str(doc))
 
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", "w",
+                  encoding='utf-8') as file:
+            file.write(data)
+
+    # solution
     if mode.lower() == 'solution':
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html", 'w',
                   encoding='utf-8') as file:
             file.write(doc.render())
 
-        with open(f'sectionMaterials/{sectionLabel}/solutionContent-{sectionLabelHyphenated}.html',
-                  encoding='utf-8') as exerciseContent:
-            soup = BeautifulSoup(exerciseContent, "html.parser")
-            appendContent = f'''{soup}'''
+        appendContent = generateSolutionsContent.generate_solutions_content(sectionLabel)
 
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html", "r",
-                  encoding='utf-8') as f:
-            doc = BeautifulSoup(f, "html.parser")
-            appendSpot = doc.select_one("#mainBodyBegin")
-        appendSpot.append(BeautifulSoup(appendContent, 'html.parser'))
+                  encoding='utf-8') as file:
+            data = file.read()
+            data = data.replace('<!--APPEND CONTENT HERE-->', appendContent)
 
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html", "w",
                   encoding='utf-8') as output:
             output.write(str(doc))
+
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html", "w",
+                  encoding='utf-8') as file:
+            file.write(data)
 
 
 def create_all_pages(sectionNumber, sectionLabel, unitNumber):

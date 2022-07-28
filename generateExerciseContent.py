@@ -3,11 +3,13 @@ import dominate
 from dominate.tags import *
 import re
 
+
 def hyphenateText(text):
     newText = text.replace(' ', '-')
     return newText
 
-def generate_exercise_content(sectionLabel):
+
+def generate_exercise_content(sectionLabel, sectionNumber):
     sectionLabelHyphenated = hyphenateText(sectionLabel)
     with open(f'sectionMaterials/{sectionLabel}/exerciseList-{sectionLabelHyphenated}.html') as body:
         soup = BeautifulSoup(body, 'html.parser')
@@ -57,13 +59,15 @@ def generate_exercise_content(sectionLabel):
                 gridProblemsPrintHTML = '<table class="problems-grid"> \n' \
                                         '<tbody> \n'
 
-
                 # numbers each grid exercise
                 while j - columns > 0:
                     gridProblemsPrintHTML += '<tr> \n'
                     for k in range(0, columns):
                         gridProblemsPrintHTML += '<td> \n' \
-                                                 f'<a href="">' \
+                                                 f'<a href=' \
+                                                 f'"{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.' \
+                                                 f'html#problem-{k + tableNumberStart - j + problemsCount}" ' \
+                                                 f'rel="noopener" target="_blank">' \
                                                  f'\({k + tableNumberStart - j + problemsCount}.\)</a> ' \
                                                  f'{soupSection.find_all("div")[k - j].string} \n' \
                                                  '</td> \n'
@@ -74,9 +78,10 @@ def generate_exercise_content(sectionLabel):
                     gridProblemsPrintHTML += '<tr> \n'
                     while j > 0:
                         gridProblemsPrintHTML += '<td> \n' \
-                                                 f'<a href="">' \
-                                                 f'\({problemsCount - j + tableNumberStart}.\)' \
-                                                 f'</a>' \
+                                                 f'<a href="{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.' \
+                                                 f'html#problem-{problemsCount - j + tableNumberStart}" ' \
+                                                 f'rel="noopener" target="_blank">' \
+                                                 f'\({problemsCount - j + tableNumberStart}.\)</a> ' \
                                                  f'{soupSection.find_all("div")[problemsCount - j].string} \n' \
                                                  '</td> \n'
                         j -= 1
@@ -91,18 +96,19 @@ def generate_exercise_content(sectionLabel):
             for k in range(0, len(soupSection.find_all('div'))):
                 divHtml = f'''{soupSection.find_all('div')[k]}'''
                 displayProblemsPrintHTML += f'<!--q{exerciseNumberList[v] + 1 + k}--> \n' \
-                                           '<div class="problem-display"> \n' \
-                                           f'   <a href="{exerciseNumberList[v] + 1 + k}" target="_blank" rel="noopener">' \
-                                           f'\({exerciseNumberList[v] + 1 + k}.\)</a> \n' \
-                                           '    <div class="problem-display-body">\n' \
-                                           f'       {divHtml} \n' \
-                                           '   </div>  \n' \
-                                           '</div> \n'
+                                            '<div class="problem-display"> \n' \
+                                            f'   <a href="{sectionNumber}-{sectionLabelHyphenated}-' \
+                                            f'exercises-solutions.html#problem-{exerciseNumberList[v] + 1 + k}" ' \
+                                            f'target="_blank" rel="noopener">' \
+                                            f'\({exerciseNumberList[v] + 1 + k}.\)</a> \n' \
+                                            '    <div class="problem-display-body">\n' \
+                                            f'       {divHtml} \n' \
+                                            '   </div>  \n' \
+                                            '</div> \n'
 
             appendText += displayProblemsPrintHTML
         appendText += '</section>'
-    with open(f'sectionMaterials/{sectionLabel}/exerciseContent-{sectionLabelHyphenated}.html', 'w',
-              encoding='utf-8') as file:
-        file.write(appendText)
-
-generate_exercise_content('Curve Sketching')
+    return appendText
+    # with open(f'sectionMaterials/{sectionLabel}/exerciseContent-{sectionLabelHyphenated}.html', 'w',
+    #           encoding='utf-8') as file:
+    #     file.write(appendText)

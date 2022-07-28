@@ -9,7 +9,7 @@ def hyphenateText(text):
     return newText
 
 
-def generate_solution_content(sectionLabel):
+def generate_solutions_content(sectionLabel):
     sectionLabelHyphenated = hyphenateText(sectionLabel)
     with open(f'sectionMaterials/{sectionLabel}/exerciseList-{sectionLabelHyphenated}.html') as body:
         soup = BeautifulSoup(body, 'html.parser')
@@ -28,10 +28,15 @@ def generate_solution_content(sectionLabel):
             solutionHtml = f'''{soup.find_all('span')[k + exerciseNumberList[v]]}'''
             if len(soupSection.find_all('p')) > 0:
                 directions = soupSection.find('p', {'class': 'directions'}).string
+
+                # re-expresses "exerciseHtml" from an inline expression to a display equation
                 exerciseSplitDiv = re.split('<div>|</div>', exerciseHtml)[1]
-                exerciseDisplayMode = exerciseSplitDiv.replace('\(', '\[').replace('\)', '\, ,\]')
+                exerciseDisplayMode = exerciseSplitDiv.replace('\(', '\[').replace('\)', '\comma \]')
+
+                # format of "For [this exercise], [directions]"
                 appendText += f"<div id=\"problem-{1 + exerciseNumberList[v] + k}\"> \n" \
-                              f"  <div class=\"box-solution__head\"> QUESTION {1 + exerciseNumberList[v] + k} </div> \n" \
+                              f"  <div class=\"box-solution__head\"> " \
+                              f"    QUESTION {1 + exerciseNumberList[v] + k} </div> \n" \
                               f"  <div class=\"box-solution\">\n" \
                               f"   <div class=\"box-solution__body\"> \n" \
                               f"        <div class=\"box-solution__problem\"> \n " \
@@ -47,7 +52,8 @@ def generate_solution_content(sectionLabel):
                               "</div>"
             else:
                 appendText += f"<div id=\"problem-{1 + exerciseNumberList[v] + k}\"> \n" \
-                              f"  <div class=\"box-solution__head\"> QUESTION {1 + exerciseNumberList[v] + k} </div> \n" \
+                              f"  <div class=\"box-solution__head\"> " \
+                              f"    QUESTION {1 + exerciseNumberList[v] + k} </div> \n" \
                               f"  <div class=\"box-solution\">\n" \
                               f"   <div class=\"box-solution__body\"> \n" \
                               f"        <div class=\"box-solution__problem\"> \n " \
@@ -61,8 +67,5 @@ def generate_solution_content(sectionLabel):
                               "       </div>  \n" \
                               "   </div> \n" \
                               "</div>"
-            with open(f'sectionMaterials/{sectionLabel}/solutionContent-{sectionLabelHyphenated}.html', 'w',
-                      encoding='utf-8') as file:
-                file.write(appendText)
+    return appendText
 
-generate_solution_content('Curve Sketching')
