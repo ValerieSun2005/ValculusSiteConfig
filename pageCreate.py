@@ -217,9 +217,10 @@ def create_all_pages(sectionNumber, sectionLabel, unitNumber):
     create_page('solution', f'{sectionNumber}', f'{sectionLabel}', unitNumber)  # MAKE SOLUTION PAGE
 
 
-create_page('section', '3.5', 'Curve Sketching', '3')
-create_page('exercise', '3.5', 'Curve Sketching', '3')
-create_page('solution', '3.5', 'Curve Sketching', '3')
+create_all_pages('3.5', 'Curve Sketching', '3')
+# create_page('section', '3.5', 'Curve Sketching', '3')
+# create_page('exercise', '3.5', 'Curve Sketching', '3')
+# create_page('solution', '3.5', 'Curve Sketching', '3')
 # create_all_pages('3.5', 'Curve Sketching', '3')
 
 # for i in ['home', 'about', 'contact']:

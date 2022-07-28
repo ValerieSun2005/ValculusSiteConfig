@@ -8,6 +8,12 @@ import openpyxl
 from openpyxl import Workbook
 from openpyxl import load_workbook
 
+spreadsheet = openpyxl.load_workbook('sections.xlsx')
+
+def hyphenateText(text):
+    newText = text.replace(' ', '-')
+    return newText
+
 def rename():
     unitOfRenamedSection = input('In What Unit Is the Section You Want To Rename? Unit: ')
 
@@ -34,10 +40,13 @@ def rename():
                 os.rename(f"sectionMaterials/{newSectionName}/exerciseList-{hyphenateText(oldSectionName)}.html",
                           f"sectionMaterials/{newSectionName}/exerciseList-{hyphenateText(newSectionName)}.html")
 
-                # all done <3
+                # all done! <3
                 print(f"New Section: {unitOfRenamedSection}.{i}: {sheetRenamedSection[f'A{i}'].value}")
                 print('Success! :)')
 
+                pageCreate.create_all_pages(f'{unitOfRenamedSection}.{i}',
+                                            f'{sheetRenamedSection[f"A{i}"].value}',
+                                            f'{unitOfRenamedSection}')
             else:
                 pass
 
@@ -50,5 +59,4 @@ def rename():
 
     import buildSectionPage
     buildSectionPage.createSectionPage()
-    # pageCreate.create_page('', f'{unitOfRenamedSection}.{i}', f'{}')
 rename()
