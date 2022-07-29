@@ -9,7 +9,6 @@ from openpyxl import load_workbook
 import pageCreate
 import pandas as pd
 
-# print(sectionCreate.topics_unit_10)
 
 spreadsheet = openpyxl.load_workbook('sections.xlsx')
 doc = dominate.document(title='Sections')
@@ -17,6 +16,25 @@ doc = dominate.document(title='Sections')
 def hyphenateText(text):
     newText = text.replace(' ', '-')
     return newText
+
+def generateContentPages():
+    for i in range(0, len(spreadsheet.sheetnames)):
+        sectionSheet = spreadsheet[f'{spreadsheet.sheetnames[i]}']
+        for j in range(1, sectionSheet.max_row + 1):
+            sectionLabelHyphenated = hyphenateText(
+                sectionSheet.cell(row=j, column=1).value)  # convert spaces in file name to hyphens
+            try:
+                os.mkdir(f"sectionMaterials/{sectionSheet.cell(row=j, column=1).value}")
+                with open(
+                        f"sectionMaterials/{sectionSheet.cell(row=j, column=1).value}/content-{sectionLabelHyphenated}.html",
+                        'x') as htmlContent:
+                    htmlContent.write('')
+                with open(
+                        f"sectionMaterials/{sectionSheet.cell(row=j, column=1).value}/exerciseList-{sectionLabelHyphenated}.html",
+                        'x') as htmlExerciseList:
+                    htmlExerciseList.write('')
+            except FileExistsError:
+                pass
 
 def generateLabeledSections():
     path = 'pythonPages/calculus'
@@ -65,5 +83,4 @@ def createSectionPage():
     with open('sectionMaterials/content-sections.html', 'w', encoding='utf-8') as file:
         file.write(doc.render())
 
-createSectionPage()
-generateLabeledSections()
+generateContentPages()
