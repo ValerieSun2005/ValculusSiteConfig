@@ -3,9 +3,10 @@ from bs4 import BeautifulSoup
 import dominate
 from dominate.tags import *
 import re
+import os
 from openpyxl import Workbook
 from openpyxl import load_workbook
-# import sectionCreate
+import pageCreate
 import pandas as pd
 
 # print(sectionCreate.topics_unit_10)
@@ -16,6 +17,15 @@ doc = dominate.document(title='Sections')
 def hyphenateText(text):
     newText = text.replace(' ', '-')
     return newText
+
+def generateLabeledSections():
+    path = 'pythonPages/calculus'
+    for k in os.listdir(path):
+        os.remove(os.path.join(path, k))
+    for i in range(0, len(spreadsheet.sheetnames)):
+        sectionSheet = spreadsheet[f'{spreadsheet.sheetnames[i]}']
+        for j in range(1, sectionSheet.max_row + 1):
+            pageCreate.create_all_pages(f'{i}.{j}', sectionSheet.cell(row=j, column=1).value, f'{i}')
 
 def createSectionPage():
     with doc:
@@ -56,3 +66,4 @@ def createSectionPage():
         file.write(doc.render())
 
 createSectionPage()
+generateLabeledSections()

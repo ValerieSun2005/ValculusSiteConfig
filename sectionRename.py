@@ -44,6 +44,10 @@ def rename():
                 print(f"New Section: {unitOfRenamedSection}.{i}: {sheetRenamedSection[f'A{i}'].value}")
                 print('Success! :)')
 
+                path = 'pythonPages/calculus'
+                for k in os.listdir(path):
+                    os.remove(os.path.join(path, k))
+
                 pageCreate.create_all_pages(f'{unitOfRenamedSection}.{i}',
                                             f'{sheetRenamedSection[f"A{i}"].value}',
                                             f'{unitOfRenamedSection}')
@@ -59,4 +63,5 @@ def rename():
 
     import buildSectionPage
     buildSectionPage.createSectionPage()
+    buildSectionPage.generateLabeledSections()
 rename()
