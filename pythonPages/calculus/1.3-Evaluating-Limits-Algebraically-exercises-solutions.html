@@ -8,7 +8,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/layout.css" rel="stylesheet">
     <link href="../css/layout-print.css" media="print" rel="stylesheet">
-    <link href="../css/calculus/1.3.css" rel="stylesheet">
     <script crossorigin="anonymous" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <link href="../css/exercises-style.css" rel="stylesheet">
   </head>
@@ -57,7 +56,395 @@
       </div>
       <!--BEGIN BODY-->
       <hr id="mainBodyBegin">
-      
+      <div id="problem-1"> 
+  <div class="box-solution__head">     QUESTION 1 </div> 
+  <div class="box-solution">
+   <div class="box-solution__body"> 
+        <div class="box-solution__problem"> 
+            For 
+        \[\ds \lim_{x \to 9} \frac{x^2 - 81}{x - 9}\comma \]
+     evaluate the limit if it exists. 
+        </div> 
+        <hr> 
+        <div id="solution-1"> 
+            <span class="solution-text">SOLUTION</span> 
+            <span>
+        The numerator is a difference of squares:
+        \[x^2 - 81 = (x + 9)(x - 9) \period\]
+        Thus, we rewrite the limit as 
+        \[
+        \ba 
+        \lim_{x \to 9} \frac{(x + 9)(x - 9)}{x - 9} &amp;= \lim_{x \to 9} (x + 9) \\ 
+        &amp;= \boxed{18}
+        \ea 
+        \]
+    </span> 
+        </div> 
+       </div>  
+   </div> 
+</div><div id="problem-2"> 
+  <div class="box-solution__head">     QUESTION 2 </div> 
+  <div class="box-solution">
+   <div class="box-solution__body"> 
+        <div class="box-solution__problem"> 
+            For 
+        \[\ds \lim_{x \to 1} \frac{x^2 + 2x - 3}{x - 1}\comma \]
+     evaluate the limit if it exists. 
+        </div> 
+        <hr> 
+        <div id="solution-2"> 
+            <span class="solution-text">SOLUTION</span> 
+            <span>
+        We factor the numerator as 
+        \[x^2 + 2x - 3 = (x + 3)(x - 1) \period\]
+        The limit then becomes 
+        \[
+        \ba 
+        \lim_{x \to 1} \frac{(x + 3)(x - 1)}{x - 1} &amp;= \lim_{x \to 1} (x + 3) \\ 
+        &amp;= \boxed{4}
+        \ea 
+        \]
+    </span> 
+        </div> 
+       </div>  
+   </div> 
+</div><div id="problem-3"> 
+  <div class="box-solution__head">     QUESTION 3 </div> 
+  <div class="box-solution">
+   <div class="box-solution__body"> 
+        <div class="box-solution__problem"> 
+            For 
+        \[\ds \lim_{x \to 3} \frac{x + 3}{x^2 - 9}\comma \]
+     evaluate the limit if it exists. 
+        </div> 
+        <hr> 
+        <div id="solution-3"> 
+            <span class="solution-text">SOLUTION</span> 
+            <span>
+        The denominator is factored as 
+        \[x^2 - 9 = (x + 3)(x - 3) \period\]
+        Therefore, we re-express the limit as 
+        \[\lim_{x \to 3} \frac{x + 3}{(x + 3)(x - 3)} = \lim_{x \to 3} \frac{1}{x - 3} \period\]
+        The graph of \(y = \frac{1}{x - 3}\) has a vertical asymptote at \(x = 3.\)
+        Let's consider the one-sided limits of this function as \(x \to 3:\)
+        As \(x \to 3^-,\) \(\frac{1}{x - 3}\) becomes increasingly negative, approaching \(- \infty.\) 
+        But as \(x \to 3^+,\) \(\frac{1}{x - 3}\) grows to \(+\infty.\)
+        Therefore,
+        \[
+        \ba 
+        \lim_{x \to 3^-} \frac{1}{x - 3} &amp;= - \infty \\
+        \lim_{x \to 3^+} \frac{1}{x - 3} &amp;= \infty \period
+        \ea 
+        \]
+        Because these one-sided limits aren't equivalent, \(\lim_{x \to 3} \frac{1}{x - 3}\) does not exist.
+        But this limit is a simplified form of \(\lim_{x \to 3} \frac{x + 3}{x^2 - 9},\)
+        which therefore <u>does not exist</u>.
+    </span> 
+        </div> 
+       </div>  
+   </div> 
+</div><div id="problem-4"> 
+  <div class="box-solution__head">     QUESTION 4 </div> 
+  <div class="box-solution">
+   <div class="box-solution__body"> 
+        <div class="box-solution__problem"> 
+            For 
+        \[\ds \lim_{\theta \to \pi/2} \frac{1 - \sin^2 \theta}{\cos \theta} \comma \]
+     evaluate the limit if it exists. 
+        </div> 
+        <hr> 
+        <div id="solution-4"> 
+            <span class="solution-text">SOLUTION</span> 
+            <span>
+        From the Pythagorean identity, we get 
+        \[\sin^2 \theta + \cos^2 \theta = 1 \implies 1 - \sin^2 \theta = \cos^2 \theta \period\]
+        Thus, we re-express the numerator and the limit becomes 
+        \[
+        \ba 
+        \lim_{\theta \to \pi/2} \frac{\cos^2 \theta}{\cos \theta} &amp;= \lim_{\theta \to \pi/2} \cos \theta \\
+        &amp;= \cos \left(\frac{\pi}{2} \right) \\ 
+        &amp;= \boxed{0}
+        \ea 
+        \]
+    </span> 
+        </div> 
+       </div>  
+   </div> 
+</div><div id="problem-5"> 
+  <div class="box-solution__head">     QUESTION 5 </div> 
+  <div class="box-solution">
+   <div class="box-solution__body"> 
+        <div class="box-solution__problem"> 
+            For 
+        \[\ds \lim_{\theta \to 0} \frac{\sin 2 \theta}{\sin \theta}\comma \]
+     evaluate the limit if it exists. 
+        </div> 
+        <hr> 
+        <div id="solution-5"> 
+            <span class="solution-text">SOLUTION</span> 
+            <span>
+        The double-angle identity of sine is 
+        \[\sin 2 \theta = 2 \sin \theta \cos \theta \period\]
+        Therefore, the limit can be rewritten as 
+        \[
+        \ba 
+        \lim_{\theta \to 0} \frac{2 \sin \theta \cos \theta}{\sin \theta} &amp;= \lim_{\theta \to 0} 2 \cos \theta \\
+        &amp;= 2 \cos 0 \\ 
+        &amp;= \boxed{2}
+        \ea 
+        \]
+    </span> 
+        </div> 
+       </div>  
+   </div> 
+</div><div id="problem-6"> 
+  <div class="box-solution__head">     QUESTION 6 </div> 
+  <div class="box-solution">
+   <div class="box-solution__body"> 
+        <div class="box-solution__problem"> 
+            For 
+        \[\ds \lim_{\theta \to \pi/4} \frac{\cos 2 \theta}{\cos \theta - \sin \theta}\comma \]
+     evaluate the limit if it exists. 
+        </div> 
+        <hr> 
+        <div id="solution-6"> 
+            <span class="solution-text">SOLUTION</span> 
+            <span>
+        Using the double-angle identity of cosine, we rewrite the numerator as 
+        \[
+        \ba 
+        \cos 2 \theta &amp;= \cos^2 \theta - \sin^2 \theta \\
+        &amp;= (\cos \theta + \sin \theta)(\cos \theta - \sin \theta) \period
+        \ea 
+        \]
+        The limit then becomes 
+        \[
+        \ba 
+        \lim_{\theta \to \pi/4} \frac{(\cos \theta + \sin \theta)(\cos \theta - \sin \theta)}{\cos \theta - \sin \theta} 
+        &amp;= \lim_{\theta \to \pi/4} (\cos \theta + \sin \theta) \\ 
+        &amp;= \cos \left(\frac{\pi}{4}\right) + \sin \left(\frac{\pi}{4}\right) \\
+        &amp;= \boxed{\sqrt 2}
+        \ea 
+        \]
+    </span> 
+        </div> 
+       </div>  
+   </div> 
+</div><div id="problem-7"> 
+  <div class="box-solution__head">     QUESTION 7 </div> 
+  <div class="box-solution">
+   <div class="box-solution__body"> 
+        <div class="box-solution__problem"> 
+            For 
+        \[\ds \lim_{x \to 4} \frac{\frac{1}{x} - \frac{1}{4}}{x - 4}\comma \]
+     evaluate the limit if it exists. 
+        </div> 
+        <hr> 
+        <div id="solution-7"> 
+            <span class="solution-text">SOLUTION</span> 
+            <span>
+        Let's merge the fractions in the numerator of the limit. 
+        We obtain 
+        \[\frac{1}{x} - \frac{1}{4} = \frac{4 - x}{4x} \period\]
+        As a result, our limit becomes 
+        \[
+        \ba 
+        \lim_{x \to 4} \frac{\frac{4 - x}{4x}}{x - 4} &amp;= \lim_{x \to 4} \frac{-1}{4x} \\
+        &amp;= \boxed{-\frac{1}{16}}
+        \ea 
+        \]
+    </span> 
+        </div> 
+       </div>  
+   </div> 
+</div><div id="problem-8"> 
+  <div class="box-solution__head">     QUESTION 8 </div> 
+  <div class="box-solution">
+   <div class="box-solution__body"> 
+        <div class="box-solution__problem"> 
+            For 
+        \[\ds \lim_{x \to 0} \frac{\frac{2}{x - 2} + 1}{x}\comma \]
+     evaluate the limit if it exists. 
+        </div> 
+        <hr> 
+        <div id="solution-8"> 
+            <span class="solution-text">SOLUTION</span> 
+            <span>
+        Simplifying the expression \(\frac{2}{x - 2} + 1,\) we get 
+        \[\frac{2 + (x - 2)}{x - 2} = \frac{x}{x - 2} \period\]
+        Therefore, we rewrite the limit as 
+        \[
+        \ba 
+        \lim_{x \to 0} \frac{\frac{x}{x - 2}}{x} &amp;= \lim_{x \to 0} \frac{1}{x - 2} \\
+        &amp;= \boxed{-\frac{1}{2}}
+        \ea 
+        \]
+    </span> 
+        </div> 
+       </div>  
+   </div> 
+</div><div id="problem-9"> 
+  <div class="box-solution__head">     QUESTION 9 </div> 
+  <div class="box-solution">
+   <div class="box-solution__body"> 
+        <div class="box-solution__problem"> 
+            For 
+        \[\ds \lim_{x \to 1} \frac{x - 1}{1 - \sqrt x} \comma \]
+     evaluate the limit if it exists. 
+        </div> 
+        <hr> 
+        <div id="solution-9"> 
+            <span class="solution-text">SOLUTION</span> 
+            <span>
+        The numerator is a difference of squares,
+        \[x - 1 = (\sqrt{x} + 1)(\sqrt{x} - 1) \comma\]
+        so we rewrite the limit as 
+        \[
+        \ba 
+        \lim_{x \to 1} \frac{(\sqrt{x} + 1)(\sqrt{x} - 1)}{1 - \sqrt x} &amp;= \lim_{x \to 1} -(\sqrt x + 1) \\
+        &amp;= \boxed{-2}
+        \ea 
+        \]
+    </span> 
+        </div> 
+       </div>  
+   </div> 
+</div><div id="problem-10"> 
+  <div class="box-solution__head">     QUESTION 10 </div> 
+  <div class="box-solution">
+   <div class="box-solution__body"> 
+        <div class="box-solution__problem"> 
+            For 
+        \[\ds \lim_{x \to 7} \frac{7 - x}{2 - \sqrt{11 - x}}\comma \]
+     evaluate the limit if it exists. 
+        </div> 
+        <hr> 
+        <div id="solution-10"> 
+            <span class="solution-text">SOLUTION</span> 
+            <span>
+        This limit is in the indeterminate form \(\frac{0}{0};\) 
+        yet we have no obvious simplifications, such as factoring or simplifying using trig identities.
+        But we have a radical in the denominator, so let's try to eliminate it. 
+        We'll rationalize the fraction by multiplying 
+        the numerator and denominator each by the denominator's conjugate, \(2 + \sqrt{11 - x}.\)
+        We then get 
+        \[
+        \ba 
+        \lim_{x \to 7} \frac{7 - x}{2 - \sqrt{11 - x}} \cdot \frac{2 + \sqrt{11 - x}}{2 + \sqrt{11 - x}} 
+        &amp;= \lim_{x \to 7} \frac{(7 - x)(2 + \sqrt{11 - x})}{4 - (11 - x)} \\[2ex]
+        &amp;= \lim_{x \to 7} \frac{-(x - 7)(2 + \sqrt{11 - x})}{x - 7} \\[2ex]
+        &amp;= \lim_{x \to 7} -(2 + \sqrt{11 - x}) \\[2ex]
+        &amp;= \boxed{-4}
+        \ea 
+        \]
+        This problem shows that rationalizing may yield a common factor to cancel—exactly what we want!
+    </span> 
+        </div> 
+       </div>  
+   </div> 
+</div><div id="problem-11"> 
+  <div class="box-solution__head">     QUESTION 11 </div> 
+  <div class="box-solution">
+   <div class="box-solution__body"> 
+        <div class="box-solution__problem"> 
+            For 
+        \[\ds \lim_{x \to 3} \frac{\sqrt{x - 2} - 1}{2x - 6}\comma \]
+     evaluate the limit if it exists. 
+        </div> 
+        <hr> 
+        <div id="solution-11"> 
+            <span class="solution-text">SOLUTION</span> 
+            <span>
+        We have no immediate simplifications for this limit. 
+        But we have a radical, so we attempt to rationalize the fraction 
+        by multiplying the numerator and denominator by the numerator's conjugate, \(\sqrt{x - 2} + 1.\) 
+        We get 
+        \[
+        \ba 
+        \lim_{x \to 3} \frac{\sqrt{x - 2} - 1}{2x - 6} 
+        &amp;= \lim_{x \to 3} \frac{\sqrt{x - 2} - 1}{2x - 6} \cdot \frac{\sqrt{x - 2} + 1}{\sqrt{x - 2} + 1} \\[2ex]
+        &amp;= \lim_{x \to 3} \frac{(x - 2) - 1}{(2x - 6)(\sqrt{x - 2} + 1)} \\[2ex]
+        &amp;= \lim_{x \to 3} \frac{x - 3}{2(x - 3)(\sqrt{x - 2} + 1)} \\[2ex]
+        &amp;= \lim_{x \to 3} \frac{1}{2(\sqrt{x - 2} + 1)} \\[2ex]
+        &amp;= \boxed{\frac{1}{4}}
+        \ea 
+        \]
+    </span> 
+        </div> 
+       </div>  
+   </div> 
+</div><div id="problem-12"> 
+  <div class="box-solution__head">     QUESTION 12 </div> 
+  <div class="box-solution">
+   <div class="box-solution__body"> 
+        <div class="box-solution__problem"> 
+            For 
+        \[\ds \lim_{x \to 4} \frac{\sqrt{13 - x} - 3}{\sqrt{x} - 2}\comma \]
+     evaluate the limit if it exists. 
+        </div> 
+        <hr> 
+        <div id="solution-12"> 
+            <span class="solution-text">SOLUTION</span> 
+            <span>
+        This problem has radicals on the numerator and denominator.
+        Let's rationalize the numerator by multiplying the numerator and denominator each by \(\sqrt{13 - x} + 3.\)
+        Doing so produces 
+        \[
+        \ba 
+        \lim_{x \to 4} \frac{\sqrt{13 - x} - 3}{\sqrt x - 2} 
+        &amp;= \lim_{x \to 4} \frac{\sqrt{13 - x} - 3}{\sqrt x - 2} \cdot \frac{\sqrt{13 - x} + 3}{\sqrt{13 - x} + 3} \\[2ex] 
+        &amp;= \lim_{x \to 4} \frac{(13 - x) - 9}{(\sqrt x - 2)(\sqrt{13 - x} + 3)} \\[2ex] 
+        &amp;= \lim_{x \to 4} \frac{4 - x}{(\sqrt x - 2)(\sqrt{13 - x} + 3)} \\[2ex] 
+        &amp;= \lim_{x \to 4} \frac{(2 + \sqrt x)(2 - \sqrt x)}{-(2 - \sqrt x)(\sqrt{13 - x} + 3)} \\[2ex] 
+        &amp;= \lim_{x \to 4} \frac{2 + \sqrt x}{-(\sqrt{13 - x} + 3)} \\[2ex] 
+        &amp;= \boxed{-\frac{2}{3}}
+        \ea 
+        \] 
+        Note that we also could have multiplied the numerator and denominator each by \(\sqrt x + 2,\) the conjugate of the denominator.
+        But this process is longer: we would then have to multiply the numerator and denominator each by \(\sqrt{13 - x} + 3\) 
+        to expose any common factors, as you should verify. 
+        
+    </span> 
+        </div> 
+       </div>  
+   </div> 
+</div><div id="problem-13"> 
+  <div class="box-solution__head">     QUESTION 13 </div> 
+  <div class="box-solution">
+   <div class="box-solution__body"> 
+        <div class="box-solution__problem"> 
+            For 
+        \[\ds \lim_{x \to 10} \frac{\sqrt{26 - x} - 4}{\sqrt{19 - x} - 3}\comma \]
+     evaluate the limit if it exists. 
+        </div> 
+        <hr> 
+        <div id="solution-13"> 
+            <span class="solution-text">SOLUTION</span> 
+            <span>
+        Let's start by rationalizing the numerator, although this choice won't matter. 
+        We multiply the numerator and denominator each by \(\sqrt{26 - x} + 4,\) yielding 
+        \[
+        \ba 
+        \lim_{x \to 10} \frac{\sqrt{26 - x} - 4}{\sqrt{19 - x} - 3} \cdot \frac{\sqrt{26 - x} + 4}{\sqrt{26 - x} + 4} 
+        &amp;= \lim_{x \to 10} \frac{10 - x}{(\sqrt{19 - x} - 3)(\sqrt{26 - x} + 4)} \\[2ex] 
+        \ea 
+        \]
+        Again, we don't have any resources. 
+        Now we multiply the numerator and denominator each by \(\sqrt{19 - x} + 3,\) giving 
+        \[
+        \ba 
+        \lim_{x \to 10} \frac{10 - x}{(\sqrt{19 - x} - 3)(\sqrt{26 - x} + 4)} \cdot \frac{\sqrt{19 - x} + 3}{\sqrt{19 - x} + 3} 
+        &amp;= \lim_{x \to 10} \frac{(10 - x)(\sqrt{19 - x} + 3)}{(10 - x)(\sqrt{26 - x} + 4)} \\[2ex]
+        &amp;= \lim_{x \to 10} \frac{\sqrt{19 - x} + 3}{\sqrt{26 - x} + 4} \\[2ex] 
+        &amp;= \boxed{\frac{3}{4}}
+        \ea 
+        \]
+        In general, if you have radicals on the numerator and denominator, then you should rationalize both. 
+    </span> 
+        </div> 
+       </div>  
+   </div> 
+</div>
     </main>
     <script src="../js/footer-load.js" type="text/javascript"></script>
     <div id="footer"></div>

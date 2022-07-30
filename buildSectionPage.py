@@ -43,9 +43,11 @@ def generateLabeledSections():
     for i in range(0, len(spreadsheet.sheetnames)):
         sectionSheet = spreadsheet[f'{spreadsheet.sheetnames[i]}']
         for j in range(1, sectionSheet.max_row + 1):
-            pageCreate.create_all_pages(f'{i}.{j}', sectionSheet.cell(row=j, column=1).value, f'{i}')
+            pageCreate.create_all_pages(f'{i}.{j}', sectionSheet.cell(row=j, column=1).value)
 
 def createSectionPage():
+    with doc.head:
+        link(rel='stylesheet', href='css/section.css')
     with doc:
         img(cls='header-image', src='../images/Calculus/home/calculus.jpg', alt='')
         p('Welcome to Calculus.\
@@ -83,4 +85,4 @@ def createSectionPage():
     with open('sectionMaterials/content-sections.html', 'w', encoding='utf-8') as file:
         file.write(doc.render())
 
-generateContentPages()
+generateLabeledSections()

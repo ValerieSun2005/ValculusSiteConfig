@@ -11,7 +11,8 @@ def hyphenateText(text):
 
 def generate_solutions_content(sectionLabel):
     sectionLabelHyphenated = hyphenateText(sectionLabel)
-    with open(f'sectionMaterials/{sectionLabel}/exerciseList-{sectionLabelHyphenated}.html') as body:
+    with open(f'sectionMaterials/{sectionLabel}/exerciseList-{sectionLabelHyphenated}.html',
+              encoding='utf-8') as body:
         soup = BeautifulSoup(body, 'html.parser')
     appendText = ''
     exerciseNumber = 0

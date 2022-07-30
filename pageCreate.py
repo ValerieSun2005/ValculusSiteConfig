@@ -18,16 +18,18 @@ modeDisplayList = ['Section', 'Exercises', 'Exercise Solutions']
 
 # mode = input(f"Select Page Mode ({'section'}, {'exercise'}, {'solution'}): ")
 
-def create_page(mode, sectionNumber, sectionLabel, unitNumber):
+def create_page(mode, sectionNumber, sectionLabel, filePath):
     sectionLabelHyphenated = sectionLabel.replace(' ', '-')
 
     # title of html page
     if mode.lower() == 'section':
         doc = dominate.document(title=f'{sectionNumber}: {sectionLabel}')
-    if mode.lower() == 'exercise':
+    elif mode.lower() == 'exercise':
         doc = dominate.document(title=f'{sectionNumber} Exercises: {sectionLabel}')
-    if mode.lower() == 'solution':
+    elif mode.lower() == 'solution':
         doc = dominate.document(title=f'{sectionNumber} Exercise Solutions: {sectionLabel}')
+    else:
+        doc = dominate.document(title=f'{sectionLabel}')
 
     # head of html page
     with doc.head:
@@ -43,7 +45,6 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
         link(rel='stylesheet', media='print', href='../css/layout-print.css')
         # link(rel='icon', href='http://example.com/favicon.png')
         # SECTION-SPECIFIC LAYOUT
-        link(rel='stylesheet', href=f'../css/calculus/{sectionNumber}.css')
         script(src='https://code.jquery.com/jquery-3.3.1.js',
                integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=', crossorigin='anonymous')
 
@@ -60,16 +61,18 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
                 # PRINT LAYOUT
                 link(rel='stylesheet', media='print', href='../css/notes-style-print.css')
             h1(f'{sectionNumber} — {sectionLabel}')
-        if mode.lower() == 'exercise':
+        elif mode.lower() == 'exercise':
             with doc.head:
                 # SCREEN LAYOUT
                 link(rel='stylesheet', href='../css/exercises-style.css')
             h1(f'{sectionNumber} Exercises — {sectionLabel}')
-        if mode.lower() == 'solution':
+        elif mode.lower() == 'solution':
             with doc.head:
                 # SCREEN LAYOUT
                 link(rel='stylesheet', href='../css/exercises-style.css')
             h1(f'{sectionNumber} Exercise Solutions — {sectionLabel}')
+        else:
+            h1(f'{sectionLabel}')
 
         # main()
         with main():
@@ -153,23 +156,20 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
             file.write(doc.render())
 
         with open(f'sectionMaterials/{sectionLabel}/content-{sectionLabelHyphenated}.html',
-                  encoding='utf-8') as sectionContent:
-            soup = BeautifulSoup(sectionContent, 'html.parser')
-            appendContent = f'''{soup}'''
+                  encoding='utf-8') as file:
+            appendContent = file.read()
 
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", 'r',
-                  encoding='utf-8') as f:
-            doc = BeautifulSoup(f, "html.parser")
-            appendSpot = doc.select_one("#mainBodyBegin")
+                  encoding='utf-8') as file:
+            data = file.read()
+            data = data.replace('<!--APPEND CONTENT HERE-->', appendContent)
 
-        appendSpot.append(BeautifulSoup(appendContent, 'html.parser'))
-
-        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", 'w',
-                  encoding='utf-8') as output:
-            output.write(str(doc))
+        with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", "w",
+                  encoding='utf-8') as file:
+            file.write(data)
 
     # exercise
-    if mode.lower() == 'exercise':
+    elif mode.lower() == 'exercise':
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", 'w',
                   encoding='utf-8') as file:
             file.write(doc.render())
@@ -190,7 +190,7 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
             file.write(data)
 
     # solution
-    if mode.lower() == 'solution':
+    elif mode.lower() == 'solution':
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html", 'w',
                   encoding='utf-8') as file:
             file.write(doc.render())
@@ -210,14 +210,47 @@ def create_page(mode, sectionNumber, sectionLabel, unitNumber):
                   encoding='utf-8') as file:
             file.write(data)
 
+    # all other pages
+    else:
+        with open(f"pythonPages/{filePath}", 'w',
+                  encoding='utf-8') as file:
+            file.write(doc.render())
 
-def create_all_pages(sectionNumber, sectionLabel, unitNumber):
-    create_page('section', f'{sectionNumber}', f'{sectionLabel}', unitNumber)  # MAKE MAIN SECTION PAGE
-    create_page('exercise', f'{sectionNumber}', f'{sectionLabel}', unitNumber)  # MAKE EXERCISE PAGE
-    create_page('solution', f'{sectionNumber}', f'{sectionLabel}', unitNumber)  # MAKE SOLUTION PAGE
+        with open(f'sectionMaterials/content-sections.html',
+                  encoding='utf-8') as file:
+            appendContent = file.read()
+
+        with open(f"pythonPages/{filePath}", 'r',
+                  encoding='utf-8') as file:
+            data = file.read()
+            data = data.replace('<!--APPEND CONTENT HERE-->', appendContent)
+
+        with open(f"pythonPages/{filePath}", "w",
+                  encoding='utf-8') as file:
+            file.write(data)
+
+        # with open(f"pythonPages/{filePath}", "w", encoding="utf-8") as file:
+        #     file.write(doc.render())
+        #
+        # with open(f"sectionMaterials/content-{sectionLabel}.html", encoding='utf-8') as file:
+        #     appendContent = file.read()
+        #
+        # with open(f"pythonPages/{filePath}", "w", encoding="utf-8") as file:
+        #     file.write(doc.render())
 
 
-create_all_pages('3.5', 'Curve Sketching', '3')
+
+
+
+
+def create_all_pages(sectionNumber, sectionLabel):
+    create_page('section', f'{sectionNumber}', f'{sectionLabel}', '')  # MAKE MAIN SECTION PAGE
+    create_page('exercise', f'{sectionNumber}', f'{sectionLabel}', '')  # MAKE EXERCISE PAGE
+    create_page('solution', f'{sectionNumber}', f'{sectionLabel}', '')  # MAKE SOLUTION PAGE
+
+
+# create_all_pages('3.5', 'Curve Sketching')
+create_page('', '', 'Sections', 'sections.html')
 # create_page('section', '3.5', 'Curve Sketching', '3')
 # create_page('exercise', '3.5', 'Curve Sketching', '3')
 # create_page('solution', '3.5', 'Curve Sketching', '3')
