@@ -41,7 +41,8 @@ window.MathJax = {
             col: "\\! :",
             scol: "\\, ; \\,",
             eqRefer: ["\\text{Eq. } \\eqref{#1}", 1],
-            deriv: ["\\frac{\\dd #1}{\\dd #2}", 2]
+            deriv: ["\\frac{\\dd #1}{\\dd #2}", 2],
+            abs: ["\\left \\lvert #1 \\right \\rvert", 1]
         }
     },
 

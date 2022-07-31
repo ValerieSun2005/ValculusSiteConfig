@@ -21,6 +21,13 @@ tr, th{
     border: none;
 }
 
+h4{
+    font-variant: small-caps;
+    margin-bottom: -2%;
+    font-size: 27px;
+    color: rgb(194, 126, 0);
+}
+
 .table-full-width{
     width: 100%;
     border-collapse: collapse;
@@ -62,7 +69,6 @@ main tr{
 
 .warning{
     color: rgb(212, 75, 75);
-    text-decoration: underline;
 }
 
 .numbered-equations p{
@@ -165,7 +171,7 @@ main tr{
     line-height: 2.5;
     padding-left: 4%;
     padding-right: 4%;
-    padding-bottom: 2%;
+    padding-bottom: 3%;
     padding-top: 4%;
     text-align: left;
     font-style: normal;

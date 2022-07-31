@@ -4,15 +4,15 @@
     <p class="directions">evaluate the limit if it exists</p>
 
     <div>
-        \(\ds \lim_{x \to 9} \frac{x^2 - 81}{x - 9}\)
+        \(\ds \lim_{t \to 9} \frac{t^2 - 81}{t - 9}\)
     </div>
     <span>
         The numerator is a difference of squares:
-        \[x^2 - 81 = (x + 9)(x - 9) \period\]
+        \[t^2 - 81 = (t + 9)(t - 9) \period\]
         Thus, we rewrite the limit as 
         \[
         \ba 
-        \lim_{x \to 9} \frac{(x + 9)(x - 9)}{x - 9} &= \lim_{x \to 9} (x + 9) \\ 
+        \lim_{t \to 9} \frac{(t + 9)(t - 9)}{t - 9} &= \lim_{t \to 9} (t + 9) \\ 
         &= \boxed{18}
         \ea 
         \]
@@ -143,15 +143,15 @@
     </span>
 
     <div>
-        \(\ds \lim_{x \to 1} \frac{x - 1}{1 - \sqrt x} \)
+        \(\ds \lim_{t \to 1} \frac{t - 1}{1 - \sqrt t} \)
     </div>
     <span>
         The numerator is a difference of squares,
-        \[x - 1 = (\sqrt{x} + 1)(\sqrt{x} - 1) \comma\]
+        \[t - 1 = (\sqrt{t} + 1)(\sqrt{t} - 1) \comma\]
         so we rewrite the limit as 
         \[
         \ba 
-        \lim_{x \to 1} \frac{(\sqrt{x} + 1)(\sqrt{x} - 1)}{1 - \sqrt x} &= \lim_{x \to 1} -(\sqrt x + 1) \\
+        \lim_{t \to 1} \frac{(\sqrt{t} + 1)(\sqrt{t} - 1)}{1 - \sqrt t} &= \lim_{t \to 1} -(\sqrt t + 1) \\
         &= \boxed{-2}
         \ea 
         \]
@@ -164,7 +164,7 @@
         This limit is in the indeterminate form \(\frac{0}{0};\) 
         yet we have no obvious simplifications, such as factoring or simplifying using trig identities.
         But we have a radical in the denominator, so let's try to eliminate it. 
-        We'll rationalize the fraction by multiplying 
+        We'll rationalize the denominator by multiplying 
         the numerator and denominator each by the denominator's conjugate, \(2 + \sqrt{11 - x}.\)
         We then get 
         \[
@@ -176,27 +176,32 @@
         &= \boxed{-4}
         \ea 
         \]
-        This problem shows that rationalizing may yield a common factor to cancel—exactly what we want!
+        Because we rationalized the denomintor only, be sure not to expand the numerator: 
+        do not expand \((x - 7)(2 + \sqrt{11 - x}).\) The purpose of rationalization is to expose a common factor, 
+        \((x - 7)\) in this case.
     </span>
 
     <div>
-        \(\ds \lim_{x \to 3} \frac{\sqrt{x - 2} - 1}{2x - 6}\)
+        \(\ds \lim_{u \to 3} \frac{\sqrt{u - 2} - 1}{2u - 6}\)
     </div>
     <span>
         We have no immediate simplifications for this limit. 
-        But we have a radical, so we attempt to rationalize the fraction 
-        by multiplying the numerator and denominator by the numerator's conjugate, \(\sqrt{x - 2} + 1.\) 
+        But the numerator has a radical, so we attempt to rationalize the numerator 
+        by multiplying the numerator and denominator by the numerator's conjugate, \(\sqrt{u - 2} + 1.\) 
         We get 
         \[
         \ba 
-        \lim_{x \to 3} \frac{\sqrt{x - 2} - 1}{2x - 6} 
-        &= \lim_{x \to 3} \frac{\sqrt{x - 2} - 1}{2x - 6} \cdot \frac{\sqrt{x - 2} + 1}{\sqrt{x - 2} + 1} \\[2ex]
-        &= \lim_{x \to 3} \frac{(x - 2) - 1}{(2x - 6)(\sqrt{x - 2} + 1)} \\[2ex]
-        &= \lim_{x \to 3} \frac{x - 3}{2(x - 3)(\sqrt{x - 2} + 1)} \\[2ex]
-        &= \lim_{x \to 3} \frac{1}{2(\sqrt{x - 2} + 1)} \\[2ex]
+        \lim_{u \to 3} \frac{\sqrt{u - 2} - 1}{2u - 6} 
+        &= \lim_{u \to 3} \frac{\sqrt{u - 2} - 1}{2u - 6} \cdot \frac{\sqrt{u - 2} + 1}{\sqrt{u - 2} + 1} \\[2ex]
+        &= \lim_{u \to 3} \frac{(u - 2) - 1}{(2u - 6)(\sqrt{u - 2} + 1)} \\[2ex]
+        &= \lim_{u \to 3} \frac{u - 3}{2(u - 3)(\sqrt{u - 2} + 1)} \\[2ex]
+        &= \lim_{u \to 3} \frac{1}{2(\sqrt{u - 2} + 1)} \\[2ex]
         &= \boxed{\frac{1}{4}}
         \ea 
         \]
+        This problem shows that rationalizing may yield a common factor to cancel—exactly what we want!
+        When rationalizing the numerator, it's important to NOT expand the terms in the denominator; 
+        that is, we do not expand \((2u - 6)(\sqrt{u - 2} + 1).\)
     </span>
 
     <div>
@@ -219,8 +224,7 @@
         \] 
         Note that we also could have multiplied the numerator and denominator each by \(\sqrt x + 2,\) the conjugate of the denominator.
         But this process is longer: we would then have to multiply the numerator and denominator each by \(\sqrt{13 - x} + 3\) 
-        to expose any common factors, as you should verify. 
-        
+        to expose a common factor, as you should verify. 
     </span>
 
     <div>
@@ -232,7 +236,7 @@
         \[
         \ba 
         \lim_{x \to 10} \frac{\sqrt{26 - x} - 4}{\sqrt{19 - x} - 3} \cdot \frac{\sqrt{26 - x} + 4}{\sqrt{26 - x} + 4} 
-        &= \lim_{x \to 10} \frac{10 - x}{(\sqrt{19 - x} - 3)(\sqrt{26 - x} + 4)} \\[2ex] 
+        &= \lim_{x \to 10} \frac{10 - x}{(\sqrt{19 - x} - 3)(\sqrt{26 - x} + 4)} \period \\[2ex] 
         \ea 
         \]
         Again, we don't have any resources. 
@@ -245,6 +249,8 @@
         &= \boxed{\frac{3}{4}}
         \ea 
         \]
-        In general, if you have radicals on the numerator and denominator, then you should rationalize both. 
+        In general, if you have radicals on the numerator and denominator, 
+        then you should rationalize both. 
+        The order of rationalization does not matter.
     </span>
 </section>

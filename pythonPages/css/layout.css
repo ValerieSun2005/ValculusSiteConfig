@@ -69,6 +69,10 @@ main li{
     padding-left: 1.5%;
 }
 
+main p{
+    text-indent: 5vmin;
+    margin-bottom: 8%;
+}
 .hr-problem{
     margin-top: 2em;
     margin-bottom: 2em;
