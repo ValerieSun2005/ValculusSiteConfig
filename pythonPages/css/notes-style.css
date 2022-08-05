@@ -8,9 +8,10 @@ body{
     hyphens: auto;
 }
 
-p{
+main p{
+    text-indent: 5vmin;
+    margin-bottom: 8%;
     margin-top: 2%;
-    margin-bottom: 2%;
     -ms-hyphens: auto;
     -moz-hyphens: auto;
     -webkit-hyphens: auto;

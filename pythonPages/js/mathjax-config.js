@@ -1,7 +1,7 @@
 window.MathJax = {
-    options: {
-        enableMenu: false,    
-    },
+    // options: {
+    //     enableMenu: false,    
+    // },
     
     svg: {
         fontCache: 'global',
@@ -42,7 +42,9 @@ window.MathJax = {
             scol: "\\, ; \\,",
             eqRefer: ["\\text{Eq. } \\eqref{#1}", 1],
             deriv: ["\\frac{\\dd #1}{\\dd #2}", 2],
-            abs: ["\\left \\lvert #1 \\right \\rvert", 1]
+            abs: ["\\left \\lvert #1 \\right \\rvert", 1],
+            par: ["\\left ( #1 \\right )", 1],
+            di: "\\, \\dd"
         }
     },
 

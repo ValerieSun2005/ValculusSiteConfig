@@ -57,62 +57,61 @@
       </div>
       <!--BEGIN BODY-->
       <hr id="mainBodyBegin">
-      <h4>Motivation</h4>
+      <h4>Introduction</h4>
 <p>
-    Consider the family of integrals \(\int \sqrt{a^2 - x^2} \, \dd x,\) 
-    \(a \gt 0,\) which arise when finding the area under a circle or ellipse.
-    To integrate this form, our plan should be to remove this root sign.
+    We understand how to integrate \(\int x \sqrt{a^2 - x^2} \di  x:\)
+    simply substitute \(u = a^2 - x^2.\)
+    But now consider the family of integrals \(\int \sqrt{a^2 - x^2} \di  x,\) 
+    \(a \gt 0.\) 
+    To integrate this form, our plan is to remove this root sign.
     Let's substitute \(x = a \sin \theta.\) 
     Then, using the identity \(1 - \sin^2 \theta = \cos^2 \theta,\) the integrand becomes 
     \[\sqrt{a^2 - x^2} = \sqrt{a^2 - a^2 \sin \theta} = a \sqrt{1 - \sin^2 \theta} = a \abs{\cos \theta} \period\]
-    This substitution eliminates the root sign. Because \(x = a \sin \theta,\) we have \(\dd x = a \cos \theta \, \dd \theta.\)
-    In an indefinite integral, we drop the absolute value bars for simplicity.
-    Thus, our integral is
-    \[
-    \int \sqrt{a^2 - x^2} \, \dd x = \int a^2 \cos^2 \theta \, \dd \theta \comma 
-    \]
-    which we evaluate using the reduction formula \(\cos^2 \theta = \frac{1}{2}(1 + \cos 2 \theta).\)
+    This substitution eliminates the root sign, 
+    producing a simpler expression to integrate.
     We call this substitution procedure <i>trigonometric substitution</i>:
     the procedure by which we exploit trig identities to strip root signs.
 </p>
-<h4>Substitutions</h4>
+<h4>Picking Substitutions</h4>
 <p>
     We've established that for the expression \(\sqrt{a^2 - x^2},\)
     which we'll denote Case 1, we should let \(x = a \sin \theta.\)
     But let's consider two more cases: Case 2, \(\sqrt{x^2 - a^2};\) and Case 3, \(\sqrt{a^2 + x^2}.\) 
     For Case 2, we let \(x = a \sec \theta.\) 
     Using the identity \(\sec^2 \theta - 1 = \tan^2 \theta,\) we have 
-    \[\sqrt{x^2 - a^2} = \sqrt{a^2 \sec^2 \theta - a^2} = a \abs{\tan \theta} \period\]
+    \[\sqrt{x^2 - a^2} = \sqrt{a^2 \sec^2 \theta - a^2} = a \sqrt{\sec^2 \theta - 1} = a \abs{\tan \theta} \period\]
     Similarly, for Case 3 we substitute \(x = a \tan \theta.\)
     We then use the identity \(\tan^2 \theta + 1 = \sec^2 \theta\) to get 
-    \[\sqrt{a^2 + x^2} = \sqrt{a^2 + a^2 \tan^2 \theta} = a \abs{\sec \theta} \period\] 
+    \[\sqrt{a^2 + x^2} = \sqrt{a^2 + a^2 \tan^2 \theta} = a \sqrt{1 + \tan^2 \theta} = a \abs{\sec \theta} \period\] 
 </p>
 <p>
-    Note that in Case 1 we can also substitute \(x = a \cos \theta,\)
+    Note that in Case 1 we may also substitute \(x = a \cos \theta,\)
     which simplifies the radical to \(a \abs{\sin \theta}.\)  
-    This substitution accomplishes the same goal, eliminating the root; 
-    but the differential, \(\dd x = -a \sin \theta \, \dd \theta,\) 
-    has an extra negative sign. 
+    This substitution accomplishes the same goal, eliminating the root.
+    But when integrating, we compute the differential—in this case, 
+    \(\dd x = -a \sin \theta \di  \theta,\) which has an extra negative sign. 
     Similarly, using \(x = a \csc \theta\) for Case 2 and \(x = a \cot \theta\) for Case 3
     both eliminate root signs, but their differentials contain negative signs.
-    These substitutions are therefore more complicated, so we avoid them.
+    These substitutions are thereby more complicated, so we avoid them.
 </p>
 <p>
-    We need to ensure that each substitution we make is <i>one-to-one</i>; that is,
+    We must ensure that each substitution we make is <i>one-to-one</i>; that is,
     it has an inverse function. 
     For example, when substituting \(x = a \sin \theta,\) 
     \(x\) has an inverse function for \(- \pi/2 \leq \theta \leq \pi/2.\)
     Thus, we restrict \(\theta\) to the interval \([- \pi/2, \pi/2].\)
     Note that this interval matches the range of inverse sine.
     Conversely, in Case 2 we substitute \(x = a \sec \theta.\) 
-    Here, \(x\) is one-to-one for \(- \pi/2 \lt \theta \lt \pi/2,\)
-    so we restrict \(\theta\) to this interval.
+    Here, \(x\) is one-to-one for \(0 \leq \theta \lt \pi/2\) 
+    or \(\pi \leq \theta \leq 3 \pi/2,\)
+    so we restrict \(\theta\) to either of these intervals.
     Finally, Case 3 presents the substitution \(x = a \tan \theta,\)
-    which has an inverse function for either \(0 \leq \theta \lt \pi/2\) or \(\pi \leq \theta \lt 3 \pi/2.\)
+    which has an inverse function for \(- \pi/2 \lt \theta \lt \pi/2.\)
 </p>
+
 <!-- table for trig sub -->
-<div class="steps-title"> TRIG SUBSTITUTIONS </div>
-<div class="steps" id="table-2">
+<div class="steps-title"> PICKING SUBSTITUTIONS </div>
+<div class="steps">
     <table class="table-full-width">
         <thead>
             <tr>
@@ -128,7 +127,7 @@
                 \(\sqrt{a^2 - x^2}\)
             </td>
             <td>
-                \(x = a \sin \theta,\) \(-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}\)
+                \(x = a \sin \theta\) 
             </td>
             <td>
                 \(1 - \sin^2 \theta = \cos \theta\)
@@ -140,7 +139,7 @@
                 \(\sqrt{x^2 - a^2}\)
             </td>
             <td>
-                \(x = a \sec \theta,\) \(-\frac{\pi}{2} \lt \theta \lt \frac{\pi}{2}\)
+                \(x = a \sec \theta\) 
             </td>
             <td>
                 \(\sec^2 \theta - 1 = \tan^2 \theta\)
@@ -152,7 +151,7 @@
                 \(\sqrt{a^2 + x^2}\)
             </td>
             <td>
-                \(x = a \tan \theta,\) \(0 \leq \theta \lt \frac{\pi}{2} \; \; \text{or} \; \; \pi \leq \theta \lt \frac{3 \pi}{2}\)
+                \(x = a \tan \theta\) 
             </td>
             <td>
                 \(\tan^2 \theta + 1 = \sec^2 \theta\)
@@ -166,31 +165,125 @@
 <div class="example" id="ex-1">
     <!--example 1 problem-->
     <div class="example-problem" id="ex-1-problem">  
-        Evaluate \(\ds \int \frac{1}{x \sqrt{4 - x^2}} \, \dd x\) using trigonometric substitution.
+        For each of (a)–(c), 
+        perform a trigonometric substitution to remove the root sign. 
+        <ol class="list-alpha">
+            <li>
+                \(\sqrt{25 - x^2}\)
+            </li>
+            <li>
+                \(\sqrt{81 + x^2}\)
+            </li>
+            <li>
+                \(\sqrt{x^2 - 100}\)
+            </li>
+        </ul>
     </div>
 </div>
 <button onclick="toggle1()" class="solution-button"> SHOW SOLUTION ▼ </button>
 <!--example 1 solution-->
 <div id="solution1" class="solution">
+    <ol class="list-alpha">
+        <li>
+            This expression matches Case 1, so we substitute \(x = \sqrt{25} \sin \theta = 5 \sin \theta.\)
+            We then get 
+            \[
+            \ba 
+            \sqrt{25 - (5 \sin \theta)^2} &= \sqrt{25 - 25 \sin^2 \theta} \\
+            &= 5 \sqrt{1 - \sin^2 \theta} \\
+            &= 5 \abs{\cos \theta} \period
+            \ea 
+            \]
+        </li>
+        <hr>
+        <li>
+            Because this expression matches Case 3, we substitute \(x = \sqrt{81} \tan \theta = 9 \tan \theta.\)
+            Then the expression becomes 
+            \[
+            \ba 
+            \sqrt{81 + (9 \tan \theta)^2} &= \sqrt{81 + 81 \tan^2 \theta} \\
+            &= 9 \sqrt{1 + \tan^2 \theta} \\
+            &= 9 \abs{\sec \theta} \period 
+            \ea 
+            \]
+        </li>
+        <hr>
+        <li>
+            We have a form of Case 3.
+            Thus, we substitute \(x = \sqrt{100} \sec \theta = 10 \sec \theta,\) which yields 
+            \[
+            \ba 
+            \sqrt{(10 \sec \theta)^2 - 100} &= \sqrt{100 \sec^2 \theta - 100} \\
+            &= 10 \sqrt{\sec^2 \theta - 1} \\ 
+            &= 10 \abs{\tan \theta} \period
+            \ea 
+            \]
+        </li>
+    </ul>
+</div>
+<p>
+    <span class="warning">Do NOT forget the absolute value bars.</span>
+    We'll discuss them later, when we integrate.
+    But for now, as we work with indefinite integrals, we just drop the absolute value bars for simplicity.
+    With definite integrals, however, we leave the absolute value bars and analyze the situation. 
+</p>
+
+<!-- table for trig sub indefinite integrals -->
+<div class="steps-title"> TRIGONOMETRIC SUBSTITUTIONS—INDEFINITE INTEGRALS </div>
+<div class="steps">
+    Suppose an indefinite integral contains a radical. 
+    <ol class="list-num">
+        <li>
+            Pick a trigonometric substitution to rewrite the radical.
+            For example, the substitution \(x = 3 \sin \theta\) allows \(\sqrt{9 - x^2}\)
+            to be rewritten as \(3 \abs{\sin \theta}.\) 
+            For simplicity, <u>drop the absolute value bars.</u>
+        </li>
+        <li>
+            Compute the differential of the substitution.
+            For example, the substitution \(x = 3 \sin \theta\) 
+            has the differential \(\dd x = 3 \cos \theta \di \theta.\)
+        </li>
+        <li>
+            Re-express your answer in terms of the original variable.
+            Draw a right triangle whose side lengths match the substitution you performed.
+            For example, the reference triangle of the substitution \(x = 3 \sin \theta\)
+            satisfies \(\sin \theta = x/3.\)
+            Therefore, the triangle has a hypotenuse of length \(3\) and an angle \(\theta\) whose opposite side has length \(x.\)
+        </li>
+    </ol>
+</div>
+
+<!--example 2-->
+<div class="example-title" id="ex-2-header"> EXAMPLE 2 </div>
+<div class="example" id="ex-2">
+    <!--example 2 problem-->
+    <div class="example-problem" id="ex-2-problem">  
+        Evaluate \(\ds \int \frac{1}{x \sqrt{4 - x^2}} \di  x\) using a trigonometric substitution.
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"> SHOW SOLUTION ▼ </button>
+<!--example 2 solution-->
+<div id="solution2" class="solution">
     <p>
         The denominator has the factor \(\sqrt{4 - x^2},\) 
-        whose root we can clear using
-        \[
-        \ba 
-        x &= 2 \sin \theta \\ 
-        \dd x &= 2 \cos \theta \, \dd \theta \period
-        \ea 
-        \] 
+        whose root sign we clear by letting \(x = 2 \sin \theta:\)
+        \[\sqrt{4 - (2 \sin \theta)^2} = \sqrt{4 - 4 \sin^2 \theta} = 2 \sqrt{1 - \sin^2 \theta} = 2 \abs{\cos \theta} \period \]
+        Additionally, \(\dd x = 2 \cos \theta \di \theta.\)
         The integral then becomes 
         \[
         \ba 
-        \int \frac{1}{(2 \sin \theta) \sqrt{4 - 4 \sin^2 \theta}} \cdot 2 \cos \theta \, \dd \theta 
-        &= \int \frac{1}{2} \csc \theta \, \dd \theta \period
+        &\int \frac{1}{(2 \sin \theta) \sqrt{4 - 4 \sin^2 \theta}} \cdot 2 \cos \theta \di  \theta \\
+        = &\int \frac{2 \cos \theta}{(2 \sin \theta)(2 \abs{\cos \theta})} \di  \theta \period
         \ea 
         \]
-        Recall that \(\int \csc \theta \, \dd \theta = - \ln \abs{\csc \theta + \cot \theta} + C.\)
+        Notice that the new integrand has no root signs, so it's a less complicated expression. 
+        Since we have an indefinite integral, we ignore the absolute value bars of \(\abs{\cos \theta}.\)
+        This assumption is merely for simplicity. The integral is then
+        \[\int \frac{1}{2} \csc \theta \di  \theta \period\]
+        Recall that \(\int \csc \theta \di  \theta = - \ln \abs{\csc \theta + \cot \theta} + C.\)
         Thus, we have 
-        \[\int \frac{1}{2} \csc \theta \, \dd \theta = -\frac{1}{2} \ln \abs{\csc \theta + \cot \theta} + C \period\]
+        \[\int \frac{1}{2} \csc \theta \di  \theta = -\frac{1}{2} \ln \abs{\csc \theta + \cot \theta} + C \period\]
         <!--figure 1-->
         <figure class="fig-1">
             <img src="../images/sectionImages/6/trigSub-ex1.jpg" class="fig-1__image" alt="Fig.1">
@@ -200,45 +293,48 @@
                 content:'FIGURE 1';
             }
         </style>
-        At this stage, we need to convert back to \(x.\) 
+        At this stage, we convert our answer back to \(x \col\) 
         Since \(x = 2 \sin \theta,\) it follows that \(\sin \theta = x/2.\) 
-        We can then draw a right triangle that satisfies this description: 
+        We then reference a right triangle that satisfies this description: 
         The triangle has a hypotenuse of length \(2\) and an angle \(\theta\) whose opposite side is \(x\) (Figure 1). 
+        These lengths result in the side adjacent to \(\theta\) having length \(\sqrt{2^2 - x^2} = \sqrt{4 - x^2}.\)
         We then see that \(\csc \theta = 2/x\) and \(\cot \theta = \sqrt{4 - x^2}/x.\)
         Therefore, our final answer is 
         \[\boxed{-\frac{1}{2} \ln \abs{\frac{2}{x} + \frac{\sqrt{4 - x^2}}{x}} + C}\]
     </p>
 </div>
 <p>
-    <span class="warning">Do NOT forget to change the differential.</span> 
-    Remember that in indefinite integrals, we drop absolute value bars for simplicity.
-    Using your substitution, work backward to construct a right triangle.
+    <span class="warning">Do NOT forget to change the differential.</span>
+    Do not blindly switch from \(\dd x\) to \(\dd \theta.\)
+    Moreover, do not leave your answer in terms of \(\theta;\) 
+    instead, use your substitution to to construct a reference triangle.
     This procedure enables you to re-express trig functions as algebraic expressions in the final answer.
 </p>
 
-<!--example 2-->
-<div class="example-title" id="ex-2-header"> EXAMPLE 2 </div>
-<div class="example" id="ex-2">
-    <!--example 2 problem-->
-    <div class="example-problem" id="ex-2-problem">  
-        Using trigonometric substitution, show that 
-        \[\int \frac{1}{\sqrt{a^2 + x^2}} \, \dd x = \ln \abs{\sqrt{a^2 + x^2} + x} + C \comma\]
+<!--example 3-->
+<div class="example-title" id="ex-3-header"> EXAMPLE 3 </div>
+<div class="example" id="ex-3">
+    <!--example 3 problem-->
+    <div class="example-problem" id="ex-3-problem">  
+        Using a trigonometric substitution, show that 
+        \[\int \frac{1}{\sqrt{a^2 + x^2}} \di  x = \ln \abs{\sqrt{a^2 + x^2} + x} + C \comma\]
         where \(a \gt 0.\)
     </div>
 </div>
-<button onclick="toggle2()" class="solution-button"> SHOW SOLUTION ▼ </button>
-<!--example 2 solution-->
-<div id="solution2" class="solution">
+<button onclick="toggle3()" class="solution-button"> SHOW SOLUTION ▼ </button>
+<!--example 3 solution-->
+<div id="solution3" class="solution">
     <p>
-        The expression \(\sqrt{a^2 + x^2}\) warrants the trig substitution \(x = a \tan \theta.\) 
-        Then \(\dd x = a \sec^2 \theta \, \dd \theta,\) 
+        The expression \(\sqrt{a^2 + x^2}\) warrants the trig substitution \(x = a \tan \theta:\)
+        \[\sqrt{a^2 + (a \tan \theta)^2} = \sqrt{a^2 + a^2 \tan^2 \theta} = a \sqrt{1 + \tan^2 \theta} = a \abs{\sec \theta} \period \] 
+        Then \(\dd x = a \sec^2 \theta \di  \theta,\) 
         and the integral becomes 
-        \[\int \frac{1}{\sqrt{a^2 + a^2 \tan^2 \theta}} \cdot a \sec^2 \theta \, \dd \theta 
-        = \int \frac{1}{\abs{\sec \theta}} \cdot \sec^2 \theta \, \dd \theta \period \]
+        \[\int \frac{1}{\sqrt{a^2 + a^2 \tan^2 \theta}} \cdot a \sec^2 \theta \di  \theta 
+        = \int \frac{1}{\abs{\sec \theta}} \cdot \sec^2 \theta \di  \theta \period \]
         Since we're working with an indefinite integral, 
         we drop the absolute value bars on the \(\abs{\sec \theta}\) for simplicity.
         We then get 
-        \[\int \sec \theta \, \dd \theta = \ln \abs{\sec \theta + \tan \theta} + C \period \]
+        \[\int \sec \theta \di  \theta = \ln \abs{\sec \theta + \tan \theta} + C \period \]
         <!--figure 2-->
         <figure class="fig-2">
             <img src="../images/sectionImages/6/trigSub-ex2.jpg" class="fig-2__image" alt="Fig.2">
@@ -257,7 +353,7 @@
         \[\ln \abs{\frac{\sqrt{a^2 + x^2}}{a} + \frac{x}{a}} + C_1 \period \] 
         But we can re-express our answer as 
         \[\ln \abs{\sqrt{a^2 + x^2} + x} - \ln a + C_1 \period\]
-        Since \(a \gt 0\) is a constant, we can denote \(C_1 - \ln a\) as one constant: \(C.\)
+        Since \(a \gt 0\) is a constant, we denote \(C_1 - \ln a\) as one constant: \(C.\)
         Our final answer is then 
         \[\ln \abs{\sqrt{a^2 + x^2} + x} + C \comma \]
         as requested.
@@ -267,88 +363,186 @@
 <h4>Changing Bounds</h4>
 <p>
     Let's now discuss how to change bounds when performing a trig substitution.
-    This course of action requires us to solve for \(\theta,\)
-    explaining the need for our substitutions to be invertible functions. 
-    Consider, as an example, the integral 
-    \[\int_{\sqrt 2}^{\sqrt 2/3} \sqrt{x^2 - 1} \, \dd x \period \]
-    We perform the substitution \(x = \sec \theta,\) giving \(\dd x = \sec \theta \tan \theta \, \dd \theta.\)
-    Now we change the bounds:
-    For the lower bound, \(x = \sqrt 2,\) we find 
-    \[\sqrt 2 = \sec \theta \implies \theta = \frac{\pi}{4} \period\]
-    Similarly, for the upper bound, \(x = \sqrt 2/3,\) we have
-    \[\frac{\sqrt 2}{3} = \sec \theta \implies \theta = \frac{\pi}{3} \period\]
-    Our new integral is then 
+    For example, consider the integral 
+    \[\int_{1/2}^{\sqrt 3/2} \sqrt{1 - x^2} \di  x \period \]
+    We perform the substitution \(x = \sin \theta,\) giving \(\dd x = \cos \theta \di  \theta.\)
+    Now we change the bounds: For the lower bound, \(x = 1/2,\) 
+    we find 
+    \[1/2 = \sin \theta \implies \theta = \pi/6 \period \]
+    Likewise, for the upper bound, \(x = \sqrt 3/2,\) 
+    we get 
+    \[ \sqrt 3/2 = \sin \theta \implies \theta = \pi/3 \period \]
+    In changing the bounds, we solve for \(\theta,\)
+    which explains why our substitutions need to have inverse functions.
+    Thus, our new integral is 
     \[
     \ba 
-    &\int_{\pi/4}^{\pi/3} \sqrt{\sec^2 \theta - 1} \sec \theta \tan \theta \, \dd \theta \\
-    = &\int_{\pi/4}^{\pi/3} \abs{\tan \theta} \sec \theta \tan \theta \, \dd \theta \period
+    &\int_{\pi/6}^{\pi/3} \sqrt{1 - \sin^2 \theta} \, \cos \theta \di  \theta \period \\
+    = &\int_{\pi/6}^{\pi/3} \abs{\cos \theta} \, \cos \theta \di  \theta \period 
     \ea 
     \]
-    How do we deal with \(\abs{\tan \theta} \ques\)
-    Let's consider what values \(\abs{\tan \theta}\) outputs:
-    For all \(\pi/4 \leq \theta \leq \pi/3,\) \(\tan \theta \gt 0.\)
-    Since \(\tan \theta\) only takes on positive values, we can simply drop its absolute value bars. 
-    If our function only took on negative values, however, 
-    then we'd need to insert a negative sign after dropping the absolute value bars.
-    Thus, the integral becomes 
-    \[\int_{\pi/4}^{\pi/3} \sec \theta \tan^2 \theta \, \dd \theta \period\] 
-    (We'll stop here, since this integral was for demonstration purposes.)
+    How do we deal with \(\abs{\cos \theta} \ques\) 
+    Let's consider the values \(\cos \theta\) outputs:
+    For all \(\pi/6 \lt \theta \lt \pi/3,\) \(\cos \theta \gt 0.\)
+    Since \(\cos \theta\) only takes on positive values on this interval, 
+    it follows that \(\abs{\cos \theta} = \cos \theta.\)
+    Therefore, we replace \(\abs{\cos \theta}\) with \(\cos \theta\)
+    to attain  
+    \[
+    \ba 
+    \int_{\pi/6}^{\pi/3} \cos^2 \theta \di  \theta 
+    &= \int_{\pi/6}^{\pi/3} \frac{1}{2} \par{1 + \cos 2 \theta} \di  \theta \\
+    &= \par{\frac{1}{2} \theta + \frac{1}{4} \sin 2 \theta} \Big|_{\pi/6}^{\pi/3} \\
+    &= \par{\frac{1}{2} \cdot \frac{\pi}{3} + \frac{1}{4} \sin \frac{2 \pi}{3}}
+    - \par{\frac{1}{2} \cdot \frac{\pi}{6} + \frac{1}{4} \sin \frac{\pi}{3} } \\
+    &= \boxed{\frac{\pi}{12}}
+    \ea 
+    \]
+    After changing the integral's bounds, 
+    <span class="warning">we did not return to \(x.\)</span>
+    We performed all remaining calculations in terms of \(\theta.\)
 </p>
 
-<!--example 3-->
-<div class="example-title" id="ex-3-header"> EXAMPLE 3 </div>
-<div class="example" id="ex-3">
-    <!--example 3 problem-->
-    <div class="example-problem" id="ex-3-problem">  
-        Evaluate \(\ds \int_{2/\sqrt 3}^{\sqrt 2} \frac{1}{x \sqrt{x^2 - 1}} \, \dd x\) 
-        using trigonometric substitution.
+<!-- table for trig sub definite integrals -->
+<div class="steps-title"> TRIGONOMETRIC SUBSTITUTIONS—DEFINITE INTEGRALS </div>
+<div class="steps">
+    Suppose a definite integral contains a radical. 
+    <ol class="list-num">
+        <li>
+            Pick a trigonometric substitution to rewrite the radical.
+        </li>
+        <li>
+            Compute the differential of the substitution.
+        </li>
+        <li>
+            <u>Change the bounds on the integral.</u>
+            Perform all remaining calculations in terms of \(\theta.\)
+            Do not convert back to the original variable.
+        </li>
+    </ol>
+</div>
+
+<!--example 4-->
+<div class="example-title" id="ex-4-header"> EXAMPLE 4 </div>
+<div class="example" id="ex-4">
+    <!--example 4 problem-->
+    <div class="example-problem" id="ex-4-problem">  
+        Evaluate \(\ds \int_{-\sqrt 2}^{-2/\sqrt 3} \frac{1}{x \sqrt{x^2 - 1}} \di  x\) 
+        using a trigonometric substitution.
     </div>
 </div>
-<button onclick="toggle3()" class="solution-button"> SHOW SOLUTION ▼ </button>
-<!--example 3 solution-->
-<div id="solution3" class="solution">
+<button onclick="toggle4()" class="solution-button"> SHOW SOLUTION ▼ </button>
+<!--example 4 solution-->
+<div id="solution4" class="solution">
     <p>
-       The root sign in \(\sqrt{x^2 - 1}\) can be stripped by letting \(x = \sec \theta.\)
-       Then \(\dd x = \sec \theta \tan \theta \, \dd \theta.\) 
+       The root sign in \(\sqrt{x^2 - 1}\) is stripped by letting \(x = \sec \theta:\)
+       \[\sqrt{\sec^2 \theta - 1} = \sqrt{\tan^2 \theta} = \abs{\tan \theta} \period\]
+       Then \(\dd x = \sec \theta \tan \theta \di  \theta.\) 
        We now change the bounds: 
-       When \(x = 2/ \sqrt 3,\) we have 
-       \[\frac{2}{\sqrt 3} = \sec \theta \implies \theta = \frac{\pi}{6} \period\]
-       Likewise, when \(x = \sqrt 2,\) we have 
-       \[2 = \sec \theta \implies \theta = \frac{\pi}{4} \period \]
+       When \(x = -\sqrt 2,\) we have 
+       \[- \sqrt 2 = \sec \theta \implies \theta = \frac{3 \pi}{4} \period \]
+       Likewise, when \(x = -2/ \sqrt 3,\) we have 
+       \[-\frac{2}{\sqrt 3} = \sec \theta \implies \theta = \frac{5 \pi}{6} \period\]
        Therefore, our integral becomes 
        \[
        \ba 
-       &\int_{\pi/6}^{\pi/4} \frac{1}{\sec \theta \sqrt{\sec^2 \theta - 1}} \cdot \sec \theta \tan \theta \, \dd \theta \\
-       =&\int_{\pi/6}^{\pi/4} \frac{1}{\abs{\tan \theta}} \tan \theta \, \dd \theta \period 
+       &\int_{3 \pi/4}^{5 \pi/6} \frac{1}{\sec \theta \sqrt{\sec^2 \theta - 1}} \cdot \sec \theta \tan \theta \di  \theta \\
+       =&\int_{3 \pi/4}^{5 \pi/6} \frac{1}{\abs{\tan \theta}} \, \tan \theta \di  \theta \period 
        \ea 
        \]
-       For convenience, let's drop the absolute value bars in \(\abs{\tan \theta}.\)
-       The integral is then  
+       How do we deal with \(\abs{\tan \theta} \ques\) 
+       We consider the values \(\tan \theta\) outputs for \(3 \pi/4 \lt \theta \lt 5 \pi/6:\)
+       On this interval, \(\tan \theta\) is strictly negative. 
+       It then follows that \(\abs{\tan \theta} = - \tan \theta,\)
+       so we replace \(\abs{\tan \theta}\) with \((- \tan \theta)\) to get 
        \[
        \ba 
-       \int_{\pi/6}^{\pi/4} \dd \theta &= \theta \Big|_{\pi/6}^{\pi/4} \\[2ex] 
-       &= \frac{\pi}{4} - \frac{\pi}{6} \\[2ex] 
-       &= \boxed{\frac{\pi}{12}}
+       \int_{3 \pi/4}^{5 \pi/6} - \dd \theta &= - \theta \Big|_{3 \pi/4}^{5 \pi/6} \\[2ex] 
+       &= - \par{\frac{5 \pi}{6} - \frac{3 \pi}{4}} \\[2ex] 
+       &= \boxed{-\frac{\pi}{12}}
        \ea 
        \]
+       Since we already changed the bounds on the integral, we did NOT re-express our antiderivative in terms of \(x.\)
+       Therefore, we don't need to draw a triangle,
+       the procedure we use in indefinite integrals to express our final answer in terms of \(x.\) 
     </p>
+</div>
+<h4>Coefficients in \(x^2\)</h4>
+<p>
+    Consider, as an example, the expression \(\sqrt{a^2 + b^2 x^2},\) where \(a\) and \(b\) are both positive constants.
+    To remove the root sign, we substitute \(x = \frac{a}{b} \tan \theta:\)
+    \[\sqrt{a^2 + b^2 \par{\frac{a}{b} \tan \theta}^2} = \sqrt{a^2 + a^2 \tan^2 \theta} = a \abs{\sec \theta} \period\]
+</p>
+
+<!--example 5-->
+<div class="example-title" id="ex-5-header"> EXAMPLE 5 </div>
+<div class="example" id="ex-5">
+    <!--example 5 problem-->
+    <div class="example-problem" id="ex-5-problem"> 
+        Using a trigonometric substitution, 
+        evaluate \(\ds \int \frac{x^3}{(9x^2 + 25)^{3/2}} \di  x.\) 
+    </div>
+</div>
+<button onclick="toggle5()" class="solution-button"> SHOW SOLUTION ▼ </button>
+<!--example 5 solution-->
+<div id="solution5" class="solution">
+    <p>
+        We substitute \(x = \frac{5}{3} \tan \theta\) to rewrite the denominator of the integrand as 
+        \[\sqrt{9 \par{\frac{5}{3} \tan \theta}^2 + 25 } = \sqrt{25 \tan^2 \theta + 25} = 5 \abs{\sec \theta} \period\] 
+        Then \(\dd x = \frac{5}{3} \sec^2 \theta \di  \theta.\)
+        The integral becomes 
+        \[\int \frac{\par{\frac{5}{3} \tan \theta}^3}{27 \cdot \par{\frac{5}{3} \abs{\sec \theta}}^3 } 
+        \cdot \frac{5}{3} \sec^2 \theta \di  \theta \period\]
+        Because we have an indefinite integral, we drop the absolute value bars in \(\abs{\sec \theta}:\)
+        \[\frac{5}{81} \int \frac{\tan^3 \theta}{\sec^3 \theta} \, \sec^2 \theta \di  \theta \period\] 
+        In the integrand,  there lies the extra factor \(\sec \theta \tan \theta:\)
+        \[\frac{5}{81} \int \frac{\tan \theta \tan^2 \theta}{\sec^2 \theta} \, \sec \theta \di  \theta 
+        = \frac{5}{81} \int \frac{\tan \theta (\sec^2 \theta - 1)}{\sec^2 \theta} \, \sec \theta \di  \theta \period\]
+        Therefore, we substitute \(u = \sec \theta\) because then \(\dd u = \sec \theta \tan \theta \di  \theta.\)
+        The substitution then yields 
+        \[
+        \ba 
+        \frac{5}{81} \int \frac{u^2 - 1}{u^2} \di  u &= \frac{5}{81} \int 1 - \frac{1}{u^2} \di  u \\
+        &= \frac{5}{81} \par{u + \frac{1}{u}} + C \\
+        &= \frac{5}{81} \par{\sec \theta + \frac{1}{\sec \theta}} + C \period 
+        \ea 
+        \] 
+        <!--figure 3-->
+        <figure class="fig-3">
+            <img src="../images/sectionImages/6/trigSub-ex3.jpg" class="fig-3__image" alt="Fig.3">
+        </figure>
+        <style>
+            .fig-3::before{
+                content:'FIGURE 3';
+            }
+        </style>
+        Finally, we convert back to \(x.\) Since \(x = \frac{5}{3} \tan \theta,\)
+        it follows that \(\tan \theta = 3x/5.\)
+        Therefore, we construct a right triangle that has an angle \(\theta\) 
+        whose opposite side has length \(3x\) and whose adjacent side has length \(5.\)
+        Then the hypotenuse has length \(\sqrt{(3x)^2 + 5^2} = \sqrt{9x^2 + 25}\) (Figure 3).
+        Thus, \(\sec \theta = \sqrt{9x^2 + 25}/5.\)
+        Our final answer is 
+        \[\boxed{\frac{5}{81} \par{\frac{\sqrt{9x^2 + 25}}{5} + \frac{5}{\sqrt{9x^2 + 25}}} + C }\]
+    </p>
+
 </div>
 
 <h4>Completing the Square</h4>
 <p>
-    Consider the expression \(\sqrt{ax^2 + bx + c}.\)
-    We complete the square to express \(ax^2 + bx + c\) in the form \((x - h)^2 + k,\)
+    Consider the expression \(\sqrt{x^2 + bx + c}.\)
+    We complete the square to express \(x^2 + bx + c\) in the form \((x - h)^2 + k,\)
     from which we substitute \(x - h = \sqrt k \tan \theta.\)
     For example, the quadratic \(x^2 - 4x + 10\) can be rewritten as 
     \[x^2 - 4x + \underline{4} - \underline{4} + 10 = (x - 2)^2 + 6 \period\]
     Consequently, we can rewrite 
-    \[\int \sqrt{x^2 - 4x + 10} \, \dd x \qquad \text{as} \qquad \int \sqrt{(x - 2)^2 + 6} \, \dd x \comma\]
+    \[\int \sqrt{x^2 - 4x + 10} \di  x \qquad \text{as} \qquad \int \sqrt{(x - 2)^2 + 6} \di  x \comma\]
     and we can remove the root sign by letting \(x - 2 = \sqrt 6 \tan \theta.\)
     To find \(\dd x,\) we first write \(x\) explicitly:
     \[
     \ba 
     x &= 2 + \sqrt 6 \tan \theta \\
-    \dd x &= \sqrt 6 \sec^2 \theta \, \dd \theta \period
+    \dd x &= \sqrt 6 \sec^2 \theta \di  \theta \period
     \ea 
     \]
     If the integral were definite, then we would change the bounds by isolating \(\theta:\)
@@ -356,56 +550,100 @@
     This procedure permits us to solve integrals that involve quadratics. 
 </p>
 
-<!--example 4-->
-<div class="example-title" id="ex-4-header"> EXAMPLE 4 </div>
-<div class="example" id="ex-4">
-    <!--example 4 problem-->
-    <div class="example-problem" id="ex-4-problem">  
-        Evaluate \(\ds \int \frac{1}{\sqrt{x^2- 2x + 5}} \, \dd x\) 
-        using trigonometric substitution.
+<!--example 6-->
+<div class="example-title" id="ex-6-header"> EXAMPLE 6 </div>
+<div class="example" id="ex-6">
+    <!--example 6 problem-->
+    <div class="example-problem" id="ex-6-problem">  
+        Evaluate \(\ds \int \frac{1}{\sqrt{x^2- 2x + 5}} \di  x\) 
+        using a trigonometric substitution.
     </div>
 </div>
-<button onclick="toggle4()" class="solution-button"> SHOW SOLUTION ▼ </button>
-<!--example 4 solution-->
-<div id="solution4" class="solution">
+<button onclick="toggle6()" class="solution-button"> SHOW SOLUTION ▼ </button>
+<!--example 6 solution-->
+<div id="solution6" class="solution">
     <p>
        We complete the square under the square root to get 
-       \[\int \frac{1}{\sqrt{(x - 1)^2 + 4}} \, \dd x \period\]
-       We let \(x - 1 = 2 \tan \theta.\) Then \(\dd x = 2 \sec^2 \theta \, \dd \theta.\)
+       \[\int \frac{1}{\sqrt{(x - 1)^2 + 4}} \di  x \period\]
+       We let \(x - 1 = 2 \tan \theta.\) Then 
+       \[
+       \ba 
+       x &= 1 + 2 \tan \theta \\ 
+       \dd x &= 2 \sec^2 \theta \di  \theta \period
+       \ea 
+       \]
        Afterward, the integral becomes 
        \[
        \ba 
-       &\int \frac{1}{\sqrt{4 \tan^2 \theta + 4}} \cdot 2 \sec^2 \theta \, \dd \theta \\
-       = &\int \frac{1}{2 \abs{\sec \theta}} \cdot 2 \sec^2 \theta \, \dd \theta \period 
+       &\int \frac{1}{\sqrt{4 \tan^2 \theta + 4}} \cdot 2 \sec^2 \theta \di  \theta \\
+       = &\int \frac{1}{2 \abs{\sec \theta}} \cdot 2 \sec^2 \theta \di  \theta \period 
        \ea 
        \]
-       The integral is indefinite, so the absolute value bars around \(\abs{\sec \theta}\) can disappear. 
+       The integral is indefinite, so we drop the absolute value bars around \(\abs{\sec \theta}.\) 
        The integral is then 
-       \[\int \sec \theta \, \dd \theta = \ln \abs{\sec \theta + \tan \theta} + C \period\]
+       \[\int \sec \theta \di  \theta = \ln \abs{\sec \theta + \tan \theta} + C \period\]
     </p>
     <p>
-        <!--figure 3-->
-        <figure class="fig-3">
-            <img src="../images/sectionImages/6/trigSub-ex4.jpg" class="fig-3__image" alt="Fig.3">
+        <!--figure 4-->
+        <figure class="fig-4">
+            <img src="../images/sectionImages/6/trigSub-ex4.jpg" class="fig-4__image" alt="Fig.4">
         </figure>
         <style>
-            .fig-3::before{
-                content:'FIGURE 3';
+            .fig-4::before{
+                content:'FIGURE 4';
             }
         </style>
         Now we express \(\sec \theta\) and \(\tan \theta\) in terms of \(x.\)
         When drawing the right triangle, note that \(\tan \theta = (x - 1)/2.\)
         Thus, our triangle should have legs of lengths \((x - 1)\) and \(2,\)
-        which create a hypotenuse of length \(\sqrt{4 + (x - 1)^2}\) (Figure 3).
-        Then \(\sec \theta = \sqrt{4 + (x - 1)^2}/2\) and \(\tan \theta = (x - 1)/2.\)
+        which create a hypotenuse of length \(\sqrt{4 + (x - 1)^2}\) (Figure 4).
+        Then \(\sec \theta = \sqrt{4 + (x - 1)^2}/2,\) and we've established that \(\tan \theta = (x - 1)/2.\)
         Thus, our answer is 
         \[
         \ln \abs{\frac{\sqrt{4 + (x - 1)^2}}{2} + \frac{x - 1}{2}} + C_1 
         = \ln \abs{\sqrt{4 + (x - 1)^2} + x - 1} - \ln 2 + C_1 \period 
         \]
-        We can combine \(\ln 2 + C_1\) as simply one constant, \(C,\) so our final answer is 
+        We combine \(\ln 2 + C_1\) as simply one constant, \(C,\) so our final answer is 
         \[\boxed{\ln \abs{\sqrt{4 + (x - 1)^2} + x - 1} + C}\]
     </p>
+</div>
+
+<!--section summary-->
+<div class="section-summary__title"> SECTION SUMMARY </div>
+<div class="section-summary">
+    <ul>
+       <li>
+           Consider the following forms and substitution choices.
+           <ul>
+                <li>
+                    For \(\sqrt{a^2 - x^2},\)
+                    substitute \(x = a \sin \theta. \)
+                </li>
+                <li>
+                    For \(\sqrt{x^2 - a^2},\)
+                    substitute \(x = a \sec \theta.\)
+                </li>
+                <li>
+                    For \(\sqrt{a^2 + x^2},\)
+                    substitute \(x = a \tan \theta.\)
+                </li>
+           </ul>
+       </li>
+       <li>
+            In an indefinite integral, drop absolute value bars. 
+            For this cases, draw a right triangle whose side lengths match the substitution you made. 
+       </li>
+       <li>
+            In a definite integral, change the bounds of integration by solving for \(\theta\) in the substitution you performed.
+            Be careful when dropping absolute value bars: consider whether the function in absolute value bars is strictly positive 
+            or strictly negative on the interval through which you're integrating (see Example 4).
+       </li>
+       <li>
+            The family of functions \(\sqrt{x^2 + bx + c}\) 
+            can be rewritten as \(\sqrt{(x - h)^2 + k}\) by completing the square.
+            Then substitute \(x - h = \sqrt k \tan \theta\) (see Example 6).
+       </li>
+    </ul>
 </div>
 
     </main>
