@@ -10,20 +10,20 @@
     \[\sqrt{a^2 - x^2} = \sqrt{a^2 - a^2 \sin \theta} = a \sqrt{1 - \sin^2 \theta} = a \abs{\cos \theta} \period\]
     This substitution eliminates the root sign, 
     producing a simpler expression to integrate.
-    We call this substitution procedure <i>trigonometric substitution</i>:
+    We call this process <i>trigonometric substitution</i>:
     the procedure by which we exploit trig identities to strip root signs.
 </p>
 <h4>Picking Substitutions</h4>
 <p>
     We've established that for the expression \(\sqrt{a^2 - x^2},\)
-    which we'll denote Case 1, we should let \(x = a \sin \theta.\)
+    which we'll denote Case 1, we let \(x = a \sin \theta.\)
     But let's consider two more cases: Case 2, \(\sqrt{x^2 - a^2};\) and Case 3, \(\sqrt{a^2 + x^2}.\) 
     For Case 2, we let \(x = a \sec \theta.\) 
     Using the identity \(\sec^2 \theta - 1 = \tan^2 \theta,\) we have 
-    \[\sqrt{x^2 - a^2} = \sqrt{a^2 \sec^2 \theta - a^2} = a \sqrt{\sec^2 \theta - 1} = a \abs{\tan \theta} \period\]
+    \[\sqrt{x^2 - a^2} = \sqrt{(a \sec \theta)^2 - a^2} = a \sqrt{\sec^2 \theta - 1} = a \abs{\tan \theta} \period\]
     Similarly, for Case 3 we substitute \(x = a \tan \theta.\)
     We then use the identity \(\tan^2 \theta + 1 = \sec^2 \theta\) to get 
-    \[\sqrt{a^2 + x^2} = \sqrt{a^2 + a^2 \tan^2 \theta} = a \sqrt{1 + \tan^2 \theta} = a \abs{\sec \theta} \period\] 
+    \[\sqrt{a^2 + x^2} = \sqrt{a^2 + (a \tan \theta)^2} = a \sqrt{1 + \tan^2 \theta} = a \abs{\sec \theta} \period\] 
 </p>
 <p>
     Note that in Case 1 we may also substitute \(x = a \cos \theta,\)
@@ -102,10 +102,10 @@
 </div>
 
 <!--example 1-->
-<div class="example-title" id="ex-1-header"> EXAMPLE 1 </div>
-<div class="example" id="ex-1">
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
     <!--example 1 problem-->
-    <div class="example-problem" id="ex-1-problem">  
+    <div class="example-problem">  
         For each of (a)–(c), 
         perform a trigonometric substitution to remove the root sign. 
         <ol class="list-alpha">
@@ -170,14 +170,14 @@
 </p>
 
 <!-- table for trig sub indefinite integrals -->
-<div class="steps-title"> TRIGONOMETRIC SUBSTITUTIONS—INDEFINITE INTEGRALS </div>
+<div class="steps-title"> TRIGONOMETRIC SUBSTITUTIONS: INDEFINITE INTEGRALS </div>
 <div class="steps">
     Suppose an indefinite integral contains a radical. 
     <ol class="list-num">
         <li>
             Pick a trigonometric substitution to rewrite the radical.
             For example, the substitution \(x = 3 \sin \theta\) allows \(\sqrt{9 - x^2}\)
-            to be rewritten as \(3 \abs{\sin \theta}.\) 
+            to be rewritten as \(3 \abs{\cos \theta}.\) 
             For simplicity, <u>drop the absolute value bars.</u>
         </li>
         <li>
@@ -186,7 +186,7 @@
             has the differential \(\dd x = 3 \cos \theta \di \theta.\)
         </li>
         <li>
-            Re-express your answer in terms of the original variable.
+            Re-express your final answer in terms of the original variable.
             Draw a right triangle whose side lengths match the substitution you performed.
             For example, the reference triangle of the substitution \(x = 3 \sin \theta\)
             satisfies \(\sin \theta = x/3.\)
@@ -195,11 +195,29 @@
     </ol>
 </div>
 
+<p>
+    As we integrate, we'll come across some trigonometric integrals.
+    Remember the following reduction formulas:
+    \[
+    \ba 
+    \cos^2 \theta &= \frac{1}{2}(1 + \cos 2 \theta) \\
+    \sin^2 \theta &= \frac{1}{2}(1 - \cos 2 \theta) \period 
+    \ea 
+    \]
+    Also recall the following integrals:
+    \[
+    \ba 
+    \int \sec \theta \di \theta &= \ln \abs{\sec \theta + \tan \theta} + C \\ 
+    \int \csc \theta \di \theta &= - \ln \abs{\csc \theta + \cot \theta} + C \period
+    \ea 
+    \]
+</p>
+
 <!--example 2-->
-<div class="example-title" id="ex-2-header"> EXAMPLE 2 </div>
-<div class="example" id="ex-2">
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
     <!--example 2 problem-->
-    <div class="example-problem" id="ex-2-problem">  
+    <div class="example-problem">  
         Evaluate \(\ds \int \frac{1}{x \sqrt{4 - x^2}} \di  x\) using a trigonometric substitution.
     </div>
 </div>
@@ -219,15 +237,15 @@
         \ea 
         \]
         Notice that the new integrand has no root signs, so it's a less complicated expression. 
-        Since we have an indefinite integral, we ignore the absolute value bars of \(\abs{\cos \theta}.\)
-        This assumption is merely for simplicity. The integral is then
+        Since we have an indefinite integral, for simplicity we the absolute value bars of \(\abs{\cos \theta}.\)
+        The integral is then
         \[\int \frac{1}{2} \csc \theta \di  \theta \period\]
         Recall that \(\int \csc \theta \di  \theta = - \ln \abs{\csc \theta + \cot \theta} + C.\)
         Thus, we have 
         \[\int \frac{1}{2} \csc \theta \di  \theta = -\frac{1}{2} \ln \abs{\csc \theta + \cot \theta} + C \period\]
         <!--figure 1-->
         <figure class="fig-1">
-            <img src="../images/sectionImages/6/trigSub-ex1.jpg" class="fig-1__image" alt="Fig.1">
+            <img src="../images/sectionImages/6/trigSub-ex1.jpg" alt="Fig.1">
         </figure>
         <style>
             .fig-1::before{
@@ -253,10 +271,10 @@
 </p>
 
 <!--example 3-->
-<div class="example-title" id="ex-3-header"> EXAMPLE 3 </div>
-<div class="example" id="ex-3">
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
     <!--example 3 problem-->
-    <div class="example-problem" id="ex-3-problem">  
+    <div class="example-problem">  
         Using a trigonometric substitution, show that 
         \[\int \frac{1}{\sqrt{a^2 + x^2}} \di  x = \ln \abs{\sqrt{a^2 + x^2} + x} + C \comma\]
         where \(a \gt 0.\)
@@ -278,7 +296,7 @@
         \[\int \sec \theta \di  \theta = \ln \abs{\sec \theta + \tan \theta} + C \period \]
         <!--figure 2-->
         <figure class="fig-2">
-            <img src="../images/sectionImages/6/trigSub-ex2.jpg" class="fig-2__image" alt="Fig.2">
+            <img src="../images/sectionImages/6/trigSub-ex2.jpg" alt="Fig.2">
         </figure>
         <style>
             .fig-2::before{
@@ -289,7 +307,8 @@
         Because \(x = a \tan \theta,\) it follows that \(\tan \theta = x/a.\)
         Thus, we construct a right triangle containing an angle \(\theta\) 
         whose opposite side has length \(x\) and whose adjacent side has length \(a\) (Figure 2).
-        We then see that \(\sec \theta = \sqrt{a^2 + x^2}/a\) and \(\tan \theta = x/a.\)
+        We then see that \(\sec \theta = \sqrt{a^2 + x^2}/a,\)
+        and we've established that \(\tan \theta = x/a.\)
         Therefore, the integral becomes   
         \[\ln \abs{\frac{\sqrt{a^2 + x^2}}{a} + \frac{x}{a}} + C_1 \period \] 
         But we can re-express our answer as 
@@ -345,7 +364,7 @@
 </p>
 
 <!-- table for trig sub definite integrals -->
-<div class="steps-title"> TRIGONOMETRIC SUBSTITUTIONS—DEFINITE INTEGRALS </div>
+<div class="steps-title"> TRIGONOMETRIC SUBSTITUTIONS: DEFINITE INTEGRALS </div>
 <div class="steps">
     Suppose a definite integral contains a radical. 
     <ol class="list-num">
@@ -364,10 +383,10 @@
 </div>
 
 <!--example 4-->
-<div class="example-title" id="ex-4-header"> EXAMPLE 4 </div>
-<div class="example" id="ex-4">
+<div class="example-title"> EXAMPLE 4 </div>
+<div class="example">
     <!--example 4 problem-->
-    <div class="example-problem" id="ex-4-problem">  
+    <div class="example-problem">  
         Evaluate \(\ds \int_{-\sqrt 2}^{-2/\sqrt 3} \frac{1}{x \sqrt{x^2 - 1}} \di  x\) 
         using a trigonometric substitution.
     </div>
@@ -416,10 +435,10 @@
 </p>
 
 <!--example 5-->
-<div class="example-title" id="ex-5-header"> EXAMPLE 5 </div>
-<div class="example" id="ex-5">
+<div class="example-title"> EXAMPLE 5 </div>
+<div class="example">
     <!--example 5 problem-->
-    <div class="example-problem" id="ex-5-problem"> 
+    <div class="example-problem"> 
         Using a trigonometric substitution, 
         evaluate \(\ds \int \frac{x^3}{(9x^2 + 25)^{3/2}} \di  x.\) 
     </div>
@@ -432,7 +451,7 @@
         \[\sqrt{9 \par{\frac{5}{3} \tan \theta}^2 + 25 } = \sqrt{25 \tan^2 \theta + 25} = 5 \abs{\sec \theta} \period\] 
         Then \(\dd x = \frac{5}{3} \sec^2 \theta \di  \theta.\)
         The integral becomes 
-        \[\int \frac{\par{\frac{5}{3} \tan \theta}^3}{27 \cdot \par{\frac{5}{3} \abs{\sec \theta}}^3 } 
+        \[\int \frac{\par{\frac{5}{3} \tan \theta}^3}{\par{5\abs{\sec \theta}}^3 } 
         \cdot \frac{5}{3} \sec^2 \theta \di  \theta \period\]
         Because we have an indefinite integral, we drop the absolute value bars in \(\abs{\sec \theta}:\)
         \[\frac{5}{81} \int \frac{\tan^3 \theta}{\sec^3 \theta} \, \sec^2 \theta \di  \theta \period\] 
@@ -450,7 +469,7 @@
         \] 
         <!--figure 3-->
         <figure class="fig-3">
-            <img src="../images/sectionImages/6/trigSub-ex3.jpg" class="fig-3__image" alt="Fig.3">
+            <img src="../images/sectionImages/6/trigSub-ex3.jpg" alt="Fig.3">
         </figure>
         <style>
             .fig-3::before{
@@ -492,10 +511,10 @@
 </p>
 
 <!--example 6-->
-<div class="example-title" id="ex-6-header"> EXAMPLE 6 </div>
-<div class="example" id="ex-6">
+<div class="example-title"> EXAMPLE 6 </div>
+<div class="example">
     <!--example 6 problem-->
-    <div class="example-problem" id="ex-6-problem">  
+    <div class="example-problem">  
         Evaluate \(\ds \int \frac{1}{\sqrt{x^2- 2x + 5}} \di  x\) 
         using a trigonometric substitution.
     </div>
@@ -527,7 +546,7 @@
     <p>
         <!--figure 4-->
         <figure class="fig-4">
-            <img src="../images/sectionImages/6/trigSub-ex4.jpg" class="fig-4__image" alt="Fig.4">
+            <img src="../images/sectionImages/6/trigSub-ex4.jpg" alt="Fig.4">
         </figure>
         <style>
             .fig-4::before{
@@ -550,7 +569,6 @@
 </div>
 
 <!--section summary-->
-<div class="section-summary__title"> SECTION SUMMARY </div>
 <div class="section-summary">
     <ul>
        <li>
@@ -572,11 +590,11 @@
        </li>
        <li>
             In an indefinite integral, drop absolute value bars. 
-            For this cases, draw a right triangle whose side lengths match the substitution you made. 
+            For this case, draw a right triangle whose side lengths match the substitution you made. 
        </li>
        <li>
             In a definite integral, change the bounds of integration by solving for \(\theta\) in the substitution you performed.
-            Be careful when dropping absolute value bars: consider whether the function in absolute value bars is strictly positive 
+            Consider whether the function in absolute value bars is strictly positive 
             or strictly negative on the interval through which you're integrating (see Example 4).
        </li>
        <li>
