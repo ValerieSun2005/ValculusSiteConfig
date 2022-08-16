@@ -55,7 +55,7 @@ def createSectionPage():
         including students taking AP® Calculus and the college courses \
         Calculus I and Calculus II. \
         Each section provides an overview of the concept and contains exercises and solutions. \
-        PDFs of the notes, exercises, and solutions are also presented in the sections.\
+        PDFs of the +notes, exercises, and solutions are also presented in the sections.\
         Supplemental resources&#8288;—&#8288;such  \
         as cheat sheets, Quizlets, and practice tests&#8288;—&#8288; are included \
         in each chapter.\

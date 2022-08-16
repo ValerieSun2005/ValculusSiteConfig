@@ -1,0 +1,337 @@
+<h4>Introduction: Infinite Geomtric Series</h4>
+<p>
+    An infinite geometric series takes the form
+    \begin{equation} \label{eq:geo-series}
+        S = \sum_{n=k}^\infty ar^n = ar^k + ar^{k+1} + ar^{k+2} + \cdots \comma
+    \end{equation}
+    where \(r\) is called the 
+    <span class="emph">common ratio</span>.
+    In words, we say that each term differs by a common multiple, the common ratio.
+    The series \(S\) only converges if its terms are decreasing—that is, if \(|r| \lt 1.\)
+    If \(r\) satisfies this condition, then \(\lim_{n \to \infty} ar^n = 0.\)
+    By contrast, if \(|r| \leq 1,\) then \(\lim_{n \to \infty} ar^n \ne 0\) 
+    and so then \(S\) diverges by the Divergence Test. 
+</p>
+<p>
+    A finite geometric series 
+    \(\sum_{i = 0}^n ar^i\) 
+    equals  
+    \[ S_n = \frac{a \left(1 - r^n\right)}{1 - r} \period \]
+    But to find the value of an infinite geometric series, 
+    we consider \(\lim_{n \to \infty} S_n:\)
+    Since we assume \(\abs{r} \lt 1,\) we get  
+    \[
+        \ba
+        \sum_{n = 0}^\infty a r^n &= \lim_{n \to \infty} \frac{a \left(1 - r^n\right)}{1 - r} \\
+        &= \frac{a}{1 - r}. 
+        \ea
+    \]
+    We either say \(\sum_{n = 0}^\infty a r^n\)
+    <i>equals</i> \(a/(1 - r)\) or <i>converges to</i> \(a/(1 -r).\)
+    Both statements represent the same idea.
+    To apply this result to the general series of \(\eqRefer{eq:geo-series},\) we write  
+    \begin{equation} \label{eq:geo-series-result}
+        S = \frac{ar^k}{1 - r} \period 
+    \end{equation}
+    Because \(ar^k\) is the first term of \(S,\) 
+    \(\eqRefer{eq:geo-series-result}\) may be rewritten as 
+    \(S = (\textrm{FIRST TERM})/(1 - r).\)
+</p>
+
+<!--geometric series formula-->
+<div class="box-title"> FORMULA FOR AN INFINITE GEOMETRIC SERIES </div>
+<div class="box">
+    If \(|r| \lt 1,\) then 
+    \[\sum_{n = k}^\infty ar^n = \frac{ar^k}{1 - r} \period \]
+</div>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        For each of (i)–(iii),
+        determine whether the series converges or diverges. 
+        If the series converges, calculate its sum.
+        <ol class="list-roman">
+            <li>
+                <span>
+                    \(\ds \sum_{n = 0}^{\infty} \left(\frac{1}{5} \right)^n \)
+                </span>
+            </li>
+            <li>
+                <span>
+                    \(\ds \sum_{n = 1}^\infty \frac{2}{8^n} \)
+                </span>
+            </li>
+            <li>
+                <span>
+                    \(\ds \sum_{n = 1}^{\infty} 4^n \cdot e^{-n} \)
+                </span>
+            </li> 
+        </ol>
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"></button>
+<div id="solution1" class="solution">
+    <ol class="list-roman">
+        <li>
+            We find \(r = 1/5,\) so the series converges since \(-1 \lt r \lt 1.\)
+            Then by \(\eqRefer{eq:geo-series-result},\) the series evaluates to 
+            \[\frac{\textrm{FIRST TERM}}{1-r} = \frac{1(\frac{1}{5})^0}{1-\frac{1}{5}} = 
+            \boxed{\frac{5}{4}} \]  
+        </li>
+        <hr>
+        <li>
+            We rewrite the sum as 
+            \[\sum_{n = 1}^\infty 2 \par{\frac{1}{8}}^n \period \]
+            The common ratio is \(r = 1/8,\) which is less between \(-1\) and \(1.\)
+            Thus, the series converges to the value 
+            \[ 
+            \ba 
+            \frac{\textrm{FIRST TERM}}{1 - r} 
+            &= \frac{2 \left(\frac{1}{8}\right)}{1 - \frac{1}{8}} \\
+            &= \boxed{\frac{2}{7}}
+            \ea 
+            \]
+        </li>
+        <hr>
+        <li>
+            We rewrite the series as 
+            \[\sum_{n = 1}^\infty \left(\frac{4}{e}\right)^n \period \]
+            The common ratio is \(r = 4/e \gt 1,\)
+            so the series diverges.
+        </li>   
+    </ol>
+</div>
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        Let 
+        \[S = \sum_{n=2}^{\infty} \left(\frac{k^2 + 1}{5}\right)^n \period \]
+        Find the values of \(k\) for which \(S\) converges. 
+        Then determine the value \(S\) in terms of \(k.\)
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    The common ratio of \(S\) is \(r = (k^2 + 1)/5.\)
+    The series \(S\) converges if \(|r| \lt 1.\)
+    But because \((k^2 + 1)/5 \gt 0,\) we have \(|r| = r.\)
+    Then we get
+    \[ 
+    \ba 
+    \frac{k^2 + 1}{5} \lt 1 \implies k^2 &\lt 4 \\[2ex]
+    |k| &\lt 2 \\[2ex]
+    -2 \lt k &\lt 2 \period 
+    \ea 
+    \]
+    Therefore, \(S\) converges if \(-2 \lt k \lt 2.\)
+    On this interval, we find 
+    \[
+    \ba 
+    S &= 
+    \frac{\textrm{FIRST TERM}}{1 - r} \\[2ex]
+    &= \frac{(\frac{k^2+1}{5})^2}{1-\frac{k^2+1}{5}} \\[2ex]
+    &= \boxed{\frac{(k^2+1)^2}{25-5(k^2+1)}}
+    \ea   
+    \]
+</div>
+
+<h4 id="disguised-geometric-series">Disguised Geometric Series</h4>
+<p>
+    To determine whether a series is geometric, 
+    use the property \(r = a_{n + 1}/a_n.\)
+    In words, the property states that to find the common ratio, we divide any term by its preceding term.
+    For example, the series 
+    \[S = \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \cdots \]
+    is geometric since \(r = \frac{1/4}{1/2} = 1/2.\)
+    Then we have 
+    \[
+    \ba 
+    S = \sum_{n = 1}^\infty \par{\frac{1}{2}}^n &= \frac{1/2}{1 - \frac{1}{2}} \\
+    &= 1 \period 
+    \ea 
+    \] 
+</p>
+
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">  
+        For each of (i)–(iii), 
+        determine whether the series converges or diverges. 
+        If the series converges, calculate its sum.
+        <ol class="list-roman">
+            <li>
+                <span>
+                \(\ds \; 2 - \frac{2}{3} + \frac{2}{9} - \frac{2}{27} + \cdots\)
+                </span>
+            </li>
+            <li>
+                <span>
+                \(\ds \; \frac{5}{16} + \frac{5}{64} + \frac{5}{256} + \frac{5}{1024} + \cdots \)
+                </span>
+                
+            </li> 
+            <li>
+                <span>
+                \(\ds \; \sum_{n = 0}^\infty \frac{2^{n - 2}}{3^n} \)
+                </span>
+            </li> 
+        </ol>
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button"></button>
+<div id="solution3" class="solution">
+    <ol class="list-roman">
+        <li>
+            To find the common ratio, we apply the property
+            \(r = a_{n + 1}/a_n.\)
+            Using the first two terms, we find 
+            \[r = \frac{-2/3}{2} = - \frac{1}{3} \period \]
+            We then rewrite the series as 
+            \[S = \sum_{n = 0}^{\infty} 2 \Big(-\frac{1}{3}\Big)^n \period \]
+            Since \(-1 \lt r \lt 1,\) \(S\) converges and so
+            we apply \(\eqRefer{eq:geo-series-result}\) to get 
+            \[S = \frac{\textrm{FIRST TERM}}{1-r} = \frac{2(-\frac{1}{3})^0}{1-(-\frac{1}{3})} = 
+            \boxed{\frac{3}{2}}\]
+        </li>
+        <hr>
+        <li>
+            We rewrite the sum either as  
+            \[S = 5\sum_{n = 2}^\infty \left(\frac{1}{4} \right)^n \]
+            or 
+            \[\frac{5}{16} \left(1 + \frac{1}{4} + \frac{1}{16} + \frac{1}{64} + \cdots \right) 
+            = \frac{5}{16} \sum_{n = 0}^\infty \frac{1}{4^n} \period 
+            \]
+            In either case we get  
+            \[\frac{5/16}{1 - \frac{1}{4}} = \boxed{\frac{5}{12}} \]
+        </li> 
+        <hr>
+        <li>
+            Using exponent properties, we rewrite the sum as 
+            \[ 
+            \ba 
+            \sum_{n = 0}^\infty \frac{2^n \cdot 2^{-2}}{3^n} 
+            &= \frac{1}{4} \sum_{n = 0}^\infty \left(\frac{2}{3}\right)^n \\
+            &= \frac{1/4}{1 - \frac{2}{3}} \\
+            &= \boxed{\frac{3}{4}}
+            \ea 
+            \]
+        </li> 
+</div>
+<h4>Repeating Decimals as Fractions</h4>
+<p>
+    We now discuss how to express repeating decimals in terms of fractions. 
+    Consider, for example, the repeating decimal 
+    \[ 0.5\overline{3} = 0.53333333333 \dots \period\]
+    We express each digit of the decimal as its own term,
+    so we construct an infinite geometric series of common ratio \(r = 1/10.\)
+    We have 
+    \[0.5 + 0.03 + 0.003 + 0.0003 + \cdots 
+    = 0.5 + 0.03\sum_{n = 0}^\infty (0.1)^n \period \]
+    Therefore, the series equals 
+    \[
+    \ba 
+    0.5 + \frac{0.03}{1 - 0.1} 
+    &= \frac{1}{2} + \frac{3/100}{9/10} \\[1ex] 
+    &= \frac{1}{2} + \frac{1}{30} \\[1ex]
+    &= \boxed{\frac{8}{15}}
+    \ea 
+    \]
+</p>
+
+<div class="example-title"> EXAMPLE 4 </div>
+<div class="example">
+    <div class="example-problem">  
+        For each of (i)–(iii), 
+        express the repeating decimal as a fraction.
+        <ol class="list-roman">
+            <li>
+                <span>
+                    \(0.7\overline{6}\)
+                </span>
+            </li>
+            <li>
+                <span>
+                    \(0.64\overline{1}\)
+                </span>
+            </li> 
+            <li>
+                <span>
+                    \(0.1\overline{2}\)
+                </span>
+            </li> 
+        </ol>
+    </div>
+</div>
+<button onclick="toggle4()" class="solution-button"></button>
+<div id="solution4" class="solution">
+    <ol class="list-roman">
+        <li>
+            \[
+            \begin{aligned}
+            0.7\overline{6} &= 0.7 + 0.06 + 0.006 + 0.0006 + \cdots \\
+            &= 0.7 + 0.06\sum_{n = 0}^\infty \left(0.1\right)^n \\
+            &= 0.7 + \frac{0.06}{1 - 0.1} \\
+            &= 0.7 + \frac{6/100}{9/10} \\
+            &= \frac{7}{10} + \frac{1}{15} \\
+            &= \boxed{\frac{23}{30}}\\
+            \end{aligned}
+            \]
+        </li>
+        <hr>
+        <li>
+            \[
+            \ba 
+            0.64\bar{1} &= 0.64 + 0.001 + 0.0001 + 0.00001 + \cdots \\
+            &= 0.64 + 0.001\sum_{n = 0}^\infty \left(0.1\right)^n \\
+            &= 0.64 + \frac{0.001}{1 - 0.1} \\
+            &= 0.64 + \frac{1/1000}{9/10} \\
+            &= \frac{64}{100} + \frac{1}{900} \\
+            &= \boxed{\frac{577}{900}}\\
+            \ea 
+            \]
+        </li>
+        <hr>
+        <li>
+            \[
+            \ba
+            0.1\overline{2} &= 0.1 + 0.02 + 0.002 + 0.0002 + \cdots \\
+            &= 0.1 + 0.02\sum_{n = 0}^\infty \left(0.1\right)^n \\
+            &= 0.1 + \frac{0.02}{1 - 0.1} \\
+            &= 0.1 + \frac{2/100}{9/10} \\
+            &= \frac{1}{10} + \frac{1}{45} \\
+            &= \boxed{\frac{11}{90}}\\
+            \ea
+            \]
+        </li> 
+    </ol>
+</div>
+
+
+<br>
+
+<!--section summary-->
+<div class="section-summary">
+    <ul>
+        <li> 
+            An infinite geometric series is in the form 
+            \[S = \sum_{n = k}^\infty ar^n = ar^k + ar^{k + 1} + ar^{k + 2} + \cdots \period \]
+        </li>
+        <ul>
+            <li> 
+                The common ratio is \(r = a_{n + 1}/a_n.\) 
+                Use this fact to verify whether a series is a disguised geometric series.
+            </li>
+            <li>
+                \(S\) converges to 
+                \[\frac{ar^k}{1 - r} = \frac{\textrm{FIRST TERM}}{1 - r}\]
+                if \(|r| \lt 1.\)
+            </li>
+        </ul>
+        <li> 
+            We write a repeating decimal 
+            as an infinite geometric series of common ratio \(1/10.\) 
+        </li>
+    </ul>    
+</div>

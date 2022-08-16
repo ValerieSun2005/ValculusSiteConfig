@@ -49,8 +49,7 @@ def rename():
                     os.remove(os.path.join(path, k))
 
                 pageCreate.create_all_pages(f'{unitOfRenamedSection}.{i}',
-                                            f'{sheetRenamedSection[f"A{i}"].value}',
-                                            f'{unitOfRenamedSection}')
+                                            f'{sheetRenamedSection[f"A{i}"].value}')
             else:
                 pass
 

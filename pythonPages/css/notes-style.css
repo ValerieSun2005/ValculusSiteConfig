@@ -18,15 +18,45 @@ main p{
     hyphens: auto;
 }
 
+p li{
+    background-color: red;
+    visibility: hidden
+}
+
+
 tr, th{
     border: none;
 }
 
+/* subheadings in a text */
 h4{
     font-variant: small-caps;
     margin-bottom: -2%;
     font-size: 27px;
     color: rgb(194, 126, 0);
+}
+
+/* style of <a> tag when linking to subheading */
+.page-anchor{
+    color: rgb(194, 126, 0);
+    text-decoration: underline;
+    font-variant: small-caps;
+}
+
+.table-vertical{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    border-bottom: 2px solid gray;
+}
+
+.table-vertical .label-cell{
+    width: 50%;
+    border-bottom: 5px solid rgb(195, 195, 195);
 }
 
 .table-full-width{
@@ -61,6 +91,9 @@ main tr{
     border-right: 6px solid white;
 }
 
+.emph{ /* emphasize something, like a definition */ 
+    text-decoration: underline;
+}
 
 .proof{
     color: rgb(147, 98, 151);
@@ -194,6 +227,10 @@ main tr{
 
 .solution-button:hover {
     background-color:  rgb(172, 142, 142);
+}
+
+.solution-button:after{
+    content: ' SHOW SOLUTION ▼ ';
 }
 
 .solution-hr{

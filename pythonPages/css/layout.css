@@ -317,12 +317,13 @@ ol li{
     margin: 0;
 }
 
-.list-alpha {
+.list-alpha, .list-num, .list-roman {
     counter-reset: list;
 }
 
-.list-alpha  li {
+.list-alpha  li, .list-num > li, .list-roman > li {
     list-style: none;
+    margin-bottom: 2%;
 }
 
 .list-alpha > li:before {
@@ -330,25 +331,9 @@ ol li{
     counter-increment: list;
 }
 
-.list-num {
-    counter-reset: list;
-}
-
-.list-num > li {
-    list-style: none;
-}
-
 .list-num > li:before {
     content: "(" counter(list, decimal) ") ";
     counter-increment: list;
-}
-
-.list-roman {
-    counter-reset: list;
-}
-
-.list-roman > li {
-    list-style: none;
 }
 
 .list-roman > li:before {
@@ -362,7 +347,7 @@ ol li{
 }
 
 .list-num > li > span, .list-alpha > li > span, .list-roman > li > span{
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 @media screen and (max-width: 1050px) {

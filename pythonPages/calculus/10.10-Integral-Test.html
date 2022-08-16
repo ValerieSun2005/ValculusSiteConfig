@@ -58,7 +58,147 @@
       </div>
       <!--BEGIN BODY-->
       <hr id="mainBodyBegin">
-      
+      <p>
+    This section discusses the Integral Test along with a proof.
+    We use this test to establish that the Harmonic Series, \(\sum 1/n,\) diverges. 
+</p>
+<p>
+    Consider the sum \(\sum_{n = k}^\infty a_n.\)
+    Let \(f\) be a function that satisfies \(f(n) = a_n.\)
+    We name three conditions for the Integral Test: 
+    \(f(x)\) must be continuous, positive, and decreasing for all \(x \geq k.\)
+    Then the Integral Test states that 
+    \[
+    \ba 
+    \textrm{if} \; \int_k^\infty f(x) \di x \; \text{diverges,} \;    
+    &\textrm{then} \sum_{n = k}^\infty a_n \; \text{diverges} \\
+    \textrm{if} \; \int_k^\infty f(x) \di x \; \text{diverges,} \;  
+    &\textrm{then} \sum_{n = k}^\infty a_n \; \text{diverges.}
+    \ea 
+    \]
+    In other words, the convergence or divergence of the improper integral 
+    \(\int_k^\infty f(x) \di x\) 
+    matches the convergence or divergence of the infinite sum 
+    \(\sum_{n = k}^\infty a_n.\)
+</p>
+
+<!-- integral test -->
+<div class="box-title"> INTEGRAL TEST </div>
+<div class="box">
+    Let \(f\) be a function that satisfies \(f(n) = a_n.\)
+    If \(f(x)\) is continuous, positive, and decreasing for all \(x \geq k,\)
+    then:
+    <ul>
+        <li>
+            If \(\int_k^\infty f(x) \di x\) converges, 
+            then \(\sum_{n = k}^\infty a_n\) also converges.
+        </li>
+        <li>
+            If \(\int_k^\infty f(x) \di x\) diverges,
+            then \(\sum_{n = k}^\infty a_n\) also diverges.
+        </li>
+    </ul>
+</div>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        Determine whether \(\ds \sum_{n=2}^{\infty} n^{2}e^{-n^3}\) 
+        converges or diverges.
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"></button>
+<div id="solution1" class="solution">
+    Let \(f(x) = x^{2}e^{-x^3}.\) 
+    Then we find 
+    \[ 
+    \ba 
+    f'(x) &= 2xe^{-x^3} - 3x^{4} e^{-x^3} \\ 
+    &= xe^{-x^3}(2-3x^3) \period 
+    \ea 
+    \]
+    Since \(f'(x) \lt 0\) for all \(x \geq 2,\) 
+    \(f(x)\) is decreasing on this interval.
+    Consequently, the series meets the conditions of the Integral Test:
+    \(f(x)\) is continuous, positive, and decreasing for all \(x \geq 2.\) 
+    Thus, we consider \(\int_2^\infty f(x) \di x:\)
+    If this improper integral diverges, then \(\sum_{n=2}^{\infty} n^{2}e^{-n^3}\) also diverges.
+    Likewise, if this improper integral converges, then \(\sum_{n=2}^{\infty} n^{2}e^{-n^3}\) also converges.
+    We write  
+    \[\int_2^\infty x^2 e^{-x^3} \di x 
+    = \lim_{b \to \infty} \int_2^b x^2 e^{-x^3} \di x \period \]
+    Now we substitute 
+    \[
+    \ba 
+    u &= x^3 \\ 
+    \di u &= 3x^2 \di x \period  
+    \ea 
+    \]
+    When \(x = 2,\) \(u = 2^3 = 8;\) 
+    when \(x = \infty,\) \(u = \infty.\)
+    Thus, the integral becomes 
+    \[
+    \ba 
+    \lim_{b \to \infty} \int_8^b e^{-u} \di u 
+    &= -\lim_{b \to 8} \frac{1}{e^u} \Big]_8^b \\ 
+    &= 1/8 \period
+    \ea 
+    \]
+    Since \(\int_2^\infty f(x) \di x\) converges (is finite), 
+    \(\sum_{n = 2}^\infty n^2 e^{-n^3} \) converges.
+</div>
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        Determine whether \(\ds \sum_{n=3}^{\infty} \frac{1}{n \ln n}\) 
+        converges or diverges.
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    <p> 
+        We let 
+        \[f(x) = \frac{1}{x \ln x} \comma\] 
+        which is positive and continuous for \(x \geq 3.\)
+        To determine whether \(f(x)\) is decreasing on this interval, we find  
+        \[f'(x) = \frac{-1 - \ln x }{(x \ln x)^2} \comma \]
+        which is negative for \(x \geqslant e.\)
+        As a result, \(f(x)\) is decreasing for \(x \geqslant 3,\) 
+        so \(\sum_{n = 3}^\infty \frac{1}{n \ln n} \) meets all three criteria of the Integral Test.
+    </p>
+    <p> 
+        Now we evaluate 
+        $$\int_3^\infty f(x) \di x = \int_{3}^{\infty} \frac{1}{x \ln x} \, \textrm{d} x \period $$
+        We substitute 
+        \[
+        \ba 
+        u &= \ln x \\
+        \di u &= \frac{1}{x} \di x \period 
+        \ea 
+        \]
+        When \(x = 3,\) \(u = \ln 3;\) when \(x = \infty,\) \(u = \infty.\)
+        Thus, the integral becomes  
+        \[ \int_{\ln 3}^{\infty} \frac{1}{u} \di u 
+        = \ln u \Big|_{\ln 3}^{\infty} \implies \textrm{divergent.} \]
+    </p>
+    <p>
+        Because \(\int_{3}^{\infty} f(x) \di x\) diverges, 
+        so does \(\sum_{n = 3}^{\infty} \frac{1}{n \ln n}\) by the Integral Test.
+    </p>
+</div>
+<h4>\(p\)-Series</h4>
+<p>
+    Consider the family of series  
+    \[S = \sum_{n = k}^\infty \frac{1}{n^p} \period\]
+    Consider three cases:
+</p>
+    <ul>
+        <li>
+            Case 1
+        </li>
+    </ul>
+<!-- </p> -->
     </main>
     <script src="../js/footer-load.js" type="text/javascript"></script>
     <div id="footer"></div>
