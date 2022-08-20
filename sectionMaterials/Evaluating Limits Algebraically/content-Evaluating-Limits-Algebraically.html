@@ -1,0 +1,481 @@
+<p> 
+    This section covers how to evaluate limits in the indeterminate forms 
+    \(\indZero\) and \(\indInfty.\)
+    We discuss how to evaluate Limits of Rational Expressions at Infinity.  
+    We then learn the methods of 
+    Factoring, 
+    Rationalizing, and 
+    using trigonometric identities.
+</p>
+<h4 id="rational-function-at-infinity">Limits of Rational Expressions at Infinity</h4>
+<p>
+    Consider the rational function 
+    \[f(x) = \frac{x^2 - 4x + 9}{x^3 - 2} \period \]
+    To find \(\lim_{x \to \infty} f(x),\) 
+    we divide the numerator and denominator by the 
+    highest-degree term of \(f(x)\)—namely, 
+    \(x^3,\) found in the denominator. 
+    We then get 
+    \[
+    \ba 
+    \lim_{x \to \infty} \frac{x^2 - 4x + 9}{x^3 - 2} 
+    &= \lim_{x \to \infty} \frac{x^2 - 4x + 9}{x^3 - 2} \cdot \frac{1/x^3}{1/x^3} \nl
+    &= \lim_{x \to \infty} \frac{1/x - 4/x^2 + 9/x^3}{1 - 2/x^3} \nl
+    &= 0 \period 
+    \ea 
+    \]
+    Consequently, as \(x\) approaches infinity, \(f(x)\) approaches \(0.\) 
+    This result is intuitive since the graph of \(y = f(x)\) has the horizontal asymptote \(y = 0.\)
+</p>
+<p>
+    But we have a shortcut:
+    As \(x\) grows infinitely large, 
+    only the highest-degree terms in the numerator and denominator are significant.
+    In this case, as \(x\) grows to infinity, 
+    the behavior of \(f(x)\) matches the behavior of 
+    \(x^2/x^3 = 1/x,\)
+    which decays to \(0.\)
+    Therefore, 
+    \[\lim_{x \to \infty} \frac{x^2 - 4x + 9}{x^3 - 2} = \lim_{x \to \infty} \frac{x^2}{x^3} = 0 \period\]
+    Thus, the limit of a rational function
+    at infinity matches the function's end behavior.
+</p>
+
+<!-- table for evaluating limits of rational expressions-->
+<div class="steps-title"> LIMITS OF RATIONAL EXPRESSIONS </div>
+<div class="steps">
+    <p>
+        To determine the limit of a rational expression, 
+        take the limit of the highest-degree terms in the numerator and denominator. 
+    </p>
+</div>
+
+
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        For each of (i)–(iii), evaluate the limit.
+        <ol class="list-roman">
+            <li>
+                \(\ds \lim_{x \to \infty} \frac{3x^3 - 4x^2 + 16}{5x^3 + 8x - 2} \)
+            </li>
+            <li>
+                \(\ds \lim_{x \to \infty} \frac{-8x^2 + \frac{3}{4}x + 16}{5x - 2}\)
+            </li>   
+            <li>
+                \(\ds \lim_{x \to -\infty} \frac{8 + 3x^2 - x^9}{10x^9} \)
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"></button>
+<div id="solution1" class="solution">
+    <ol class="list-roman">
+        <li>
+            We consider only the highest-degree terms on the numerator and denominator. 
+            We then get 
+            \[
+            \ba 
+            \lim_{x \to \infty} \frac{3x^3 - 4x^2 + 16}{5x^3 + 8x - 2} 
+            &= \lim_{x \to \infty} \frac{3x^3}{5x^3} \nl 
+            &= \lim_{x \to \infty} \frac{3}{5} \nl 
+            &= \boxed{\frac{3}{5}} 
+            \ea 
+            \] 
+        </li>
+        <hr>
+        <li>
+            The highest-degree term on the numerator is \(-8x^2,\)
+            while the highest-degree term on the denominator is \(5x.\)
+            Therefore,
+            \[
+            \ba 
+            \lim_{x \to \infty} \frac{-8x^2 + \frac{3}{4}x + 16}{5x - 2} 
+            &= \lim_{x \to \infty} \frac{-8x^2}{5x} \nl 
+            &= \lim_{x \to \infty} \frac{-8x}{5} \nl
+            &= \boxed{- \infty} 
+            \ea 
+            \] 
+            (Since the limit is unbounded, it's also correct to say that the limit does not exist.)
+        </li>   
+        <hr>
+        <li>
+            We ignore the smaller-degree terms on the numerator and denominator.
+            We then get 
+            \[
+            \ba 
+            \lim_{x \to -\infty} \frac{8 + 3x^2 - x^9}{10x^9} 
+            &= \lim_{x \to -\infty} \frac{-x^9}{10x^9} \nl 
+            &= \lim_{x \to -\infty} \frac{-1}{10} \nl 
+            &= \boxed{-\frac{1}{10}} 
+            \ea 
+            \]    
+        </li>
+</div>
+
+<p>
+    Let's define an indeterminate form. 
+    An limit is of an
+    <span class="emph">indeterminate form</span>
+    if direct substitution doesn't yield an answer.
+    For example, consider the limit 
+    \[L = \lim_{x \to 0} \frac{x^2}{x} \period \]
+    If we try a direct substitution (that is, we plug \(x = 0\) into \(x^2/x\)),
+    then we get \(\indZero,\)
+    a meaningless expression. 
+    So we say \(L\) is of an indeterminate form. 
+    This section focuses on two indeterminate forms: \(\indZero\) and \(\indInfty.\)
+</p>
+
+<!-- table for indeterminate forms-->
+<div class="box-title"> INDETERMINATE FORMS </div>
+<div class="box">
+    A limit whose value cannot be determined by direct 
+    substitution is of an 
+    <span class="emph">indeterminate form</span>.
+    Two indeterminate forms are \(\indZero\) and \(\indInfty.\)
+</div>
+<h4 id="canceling-factoring">Canceling Factors</h4>
+<div>
+    <p>
+        The primary tool we use to evaluate indeterminate limits is exposing common factors.
+        As an example, consider the function 
+        \[f(x) = \frac{x^2 - 25}{x + 5} \period \] 
+        When evaluating \(\lim_{x \to -5} f(x),\) 
+        a direct substitution gives the indeterminate form \(\indZero.\) 
+        But the numerator of \(f(x)\) is a difference of squares:
+        \[x^2 - 25 = (x + 5)(x - 5) \period\]
+        Thus,  
+        \[
+        \ba 
+        \lim_{x \to -5} \frac{x^2 - 25}{x + 5} 
+        &= \lim_{x \to -5} \frac{(x + 5)(x - 5)}{x + 5} \nl 
+        &= \lim_{x \to -5} (x - 5) \nl
+        &= \boxed{-10}
+        \ea 
+        \]
+    </p>
+
+    <p>
+        <!--figure 1-->
+        <figure class="fig-1">
+            <img src="../images/sectionImages/1/factoring-discontinuity.jpg" alt="Fig.1">
+        </figure>
+        <style>
+            .fig-1::before{
+                content:'FIGURE 1';
+            }
+        </style>
+        
+        The graph of \(y = f(x)\) is continuous for all \(x\) 
+        except at \(x = -5,\) the location of a removable discontinuity (Figure 1).
+        When we cancel the common factor \((x + 5),\)
+        we transform \(f(x)\) into an equivalent function 
+        whose limit as \(x \to 5\) may be found. 
+        This value is \(\lim_{x \to -5} f(x)\) \(= -10,\) 
+        the \(y\)-value of the removable discontinuity.
+    </p>
+    <p>
+        We work with differences of squares, differences of cubes, and sums of cubes.
+        Remember the following formulas:
+        \begin{align} 
+        a^2 - b^2 &= (a + b)(a - b) \label{eq:diff-of-squares} \nl 
+        a^3 - b^3 &= (a - b)(a^2 + ab + b^2) \label{eq:diff-of-cubes} \nl 
+        a^3 + b^3 &= (a + b)(a^2 - ab + b^2) \period \label{eq:sum-of-cubes}
+        \end{align}
+    </p>
+</div>
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        For each of (i)–(iii), evaluate the limit.
+        <ol class="list-roman">
+            <li>
+                <span>
+
+                </span>
+                \(\ds \lim_{x \to -2} \frac{x^2 - 4}{x + 2} \)
+            </li>
+            <li>
+                <span>
+                    \(\ds \lim_{x \to 4} \frac{x^3 - 64}{x - 4} \)
+                </span>       
+            </li>   
+            <li>
+                <span>
+                    \(\ds \lim_{x \to -3} \frac{x^3 + 27}{x + 3} \)
+                </span>   
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    <ol class="list-roman">
+        <li>
+            Trying direct substitution immediately gives the indeterminate form \(\indZero,\) 
+            so we try to find any common factors. 
+            The numerator is a difference of squares, \(x^2 - 2^2,\)
+            so we use \(\eqRefer{eq:diff-of-squares}\) to get 
+            \[x^2 - 4 = (x + 2)(x - 2) \period \]
+            Re-expressing the numerator and canceling out the common factor \((x + 2)\) 
+            provide 
+            \[
+            \ba 
+            \lim_{x \to -2} \frac{(x + 2)(x - 2)}{x + 2} 
+            &= \lim_{x \to -2} (x - 2) \nl 
+            &= \boxed{4} 
+            \ea 
+            \] 
+        </li>
+        <hr>
+        <li>
+            An immediate direct substitution yields the form \(\indZero,\) 
+            so we try to expose common factors. 
+            Since the numerator is a difference of cubes, \(x^3 - 4^3,\)
+            we use \(\eqRefer{eq:diff-of-cubes}\) to re-express the numerator as  
+            \[ (x - 4)(x^2 + 4x + 16) \period \]
+            Then we get 
+            \[
+            \ba 
+            \lim_{x \to 4} \frac{(x^3 - 64)}{x - 4} 
+            &= \lim_{x \to 4} \frac{(x - 4)(x^2 + 4x + 16)}{x - 4} \nl 
+            &= \lim_{x \to 4} (x^2 + 4x + 16) \nl 
+            &= \boxed{48} 
+            \ea 
+            \] 
+        </li>   
+        <hr>
+        <li>
+            Since the limit is in the indeterminate form \(\indZero,\)
+            our goal is to expose any common factors.
+            Using \(\eqRefer{eq:sum-of-cubes},\)
+            we rewrite the numerator as 
+            \[(x + 3)(x^2 - 3x + 9) \period \]
+            The limit then becomes 
+            \[
+            \ba 
+            \lim_{x \to -3} \frac{(x + 3)(x^2 - 3x + 9 )}{x + 3} 
+            &= \lim_{x \to -3} (x^2 - 3x + 9) \nl 
+            &= \boxed{27}
+            \ea 
+            \]
+        </li>
+</div>
+
+<h4 id="rationalization">Rationalization</h4>
+<p>
+    A limit in an indeterminate form may have no exposed common factors.
+    But if the expression has a radical, then rationalization may expose a common factor.
+    As an example, consider 
+    \[g(x) = \frac{\sqrt{2x + 5} - 1}{x + 2} \period \]
+    The limit \(\lim_{x \to -2} g(x)\) 
+    is in the indeterminate form \(\indZero.\)
+    The function \(g(x)\) has a radical in the numerator, 
+    so we try to rationalize it:
+    We multiply the numerator and denominator each by the conjugate of \((\sqrt{2x + 5} - 1),\)
+    which is \((\sqrt{2x + 5} + 1).\) 
+    Doing so yields 
+    \[
+    \ba 
+    g(x) &= \frac{\sqrt{2x + 5} - 1}{x + 2} \nl  
+    &= \frac{\sqrt{2x + 5} - 1}{x + 2} \cdot \frac{\sqrt{2x + 5} + 1}{\sqrt{2x + 5} + 1} \nl 
+    &= \frac{(2x + 5) - 1}{(x + 2) \left(\sqrt{2x + 5} + 1\right)} \nl 
+    &= \frac{2(x + 2)}{(x + 2) \left(\sqrt{2x + 5} + 1\right)} \nl 
+    &= \frac{2}{\sqrt{2x + 5} + 1} \comma  x \ne -2. 
+    \ea 
+    \]
+    We cleared the common factor \((x + 2)\) in the numerator and denominator,
+    so 
+    \[ 
+    \ba  
+    \lim_{x \to -2} g(x) &= \lim_{x \to -2} \frac{2}{\sqrt{2x + 5} + 1} \nl  
+    &= \boxed{1}
+    \ea 
+    \]
+    Rationalizing and canceling the common factor \((x + 2)\)
+    express \(g(x)\) as an equivalent function that returns values for all \(x \gt -5/2.\)
+    The graph of \(y = g(x)\) is smooth for all \(x \gt -5/2\) 
+    but has a hole at \(x = -2.\)
+    But our new function provides the \(y\)-value of the hole,
+    and this value is \(\lim_{x \to -2} g(x).\)
+</p>
+
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">  
+        For each of (i) and (ii), evaluate the limit.
+        <ol class="list-roman">
+            <li>
+                <span>
+                    \(\ds \lim_{x \to 9} \frac{3x - 27}{\sqrt{x - 8} - 1} \)
+                </span>      
+            </li>
+            <li>
+                <span>
+                    \(\ds \lim_{x \to 4} \frac{x^3 - 64}{x - 4} \)
+                </span>
+            </li>   
+        </ol>
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button"></button>
+<div id="solution3" class="solution">
+    <ol class="list-roman">
+        <li>
+            The limit is in the indeterminate form \(\indZero.\)
+            The denominator has a radical, so we try to rationalize the denominator. 
+            The conjugate of the denominator is \((\sqrt{x - 8} - 1),\) 
+            and we multiply the numerator and denominator each by this factor to get 
+            \[
+            \ba 
+            \lim_{x \to 9} \frac{3x - 27}{\sqrt{x - 8} + 1}
+            &= \lim_{x \to 9} \frac{3x - 27}{\sqrt{x - 8} + 1} \cdot \frac{\sqrt{x - 8} - 1}{\sqrt{x - 8} - 1} \nl
+            &= \lim_{x \to 9} \frac{(3x - 27)(\sqrt{x - 8} - 1)}{(x - 8) - 1} \nl
+            &= \lim_{x \to 9} \frac{3(x - 9)(\sqrt{x - 8} - 1)}{x - 9} \nl
+            &= \lim_{x \to 9} 3 \left(\sqrt{x - 8} - 1\right) \nl
+            &= \boxed{0}
+            \ea 
+            \]
+        </li>
+        <hr>
+        <li>
+            This limit is in the indeterminate form \(\indZero.\)
+            The numerator has a radical, so we attempt to rationalize the numerator. 
+            We do so multiplying the numerator and denominator by \((\sqrt{4x - 5} + 2),\)
+            obtaining  
+            \[
+            \ba 
+            \lim_{x \to 9/4} \frac{\sqrt{4x - 5} - 2}{16x - 36} 
+            &= \lim_{x \to 9/4} \frac{\sqrt{4x - 5} - 2}{16x - 36} \cdot \frac{\sqrt{4x - 5} + 2}{\sqrt{4x - 5} + 2} \nl
+            &= \lim_{x \to 9/4} \frac{(4x - 5) - 4}{(16x - 36)(\sqrt{4x - 5} + 2) } \nl
+            &= \lim_{x \to 9/4} \frac{4x - 9}{4(4x - 9)(\sqrt{4x - 5} + 2)} \nl
+            &= \lim_{x \to 9/4} \frac{1}{4(\sqrt{4x - 5} + 2)} \nl
+            &= \boxed{\frac{1}{16}}
+            \ea 
+            \]
+        </li>   
+    </ol>
+</div>
+
+<h4 id="trig-identities">Trigonometric Identities</h4>
+<p>
+    We now discuss limits of indeterminate forms that involve trigonometric expressions.  
+    We simplify limits using the following trigonometric identities: 
+    \begin{align} 
+    1 &= \sin^2 x + \cos^2 x \label{eq:pythag-identity} \nl 
+    \sin 2x &= 2 \sin x \cos x \label{eq:sin-double-angle} \nl 
+    \cos 2x &= \cos^2 x - \sin^2 x \label{eq:cos-double-angle} \period  
+    \end{align}
+</p>
+
+
+<div class="example-title"> EXAMPLE 4 </div>
+<div class="example">
+    <div class="example-problem">  
+        For each of (i) and (ii), evaluate the limit.
+        <ol class="list-roman">
+            <li>
+                <span>
+                    \(\ds \lim_{x \to \pi/2} \frac{\sin 2x }{\cos x} \)
+                </span>
+            </li>
+            <li>
+                <span>
+                    \(\ds \lim_{x \to 0} \frac{1 - \cos x}{3 \sin x} \)
+                </span>
+            </li>  
+            <li>
+                <span>
+                    \(\ds \lim_{x \to \pi/4} \frac{\cos 2x}{\cos x - \sin x} \)
+                </span>
+            </li> 
+        </ol>
+    </div>
+</div>
+<button onclick="toggle4()" class="solution-button"></button>
+<div id="solution4" class="solution">
+    <ol class="list-roman">
+        <li>
+            We rewrite \(\sin 2x\) as \(2 \sin x \cos x.\)
+            Then  
+            \[ 
+            \ba  
+            \lim_{x \to \pi/2} \frac{\sin 2x}{\cos x} 
+            &= \lim_{x \to \pi/2} \frac{2 \sin x \cos x}{\cos x} \nl
+            &= \lim_{x \to \pi/2} 2 \sin x \nl
+            &= \boxed{2}
+            \ea 
+            \]
+        </li>
+        <hr>
+        <li>
+            We multiply the numerator and denominator each by \((1 + \cos x),\)
+            from which we find 
+            \[
+            \ba 
+            \lim_{x \to 0} \frac{1 - \cos x}{3 \sin x} 
+            &= \lim_{x \to 0} \frac{1 - \cos x}{3 \sin x} \cdot \frac{1 + \cos x}{1 + \cos x} \nl
+            &= \lim_{x \to 0} \frac{1 - \cos^2 x}{3 \sin x(1 + \cos x)} \nl
+            &= \lim_{x \to 0} \frac{\sin^2 x}{3 \sin x(1 + \cos x)} \nl
+            &= \lim_{x \to 0} \frac{\sin x}{3 (1 + \cos x)} \nl
+            &= \frac{\sin(0)}{3\left(1 + \cos(0)\right)} \nl
+            &= \boxed{0}
+            \ea 
+            \]
+        </li>
+        <hr>
+        <li>
+            We understand that \(\cos 2x = \cos^2 x - \sin^2 x\).
+            Therefore, 
+            \[
+            \ba 
+            \lim_{x \to \pi/4} \frac{\cos 2x}{\cos x - \sin x} 
+            &= \lim_{x \to \pi/4} \frac{\cos^2 x - \sin^2 x}{\cos x - \sin x} \nl
+            &= \lim_{x \to \pi/4} \frac{\left(\cos x + \sin x\right) \left(\cos x - \sin x\right)}{\cos x - \sin x} \nl
+            &= \lim_{x \to \pi/4} \left(\cos x + \sin x \right) \nl 
+            &= \boxed{\sqrt{2}}
+            \ea 
+            \]
+        </li>
+    </ol>
+</div>
+
+<div>
+    We should now be comfortable with recognizing indeterminate forms. 
+    The examples in this section showcase methods for algebraically manipulating indeterminate limits 
+    into a form for which direct substitution yields a definite answer. 
+    Remain vigilant for any factors that cancel—this is the common goal of the algebraic manipulations featured in this section.
+</div>
+
+<!--section summary-->
+<p>
+    <p style="text-align: center; font-size: 150%;">
+        <u> SECTION SUMMARY </u>
+        <ul>
+            <li style="padding-bottom: 20px;"> 
+                A limit in the form \(\ds \indZero\) or \(\ds \frac{\infty}{ \infty}\) 
+                is <u>indeterminate</u>. 
+                However, a limit in the form \(\ds \frac{k}{0}\), where \(k \ne 0\), <u>does not exist</u>.  
+            </li>
+            <li style="padding-top: 20px; padding-bottom: 20px;">
+                To find a limit of a rational expression at infinity, take the limit of the highest-degree terms only—they 
+                are the most significant. The result agrees with the end behavior of the function.
+            </li>
+            <li style="padding-top: 20px; padding-bottom: 20px;">
+                Try to algebraically manipulate an indeterminate limit into a form for which direct substitution yields a definite value. 
+            </li>
+            <li style="padding-top: 20px; padding-bottom: 20px;">
+                If you notice a fraction with a radical in an indeterminate limit, 
+                try to rationalize it by multiplying the numerator and denominator by the conjugate of the radical expression. 
+            </li>
+            <li style="padding-top: 20px; padding-bottom: 20px;">
+                Utilize trigonometric identities to simplify indeterminate limits involving trigonometric functions. 
+                Remember the Pythagorean identity as well as the double angle identities for sine and cosine,
+                \(\sin(2x) = 2 \sin(x) \cos(x)\) and \(\cos(2x) = \cos^2(x) - \sin^2(x)\).
+            </li>
+        </ul>    
+    </p>
+</div>

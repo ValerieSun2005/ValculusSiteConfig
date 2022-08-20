@@ -1,17 +1,17 @@
 window.MathJax = {
-    // options: {
-    //     enableMenu: false,    
-    // },
-    
-    svg: {
-        fontCache: 'global',
+    options: {
+        enableMenu: false,    
     },
 
     "fast-preview": { 
         "disabled": false 
     }, 
+    
+
+    loader: {load: ['[tex]/color']},
 
     tex: {
+        packages: {'[+]': ['color']},
         tags: 'ams',
         macros: {
             RR: "{\\bf R}",
@@ -40,13 +40,25 @@ window.MathJax = {
             ques: "\\; ?",
             col: "\\! :",
             scol: "\\, ; \\,",
-            eqRefer: ["\\text{Eq. } \\eqref{#1}", 1],
+            // eqref: ["\\color{pink}{(\\ref{#1})}", 1],
+            eqRefer: ["\\text{Equation } \\eqref{#1}", 1],
             deriv: ["\\frac{\\dd #1}{\\dd #2}", 2],
             abs: ["\\left \\lvert #1 \\right \\rvert", 1],
             par: ["\\left ( #1 \\right )", 1],
-            di: "\\, \\dd"
+            di: "\\, \\dd",
+            nl: "\\\\[1ex]",
+            indZero: "\\frac{0}{0}",
+            indInfty: "\\infty/\\infty"
         }
     },
 
+    svg: {
+        fontCache: 'global',
+        styles:{
+            "svg-href": {
+                fill: "red", stroke: "red"
+              },
+        },
+    },
 };
     
