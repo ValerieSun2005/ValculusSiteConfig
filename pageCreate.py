@@ -5,7 +5,7 @@ import re
 import os
 import generateExerciseContent  # creates exerciseContent.html page from exerciseList.html
 import generateSolutionsContent  # creates solutionContent.html page from exerciseList.html
-
+import generateIndexContent
 
 # sectionNumber = input("Input Section Number: ")
 # sectionLabel = input("Input Section Label: ")
@@ -28,6 +28,8 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
         doc = dominate.document(title=f'{sectionNumber} Exercises: {sectionLabel}')
     elif mode.lower() == 'solution':
         doc = dominate.document(title=f'{sectionNumber} Exercise Solutions: {sectionLabel}')
+    elif mode.lower() == 'index':
+        doc = dominate.document(title='Home')
     else:
         doc = dominate.document(title=f'{sectionLabel}')
 
@@ -71,6 +73,12 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
                 # SCREEN LAYOUT
                 link(rel='stylesheet', href='../css/exercises-style.css')
             h1(f'{sectionNumber} Exercise Solutions — {sectionLabel}')
+        elif mode.lower() == 'index':
+            with doc.head:
+                link(rel='stylesheet', href='css/section.css')
+                link(rel='stylesheet', href='css/layout.css')
+                link(rel='stylesheet', href='css/layout-print.css', media='print')
+            h1('Home')
         else:
             h1(f'{sectionLabel}')
 
@@ -125,11 +133,11 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
                             with button():
                                 with a(f'{modeDisplayList[2]}', cls='link-deactivate', rel='noopener'):
                                     i(cls='fa fa-external-link')
-                with div(cls='pdf-panel-right').add(ul()):
-                    with li():
-                        with button():
-                            with a('Download', rel='noopener', target='_blank'):
-                                i(cls='fa fa-file-pdf-o')
+                # with div(cls='pdf-panel-right').add(ul()):
+                #     with li():
+                #         with button():
+                #             with a('Download', rel='noopener', target='_blank'):
+                #                 i(cls='fa fa-file-pdf-o')
 
             comment('BEGIN BODY')
             hr(id='mainBodyBegin')
@@ -210,6 +218,26 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
                   encoding='utf-8') as file:
             file.write(data)
 
+    elif mode.lower() == 'index':
+        with open(f"pythonPages/index.html", 'w',
+                  encoding='utf-8') as file:
+            file.write(doc.render())
+
+        appendContent = generateIndexContent.indexContent()
+
+        with open(f"pythonPages/index.html", "r",
+                  encoding='utf-8') as file:
+            data = file.read()
+            data = data.replace('<!--APPEND CONTENT HERE-->', appendContent)
+
+        with open(f"pythonPages/index.html", "w",
+                  encoding='utf-8') as output:
+            output.write(str(doc))
+
+        with open(f"pythonPages/index.html", "w",
+                  encoding='utf-8') as file:
+            file.write(data)
+
     # all other pages
     else:
         with open(f"pythonPages/{filePath}", 'w',
@@ -250,7 +278,7 @@ def create_all_pages(sectionNumber, sectionLabel):
 
 
 # create_all_pages('3.5', 'Curve Sketching')
-create_page('', '', 'Sections', 'sections.html')
+create_page('index', '', '', '')
 # create_page('section', '3.5', 'Curve Sketching', '3')
 # create_page('exercise', '3.5', 'Curve Sketching', '3')
 # create_page('solution', '3.5', 'Curve Sketching', '3')

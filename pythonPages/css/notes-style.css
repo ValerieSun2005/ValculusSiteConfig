@@ -25,16 +25,25 @@ tr, th{
 /* subheadings in a text */
 h4{
     font-variant: small-caps;
-    margin-bottom: -2%;
-    font-size: 27px;
-    color: rgb(194, 126, 0);
+    margin-bottom: -4%;
+    font-size: 25px;
+    margin-top: 5%;
+    /* text-decoration: underline; */
+}
+
+.first-subheading{ /* first h4 (i.e., "INTRODUCTION") */
+    margin-top: 0%;
 }
 
 /* style of <a> tag when linking to subheading */
 .page-anchor{
-    color: rgb(194, 126, 0);
     text-decoration: underline;
+}
+
+h4, .page-anchor{
     font-variant: small-caps;
+    /* color: rgb(194, 126, 0); */
+    color: rgb(83, 198, 198);
 }
 
 .table-vertical{
@@ -99,13 +108,13 @@ main tr{
     color: rgb(212, 75, 75);
 }
 
-.numbered-equations p{
-    line-height: 0;
+.box-title, .steps-title, .example-title, .section-summary::before{
     text-align: center;
-}
-
-.numbered-equations span{
-    float: right;
+    padding-bottom: 0;
+    margin-top: 8%;    
+    padding: 0.7rem 0.4rem 0.4rem 0.4rem;
+    font-size: 1.7rem;
+    line-height: 1.5;
 }
 
 .box{ /* for theorems and facts */
@@ -120,12 +129,6 @@ main tr{
 
 .box-title{
     background-color: rgb(147, 98, 151);
-    line-height: 1.5;
-    padding: 10px;
-    font-size: 140%;
-    text-align: center;
-    padding-bottom: 0;
-    margin-top: 8%;
 }
 
 .steps{ /* box for steps */
@@ -135,36 +138,26 @@ main tr{
     padding-right: 4%;
     padding-bottom: 2%;
     padding-top: 2%;
-    margin-bottom: 5%;
-    border: 10px solid rgb(63, 124, 73);
+    border: 0.4rem solid rgb(63, 124, 73);
 }
 
 .steps-title{
     background-color: rgb(63, 124, 73);
-    line-height: 1.5;
-    padding: 10px;
-    font-size: 140%;
-    text-align: center;
-    padding-bottom: 0;
-    margin-top: 8%;
+}
+
+.example, .solution{
+    border: 0.4rem solid rgb(194, 126, 0);
 }
 
 .example{ /* for example problems */
     border-bottom: none;
     text-align: left;
     background-color: rgb(53, 46, 46);
-    border: 0.4rem solid rgb(96, 150, 182);
 }
 
-.example-title{ /* Example 1, 2, 3, etc. */
-    background-color: rgb(96, 150, 182);
-    font-style: normal;
-    line-height: 1.5;
-    padding: 5px;
-    font-size: 140%;
-    text-align: center;
-    padding-bottom: 0;
-    margin-top: 8%;
+.example-title, .solution-button{ /* Example 1, 2, 3, etc. */
+    background-color: rgb(194, 126, 0);
+    color: white;
 }
 
 .example-problem{ /*example problem */
@@ -179,24 +172,8 @@ main tr{
     margin-bottom: 3%;
 }
 
-.example-list{
-    padding-top: 20px; 
-    padding-bottom: 20px; 
-    line-height: 3; 
-    font-style: normal;
-}
-
-.solution li{
-    padding-left: 3%;
-}
-.solution ol > li {
-    list-style: none;
-    position: relative;
-}
-
 .solution{ /* solution body to example problems */
     display: none;
-    border: 10px solid rgb(96, 150, 182);
     line-height: 2.5;
     padding-left: 4%;
     padding-right: 4%;
@@ -208,10 +185,8 @@ main tr{
 }
 
 .solution-button { /*button to show/hide solution */
-    font-size: 110%;
+    font-size: 1.6rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: rgb(96, 150, 182);
-    color: white;
     border: none;
     transition-duration: 0.9s;
     width: 100%;
@@ -220,8 +195,16 @@ main tr{
     z-index: 2;
 }
 
+.solution li{
+    padding-left: 3%;
+}
+.solution ol > li {
+    list-style: none;
+    position: relative;
+}
+
 .solution-button:hover {
-    background-color:  rgb(172, 142, 142);
+    background-color:  rgb(207, 159, 83);
 }
 
 .solution-button:after{
@@ -244,20 +227,18 @@ main tr{
     display: block;
     content:'SECTION SUMMARY';
     background-color: rgb(163, 123, 48);
-    line-height: 1.5;
-    font-size: 140%;
-    text-align: center;
-    padding-bottom: 0;
-    width: 100%;
+    margin: 0;
+    padding: 5px;
+    /* width: 100%;
     margin: 0%;
-    padding: 0%;
+    padding: 0%; */
 }
 
 .section-summary{ 
     margin-top: 10%;
     text-align: left;
     line-height: 2.5;
-    border: 10px solid rgb(163, 123, 48);
+    border: 0.5rem solid rgb(163, 123, 48);
 }
 
 .section-summary li{

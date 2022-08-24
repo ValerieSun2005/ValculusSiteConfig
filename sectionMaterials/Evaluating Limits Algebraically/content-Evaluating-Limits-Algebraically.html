@@ -1,13 +1,81 @@
+<h4 id="introduction" class="first-subheading">Introduction</h4>
 <p> 
-    This section covers how to evaluate limits in the indeterminate forms 
+    This section defines 
+    indeterminate forms and 
+    covers how to evaluate limits of the indeterminate forms 
     \(\indZero\) and \(\indInfty.\)
-    We discuss how to evaluate Limits of Rational Expressions at Infinity.  
-    We then learn the methods of 
-    Factoring, 
-    Rationalizing, and 
-    using trigonometric identities.
+    We learn to evaluate 
+    <a class="page-anchor" href="#rational-functions-at-infinity">
+        Limits of Rational Functions at Infinity</a> 
+    and 
+    <a class="page-anchor" href="#limits-at-vertical-asymptotes">
+        Limits at Vertical Asymptotes</a>. 
+    We then discuss  
+    <a class="page-anchor" href="#factorization">
+        Factorization</a>,
+    <a class="page-anchor" href="#rationalization">
+        Rationalization</a>, and using 
+    <a class="page-anchor" href="#trig-identities">
+        Trigonometric Identities</a>
+    as methods to evaluate limits of the indeterminate form \(\indZero.\)
 </p>
-<h4 id="rational-function-at-infinity">Limits of Rational Expressions at Infinity</h4>
+
+<h4 id="definition-indeterminate-form">Defining an Indeterminate Form</h4>
+<p>
+    We begin by defining an indeterminate form. 
+    An limit is of an
+    <span class="emph">indeterminate form</span>
+    if direct substitution doesn't yield an answer.
+    This section focuses on two indeterminate forms: \(\indZero\) and \(\indInfty.\)
+    Consider the family of limits 
+    \begin{equation} 
+    L = \lim_{x \to a} \frac{f(x)}{g(x)} \comma g(x) \ne 0 \period \label{eq:family-of-limits}
+    \end{equation}
+    If both \(f(x)\) and \(g(x)\) approach \(0\) as \(x\) tends to \(a,\)
+    then we say \(L\) is of the indeterminate form \(\indZero.\)
+    Similarly, if both \(f(x)\) and \(g(x)\) tend to \(\infty\) 
+    as \(x\) approaches \(a,\) 
+    then \(L\) is of the indeterminate form \(\indInfty.\) 
+    For example, the limit \(\lim_{x \to 0} x^2/x\)
+    is of the indeterminate form \(\indZero\) because as \(x \to 0,\) 
+    \[x^2 \to 0 \and x \to 0 \period \]
+    Performing a direct substitution—that is, plugging \(x = 0\) into 
+    \(x^2/x\)—yields \(\indZero,\)
+    a meaningless expression. 
+    In contrast, the limit 
+    \(\lim_{x \to \infty} x^2/x\)
+    is of the indeterminate form \(\indInfty\)
+    since as \(x \to \infty,\) 
+    \[x^2 \to \infty \and x \to \infty \period\]
+    It's important to distinguish between a function
+    that <i>approaches</i> \(0\) and a function that <i>equals</i> \(0.\) 
+    In \(\eqRefer{eq:family-of-limits},\) if \(L\) is of an indeterminate form \(\indZero\) 
+    or \(\indInfty,\) 
+    then both \(f(x)\) and \(g(x)\) are changing;  
+    <span class="warning">neither</span> function is static.
+    For example, the limit \(\lim_{x \to 0} 0/x\) is 
+    <span class="warning">not</span>
+    of the indeterminate form \(\indZero,\) since the numerator is fixed at \(0.\)
+</p>
+
+<!-- table for indeterminate forms-->
+<div class="box-title"> INDETERMINATE FORMS </div>
+<div class="box">
+    Consider the limit 
+    \[L = \lim_{x \to a} \frac{f(x)}{g(x)} \comma g(x) \ne 0 \period \]
+    <ul>
+        <li>
+            If both \(f(x)\) and \(g(x)\) approach \(0\) as \(x\) approaches \(a,\)
+            then \(L\) is in the indeterminate form \(\indZero.\)
+        </li>
+        <li>
+            If both \(f(x)\) and \(g(x)\) approach \(\infty\) as \(x\) approaches \(a,\)
+            then \(L\) is in the indeterminate form \(\indInfty.\)
+        </li>
+    </ul>
+</div>
+
+<h4 id="rational-functions-at-infinity">Limits of Rational Functions at Infinity</h4>
 <p>
     Consider the rational function 
     \[f(x) = \frac{x^2 - 4x + 9}{x^3 - 2} \period \]
@@ -25,16 +93,17 @@
     \ea 
     \]
     Consequently, as \(x\) approaches infinity, \(f(x)\) approaches \(0.\) 
-    This result is intuitive since the graph of \(y = f(x)\) has the horizontal asymptote \(y = 0.\)
+    This result is intuitive since the horizontal asymptote
+    to the graph of \(y = f(x)\) is \(y = 0.\)
 </p>
 <p>
     But we have a shortcut:
     As \(x\) grows infinitely large, 
     only the highest-degree terms in the numerator and denominator are significant.
-    In this case, as \(x\) grows to infinity, 
+    In this case, as \(x\) grows to infinity,
     the behavior of \(f(x)\) matches the behavior of 
     \(x^2/x^3 = 1/x,\)
-    which decays to \(0.\)
+    which decays to \(0.\) 
     Therefore, 
     \[\lim_{x \to \infty} \frac{x^2 - 4x + 9}{x^3 - 2} = \lim_{x \to \infty} \frac{x^2}{x^3} = 0 \period\]
     Thus, the limit of a rational function
@@ -44,13 +113,60 @@
 <!-- table for evaluating limits of rational expressions-->
 <div class="steps-title"> LIMITS OF RATIONAL EXPRESSIONS </div>
 <div class="steps">
-    <p>
-        To determine the limit of a rational expression, 
-        take the limit of the highest-degree terms in the numerator and denominator. 
-    </p>
+    To determine the limit of a rational expression, 
+    take the limit of the highest-degree terms in the numerator and denominator. 
 </div>
 
+<p>
+    Let's now generalize this fact.
+    Suppose \(P\) and \(Q\) are positive polynomials. 
+    Consider the limit  
+    \[L = \lim_{x \to \infty} \frac{P(x)}{Q(x)} \period\]
+    We denote the degree of \(P\) as \(\deg(P)\) 
+    and the degree of \(Q\) as \(\deg(Q).\) 
+</p>
+<ul>
+    <li>
+        If \(\deg(P) \gt \deg(Q),\)
+        then \(L = \infty.\)
+    </li>
+    <li>
+        If \(\deg(P) = \deg(Q),\)
+        then \(L = C,\)
+        where \(C\) is the coefficient of the highest-degree term of \(P\)
+        divided by the coefficient of the highest-degree term of \(Q.\)
+    </li>
+    <li>
+        If \(\deg(P) \lt \deg(Q),\)
+        then \(L = 0.\)
+    </li>
+</ul>
 
+<!-- table for rational expressions at infty -->
+<div class="box-title"> LIMITS OF RATIONAL EXPRESSIONS AT INFINITY </div>
+<div class="box">
+    Let \(P\) and \(Q\) be positive polynomials. 
+    Consider the limit  
+    \[L = \lim_{x \to \infty} \frac{P(x)}{Q(x)} \period\]
+    Let \(\deg(P)\) denote the degree of \(P,\)
+    and \(\deg(Q)\) denote the degree of \(Q.\)
+    <ul>
+        <li>
+            If \(\deg(P) \gt \deg(Q),\)
+            then \(L = \infty.\)
+        </li>
+        <li>
+            If \(\deg(P) = \deg(Q),\)
+            then \(L = C,\)
+            where \(C\) is the coefficient of the highest-degree term of \(P\)
+            divided by the coefficient of the highest-degree term of \(Q.\)
+        </li>
+        <li>
+            If \(\deg(P) \lt \deg(Q),\)
+            then \(L = 0.\)
+        </li>
+    </ul>
+</div>
 
 <div class="example-title"> EXAMPLE 1 </div>
 <div class="example">
@@ -58,13 +174,19 @@
         For each of (i)–(iii), evaluate the limit.
         <ol class="list-roman">
             <li>
-                \(\ds \lim_{x \to \infty} \frac{3x^3 - 4x^2 + 16}{5x^3 + 8x - 2} \)
+                <span>
+                    \(\ds \lim_{x \to \infty} \frac{3x^3 - 4x^2 + 16}{5x^3 + 8x - 2} \)
+                </span>
             </li>
             <li>
-                \(\ds \lim_{x \to \infty} \frac{-8x^2 + \frac{3}{4}x + 16}{5x - 2}\)
+                <span>
+                    \(\ds \lim_{x \to \infty} \frac{-8x^2 + \frac{3}{4}x + 16}{5x - 2}\)
+                </span>
             </li>   
             <li>
-                \(\ds \lim_{x \to -\infty} \frac{8 + 3x^2 - x^9}{10x^9} \)
+                <span>
+                    \(\ds \lim_{x \to -\infty} \frac{8 + 3x^2 - x^9}{10x^9} \)
+                </span>
             </li>
         </ol>
     </div>
@@ -112,38 +234,174 @@
             \ea 
             \]    
         </li>
+    </ol>
 </div>
 
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        Let 
+        \[f(x) = \frac{\sqrt{x^6 + 3x^3 + x}}{5x^3 + x^2 + 7} \period\]
+        Find \(\ds \lim_{x \to -\infty} f(x)\) and \(\ds \lim_{x \to \infty} f(x).\)
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    <p>
+        To find limits at infinity,
+        we consider only the highest-degree terms of \(f(x):\)
+        \[\frac{\sqrt{x^6}}{5x^3} = \frac{\abs{x^3}}{5x^3} \period \]
+        In other words, as \(x\) approaches \(\pm \infty,\) 
+        the behavior of \(f(x)\) matches the behavior of \(\abs{x^3}/5x^3. \)
+        Then 
+        \[
+        \ba 
+        \lim_{x \to -\infty} f(x) &= \lim_{x \to -\infty} \frac{\abs{x^3}}{5x^3} \nl 
+        &= \boxed{-\frac{1}{5}} 
+        \ea 
+        \] 
+        Similarly, 
+        \[
+        \ba 
+        \lim_{x \to \infty} f(x) &= \lim_{x \to \infty}  \frac{\abs{x^3}}{5x^3} \nl 
+        &= \boxed{\frac{1}{5}}
+        \ea 
+        \]
+    </p>
+</div>
+
+<h4 id="limits-at-vertical-asymptotes">Limits at Vertical Asymptotes</h4>
 <p>
-    Let's define an indeterminate form. 
-    An limit is of an
-    <span class="emph">indeterminate form</span>
-    if direct substitution doesn't yield an answer.
-    For example, consider the limit 
-    \[L = \lim_{x \to 0} \frac{x^2}{x} \period \]
-    If we try a direct substitution (that is, we plug \(x = 0\) into \(x^2/x\)),
-    then we get \(\indZero,\)
-    a meaningless expression. 
-    So we say \(L\) is of an indeterminate form. 
-    This section focuses on two indeterminate forms: \(\indZero\) and \(\indInfty.\)
+    We now discuss how to determine limits at vertical asymptotes.
+    Consider the function 
+    \[f(x) = \frac{1}{x - p} \period\]
+    The graph of \(y = f(x)\) has a vertical asymptote at \(x = p,\)
+    so the curve approaches \(-\infty\) or \(+\infty\) on either side of the asymptote.
+    To the left of the vertical asymptote, 
+    \[
+    x - p \lt 0 \for x \lt p \period 
+    \]
+    <!--figure 1-->
+    <figure class="fig-1">
+        <img src="../images/sectionImages/1/limit-at-asymptote.jpg" alt="Fig.1">
+    </figure>
+    <style>
+        .fig-1::before{
+            content:'FIGURE 1';
+        }
+    </style>
+    On the interval \(x \lt p,\) 
+    the numerator of \(f(x)\) is positive and the denominator is negative. 
+    Therefore, \(f(x)\) is negative as \(x\) approaches the vertical asymptote.
+    We then conclude that \(\lim_{x \to p^-} f(x) = -\infty.\)
+    Conversely, to the right of the vertical asymptote, 
+    \[
+    x - p \gt 0 \for x \gt p \comma 
+    \]
+    so the sign of \(f(x)\) positive because of the following sign configuation:
+    \[\frac{(+)}{(+)} \to (+) \period\]
+    Thus, \(\lim_{x \to p^+} f(x) = + \infty.\)
+    (See Figure 1.)
 </p>
 
-<!-- table for indeterminate forms-->
-<div class="box-title"> INDETERMINATE FORMS </div>
-<div class="box">
-    A limit whose value cannot be determined by direct 
-    substitution is of an 
-    <span class="emph">indeterminate form</span>.
-    Two indeterminate forms are \(\indZero\) and \(\indInfty.\)
+<!-- table for evaluating limits at vertical asymptotes -->
+<div class="steps-title"> LIMITS AT VERTICAL ASYMPTOTES </div>
+<div class="steps">
+    Consider a function \(f(x)\) whose graph
+    has vertical asymptote \(x = p.\) 
+    To determine whether \(f(x)\) approaches 
+    \(-\infty\) or \(+\infty\) on one side of \(x = p,\)
+    consider the sign of \(f(x):\)
+    <ul>
+        <li>
+            If \(f(x) \lt 0\) as \(x \to p^-,\) then 
+            \(\lim_{x \to p^-} f(x) = -\infty.\)
+        </li>
+        <li>
+            If \(f(x) \gt 0\) as \(x \to p^+,\)
+            then \(\lim_{x \to p^+} f(x) = + \infty.\)
+        </li>
+    </ul>
 </div>
-<h4 id="canceling-factoring">Canceling Factors</h4>
+
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">  
+        Let 
+        \[g(x) = \frac{1}{x(x - 4)} \period\]
+        The graph of \(y = g(x)\) has vertical asymptotes at \(x = 0\) and \(x = 4.\)
+        <ol class="list-alpha">
+            <li>
+                Describe the behavior of \(g(x)\) at the vertical asymptote \(x = 0.\)
+            </li>
+            <li>
+                Describe the behavior of \(g(x)\) at the vertical asymptote \(x = 4.\) 
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button"></button>
+<div id="solution3" class="solution">
+    <ol class="list-alpha">
+        <li>
+            <p>
+                For \(x \lt 0,\) both factors in the denominator of \(g(x)\) are negative.
+                Consequently, as \(x \to 0^-\) the sign of \(g(x)\) is 
+                \[
+                \frac{(+)}{(-)(-)} \to (+) \period  
+                \]
+                We then conclude that \(\lim_{x \to 0^-} g(x) = +\infty.\) 
+            </p>
+            <p>
+                When \(0 \lt x \lt 4,\)
+                \[x \gt 0 \and (x - 4) \lt 0 \period\]
+                Therefore, as \(x \to 0^+\) the sign of \(g(x)\) is 
+                \[
+                \frac{(+)}{(+)(-)} \to (-) \period
+                \]
+                Then \(\lim_{x \to 0^+} g(x) = - \infty.\)
+            </p>
+            <p>
+                From these limits, we conclude that \(g(x)\) approaches \(+\infty\)
+                from the left and \(-\infty\) from the right of the vertical asymptote \(x = 0.\)
+            </p>
+        </li>
+        <hr>
+        <li>
+            <p>
+                For \(0 \lt x \lt 4,\)  
+                \[x \gt 0 \and (x - 4) \lt 0 \period\]
+                Thus, the sign of \(g(x)\) as \(x \to 4^-\) is 
+                \[\frac{(+)}{(+)(-)} \to (-) \comma\]
+                so \(\lim_{x \to 4^-} g(x) = -\infty.\)
+            </p>
+            <p>
+                When \(x \gt 4,\)
+                \[x \gt 0 \and (x - 4) \gt 0 \period\]
+                Then the sign of \(g(x)\) as \(x \to 4^+\) is 
+                \[\frac{(+)}{(+)(+)} \to (+),\]
+                so \(\lim_{x \to 4^+} g(x) = + \infty.\)
+            </p>
+            <p>
+                These limits reveal that \(g(x)\) approaches \(-\infty\)
+                from the left and \(+\infty\) from the right of the vertical asymptote \(x = 4.\)
+            </p>
+        </li>
+    </ol>
+    <p>
+
+    </p>
+</div>
+
+<h4 id="factorization">Factorization</h4>
 <div>
     <p>
-        The primary tool we use to evaluate indeterminate limits is exposing common factors.
+        When we have the indeterminate form \(\indZero,\)
+        our primary resource is to cancel common factors.
         As an example, consider the function 
         \[f(x) = \frac{x^2 - 25}{x + 5} \period \] 
-        When evaluating \(\lim_{x \to -5} f(x),\) 
-        a direct substitution gives the indeterminate form \(\indZero.\) 
+        The limit \(\lim_{x \to -5} f(x),\) 
+        is of the indeterminate form \(\indZero.\) 
         But the numerator of \(f(x)\) is a difference of squares:
         \[x^2 - 25 = (x + 5)(x - 5) \period\]
         Thus,  
@@ -158,18 +416,17 @@
     </p>
 
     <p>
-        <!--figure 1-->
-        <figure class="fig-1">
-            <img src="../images/sectionImages/1/factoring-discontinuity.jpg" alt="Fig.1">
+        <figure class="fig-2">
+            <img src="../images/sectionImages/1/factoring-discontinuity.jpg" alt="Fig.2">
         </figure>
         <style>
-            .fig-1::before{
-                content:'FIGURE 1';
+            .fig-2::before{
+                content:'FIGURE 2';
             }
         </style>
         
         The graph of \(y = f(x)\) is continuous for all \(x\) 
-        except at \(x = -5,\) the location of a removable discontinuity (Figure 1).
+        except at \(x = -5,\) the location of a removable discontinuity (Figure 2).
         When we cancel the common factor \((x + 5),\)
         we transform \(f(x)\) into an equivalent function 
         whose limit as \(x \to 5\) may be found. 
@@ -177,8 +434,9 @@
         the \(y\)-value of the removable discontinuity.
     </p>
     <p>
-        We work with differences of squares, differences of cubes, and sums of cubes.
-        Remember the following formulas:
+        When factoring polynomials, we often have 
+        differences of squares, differences of cubes, and sums of cubes.
+        Therefore, remember the following formulas:
         \begin{align} 
         a^2 - b^2 &= (a + b)(a - b) \label{eq:diff-of-squares} \nl 
         a^3 - b^3 &= (a - b)(a^2 + ab + b^2) \label{eq:diff-of-cubes} \nl 
@@ -187,7 +445,7 @@
     </p>
 </div>
 
-<div class="example-title"> EXAMPLE 2 </div>
+<div class="example-title"> EXAMPLE 4 </div>
 <div class="example">
     <div class="example-problem">  
         For each of (i)–(iii), evaluate the limit.
@@ -211,8 +469,8 @@
         </ol>
     </div>
 </div>
-<button onclick="toggle2()" class="solution-button"></button>
-<div id="solution2" class="solution">
+<button onclick="toggle4()" class="solution-button"></button>
+<div id="solution4" class="solution">
     <ol class="list-roman">
         <li>
             Trying direct substitution immediately gives the indeterminate form \(\indZero,\) 
@@ -303,7 +561,7 @@
     and this value is \(\lim_{x \to -2} g(x).\)
 </p>
 
-<div class="example-title"> EXAMPLE 3 </div>
+<div class="example-title"> EXAMPLE 5 </div>
 <div class="example">
     <div class="example-problem">  
         For each of (i) and (ii), evaluate the limit.
@@ -315,14 +573,14 @@
             </li>
             <li>
                 <span>
-                    \(\ds \lim_{x \to 4} \frac{x^3 - 64}{x - 4} \)
+                    \(\ds \lim_{x \to 9/4} \frac{\sqrt{4x - 5} - 2}{16x - 36} \)
                 </span>
             </li>   
         </ol>
     </div>
 </div>
-<button onclick="toggle3()" class="solution-button"></button>
-<div id="solution3" class="solution">
+<button onclick="toggle5()" class="solution-button"></button>
+<div id="solution5" class="solution">
     <ol class="list-roman">
         <li>
             The limit is in the indeterminate form \(\indZero.\)
@@ -336,7 +594,7 @@
             &= \lim_{x \to 9} \frac{(3x - 27)(\sqrt{x - 8} - 1)}{(x - 8) - 1} \nl
             &= \lim_{x \to 9} \frac{3(x - 9)(\sqrt{x - 8} - 1)}{x - 9} \nl
             &= \lim_{x \to 9} 3 \left(\sqrt{x - 8} - 1\right) \nl
-            &= \boxed{0}
+            &= \boxed{6}
             \ea 
             \]
         </li>
@@ -372,7 +630,7 @@
 </p>
 
 
-<div class="example-title"> EXAMPLE 4 </div>
+<div class="example-title"> EXAMPLE 6 </div>
 <div class="example">
     <div class="example-problem">  
         For each of (i) and (ii), evaluate the limit.
@@ -395,11 +653,12 @@
         </ol>
     </div>
 </div>
-<button onclick="toggle4()" class="solution-button"></button>
-<div id="solution4" class="solution">
+<button onclick="toggle6()" class="solution-button"></button>
+<div id="solution6" class="solution">
     <ol class="list-roman">
         <li>
-            We rewrite \(\sin 2x\) as \(2 \sin x \cos x.\)
+            Using \(\eqRefer{eq:sin-double-angle},\)
+            we rewrite \(\sin 2x\) as \(2 \sin x \cos x.\)
             Then  
             \[ 
             \ba  
@@ -418,22 +677,33 @@
             \ba 
             \lim_{x \to 0} \frac{1 - \cos x}{3 \sin x} 
             &= \lim_{x \to 0} \frac{1 - \cos x}{3 \sin x} \cdot \frac{1 + \cos x}{1 + \cos x} \nl
-            &= \lim_{x \to 0} \frac{1 - \cos^2 x}{3 \sin x(1 + \cos x)} \nl
-            &= \lim_{x \to 0} \frac{\sin^2 x}{3 \sin x(1 + \cos x)} \nl
-            &= \lim_{x \to 0} \frac{\sin x}{3 (1 + \cos x)} \nl
-            &= \frac{\sin(0)}{3\left(1 + \cos(0)\right)} \nl
-            &= \boxed{0}
+            &= \lim_{x \to 0} \frac{1 - \cos^2 x}{3 \sin x(1 + \cos x)} \period 
+            \ea 
+            \] 
+            Then using \(\eqRefer{eq:pythag-identity},\)
+            we have 
+            \[\sin^2 x + \cos^2 x = 1 \implies \sin^2 x = 1 - \cos^2 x \period\]
+            Substituting this new expression into the numerator yields 
+            \[
+            \ba   
+            &\lim_{x \to 0} \frac{\sin^2 x}{3 \sin x(1 + \cos x)} \nl
+            = &\lim_{x \to 0} \frac{\sin x}{3 (1 + \cos x)} \nl
+            = &\frac{\sin(0)}{3\left(1 + \cos(0)\right)} \nl
+            = &\; \boxed{0}
             \ea 
             \]
         </li>
         <hr>
         <li>
-            We understand that \(\cos 2x = \cos^2 x - \sin^2 x\).
-            Therefore, 
+            From \(\eqRefer{eq:cos-double-angle},\)
+            we have \(\cos 2x = \cos^2 x - \sin^2 x.\)
+            Since this expression is a difference of squares, 
+            we further rewrite it as 
+            \[(\cos x + \sin x)(\cos x - \sin x) \period\]
+            Substituting in this expression, we find 
             \[
             \ba 
             \lim_{x \to \pi/4} \frac{\cos 2x}{\cos x - \sin x} 
-            &= \lim_{x \to \pi/4} \frac{\cos^2 x - \sin^2 x}{\cos x - \sin x} \nl
             &= \lim_{x \to \pi/4} \frac{\left(\cos x + \sin x\right) \left(\cos x - \sin x\right)}{\cos x - \sin x} \nl
             &= \lim_{x \to \pi/4} \left(\cos x + \sin x \right) \nl 
             &= \boxed{\sqrt{2}}
@@ -443,39 +713,106 @@
     </ol>
 </div>
 
-<div>
-    We should now be comfortable with recognizing indeterminate forms. 
-    The examples in this section showcase methods for algebraically manipulating indeterminate limits 
-    into a form for which direct substitution yields a definite answer. 
-    Remain vigilant for any factors that cancel—this is the common goal of the algebraic manipulations featured in this section.
-</div>
+<p>
+    Factoring, rationalization, and using trigonometric identities—these 
+    strategies allow us to manipulate many limits of the indeterminate form \(\indZero.\)
+    It's important to remain vigilant for any common factors 
+    if a limit is of the indeterminate form \(\indZero.\)
+
+</p>
 
 <!--section summary-->
-<p>
-    <p style="text-align: center; font-size: 150%;">
-        <u> SECTION SUMMARY </u>
-        <ul>
-            <li style="padding-bottom: 20px;"> 
-                A limit in the form \(\ds \indZero\) or \(\ds \frac{\infty}{ \infty}\) 
-                is <u>indeterminate</u>. 
-                However, a limit in the form \(\ds \frac{k}{0}\), where \(k \ne 0\), <u>does not exist</u>.  
-            </li>
-            <li style="padding-top: 20px; padding-bottom: 20px;">
-                To find a limit of a rational expression at infinity, take the limit of the highest-degree terms only—they 
-                are the most significant. The result agrees with the end behavior of the function.
-            </li>
-            <li style="padding-top: 20px; padding-bottom: 20px;">
-                Try to algebraically manipulate an indeterminate limit into a form for which direct substitution yields a definite value. 
-            </li>
-            <li style="padding-top: 20px; padding-bottom: 20px;">
-                If you notice a fraction with a radical in an indeterminate limit, 
-                try to rationalize it by multiplying the numerator and denominator by the conjugate of the radical expression. 
-            </li>
-            <li style="padding-top: 20px; padding-bottom: 20px;">
-                Utilize trigonometric identities to simplify indeterminate limits involving trigonometric functions. 
-                Remember the Pythagorean identity as well as the double angle identities for sine and cosine,
-                \(\sin(2x) = 2 \sin(x) \cos(x)\) and \(\cos(2x) = \cos^2(x) - \sin^2(x)\).
-            </li>
-        </ul>    
-    </p>
+<!--section summary-->
+<div class="section-summary">
+    <ul>
+        <li> 
+            We introduced limits of the indeterminate forms 
+            \(\indZero\) and \(\indInfty.\)
+            Consider the limit 
+            \[L = \lim_{x \to a} \frac{f(x)}{g(x)} \comma g(x) \ne 0 \period \]
+            <ul>
+                <li>
+                    If both \(f(x)\) and \(g(x)\) approach \(0\) 
+                    as \(x\) approaches \(a,\) 
+                    then \(L\) is of the indeterminate form \(\indZero.\)
+                </li>
+                <li>
+                    If both \(f(x)\) and \(g(x)\) approach \(0\)
+                    as \(x\) approaches \(a,\)
+                    then \(L\) is of the indeterminate form \(\indInfty.\)
+                </li>
+            </ul>
+        </li>
+        <li>
+            The limit of a rational expression at infinity is in the indeterminate form \(\indInfty.\)
+            Consider only the highest-degree terms.
+            The result agrees with the end behavior of the rational function.
+        </li>
+        <li>
+            Let \(P\) and \(Q\) be positive polynomials. 
+            Consider the limit  
+            \[L = \lim_{x \to \infty} \frac{P(x)}{Q(x)} \period\]
+            Let \(\deg(P)\) denote the degree of \(P,\)
+            and \(\deg(Q)\) denote the degree of \(Q.\)
+            <ul>
+                <li>
+                    If \(\deg(P) \gt \deg(Q),\)
+                    then \(L = \infty.\)
+                </li>
+                <li>
+                    If \(\deg(P) = \deg(Q),\)
+                    then \(L = C,\)
+                    where \(C\) is the coefficient of the highest-degree term of \(P\)
+                    divided by the coefficient of the highest-degree term of \(Q.\)
+                </li>
+                <li>
+                    If \(\deg(P) \lt \deg(Q),\)
+                    then \(L = 0.\)
+                </li>
+            </ul>
+        </li>
+        <li>
+            Consider a function \(f(x)\) whose graph
+            has vertical asymptote \(x = p.\) 
+            To determine whether \(f(x)\) approaches 
+            \(-\infty\) or \(+\infty\) on one side of \(x = p,\)
+            consider the sign of \(f(x):\)
+            <ul>
+                <li>
+                    If \(f(x) \lt 0\) as \(x \to p^-,\) then 
+                    \(\lim_{x \to p^-} f(x) = -\infty.\)
+                </li>
+                <li>
+                    If \(f(x) \gt 0\) as \(x \to p^+,\)
+                    then \(\lim_{x \to p^+} f(x) = + \infty.\)
+                </li>
+            </ul>
+        </li>
+        <li>
+            To evaluate a limit of the indeterminate form \(\indZero,\)
+            try to cancel any common factors. 
+            Factoring polynomials, rationalizing, and using trigonometric identities 
+            are strategies to expose common factors.
+        </li>
+        <li>
+            When factoring a polynomial, recall the following formulas:
+            \[
+            \ba 
+            a^2 - b^2 &= (a + b)(a - b) \nl 
+            a^3 - b^3 &= (a - b)(a^2 + ab + b^2) \nl 
+            a^3 + b^3 &= (a + b)(a^2 - ab + b^2) \period
+            \ea 
+            \]
+        </li>
+        <li>
+            Recall the following trigonometric identities:
+            \[
+            \ba 
+            1 &= \sin^2 x + \cos^2 x \nl 
+            \sin 2x &= 2 \sin x \cos x \nl 
+            \cos 2x &= \cos^2 x - \sin^2 x \period 
+            \ea 
+            \]
+        </li>
+    </ul>
 </div>
