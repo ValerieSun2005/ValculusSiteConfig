@@ -43,8 +43,8 @@
         we apply L'Hôpital's Rule to obtain 
         \[
         \ba 
-        \lim_{x \to \infty} \frac{\sqrt[3]{x + 3}}{\ln(x)} 
-        &= \lim_{x \to \infty} \frac{\frac{1}{3} (x + 3)^{-2/3}}{1/x} \nl 
+        \lim_{x \to \infty} \frac{\frac{1}{3} (x + 3)^{-2/3}}{1/x} 
+        &= \lim_{x \to \infty} \frac{x}{3(x + 3)^{2/3}} \nl 
         &= \boxed{\infty}
         \ea 
         \]
@@ -55,12 +55,12 @@
     </div>
     <span>
         The limit is in the indeterminate form \(\indZero,\)
-        so applying L'Hôpital's Rule produces
+        so applying L'Hôpital's Rule shows 
         \[
         \ba 
         \lim_{x \to 4} \frac{x - 4}{8x - 16 - x^2}
         &= \lim_{x \to 4} \frac{\frac{\dd}{\dd x}(x - 4)}{\frac{\dd}{\dd x}(8x - 16 - x^2)} \nl
-        &= \lim_{x \to 4} \frac{1}{8 - 2x} \nl
+        &= \lim_{x \to 4} \frac{1}{8 - 2x} \period \nl
         \ea 
         \]
         The graph of \(y = 1/(8 - 2x)\) has a vertical asymptote at \(x = 4,\)
@@ -93,7 +93,7 @@
         We rewrite the limit as 
         \[ \lim_{x \to \infty} \frac{x^2}{e^x} \comma \]
         which is in the indeterminate form \(\indInfty.\) Therefore, applying L'Hôpital's Rule gives 
-        \[\lim_{x \to \infty} \frac{2x}{e^x} \]
+        \[\lim_{x \to \infty} \frac{2x}{e^x} \period \]
         But this limit is still in the indeterminate form \(\indZero,\) so we apply L'Hôpital's Rule again
         to get  
         \[\lim_{x \to \infty} \frac{2}{e^x} = \boxed{0}\]
@@ -103,9 +103,9 @@
         \(\ds \lim_{x \to 0} x^3 \csc x\)
     </div>
     <span>
-        We can rewrite the limit as 
+        We rewrite the limit as 
         \[
-        \lim_{x \to 0} \frac{x^3}{\sin(x)} \comma 
+        \lim_{x \to 0} \frac{x^3}{\sin x} \comma 
         \]
         which is in the indeterminate form \(\indZero.\)
         Therefore, applying L'Hôpital's Rule gives 
@@ -143,16 +143,14 @@
         = \lim_{x \to 2^-} \frac{\ln(2 - x)}{\cot(x - 2)} \comma \]
         which is in the indeterminate form \(\indInfty.\) 
         Then we apply L'Hôpital's Rule to get
-        \[
-        \ba 
-        \lim_{x \to 2^-} \frac{\ln(2 - x)}{\cot(x - 2)} &= \lim_{x \to 2^-} \frac{1/(2 - x)}{-\csc^2(x - 2)} \nl 
-        &= \lim_{x \to 2^-} \frac{-\sin^2(x - 2)}{x - 2}. \nl 
-        \ea 
+        \[ 
+        \lim_{x \to 2^-} \frac{1/(2 - x)}{-\csc^2(x - 2)} 
+        = \lim_{x \to 2^-} \frac{\sin^2(x - 2)}{x - 2} \period \nl  
         \]
         This new limit is in the indeterminate form \(\indZero,\) 
         so we use L'Hôpital's Rule again to get 
         \[
-        \lim_{x \to 2^-} \frac{-2 \sin(x - 2) \cos(x - 2)}{1} = \boxed{0.}
+        \lim_{x \to 2^-} \frac{-2 \sin(x - 2) \cos(x - 2)}{1} = \boxed{0}
         \]
     </span>
 
@@ -165,7 +163,7 @@
         We then factor out the term \(x^2\) to get  
         \[ \lim_{x \to \infty} x^2 \left(1 - \frac{e^x}{x^2}\right) \period \]
         As \(x \to \infty,\) \(e^x/x^2 \to \infty\) (L'Hôpital's Rule verifies this). 
-        Thus, as \() \to \infty,\) 
+        Thus, as \(x \to \infty,\) 
         \[x^2 \to \infty \and \par{1 - e^x/x^2} \to -\infty \period\] 
         The product of \(+\infty\) and \(-\infty\) is \(-\infty,\) so 
         \[\lim_{x \to \infty} \Big(x^2 - e^x \Big) = \boxed{-\infty} \]
@@ -208,7 +206,7 @@
     <span>
         As \(x \to 1^+,\) 
         \[\frac{1}{x - 1} \to \infty \and \frac{1}{\ln x} \to \infty \period \]
-        The limit is therefore in the indeterminate form \(infty - \infty,) 
+        The limit is therefore in the indeterminate form \(\infty - \infty,\) 
         so we obtain a commmon denominator to merge the fractions: 
         \[
         \ba 
@@ -217,7 +215,7 @@
         \ea 
         \]
         As \(x \to 1^+,\) 
-        \[1 + \ln x - x \to 0 \and (x - 1) \ln x \to 0 \period\]
+        \[(1 + \ln x - x) \to 0 \and (x - 1) \ln x \to 0 \period\]
         Thus, the quotient is in the indeterminate form \(\indZero,\) 
         so we apply L'Hôpital's Rule to find 
         \[
@@ -278,7 +276,7 @@
     </div>
     <span>
         As \(x \to 1^+,\) 
-        \[\frac{2}{3x - 3} \to \(\infty\) \and \ln x \to 0 \comma \] 
+        \[\frac{2}{3x - 3} \to \infty \and \ln x \to 0 \comma \] 
         so this limit is in the indeterminate form \(\infty^0.\) 
         We let 
         \[y = \left(\frac{2}{3x - 3}\right)^{\ln x} \period \]
@@ -697,7 +695,7 @@
         if \(L = 0,\) then \(g(x) = \ln(x - 4)\) grows fastest; 
         and if \(L\) is a finite, positive number, then 
         \(f\) and \(g\) grow at the same rate. 
-        Now we calculate \(L:\) It is is in the indeterminate form \(\indInfty,\)
+        Now we calculate \(L:\) It is in the indeterminate form \(\indInfty,\)
         so we apply L'Hôpital's Rule to get  
         \[
         \ba 

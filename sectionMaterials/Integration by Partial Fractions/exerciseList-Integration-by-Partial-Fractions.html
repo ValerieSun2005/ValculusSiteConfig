@@ -1,0 +1,504 @@
+<section>
+    <p>GRID</p>
+    <p class="columns">3</p>
+    <p class="directions">perform the partial fraction decomposition</p>
+
+    <div>
+        \(\ds \frac{2}{(x + 3)(x - 2)}\)
+    </div>
+    <span>
+        The rational expression contains 
+        two linear factors: \((x + 3)\) and \((x - 2).\)
+        The partial fraction decomposition then takes the shape 
+        \[\frac{2}{(x + 3)(x - 2)} = \frac{A}{x + 3} + \frac{B}{x - 2} \period\]
+        Manipulating these fractions, we have 
+        \[
+        \ba 
+        \frac{2}{(x + 3)(x - 2)} 
+        &= \frac{A}{x + 3} \left(\frac{x - 2}{x - 2}\right) 
+        + \frac{B}{x - 2} \left(\frac{x + 3}{x + 3}\right) \\[1.5ex] 
+        2 &= A(x - 2) + B(x + 3) \period 
+        \ea 
+        \]
+        Our objective is now to solve for \(A\) and \(B.\) 
+        Letting \(x = 2\) yields 
+        \[2 = 0 + 5B \implies B = \frac{2}{5} \period\]
+        Similarly, for \(x = -3\) we get 
+        \[2 = -5A + 0 \implies A = -\frac{2}{5} \period\]
+        We have, therefore, 
+        \[\frac{2}{(x + 3)(x - 2)} = \boxed{\frac{-2/5}{x + 3} + \frac{2/5}{x - 2} }\]
+    </span>
+
+    <div>
+        \(\ds \frac{3x - 1}{x^2 - 8x - 9}\)
+    </div>
+    <span>
+        We factor the denominator as 
+        \[\frac{3x - 1}{(x - 9)(x + 1)} \comma\]
+        from which our partial fraction decomposition takes the form 
+        \[
+        \frac{3x - 1}{(x - 9)(x + 1)} = \frac{A}{x - 9} + \frac{B}{x + 1} \,
+        \]
+        Algebraic manipulation gives 
+        \[
+        \ba 
+        \frac{3x - 1}{(x - 9)(x + 1)} 
+        &= \frac{A}{x - 9} \left(\frac{x + 1}{x + 1}\right)  
+        + \frac{B}{x + 1} \left(\frac{x - 9}{x - 9}\right) \\[1.5ex] 
+        3x - 1 &= A(x + 1) + B(x - 9) \period
+        \ea 
+        \]
+        We now perform substitutions to solve for \(A\) and \(B.\) 
+        Letting \(x = -1\) gives 
+        \[-4 = 0 - 10B \implies B = \frac{2}{5} \period\]
+        Also, assigning \(x = 9\) produces 
+        \[26 = 10A + 0 \implies A = \frac{13}{5} \period\]
+        We now have, for our final answer,
+        \[\frac{3x - 1}{(x - 9)(x + 1)} = \boxed{\frac{13/5}{x - 9} + \frac{2/5}{x + 1}} \]
+    </span>
+
+    <div>
+        \(\ds \frac{2x + 3}{9x^2 - x} \)
+    </div>
+    <span>
+        Factoring the denominator, we have 
+        \[\frac{2x + 3}{x(9x - 1)} \comma\]
+        so our decomposition shape is 
+        \[\frac{2x + 3}{x(9x - 1)} = \frac{A}{x} + \frac{B}{9x - 1} \period\]
+        Adding these partial fractions results in 
+        \[2x + 3 = A(9x - 1) + Bx \period\]
+        We now let \(x = 0\) to get 
+        \[3 = -A + 0 \implies A = -3 \period\]
+        Furthermore, letting \(x = 1/9\) gives 
+        \[\frac{2}{9} + 3 = 0 + \frac{1}{9} B \implies B = 29 \period\]
+        Thus, we obtain 
+        \[\frac{2x + 3}{9x^2 - x} = \boxed{\frac{-3}{x} + \frac{29}{9x - 1} }\]
+    </span>
+
+    <div>
+        \(\ds \frac{t^2}{8t^3 - 1}\)
+    </div>
+    <span>
+        The denominator is a difference of cubes that can be factored to obtain
+        \[\frac{t^2}{8t^3 - 1} = \frac{t^2}{(2t - 1)(4t^2 + 2t + 1)} \period\]
+        The quadratic \((4t^2 + 2t + 1)\) is nonreducible,
+        so our decomposition is in the form 
+        \[\frac{t^2}{(2t - 1)(4t^2 + 2t + 1)} = \frac{A}{2t - 1} + \frac{Bt + C}{4t^2 + 2t + 1} \period\]
+        Adding the partial fractions gives 
+        \[t^2 = A(4t^2 + 2t + 1) + Bt(2t - 1) + C(2t - 1) \period\]
+        We now solve for \(A,\) \(B,\) and \(C.\)
+        Two of the terms contain the factor \((2t - 1),\) 
+        so letting \(t = 1/2\) zeroes them. 
+        We attain 
+        \[\frac{1}{4} = 3A + 0 \implies A = \frac{1}{12} \period\]
+        We now have two unknowns: 
+        \[t^2 = \frac{1}{12} (4t^2 + 2t + 1) + Bt(2t - 1) + C(2t - 1) \period\]
+        Letting \(t = 0\) provides 
+        \[0 = \frac{1}{12} + 0 - C \implies C = \frac{1}{12} \period\]
+        At this point, our remaining unknown is \(B;\) we have  
+        \[t^2 = \frac{1}{12}(4t^2 + 2t + 1) + Bt(2t - 1) + \frac{1}{12}(2t - 1) \period\]
+        We assign \(t\) any value to directly solve for \(B.\) 
+        The simplest value is \(t = 1,\) which gives 
+        \[1 = \frac{7}{12} + B + \frac{1}{12} \implies B = \frac{1}{3} \period\]
+        Our final answer is 
+        \[
+        \frac{t^2}{8t^3 - 1} 
+        = \boxed{\frac{\frac{1}{12}}{2t - 1} + \frac{\frac{1}{3}t + \frac{1}{12}t}{4t^2 + 2t + 1} }\]
+    </span>
+
+    <div>
+        \(\ds \frac{x^3 + 1}{9 - x^2}\)
+    </div>
+    <span>
+        We cannot perform partial fraction decomposition immediately, 
+        since the degree of the numerator is greater than the degree of the denominator.
+        So our first step is to perform polynomial long division. 
+        Doing so gives the simplified expression 
+        \[-x + \frac{9x + 1}{9 - x^2} \period\]
+        Factoring the denominator of \(\frac{9x + 1}{9 - x^2}\) gives 
+        \[\frac{9x + 1}{(3 + x)(3 - x)} \period\]
+        Our partial fraction decomposition is then in the form 
+        \[\frac{9x + 1}{(3 + x)(3 - x)} = \frac{A}{3 + x} + \frac{B}{3 - x} \period\]
+        Adding the partial fractions, we obtain 
+        \[9x + 1 = A(3 - x) + B(3 + x) \period\]
+        Now we let \(x = 3 \! :\)
+        \[28 = 0 + 6B \implies B = \frac{14}{3} \period\]
+        Then letting \(x = -3\) gives 
+        \[-26 = 6A + 0 \implies A = -\frac{13}{3} \period\]
+        Therefore, our final answer is 
+        \[\frac{x^3 + 1}{9 - x^2} = \boxed{-x - \frac{13/3}{3 + x} + \frac{14/3}{3 - x} }\]
+    </span>
+
+    <div>
+        \(\ds \frac{3 - 10x^3}{5x^3 + 8x^2 - 11x} \)
+    </div>
+    <span>
+        We begin by performing polynomial division because the degrees of the numerator and denominator are equal.
+        Doing so gives 
+        \[\frac{3 - 10x^3}{5x^3 + 8x^2 - 11x} = -2 + \frac{16x^2 - 22x + 3}{5x^3 + 8x^2 - 11x} \period \]
+        Our objective is now to find the partial fraction decomposition of \(\frac{16x^2 - 22x + 3}{5x^3 + 8x^2 - 11x} \!:\)
+        \[
+        \ba 
+        \frac{16x^2 - 22x + 3}{5x^3 + 8x^2 - 11x} &= \frac{16x^2 - 22x + 3}{x(5x^2 + 8x - 11)} \\ 
+        &= \frac{A}{x} + \frac{Bx + C}{5x^2 + 8x - 11} \period
+        \ea 
+        \]
+        We then have 
+        \[16x^2 - 22x + 3 = A(5x^2 + 8x - 11) + Bx^2 + Cx \period\]
+        To solve for \(A,\) we let \(x = 0\) to get 
+        \[3 = -11A + 0 + 0 \implies A = -\frac{3}{11} \period \]
+        There is no convenient substitution to solve for \(B\) or \(C.\)
+        Thus, we should arrange a system of equations to solve for these unknowns.
+        Letting \(x = 1,\) for simplicity, gives 
+        \[
+        -3 = -\frac{6}{11} + B + C \implies B + C = -\frac{27}{11} \period 
+        \]
+        Also, letting \(x = -1\) provides the simple equation 
+        \[41 = -14 \left(-\frac{3}{11}\right) + B - C \implies B - C = \frac{409}{11} \period\]
+        Our system is then 
+        \[
+        \ba 
+        B + C &= -\frac{27}{11} \\[1.5ex] 
+        B - C &= \frac{409}{11} \comma
+        \ea 
+        \]
+        for which the solutions are 
+        \[B = \frac{191}{11} \qquad \textrm{and} \qquad C = -\frac{218}{11} \period \]
+        Our final answer is then 
+        \[
+        \ba 
+        \frac{3 - 10x^3}{5x^3 + 8x^2 - 11x} &= \boxed{\frac{-3/11}{x} + \frac{191x - 218}{11(5x^2 + 8x^2 - 11)} }
+        \ea 
+        \]
+    </span>
+</section>
+
+<section>
+    <p>GRID</p>
+    <p class="columns">3</p>
+    <p class="directions">evaluate the integral</p>
+    
+    <div>
+        \(\ds \int \frac{4 - 3x}{(7x + 3)(4 - x)} \, \dd x\)
+    </div>
+    <span>
+        The partial fraction decomposition of the integrand takes the shape 
+        \[\frac{4 - 3x}{(7x + 3)(4 - x)} = \frac{A}{7x + 3} + \frac{B}{4 - x} \period\]
+        We then get 
+        \[4 - 3x = A(4 - x) + B(7x + 3) \period\]
+        We solve for \(B\) by letting \(x = 4 \!:\)
+        \[-8 = 0 + 31B \implies B = -\frac{8}{31} \period\]
+        Letting \(x = -3/7\) yields 
+        \[4 + \frac{9}{7} = A \left(4 + \frac{3}{7} \right) \implies A = \frac{37}{31} \period\]
+        We have, therefore,
+        \[
+        \ba 
+        \int \frac{4 - 3x}{(7x + 3)(4 - x)} \, \dd x 
+        &= \int \frac{37/31}{7x + 3} - \frac{8/31}{4 - x} \, \dd x \\[1.5ex]
+        &= \boxed{\frac{37}{217} \ln|7x + 3| + \frac{8}{31} \ln|4 - x| + C }
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int \frac{x}{2x^2 - 5x - 3} \, \dd x\)
+    </div>
+    <span>
+        Factoring the denominator gives 
+        \[\int \frac{x}{(x - 3)(2x + 1)} \, \dd x \comma\]
+        whose integrand has the partial fraction decomposition  
+        \[\frac{x}{(x - 3)(2x + 1)} = \frac{A}{x - 3} + \frac{B}{2x + 1} \period\]
+        We then get 
+        \[x = A(2x + 1) + B(x - 3) \period\]
+        To solve for \(A,\) we let \(x = 3\) to get 
+        \[3 = 7A + 0 \implies A = \frac{3}{7} \period\]
+        Letting \(x = -1/2\) gives 
+        \[-\frac{1}{2} = 0 - \frac{7}{2} B \implies B = \frac{1}{7} \period\]
+        Thus, 
+        \[
+        \ba 
+        \int \frac{x}{2x^2 - 5x - 3} \, \dd x &= \int \frac{3/7}{x - 3} + \frac{1/7}{2x + 1} \, \dd x  \\[1.5ex]
+        &= \boxed{\frac{3}{7} \ln|x - 3| + \frac{1}{14} \ln|2x + 1| + C }
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int \frac{3t^2 + 2}{5t^2 - 25t} \, \dd t \)
+    </div>
+    <span>
+        The degree of the numerator is greater than the degree of the denominator,
+        so we first perform polynomial division to get 
+        \[
+        \ba 
+        \frac{3t^2 + 2}{5t^2 - 25t} &= \frac{3}{5} + \frac{15t + 2}{5t^2 - 25t} \\[1.5ex]
+        &= \frac{3}{5} + \frac{15t + 2}{5t(t - 5)} \period 
+        \ea 
+        \]
+        The partial fraction decomposition of \(\frac{15t + 2}{5t(t - 5)} \) takes the form 
+        \[\frac{15t + 2}{5t(t - 5)} = \frac{1}{5} \left(\frac{A}{t} + \frac{B}{t - 5} \right) \period\]
+        We then get 
+        \[15t + 2 = A(t - 5) + Bt \period\]
+        Solving for \(A,\) we let \(t = 0\) to get
+        \[2 = -5A + 0 \implies A = -\frac{2}{5} \period\]
+        Letting \(t = 5\) gives 
+        \[77 = 0 + 5B \implies B = \frac{77}{5} \period\]
+        Thus,
+        \[
+        \ba 
+        \int \frac{3t^2 + 2}{5t^2 - 25t} \, \dd t 
+        &= \int \frac{3}{5} + \frac{1}{5} \left( \frac{-2/5}{t} + \frac{77/5}{t - 5} \right) \, \dd t \\[1.5ex]
+        &= \boxed{\frac{3}{5} t - \frac{2}{25} \ln|t| + \frac{77}{25} \ln|t - 5| + C }
+        \ea 
+        \] 
+    </span>
+
+    <div>
+        \(\ds \int \frac{3}{x(x + 3)(x^2-4)} \, \dd x\)
+    </div>
+    <span>
+        The partial fraction decomposition for the integrand is 
+        \[\frac{A}{x} + \frac{B}{x + 3} + \frac{C}{x + 2} + \frac{D}{x - 2} \period\]
+        We then have
+        \[3 = A(x + 3)(x + 2)(x - 2) + Bx(x + 2)(x - 2) + Cx(x + 3)(x - 2) + Dx(x + 3)(x + 2) \period\]
+        To solve for \(A,\) we let \(x = 0\) to obtain 
+        \[3 = -12A \implies A = -\frac{1}{4} \period\]
+        Similarly, assigning \(x = -3\) gives 
+        \[3 = 0 -15B + 0 + 0 \implies B = -\frac{1}{5} \period\]
+        Solving for \(C\) is just as simple—by letting \(x = -2 \!:\) 
+        \[3 = 0 + 0 + 8C + 0 \implies C = \frac{3}{8} \period\]
+        Lastly, we let \(x = 2\) to find \(D \!:\)
+        \[3 = 0 + 0 + 0 + 40D \implies D = \frac{3}{40} \period\]
+        Substituting these coefficients and integrating yield
+        \[\small \int \frac{-1/4}{x} - \frac{1/5}{x + 3} + \frac{3/8}{x + 2} + \frac{3/40}{x - 2} \, \dd x \\
+        = \boxed{-\frac{1}{4} \ln|x| - \frac{1}{5} \ln|x + 3| + 
+        \frac{3}{8} \ln|x + 2| + \frac{3}{40} \ln|x - 2| + C } \]
+    </span>
+
+    <div>
+        \(\ds \int \frac{5}{t(t - 3)^2} \, \dd t\)
+    </div>
+    <span>
+        We rewrite the integrand as
+        \[\frac{5}{t(t - 3)(t - 3)} \comma\]
+        whose partial fraction decomposition takes the form
+        \[\frac{5}{t(t - 3)(t - 3)} = \frac{A}{t} + \frac{B}{t - 3} + \frac{C}{(t - 3)^2} \period\]
+        We then get, after multiplying both sies by \(t(t - 3)^2,\)
+        \[5 = A(t - 3)^2 + Bt(t - 3) + Ct \period\]
+        We immediately solve for \(A\) by letting \(t = 0 \!:\)
+        \[5 = 9A + 0 + 0 \implies A = \frac{5}{9} \period \]
+        Likewise, letting \(t = 3\) yields 
+        \[5 = 0 + 0 = 3C \implies C = \frac{5}{3} \period\]
+        Plugging in these coefficients, our equation is now
+        \[5 = \frac{5}{9}(t - 3)^2 + Bt(t - 3) + \frac{5}{3} t \period\]
+        We now let \(t\) equal any value to solve for \(B.\)
+        A simple value is \(t = 4,\) from which we obtain 
+        \[5 = \frac{5}{9} + 4B + \frac{20}{3} \implies B = -\frac{5}{9} \period\]
+        We have, therefore,
+        \[
+        \ba 
+        \int \frac{5}{t(t - 3)^2} \, \dd t 
+        &= \int \frac{5/9}{t} - \frac{5/9}{t - 3} + \frac{5/3}{(t - 3)^2} \\[1.5ex] 
+        &= \boxed{\frac{5}{9} \ln|t| - \frac{5}{9} \ln|t - 3| - \frac{5/3}{t - 3} + C }
+        \ea 
+        \] 
+    </span>
+
+    <div>
+        \(\ds \int \frac{6 - 2t}{(t + 1)(27 - 3t^2)} \, \dd t\)
+    </div>
+    <span>
+        We rewrite the integrand as
+        \[ \frac{-2(t - 3)}{3(t + 1)(3 + t)(3 - t)} \period\]
+        The partial fraction decomposition then takes the shape
+        \[\frac{-2(t - 3)}{3(t + 1)(3 + t)(3 - t)} = \frac{1}{3} \left( \frac{A}{t + 1} + \frac{B}{3 + t} + \frac{C}{3 - t}\right) \period\]
+        We then have 
+        \[-2(t - 3) = A(3 + t)(3 - t) + B(t + 1)(3 - t) + C(t + 1)(3 + t) \period\]
+        To solve for \(C,\) we let \(t = 3\) to get 
+        \[0 = 0 + 0 + 36C \implies C = 0 \period\]
+        Likewise, letting \(t = -1\) gives 
+        \[8 = 8A + 0 \implies A = 1 \period\]
+        Finally, we let \(t = -3\) to obtain 
+        \[12 = 0 - 12B + 0 \implies B = -1 \period\]
+        We have, for our integral, 
+        \[\frac{1}{3} \int \frac{1}{t + 1} - \frac{1}{3 + t} \, \dd t = \boxed{\frac{1}{3} \ln|t + 1| - \frac{1}{3} \ln|3 + t| + C }\]
+    </span>
+
+    <div>
+        \(\ds \int \frac{9 + 5q^2}{q^3 - q^2 - 12q} \, \dd q\)
+    </div>
+    <span>
+        We re-express the integrand as 
+        \[\frac{9 + 5q^2}{q(q - 4)(q + 3)} \comma\]
+        whose partial fraction decomposition takes the shape 
+        \[\frac{A}{q} + \frac{B}{q - 4} + \frac{C}{q + 3} \period\] 
+        We then get 
+        \[9 + 5q^2 = A(q - 4)(q + 3) + Bq(q + 3) + Cq(q - 4) \period\]
+        To solve for \(A,\) we let \(q = 0\) to get 
+        \[9 + 0 = -12A + 0 + 0 \implies A = \frac{-3}{4} \period \]
+        Assinging \(t = 4\) provides 
+        \[89 = 0 + 28B + 0 \implies B = \frac{89}{28} \period\]
+        Lastly, we solve for \(C\) by letting \(t = -3 \!:\)
+        \[54 = 0 + 0 + 21C \implies C = \frac{18}{7} \period\]
+        We have, therefore, 
+        \[
+        \ba 
+        \int \frac{9 + 5q^2}{q^3 - q^2 - 12q} \, \dd q &= \int \frac{-3/4}{q} + \frac{89/28}{q - 4} + \frac{18/7}{q + 3} \, \dd q \\[1.5ex] 
+        &= \boxed{\frac{89}{28} \ln|q - 4| + \frac{18}{7} \ln|q + 3| - \frac{3}{4} \ln|q| + C } 
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int \frac{x^4 + 1}{16x - 4x^3} \, \dd x\)
+    </div>
+    <span>
+        The degree of the numerator is greater than the degree of the denominator, 
+        so we must first simplify the expression using polynomial division.
+        Doing so gives 
+        \[\frac{x^4 + 1}{16 - 4x^2} = -\frac{x}{4} + \frac{4x^2 + 1}{16x - 4x^3} \period\]
+        Factoring \(\frac{4x^2 + 1}{16x - 4x^3}\) yields 
+        \[\frac{4x^2 + 1}{4x(2 + x)(2 - x)} \comma\]
+        whose partial fraction decompositions take the form 
+        \[
+        \frac{4x^2 + 1}{4x(2 + x)(2 - x)} = \frac{A}{4x} + \frac{B}{2 + x} + \frac{C}{2 - x} \period
+        \]
+        Adding these partial fractions, we attain 
+        \[4x^2 + 1 = A(2 + x)(2 - x) + B(4x)(2 - x) + C(4x)(2 + x) \period\]
+        Two of the terms possess the factor \((4x),\) 
+        so letting \(x = 0\) cancels them out. We get 
+        \[1 = 4A + 0 + 0 \implies A = \frac{1}{4} \period\]
+        In addition, letting \(x = 2\) cancels out two more factors, 
+        enabling us to solve for \(C \! :\)
+        \[17 = 0 + 0 + 32 C \implies C = \frac{17}{32} \period\]
+        Finally, letting \(x = -2\) allows us to obtain the value of \(B \! :\)
+        \[17 = 0 - 32 B \implies B = -\frac{17}{32} \period\]
+        Our partial fraction decomposition is then 
+        \[
+        \frac{x^4 + 1}{16x - 4x^3} = -\frac{x}{4} + \frac{1}{16x} - \frac{17/32}{2 + x} + \frac{17/32}{2 - x} \period 
+        \]
+        Integrating this expression, we get 
+        \[
+        \ba 
+        \int \frac{x^4 + 1}{16x - 4x^3} \, \dd x 
+        &= \int -\frac{x}{4} + \frac{1}{16x} - \frac{17/32}{2 + x} + \frac{17/32}{2 - x} \, \dd x \\[1.5ex]
+        &= \boxed{-\frac{1}{8}x^2 + \frac{1}{16} \ln|x| - \frac{17}{32} \ln|2 + x| - \frac{17}{32} \ln|2 - x| + C } 
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int \frac{x}{(2x + 1)(x^2 + 4x + 1)} \, \dd x\)
+    </div>
+    <span>
+        The partial fraction composition of the integrand is expressed by 
+        \[\frac{x}{(2x + 1)(x^2 + 4x + 1)} = \frac{A}{2x + 1} + \frac{Bx + C}{x^2 + 4x + 1} \period\] 
+        We then have 
+        \[x = A(x^2 + 4x + 1) + Bx(2x + 1) + C(2x + 1) \period\]
+        We solve for \(A\) by letting \(x = -1/2 \!:\) 
+        \[-\frac{1}{2} = -\frac{3}{4}A + 0 + 0 \implies A = \frac{2}{3} \period \]
+        Another simple substitution is letting \(x = 0,\) from which we obtain 
+        \[0 = \frac{2}{3} + 0 + C \implies C = -\frac{2}{3} \period\]
+        Our equation is now 
+        \[x = \frac{2}{3}(x^2 + 4x + 1) + Bx(2x + 1) - \frac{2}{3} (2x + 1) \period\]
+        To solve for \(B,\) we let \(x\) equal any value;
+        an easy choice is letting \(x = 1\) to attain 
+        \[1 = 4 + 3B - 2 \implies B = -\frac{1}{3} \period \]
+        Our new integral is now 
+        \[\int \frac{2/3}{2x + 1} - \frac{x + 2}{3(x^2 + 4x + 1)}  \, \dd x \period\]
+        The integral \(\int \frac{x + 2}{3(x^2 + 4x + 1)} \, \dd x\) can be evaluated using the substitution \(u = x^2 + 4x + 1.\)
+        We then acquire, for our final answer,
+        \[\boxed{\frac{1}{3} \ln|2x + 1| - \frac{1}{6} \ln|x^2 + 4x + 1| + C }\]
+    </span>
+
+    <div>
+        \(\ds \int \frac{7w^3 - 9}{(w + 2)(4 - w^2)} \, \dd w \)
+    </div>
+    <span>
+        The degree of the numerator is equal to the degree of the denominator. 
+        Thus, we perform polynomial division first to obtain 
+        \[-7 + \frac{-14w^2 + 28w + 47}{(w + 2)(4 - w^2)} \period\]
+        The partial fraction decomposition of 
+        \(\frac{-14w^2 + 28w + 47}{(w + 2)(4 - w^2)}\) takes the shape 
+        \[
+        \ba 
+        \frac{-14w^2 + 28w + 47}{(w + 2)(4 - w^2)} 
+        &= \frac{-14w^2 + 28w + 47}{(w + 2)^2(2 - w)} \\[1.5ex]
+        &= \frac{A}{w + 2} + \frac{B}{(w + 2)^2} + \frac{C}{2 - w} \period
+        \ea 
+        \]
+        Multiplying both sides by \((w + 2)^2 (2 - w),\) we obtain
+        \[-14w^2 + 28w + 47 = A(w + 2) (2 - w) + B(2 - w) + C(w + 2)^2 \period\]
+        To solve for \(C,\) we let \(w = 2\) to get 
+        \[47 = 0 + 0 + 16C \implies C = \frac{47}{16} \period\]
+        Similarly, letting \(w = -2\) provides 
+        \[-65 = 0 + 4B + 0 \implies B = -\frac{65}{4} \period\]
+        Our resulting equation is 
+        \[-14w^2 + 28w + 47 = A(w + 2) (2 - w) - \frac{65}{4}(2 - w) + \frac{47}{16} (w + 2)^2 \period\]
+        To solve for \(A,\) we assign \(w\) any value.
+        A simple choice is \(w = 0,\) which gives 
+        \[47 = 4A - \frac{65}{2} + \frac{47}{4} \implies A = \frac{271}{16} \period \]
+        We have, therefore,
+        \[
+        \ba 
+        \int \frac{7w^3 - 9}{(w + 2)(4 - w^2)} \, \dd w 
+        &= \int -7 + \left(\frac{271/16}{w + 2} - \frac{65/4}{(w + 2)^2} + \frac{47/16}{2 - w} \right) \, \dd w \\[1.5ex] 
+        &= \boxed{-7w + \frac{271}{16} \ln|w + 2| + \frac{65/4}{w + 2} - \frac{47}{16} \ln|2 - w| + C }
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int \frac{5}{2x^3 + 3x} \, \dd x\)
+    </div>
+    <span>
+        We factor the denominator to get 
+        \[\frac{5}{2x^3 + 3x} = \frac{5}{x(2x^2 + 3)} \comma\]
+        whose partial fraction decomposition is
+        \[\frac{5}{x(2x^2 + 3)} = \frac{A}{x} + \frac{Bx + C}{2x^2 + 3} \period\]
+        We then get 
+        \[5 = A(2x^2 + 3) + Bx^2 + Cx \period \]
+        To solve for \(A,\) we let \(x = 0\) and get 
+        \[5 = 3A + 0 + 0 \implies A = \frac{5}{3} \period\]
+        We now have 
+        \[5 = \frac{5}{3} (2x^2 + 3) + Bx^2 + Cx \period\]
+        At this point, there aren't any more convenient substitutions.
+        We can, however, establish a system of equations to find \(B\) and \(C.\) 
+        This procedure involves attaining equations by assigning \(x\) any value. 
+        Letting, say, \(x = 1\) gives 
+        \[
+        5 = \frac{25}{3} + B + C \implies 3B + 3C = -10 \period
+        \]
+        Another simple value is \(x = -1,\) from which we get 
+        \[5 = \frac{25}{3} + B - C \implies 3B - 3C = -10 \period\]
+        Thus, our system is 
+        \[
+        \ba 
+        3B + 3C &= -10 \\ 
+        3B - 3C &= -10 \comma
+        \ea 
+        \]
+        which has solutions \(B = -10/3\) and \(C = 0.\)
+        We have, therefore, 
+        \[
+        \ba 
+        \int \frac{5}{2x^3 + 3x} \, \dd x &= \int \frac{5/3}{x} + \frac{-10x/3}{2x^2 + 3} \, \dd x \\ 
+        &= \int \frac{5}{3x} - \frac{10x}{6x^2 + 9} \, \dd x \period 
+        \ea 
+        \]
+        To evaluate \(\int \frac{10x}{6x^2 + 9} \, \dd x,\) 
+        we let \(u = 6x^2 + 9.\) Then \(\dd u = 12x \, \dd x,\) and we get 
+        \[
+        \ba 
+        \int \frac{10x}{6x^2 + 9} \, \dd x = \frac{10}{12} \int \frac{1}{u} \, \dd u 
+        &= \frac{5}{6} \ln|u| + C \\
+        &= \frac{5}{6} \ln(6x^2 + 9) + C \period
+        \ea 
+        \]
+        Therefore, 
+        \[
+        \int \frac{5/3}{x} + \frac{-10x/3}{2x^2 + 3} \, \dd x 
+        = \boxed{\frac{5}{3} \ln|x| - \frac{5}{6} \ln(6x^2 + 9) + C }
+        \]
+    </span>
+</section>

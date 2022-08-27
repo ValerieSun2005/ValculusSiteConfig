@@ -52,8 +52,24 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
 
     # body of html page
     with doc:
+        with header(cls="tab"):
+            with ul(cls="logo-header"):
+                with li(cls="logo-header"):
+                    a("VALCULUS", href='index.html')
+            with ul(cls="header-items"):
+                with li(cls="nav-item"):
+                    a("Sections", href='')
+                with li(cls="nav-item"):
+                    a("AP Prep", href='')
+                with li(cls="nav-item"):
+                    a("About", href='')
+                with li(cls="nav-item"):
+                    a("Contact", href='')
+                with li(cls="nav-item"):
+                    a("More", href='')
+
         script(type='text/javascript', src='../js/header-load.js')
-        header(id='header', cls='tab')
+        # header(id='header', cls='tab')
 
         # create headers of created page
         if mode.lower() == 'section':
@@ -143,8 +159,7 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
             hr(id='mainBodyBegin')
             comment('APPEND CONTENT HERE')  # APPEND FILE CONTENTS HERE
 
-        script(type='text/javascript', src='../js/footer-load.js')
-        div(id='footer')
+        comment('APPEND FOOTER HERE')  # APPEND FOOTER HERE
         script(src='../js/mathjax-config.js')
         script(src='https://polyfill.io/v3/polyfill.min.js?features=es6')
         script(_async=True, id='MathJax-script', src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js')
@@ -167,6 +182,11 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
                   encoding='utf-8') as file:
             appendContent = file.read()
 
+        with open(f'sectionMaterials/.assets/footer.html',
+                  encoding='utf-8') as file:
+            footerContent = file.read()
+            footerContent = footerContent.replace('<!--APPEND FOOTER HERE-->')
+
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", 'r',
                   encoding='utf-8') as file:
             data = file.read()
@@ -175,6 +195,7 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", "w",
                   encoding='utf-8') as file:
             file.write(data)
+            file.write(footerContent)
 
     # exercise
     elif mode.lower() == 'exercise':
@@ -267,10 +288,6 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
         #     file.write(doc.render())
 
 
-
-
-
-
 def create_all_pages(sectionNumber, sectionLabel):
     create_page('section', f'{sectionNumber}', f'{sectionLabel}', '')  # MAKE MAIN SECTION PAGE
     create_page('exercise', f'{sectionNumber}', f'{sectionLabel}', '')  # MAKE EXERCISE PAGE
@@ -286,4 +303,3 @@ create_page('index', '', '', '')
 
 # for i in ['home', 'about', 'contact']:
 # li(a(i.title(), href='/%s.html' % i))
-

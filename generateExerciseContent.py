@@ -9,6 +9,8 @@ def hyphenateText(text):
     return newText
 
 
+exercisesHintText = '<p class="exercises-hint">Click on a problem number to see its solution.</p> \n'
+
 def generate_exercise_content(sectionLabel, sectionNumber):
     sectionLabelHyphenated = hyphenateText(sectionLabel)
     with open(f'sectionMaterials/{sectionLabel}/exerciseList-{sectionLabelHyphenated}.html',
@@ -18,6 +20,7 @@ def generate_exercise_content(sectionLabel, sectionNumber):
     exerciseNumber = 0
     exerciseNumberList = [0]
     appendText = '<section>'
+    appendText += exercisesHintText
     for v in range(0, len(soup.find_all('section'))):
         sectionHtml = f'''{soup.find_all('section')[v]}'''
         soupSection = BeautifulSoup(sectionHtml, 'html.parser')

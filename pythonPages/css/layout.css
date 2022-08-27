@@ -325,6 +325,10 @@ ol li{
 
 .list-alpha  li, .list-num > li, .list-roman > li {
     list-style: none;
+}
+
+.example-problem > .list-alpha  li, .list-num > li, .list-roman > li {
+    list-style: none;
     margin-bottom: 2%;
 }
 
@@ -350,6 +354,14 @@ ol li{
 
 .list-num > li > span, .list-alpha > li > span, .list-roman > li > span{
     margin-left: 20px;
+}
+
+.list-num > li > .emph, .list-alpha > li > .emph, .list-roman > li > .emph{
+    margin-left: 0px;
+}
+
+.list-num > li > .warning, .list-alpha > li > .warning, .list-roman > li > .warning{
+    margin-left: 0px;
 }
 
 @media screen and (max-width: 1050px) {
