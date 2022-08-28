@@ -39,6 +39,7 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
         meta(http_equiv='X-UA-Compatible', content='ie-edge')
         meta(name='author', content='Valerie')
         meta(charset='UTF-8')
+        link(rel='stylesheet', href='../css/hamburger-menu.css')
         link(rel='stylesheet',
              href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
         # SCREEN LAYOUT
@@ -51,23 +52,9 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
                integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=', crossorigin='anonymous')
 
     # body of html page
-    with doc:
-        with header(cls="tab"):
-            with ul(cls="logo-header"):
-                with li(cls="logo-header"):
-                    a("VALCULUS", href='index.html')
-            with ul(cls="header-items"):
-                with li(cls="nav-item"):
-                    a("Sections", href='')
-                with li(cls="nav-item"):
-                    a("AP Prep", href='')
-                with li(cls="nav-item"):
-                    a("About", href='')
-                with li(cls="nav-item"):
-                    a("Contact", href='')
-                with li(cls="nav-item"):
-                    a("More", href='')
 
+    with doc:
+        comment('APPEND HEADER HERE')  # APPEND HEADER HERE
         script(type='text/javascript', src='../js/header-load.js')
         # header(id='header', cls='tab')
 
@@ -173,6 +160,15 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
     # (2) the content page is parsed and converted into a string, appendContent;
     # (3) appendContent is appended to the labeled, official section
 
+
+    with open(f'sectionMaterials/.assets/header.html',
+              encoding='utf-8') as file:
+        headerContent = file.read()
+
+    with open(f'sectionMaterials/.assets/footer.html',
+              encoding='utf-8') as file:
+        footerContent = file.read()
+
     if mode.lower() == 'section':
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", 'w',
                   encoding='utf-8') as file:
@@ -182,20 +178,16 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
                   encoding='utf-8') as file:
             appendContent = file.read()
 
-        with open(f'sectionMaterials/.assets/footer.html',
-                  encoding='utf-8') as file:
-            footerContent = file.read()
-            footerContent = footerContent.replace('<!--APPEND FOOTER HERE-->')
-
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", 'r',
                   encoding='utf-8') as file:
             data = file.read()
-            data = data.replace('<!--APPEND CONTENT HERE-->', appendContent)
+            data = data.replace('<!--APPEND CONTENT HERE-->', appendContent).\
+                replace('<!--APPEND HEADER HERE-->', headerContent).\
+                replace('<!--APPEND FOOTER HERE-->', footerContent)
 
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}.html", "w",
                   encoding='utf-8') as file:
             file.write(data)
-            file.write(footerContent)
 
     # exercise
     elif mode.lower() == 'exercise':
@@ -208,7 +200,9 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", "r",
                   encoding='utf-8') as file:
             data = file.read()
-            data = data.replace('<!--APPEND CONTENT HERE-->', appendContent)
+            data = data.replace('<!--APPEND CONTENT HERE-->', appendContent). \
+                replace('<!--APPEND HEADER HERE-->', headerContent). \
+                replace('<!--APPEND FOOTER HERE-->', footerContent)
 
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises.html", "w",
                   encoding='utf-8') as output:
@@ -229,7 +223,9 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html", "r",
                   encoding='utf-8') as file:
             data = file.read()
-            data = data.replace('<!--APPEND CONTENT HERE-->', appendContent)
+            data = data.replace('<!--APPEND CONTENT HERE-->', appendContent). \
+                replace('<!--APPEND HEADER HERE-->', headerContent). \
+                replace('<!--APPEND FOOTER HERE-->', footerContent)
 
         with open(f"pythonPages/calculus/{sectionNumber}-{sectionLabelHyphenated}-exercises-solutions.html", "w",
                   encoding='utf-8') as output:
