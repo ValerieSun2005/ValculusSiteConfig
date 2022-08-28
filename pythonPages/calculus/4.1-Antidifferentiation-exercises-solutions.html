@@ -49,32 +49,50 @@
     </ul>
 </nav> -->
 
+<a href="">
+    <img src="../images/logo.png" class="logo-image" alt="">
+</a>
+
+<a href="javascript:void(0);" class="toggle-icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+</a>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("popupMenuItems");
+    if (x.style.display === "block") {
+    x.style.display = "none";
+    } else {
+    x.style.display = "block";
+    }
+}
+</script>
+
 <aside id="popupMenuItems" class="menu-popup"> 
-    <hr class="menu-hr">
     <p class="menu-heading"> NAVIGATION </p>    
     <ul class="menu-list">
         <li>
             <a href="">
-            <img src="../images/icons/home-button.svg" class="menu-icon" style="filter:invert(100%)" alt="">
-            Home 
+                <img src="../images/icons/home-button.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                Home 
             </a>
         </li>
         <li>
             <a>
-            <img src="../images/icons/information.svg" class="menu-icon" style="filter:invert(100%)" alt="">
-            About 
+                <img src="../images/icons/information.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                About 
             </a>
         </li>
         <li>
             <a>
-            <img src="../images/icons/question-mark.svg" class="menu-icon" style="filter:invert(100%)" alt="">
-            FAQ
+                <img src="../images/icons/question-mark.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                FAQ
             </a>
         </li>
         <li>
             <a>
-            <img src="../images/icons/email.svg" class="menu-icon" style="filter:invert(100%)" alt="">
-            Contact
+                <img src="../images/icons/email.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                Contact
             </a>
         </li>
     </ul>
@@ -84,19 +102,34 @@
     <p class="menu-heading"> MATH RESOURCES </p>
     <ul class="menu-list">
         <li>
-            <a> Math Notation </a> 
+            <a> 
+                <img src="../images/icons/notation.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                Math Notation 
+            </a> 
         </li>
         <li>
-            <a> Common Math Errors </a> 
+            <a> 
+                <img src="../images/icons/error.svg" class="menu-icon" style="filter:invert(100%); top: 3px" alt="">
+                Common Errors 
+            </a> 
         </li>
         <li>
-            <a> Precalculus Practice </a> 
+            <a> 
+                <img src="../images/icons/precalc.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                Precalculus Practice 
+            </a> 
         </li>
         <li>
-            <a> Calculator </a> 
+            <a> 
+                <img src="../images/icons/calculator.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                Calculator 
+            </a> 
         </li>
         <li>
-            <a> Function Grapher </a> 
+            <a> 
+                <img src="../images/icons/graph.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                Function Grapher 
+            </a> 
         </li>
     </ul>
 
@@ -108,10 +141,10 @@
             <a> AP® Content </a>
         </li>
         <li>
-            <a> AP® Practice Exam </a>
+            <a> Calculus AB or BC? </a>
         </li>
         <li>
-            <a> Calculus AB or Calculus BC? </a>
+            <a> AP® Practice Exams </a>
         </li>
         <li>
             <a> AP® Exam: Tips, Format </a>

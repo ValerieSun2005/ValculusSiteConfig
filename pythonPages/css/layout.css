@@ -14,7 +14,7 @@ body{
 
 h1, main, .footer-body, .tab div, .footer-disclaimer{
     width: 1200px;
-    margin-left: 28%;
+    margin-left: 21%;
     margin-right: auto;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: white;
@@ -367,7 +367,7 @@ ol li{
     margin-left: 0px;
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 950px) {
     h1, main, .footer-body, .tab ul{
         width: 500px;
     }
