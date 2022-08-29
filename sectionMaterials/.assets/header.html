@@ -33,49 +33,79 @@
     </ul>
 </nav> -->
 
-<a href="">
-    <img src="../images/logo.png" class="logo-image" alt="">
+<a href="/Valculus/pythonPages/index.html">
+    <img src="/Valculus/pythonPages/images/logo.png" class="logo-image" alt="">
 </a>
 
-<a href="javascript:void(0);" class="toggle-icon" onclick="myFunction()">
+<a href="javascript:void(0);" class="toggle-icon" onclick="toggleMenu()">
     <i class="fa fa-bars"></i>
 </a>
 
-<script>
-function myFunction() {
-    var x = document.getElementById("popupMenuItems");
-    if (x.style.display === "block") {
-    x.style.display = "none";
-    } else {
-    x.style.display = "block";
+
+ <script>
+    function toggleMenu() {
+        var menu = document.getElementById("popupMenuItems");
+        if (menu.style.display === "block") {
+        menu.style.display = "none";
+        } else {
+        menu.style.display = "block";
+        }
     }
-}
 </script>
+
+<!-- <script>
+    function closeMenu(event){
+        var el = document.getElementById('popupMenuItems');
+        if(el.style.display == 'block' && event.target != el){
+            window.removeEventListener('click', closeMenu, {capture: true});
+            el.style.display = 'none';
+        }
+    }
+    // body.onclick = menuClose;
+</script>  -->
+
+<!-- <script>
+    function outsideClose(event) {
+        if (!menu.contains(event.target)) {
+            close();
+        }
+    }
+
+    // assuming this is how outsideClose would look like:
+
+    function open() {
+        hamburger.addEventListener("click");
+        links.classList.toggle("show");
+
+        window.addEventListener('mousedown', outsideClose);
+    }
+
+</script> -->
 
 <aside id="popupMenuItems" class="menu-popup"> 
     <p class="menu-heading"> NAVIGATION </p>    
     <ul class="menu-list">
         <li>
             <a href="">
-                <img src="../images/icons/home-button.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                <img src="/Valculus/pythonPages/images/icons/home-button.svg" class="menu-icon" style="filter:invert(100%)" alt="">
                 Home 
             </a>
         </li>
         <li>
             <a>
-                <img src="../images/icons/information.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                <img src="/Valculus/pythonPages/images/icons/information.svg" class="menu-icon" style="filter:invert(100%)" alt="">
                 About 
             </a>
         </li>
         <li>
             <a>
-                <img src="../images/icons/question-mark.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                <img src="/Valculus/pythonPages/images/icons/question-mark.svg" class="menu-icon" style="filter:invert(100%)" alt="">
                 FAQ
             </a>
         </li>
         <li>
             <a>
-                <img src="../images/icons/email.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                <img src="/Valculus/pythonPages/images/icons/email.svg" class="menu-icon" style="filter:invert(100%)" alt="">
                 Contact
             </a>
         </li>
@@ -87,31 +117,31 @@ function myFunction() {
     <ul class="menu-list">
         <li>
             <a> 
-                <img src="../images/icons/notation.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                <img src="/Valculus/pythonPages/images/icons/notation.svg" class="menu-icon" style="filter:invert(100%)" alt="">
                 Math Notation 
             </a> 
         </li>
         <li>
             <a> 
-                <img src="../images/icons/error.svg" class="menu-icon" style="filter:invert(100%); top: 3px" alt="">
+                <img src="/Valculus/pythonPages/images/icons/error.svg" class="menu-icon" style="filter:invert(100%); top: 3px" alt="">
                 Common Errors 
             </a> 
         </li>
         <li>
             <a> 
-                <img src="../images/icons/precalc.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                <img src="/Valculus/pythonPages/images/icons/precalc.svg" class="menu-icon" style="filter:invert(100%)" alt="">
                 Precalculus Practice 
             </a> 
         </li>
         <li>
             <a> 
-                <img src="../images/icons/calculator.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                <img src="/Valculus/pythonPages/images/icons/calculator.svg" class="menu-icon" style="filter:invert(100%)" alt="">
                 Calculator 
             </a> 
         </li>
         <li>
             <a> 
-                <img src="../images/icons/graph.svg" class="menu-icon" style="filter:invert(100%)" alt="">
+                <img src="/Valculus/pythonPages/images/icons/graph.svg" class="menu-icon" style="filter:invert(100%)" alt="">
                 Function Grapher 
             </a> 
         </li>

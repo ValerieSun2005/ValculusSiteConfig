@@ -43,5 +43,6 @@ def indexContent():
                           '</li>'
         appendText += f'</ul>\n' \
                       f'</div>\n' \
+                      f'<img class="header-image" src="images/indexImages/{i}.jpg" alt="">' \
                       f'</div>\n'
     return appendText

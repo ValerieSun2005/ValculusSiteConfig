@@ -7,6 +7,8 @@ import generateExerciseContent  # creates exerciseContent.html page from exercis
 import generateSolutionsContent  # creates solutionContent.html page from exerciseList.html
 import generateIndexContent
 
+rootDirectory = '/Valculus/pythonPages'
+
 # sectionNumber = input("Input Section Number: ")
 # sectionLabel = input("Input Section Label: ")
 
@@ -39,14 +41,14 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
         meta(http_equiv='X-UA-Compatible', content='ie-edge')
         meta(name='author', content='Valerie')
         meta(charset='UTF-8')
-        link(rel='stylesheet', href='../css/hamburger-menu.css')
+        link(rel='stylesheet', href=f'{rootDirectory}/css/hamburger-menu.css')
         link(rel='stylesheet',
              href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
         # SCREEN LAYOUT
-        link(rel='stylesheet', href='../css/layout.css')
+        link(rel='stylesheet', href=f'{rootDirectory}/css/layout.css')
         # PRINT LAYOUT
-        link(rel='stylesheet', media='print', href='../css/layout-print.css')
-        # link(rel='icon', href='http://example.com/favicon.png')
+        link(rel='stylesheet', media='print', href=f'{rootDirectory}/css/layout-print.css')
+        link(rel='icon', href=f'{rootDirectory}/images/favicon.png')
         # SECTION-SPECIFIC LAYOUT
         script(src='https://code.jquery.com/jquery-3.3.1.js',
                integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=', crossorigin='anonymous')
@@ -55,32 +57,32 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
 
     with doc:
         comment('APPEND HEADER HERE')  # APPEND HEADER HERE
-        script(type='text/javascript', src='../js/header-load.js')
+        script(type='text/javascript', src=f'{rootDirectory}/js/header-load.js')
         # header(id='header', cls='tab')
 
         # create headers of created page
         if mode.lower() == 'section':
             with doc.head:
                 # SCREEN LAYOUT
-                link(rel='stylesheet', href='../css/notes-style.css')
+                link(rel='stylesheet', href=f'{rootDirectory}/css/notes-style.css')
                 # PRINT LAYOUT
-                link(rel='stylesheet', media='print', href='../css/notes-style-print.css')
+                link(rel='stylesheet', media='print', href=f'{rootDirectory}/css/notes-style-print.css')
             h1(f'{sectionNumber} — {sectionLabel}')
         elif mode.lower() == 'exercise':
             with doc.head:
                 # SCREEN LAYOUT
-                link(rel='stylesheet', href='../css/exercises-style.css')
+                link(rel='stylesheet', href=f'{rootDirectory}/css/exercises-style.css')
             h1(f'{sectionNumber} Exercises — {sectionLabel}')
         elif mode.lower() == 'solution':
             with doc.head:
                 # SCREEN LAYOUT
-                link(rel='stylesheet', href='../css/exercises-style.css')
+                link(rel='stylesheet', href=f'{rootDirectory}/css/exercises-style.css')
             h1(f'{sectionNumber} Exercise Solutions — {sectionLabel}')
         elif mode.lower() == 'index':
             with doc.head:
-                link(rel='stylesheet', href='css/section.css')
-                link(rel='stylesheet', href='css/layout.css')
-                link(rel='stylesheet', href='css/layout-print.css', media='print')
+                link(rel='stylesheet', href=f'{rootDirectory}/css/section.css')
+                link(rel='stylesheet', href=f'{rootDirectory}/css/layout.css')
+                link(rel='stylesheet', href=f'{rootDirectory}/css/layout-print.css', media='print')
             h1('Home')
         else:
             h1(f'{sectionLabel}')
@@ -147,12 +149,12 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
             comment('APPEND CONTENT HERE')  # APPEND FILE CONTENTS HERE
 
         comment('APPEND FOOTER HERE')  # APPEND FOOTER HERE
-        script(src='../js/mathjax-config.js')
+        script(src=f'{rootDirectory}/js/mathjax-config.js')
         script(src='https://polyfill.io/v3/polyfill.min.js?features=es6')
         script(_async=True, id='MathJax-script', src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js')
         script(id='AMSmath', _async=True, src='TeX/AMSmath.js')
         script(src='http://code.jquery.com/jquery-latest.min.js')
-        script(src='../js/toggle-solutions.js')
+        script(src=f'{rootDirectory}/js/toggle-solutions.js')
 
     # append content pages to main page body. process:
 
@@ -245,7 +247,9 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
         with open(f"pythonPages/index.html", "r",
                   encoding='utf-8') as file:
             data = file.read()
-            data = data.replace('<!--APPEND CONTENT HERE-->', appendContent)
+            data = data.replace('<!--APPEND CONTENT HERE-->', appendContent). \
+                replace('<!--APPEND HEADER HERE-->', headerContent). \
+                replace('<!--APPEND FOOTER HERE-->', footerContent)
 
         with open(f"pythonPages/index.html", "w",
                   encoding='utf-8') as output:
@@ -267,8 +271,9 @@ def create_page(mode, sectionNumber, sectionLabel, filePath):
 
         with open(f"pythonPages/{filePath}", 'r',
                   encoding='utf-8') as file:
-            data = file.read()
-            data = data.replace('<!--APPEND CONTENT HERE-->', appendContent)
+            data = data.replace('<!--APPEND CONTENT HERE-->', appendContent). \
+                replace('<!--APPEND HEADER HERE-->', headerContent). \
+                replace('<!--APPEND FOOTER HERE-->', footerContent)
 
         with open(f"pythonPages/{filePath}", "w",
                   encoding='utf-8') as file:
