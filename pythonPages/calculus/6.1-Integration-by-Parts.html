@@ -215,7 +215,446 @@
       </div>
       <!--BEGIN BODY-->
       <hr id="mainBodyBegin">
-      
+      <style>
+    img{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 200px;
+        float: none
+    }
+</style>
+
+<p>
+    We've seen integrals that can be evaluated by a substitution.
+    For example, we evaluate \(\int \cos 2x \di x\) using the substitution \(u = 2x.\)
+    In this section, we build on this knowledge 
+    by exploring how to rewrite integrals as simpler expressions. 
+</p>
+<p>
+    Let \(u\) and \(v\) be two functions of \(x.\)
+    By the Product Rule, the derivative of the product \(uv\) is 
+    \[(uv)' = u' v + u v' \period \]
+    Integrating both sides, we get 
+    \[
+    \ba 
+    \int (uv)' \di x &= \int u' v \di x + \int u v' \di x \nl
+    uv &= \int u' v \di x + \int u v' \di x \nl
+    \int u v' \di x &= uv - \int u' v \di x  \period 
+    \ea
+    \]
+    We condense the terms \(u' \di x\) and \(v' \di x\) as \(\dd u\) and \(\dd v,\) respectively.
+    Thus, we have   
+    \begin{equation}
+    \int u \di v = uv - \int v \di u \label{eq:ibp} \period
+    \end{equation}
+    In words, \(\eqRefer{eq:ibp}\) allows us to re-express an integral \(\int u \di v\)
+    by choosing a term \(u\) to differentiate and a term \(\dd v\) to integrate.
+    The resulting expression, \(uv - \int v \di u,\) is hopefully easier to evaluate.
+</p>
+
+<!-- table for ibp formula-->
+<div class="box-title"> INTEGRATION BY PARTS FORMULA </div>
+<div class="box">
+    \[
+        \int u \di v = uv - \int v \di u \period
+    \]
+</div>
+
+<p>
+    Consider the example \(\int x e^x \di x.\)
+    Performing a substitution fails to evaluate the integral, but we instead attempt integration by parts.
+    We try picking
+    \[ u = x \and \dd v = e^x \di x \period \]
+    Now we need \(v\) and \(\dd u.\)
+    We differentiate \(u\) to get \(\dd u\) and integrate \(\dd v\) to get \(v:\)
+    \[ \dd u = 1 \di x \and v = e^x\period \]
+    (It's acceptable to drop the constant of integration in \(v.\) 
+    We add the constant in our final answer.)
+    Therefore, 
+    \[
+    \ba 
+    \int u \di v &= uv - \int v \di u \nl
+    \int xe^x \di x &= x\left(e^x\right) - \int e^x \left(1 \di x\right) \nl
+    &= xe^x - \int e^x \di x \nl 
+    &= \boxed{xe^x - e^x + C} 
+    \ea
+    \]
+    Picking \(u = x\) succeeded, since the substitution yielded the simpler integral 
+    \(\int e^x \di x.\)
+    But letting \(u = e^x\) and \(\dd v = x \di x\) would've yielded 
+    \(\int \frac{1}{2} x^2 e^x \di x,\) a more complicated integral that doesn't progress our goal.
+    This example highlights that it's 
+    insufficient to simply memorize \(\eqRefer{eq:ibp};\)
+    you must strategically assign \(u\) and \(\dd v.\)
+</p>
+
+<p>
+    Generally, we assign \(u\) to be a logarithmic function or inverse trigonometric function.
+    But if neither function is in the integrand, we usually choose \(u\)
+    to be an algebraic expression (e.g., \(x^2\)).
+    We don't prioritize letting \(u\) be a trigonometric function or exponential function. 
+    For example, the integral \(\int x \sin x \di x\)
+    contains the algebraic expression \(x\) and the trigonometric function \(\sin x.\)
+    Thus, the general guideline places priority to letting \(u = x\) and \(\dd v = \sin \di x.\) 
+    Then \(\dd u = \dd x\)and \(v = \int \sin \di x = -\cos x.\)
+    This choice yields 
+    \[\int x \sin x \di x = x(- \cos x) - \int (-\cos x) \di x = -x \cos x + \sin x + C \period\]
+</p>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        Evaluate \(\ds \int x \ln x \di x.\)
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"> </button>
+<div id="solution1" class="solution">
+    <p>
+        The integrand has two expressions: \(x\) and \(\ln x.\)
+        Since one expression is \(\ln x,\)
+        we prioritize\(u\) to it.
+        Therefore, we let 
+        \[u = \ln x \and \dd v = x \di x \period \]
+        Then 
+        \[\dd u = \frac{1}{x} \di x \and v = \frac{x^2}{2} \period\]
+        Using \(\eqRefer{eq:ibp},\) we rewrite \(\int x \ln x \di x\) as 
+        \[
+        \ba 
+        uv - \int v \di u &= \frac{x^2}{2} \ln x - \int \frac{x^2}{2} \cdot \frac{1}{x} \di x \nl 
+        &= \boxed{\frac{x^2}{2} \ln x - \frac{x^2}{4} + C}
+        \ea 
+        \]
+    </p>
+</div>
+
+<div class="example-title"> EXAMPLE \(2\) </div>
+<div class="example">
+    <div class="example-problem">
+        It is known that \(f'(4) = 2\), \(f(0) = 0\), and \(f(4) = 3\).
+        Find the value of \(\displaystyle \int_0^4 x f''(x) \di x.\)
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button">  </button>
+<div id="solution2" class="solution">
+    <p>
+        Using integration by parts, we rewrite the integral by choosing 
+        \[u = x \and \dd v = f''(x) \di x \period \]
+        Then
+        \(\dd u = \dd x\) and \(v = f'(x)\) (note that \(1 \di x = \dd x\)).
+        We reference the Integration by Parts formula 
+        \[ \int u \di v = uv - \int v \di u \comma \]
+        and plugging in each expression to get 
+        \[ x f'(x) \Big|_0^4 - \int_0^4 f'(x) \di x \period \]
+        Note that performing Integration by Parts is <u>not</u> performing a substitution;
+        \(u\) and \(v\) are simply placeholders for functions of \(x\).
+        So we don't change the bounds, as we do with substitutions.
+        We have 
+        \[ 4f'(4) - 0 - \left(f(4) - f(0)\right) \]
+        \[
+        \ba 
+        &= 4(2) - (3 - 0) \nl
+        &= \boxed{5}
+        \ea
+        \]
+    </p>
+</div>
+<p>
+    We use Integration by Parts to integrate functions like  
+    \(\ln x,\) \(\sin^{-1} x,\) and \(\tan^{-1} x.\)
+    At first glance, \(\int \ln x \di x\) seems to only have one expression, \(\ln x.\) 
+    But we pick 
+    \[u = \ln x \and \dd v = 1 \di x \period \] 
+    We then get \(\dd u = 1/x \di x\) and \(v = x.\)
+    These choices of \(u\) and \(\dd v\) allow us to 
+    re-express \(\int \ln x \di x\) as 
+    \[
+    \ba 
+    uv - \int v \di u &= x \ln x - \int x \cdot \frac{1}{x} \di x \nl 
+    &= x \ln x- \int \di x \nl
+    &= \boxed{x \ln x - x + C}
+    \ea
+    \]
+</p>
+
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">
+        Evaluate the following integrals.
+        <ol class="list-roman">
+            <li>
+                <span>
+                    \(\displaystyle \int \sin^{-1}(x) \di x\)
+                </span>
+            </li>
+            <li>
+                <span>
+                    \(\displaystyle \int \cos^{-1}(x) \di x\)
+                </span>
+            </li>  
+            <li>
+                <span>
+                    \(\displaystyle \int \tan^{-1}(x) \di x\)
+                </span>
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button">  </button>
+<div id="solution3" class="solution">
+    <ol class="list-roman">
+        <!--I-->
+        <li>
+            We let 
+            \[u = \sin^{-1} x \and \dd v = \dd x \period \]
+            Then 
+            \[\dd u = \frac{1}{\sqrt{1 - x^2}} \di x \and v = x \period \]
+            We then see 
+            \[
+            \ba 
+            \int u \di v &= uv - \int v \di u \nl
+            \int \sin^{-1} x \di x &= x \sin^{-1} x - \int \frac{x}{\sqrt{1 - x^2}} \di x \period \nl
+            \ea
+            \]
+            We evaluate \(\int x/\sqrt{1 - x^2} \di x\) by substituting
+            \[
+            \ba 
+            k &= 1 - x^2 \nl 
+            \dd k &= -2x \di x \period 
+            \ea 
+            \]
+            The integral then becomes 
+            \[
+            \ba 
+            -\frac{1}{2} \int \frac{1}{\sqrt k} \di k 
+            &= -\frac{1}{2} (2 \sqrt k) \nl
+            &= - \sqrt{1 - x^2} \period
+            \ea
+            \]
+            So our final answer is 
+            \[\boxed{x \sin^{-1} x + \sqrt{1 - x^2} + C}\]
+        </li>
+        <hr>
+        <li>
+            We let 
+            \[u = \cos^{-1} x \and \dd v = \dd x \period \]
+            Then
+            \[ \dd u = \frac{-1}{\sqrt{1 - x^2}} \di x \and v = x \period \]
+            We find 
+            \[
+            \ba 
+            \int u \di v &= uv - \int v \di u \nl
+            \int \cos^{-1} x \di x &= x \cos^{-1} x + \int \frac{x}{\sqrt{1 - x^2}} \di x \period \nl
+            &=\boxed{x \cos^{-1} x - \sqrt{1 - x^2} + C}
+            \ea
+            \]
+        </li>  
+        <hr>
+        <li>
+            Let 
+            \[u = \tan^{-1} x \and v = \dd x \period \]
+            It follows that
+            \[\dd u = \frac{1}{1 + x^2} \di x \and v = x \period \]
+            We then have 
+            \[
+            \ba 
+            \int u \di v &= uv - \int v \di u \nl
+            \int \tan^{-1} x \di x &= x \tan^{-1} x - \int \frac{x}{1 + x^2} \di x. \nl
+            \ea
+            \]
+            To evaluate \(\int x/(1 + x^2) \di x,\)
+            we substitute 
+            \[
+            \ba 
+            k &= 1 + x^2 \nl 
+            \dd k &= 2x \di x \comma 
+            \ea 
+            \] 
+            and the integral becomes 
+            \[
+            \ba 
+            \frac{1}{2} \int \frac{1}{k} \di k &= \frac{1}{2} \ln|k| + C \nl
+            &= \frac{1}{2} \ln(1 + x^2) + C \period 
+            \ea
+            \]
+            We therefore get, for our final answer, 
+            \[
+            \boxed{ x \tan^{-1} x - \frac{1}{2} \ln(1 + x^2) + C}
+            \]
+            (The absolute value bars were extraneous because \(1 + x^2\) is always positive.)
+        </li>
+    </ol>
+</div>
+
+<p>
+    If we must perform Integration by Parts multiple times, 
+    then the 
+    <span class="emph">tabular method</span>
+    simplifies the procedure.
+    We draw a two-column table; the left column, labeled "D," represents the quantity to differentiate 
+    and the right column, labeled "I," represents the quantity to integrate.
+    Consider \(\int x^2 e^x \di x,\) which warrants performing integration by parts twice.
+    But we instead use tabular integration:
+    We pick \(x^2\) to be the quantity to differentiate, 
+    and \(e^x \di v\) to integrate.
+    which correspond to \(u\) and \(\dd v,\) respectively.
+</p>
+
+<div class="fig-1">
+    <img src="../images/Calculus/5/5.1/5.1-1.png" class="fig-1__image" alt="">
+</div>
+<br>
+
+<p>
+    We now add more rows. 
+    In the second row, after differentiating \(x^2\) and integrating \(e^x,\)
+    we obtain \(2x\) and \(e^x\) for the \(D\) and \(I\) columns, respectively.
+    Then, we repeat this procedure for the third row.
+    We have \(2\) for "D" and \(e^x\) for "I."
+    Similarly, for the fourth row, we get \(0\) and \(e^x.\)
+    We stop when we have \(0\) in the "\(D\)" column.
+    We now assign signs to each row of the table, starting with positive and alternating on the way down.
+    We then pair expressions by drawing arrows.
+</p>
+
+<br>
+
+<!--fig. 5.1-2-->
+<div class="fig-2">
+    <img src="../images/Calculus/5/5.1/5.1-2.png" class="fig-2__image" alt="">
+</div>
+
+<br>
+
+<p>
+    From pairing the expressions on either side of each arrow, our final answer is 
+    \[ \boxed{x^2 e^x - 2xe^x + 2e^x + C} \]
+</p>
+
+<br>
+<br>
+
+<div class="example-title"> EXAMPLE 4 </div>
+<div class="example">
+    <div class="example-problem">
+        Evaluate \(\displaystyle \int x^6 \sin(x) \di x\) using the tabular method.
+    </div>
+</div>
+<button onclick="toggle4()" class="solution-button">  </button>
+<div id="solution4" class="solution">
+    <figure>
+        <img src="../images/Calculus/5/5.1/5.1-3.png" class="fig-3__image" alt="">
+    </figure>
+    <p> 
+        We can use tabular integration to avoid having to perform six iterations of integration by parts.
+        We choose to differentiate \(x^6\) and integrate \(\sin(x).\)
+    </p>
+    <p>
+        Then, pairing the expressions—making sure to pay attention to the assigned signs—gives 
+        \[
+        \boxed{
+        \ba 
+        &-x^6 \cos(x) + 6x^5 \sin(x) + 30x^4 \cos(x) - 120x^3 \sin(x) - 360x^2 \cos(x) \nl 
+        &+ 720x \sin(x) + 720 \cos(x) + C
+        \ea}
+        \]
+    </p>
+</div>
+
+<p>
+    Let us now discuss another example of repeated integration by parts—the integral 
+    \(\int e^x \sin x \di x.\)
+    We choose to differentiate \(\sin x\) and integrate \(e^x,\)
+    since we give higher priority to assigning \(u\) to a trigonometric function.
+</p>
+
+<!--fig. 5.1-4-->
+<figure class="fig-4">
+    <img src="../images/Calculus/5/5.1/5.1-4.png" class="fig-4__image" alt="">
+</figure>
+
+<p>
+    Notice that the product of the terms of the third row is a multiple of the original integrand (the first row).
+    In these situations, we draw the arrows, pair the expressions, 
+    and merge the terms of the last row into an integral.
+    These steps give  
+    \[\int e^x \sin x \di x = e^x \sin x - e^x \cos x - \int e^x \sin x \di x\period \]
+    Adding \(\int e^x \sin x\di x\) to both sides gives 
+    \[
+    \ba 
+    2 \int e^x \sin x \di x &= e^x \sin x - e^x \cos x \nl
+    \int e^x \sin x \di x &=  
+    \boxed{\frac{1}{2}\left(e^x \sin x - e^x \cos x\right) + C}
+    \ea
+    \]
+</p>
+
+<!-- <div class="example-title"> EXAMPLE \(5\) </div>
+<div class="example">
+    <div class="example-problem">
+        <p>
+            Consider the family of functions \(f(x) = \cos(px) e^{qx},\)
+            where \(p\) and \(q\) are non-zero constants.
+            Evaluate \(\displaystyle \int f(x) \di x.\)
+        </p>
+    </div>
+</div>
+<button onclick="toggle5()" class="solution-button">  </button>
+<div id="solution5" class="solution">
+    <p> 
+        We will choose to differentiate \(\cos(px)\) and integrate \(e^{qx}.\)
+        Setting up our table, we have 
+    </p>
+    <div class="fig-5">
+        <img src="../images/Calculus/5/5.1/5.1-5.png" class="fig-5__image" alt="">
+    </div>
+    <p>
+        Then, pairing the expressions in arrows (making sure to pay attention to the assigned signs),
+        merging the circled items into an integral, and solving yield 
+        \[
+        \ba
+        \int \cos(px) e^{qx} \di x 
+        &= \frac{1}{q} \cos(px) e^{qx} + \frac{p}{q^2} \sin(px) e^{qx} - \frac{p^2}{q^2} \int \cos(px) e^{qx} \di x  
+        \nl
+        \left(1 + \frac{p^2}{q^2}\right) \int \cos(px) e^{qx} \di x 
+        &= \frac{1}{q} \cos(px) e^{qx} + \frac{p}{q^2} \sin(px) e^{qx} 
+        \nl
+        \int \cos(px) e^{qx} \di x
+        &= \boxed
+        {\frac{1}{1 + \frac{p^2}{q^2}} \left(\frac{1}{q} \cos(px) e^{qx} + \frac{p}{q^2} \sin(px) e^{qx}\right) + C}
+        \ea
+        \]
+    </p>
+</div> -->
+
+<!--section summary-->
+
+<!--section summary-->
+<div class="section-summary">
+    <ul>
+        <li> 
+            Integration by Parts permits us to re-express an integral of a product into an easier form
+            by breaking it into two parts, one of which we differentiate and the other we integrate. 
+        </li>
+        <li>
+            The formula for integration by parts is 
+            \[\int u \di v = uv - \int v \di u \period \]
+            It is 
+            <span class="warning">not</span> 
+            enough to simply memorize the formula. 
+            Integration is a skill that you must practice—you 
+            must know what expressions to assign \(u\) and \(\dd v.\)
+        </li>
+        <li>
+            Tabular integration is a method to perform integration by parts multiple times.
+            First, pick the parts to differentiate and integrate.
+            Then, draw a table with two columns for each part, 
+            and add rows for each iteration of 
+            differentiation and integration you perform.
+            Stop if a row contains \(0\) for "D" or if a row is a multiple of the first row.
+        </li>
+    </ul>    
+</div>
+
     </main>
     <footer>
     <div class="footer-body">
