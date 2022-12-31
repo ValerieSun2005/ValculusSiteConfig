@@ -1,0 +1,338 @@
+<section>
+    <p>GRID</p>
+    <p class="columns">2</p>
+    <p class="directions">solve the differential equation</p>
+    
+    <div>
+        \(\ds \deriv{y}{x} = 3x^2 + 4\)
+    </div>
+    <span>
+        Performing Separation of Variables, we place all the \(y\)-terms on the left side and all the \(x\)-terms on the right. 
+        We multiply both sides by \(\dd x\) to get 
+        \[\dd y = (3x^2 + 4) \dd x \pd\]
+        We now integrate both sides to get 
+        \[
+        \ba 
+        \int \di y &= \int (3x^2 + 4) \di x \nl 
+        y + C_1 &= x^3 + 4x + C_2 \pd 
+        \ea 
+        \] 
+        No reason exists to write two constants of integration, 
+        so we simply write one constant on the right-hand side:
+        \[
+        y = \boxed{x^3 + 4x + C}
+        \]
+        where \(C = C_2 - C_1.\)
+    </span>
+
+    <div>
+        \(\ds \deriv{y}{x} = 4x^3 + 9x^2 - 8x + 4\)
+    </div>
+    <span>
+        Separating variables, we multiply both sides by \(\dd x\) and integrate to get 
+        \[
+        \ba 
+        \dd y &= (4x^3 + 9x^2 - 8x + 4) \di x \nl 
+        \int \di y &= \int (4x^3 + 9x^2 - 8x + 4) \di x \nl 
+        y + C_1 &= x^4 + 3x^2 - 4x^2 + 4x + C_2
+        \ea 
+        \]
+        No reason exists to write two constants of integration,
+        so for simplicity we let \(C = C_2 - C_1 \col\)
+        \[y = \boxed{x^4 + 3x^2 - 4x^2 + 4x + C}\]
+    </span>
+
+    <div>
+        \(\ds y' = 2x \cma y(0) = 2\)
+    </div>
+    <span>
+        Performing Separation of Variables, 
+        we write \(y'\) as \(\textDeriv{y}{x}\) and multiply both sides by \(\dd x \col\)
+        \[\dd y = 2x \di x \pd\]
+        Integrating both sides gives 
+        \[y = x^2 + C \pd\]
+        (We combine the constant of integration on the left with the constant on the right.)
+        A specific solution has a value for the arbitrary constant \(C.\)
+        We plug in the point \((0, 2) \col\)
+        \[2 = 0^2 + C \implies C = 2 \pd\]
+        Thus, the specific solution is 
+        \[y = \boxed{x^2 + 2}\]
+    </span>
+
+    <div>
+        \(\ds \deriv{y}{x} = 2y\)
+    </div>
+    <span>
+        We place all the \(y\)-terms on one side and the \(x\)-terms on the other side. 
+        Thus, on both sides we multiply \(\dd x\) and divide \(y \col\)
+        \[\tfrac{1}{y} \di y = 2 \di x \pd\]
+        We now integrate to attain 
+        \[\ln|y| + C_1 = 2x + C_2 \pd\]
+        We simplify this equation by writing one constant \(C,\) \(C = C_2 - C_1,\) to get 
+        \[
+        \ba 
+        \ln|y| &= 2x + C \nl 
+        y &= e^{2x + C} = e^C e^{2x} \pd 
+        \ea 
+        \]
+        Since \(C\) is an arbitrary constant, \(e^C\) is also an arbitrary constant. 
+        So we simply write 
+        \[y = \boxed{Ce^{2x}}\]
+    </span>
+
+    <div>
+        \(\ds \deriv{y}{x} = x - \sin x \)
+    </div>
+    <span>
+        Multiplying both sides by \(\dd x,\) we obtain 
+        \[
+        \dd y = (x - \sin x) \di x \pd
+        \]
+        Now we integrate both sides: 
+        \[
+        \ba 
+        \int \di y &= \int(x - \sin x) \di x \nl 
+        y &= \boxed{\tfrac{1}{2}x^2 + \cos x + C}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \deriv{y}{t} \, \cos y = 4t + 3 \cma y(1) = \pi\)
+    </div>
+    <span>
+        We multiply both sides by \(\dd t\) to segregate the variables:
+        \[\cos y \di y = (4t + 3) \di t \pd\]
+        Integrating both sides then gives 
+        \begin{equation} 
+        \sin y = 2t^2 + 3t + C \pd \label{eq:y'cosy}
+        \end{equation}
+        To solve for \(C,\) we plug in the point \((1, \pi) \col\)
+        \[\sin \pi = 2(1)^2 + 3(1) + C \implies C = -5 \pd\]
+        \(\eqRefer{eq:y'cosy}\) then becomes 
+        \[\sin y = 2t^2 + 3t - 5 \cma\]
+        and we solve for \(y\) to obtain 
+        \[y = \boxed{\sin^{-1}(2t^2 + 3t - 5)}\]
+        Alternatively, we may first solve for \(y\) in \(\eqRefer{eq:y'cosy}\)
+        and then solve for \(C.\)
+    </span>
+
+    <div>
+        \(\ds t \, \deriv{y}{t} = 2\)
+    </div>
+    <span>
+        We need one side to have all the \(y\)-terms and the other side to contain all the \(t\)-terms. 
+        Thus, on both sides we divide by \(t\) and multiply by \(\dd t\) to find 
+        \[\dd y = \tfrac{2}{t} \di t \pd\]
+        Integrating, we obtain 
+        \[
+        \ba 
+        \int \di y = \int \tfrac{2}{t} \di t \nl 
+        y &= \boxed{2 \ln|t| + C}
+        \ea 
+        \]
+    </span>
+    
+    <div>
+        \(t \, y' = 1 + y^2\)
+    </div>
+    <span>
+        We first rewrite \(y'\) as \(\textDeriv{y}{t}.\)
+        Then on both sides we divide by \(t\) and divide by \(1 + y^2.\)
+        This process yields 
+        \[\frac{1}{1 + y^2} \di y = \frac{1}{t} \di t \pd\]
+        Integrating both sides gives 
+        \[
+        \ba 
+        \tan^{-1} y &= \ln|t| + C \nl 
+        y &= \boxed{\tan \par{\ln|t| + C}}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds y \, y' \sec x = 2\)
+    </div>
+    <span>
+        We rewrite \(y'\) as \(\textDeriv{y}{x}.\)
+        To separate the \(x\)- and \(y\)-terms, on each side we divide by \(y\) 
+        and multiply by \(\sec x \di x.\)
+        We then get 
+        \[y \di y = 2 \cos x \pd\]
+        Integrating both sides gives 
+        \[
+        \ba 
+        \tfrac{1}{2} y^2 &= 2 \sin x + C \nl 
+        y &= \boxed{2 \sqrt{\sin x + C}}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds x^2 \, y' = y + 3\)
+    </div>
+    <span>
+        Treating \(y'\) as \(\textDeriv{y}{x},\)
+        we isolate the \(x\)- and \(y\)-terms to find 
+        \[
+        \ba 
+        \frac{1}{y + 3} \di y &= \frac{1}{x^2} \di x \nl 
+        \ln|y + 3| &= -\frac{1}{x} + C \pd
+        \ea 
+        \]
+        To solve for \(y,\) we raise both sides to the power of \(e \col\) 
+        \[
+        \ba 
+        y + 3 &= e^{-1/x + C} \nl 
+        y &= \boxed{Ce^{-1/x} - 3}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds y \, \deriv{y}{t} = t \, \sqrt{1 - y^2}\)
+    </div>
+    <span>
+        We divide both sides by \(\sqrt{1 - y^2}\) and multiply both sides by \(\dd t \col\)
+        \begin{equation}
+        \frac{y}{\sqrt{1 - y^2}} \di y = t \di t \pd \label{eq:yy'}
+        \end{equation}
+        We now integrate both sides. For \(\int (y/\sqrt{1 - y^2}) \di y,\) we substitute 
+        \[
+        \ba 
+        u &= 1 - y^2 \nl 
+        \dd u &= -2y \di y \pd
+        \ea 
+        \]
+        The integral then becomes
+        \[-\frac{1}{2} \int \frac{1}{\sqrt{u}} \di u = - \sqrt{u} = -\sqrt{1 - y^2} \pd \]
+        (We neglect the constant of integration.)
+        \(\eqRefer{eq:yy'}\) then becomes 
+        \[-\sqrt{1 - y^2} = \tfrac{1}{2} t^2 + C \pd\]
+        Now we solve for \(y\) as follows:
+        \[
+        \ba 
+        1 - y^2 &= \par{\tfrac{1}{2} t^2 + C}^2 \nl
+        y &= \boxed{\pm\sqrt{1 -  \par{\tfrac{1}{2} t^2 + C}^2}} 
+        \ea 
+        \]
+    </span>
+</section>
+<section>
+    <div>
+        By substituting \(y' = u,\) show that a general solution to 
+        \[y'' + y' = 0\]
+        is \(y = C_1 e^{-x} + C_2.\)
+    </div>
+    <span>
+        The substitution \(y' = u\) gives 
+        \[u' + u = 0 \cma\]
+        which we rewrite as a separable first-order differential equation: 
+        \[\deriv{u}{x} = -u \pd\]
+        On both sides we multiply by \(\dd x\) and divide by \(u.\) We get  
+        \[
+        \ba 
+        \tfrac{1}{u} \di u &= - \di x \nl 
+        \ln|u| &= -x + C_1 \nl 
+        u &= C_1 e^{-x} \pd 
+        \ea 
+        \]
+        Remember that \(u = y',\) so we substitute back to find 
+        \[
+        \ba 
+        \deriv{y}{x} &= C_1 e^{-x} \nl 
+        \int \di y &= \int C_1 e^{-x} \di x \nl 
+        y &= -C_1 e^{-x} + C_2 \pd
+        \ea 
+        \]
+        A final remark is that \(-C_1\) is equivalent to \(C_1\) because they are both arbitrary constants. 
+        We therefore make this change to obtain  
+        \[y = \boxed{C_1 e^{-x} + C_2}\]
+        Just as solving a first-order differential equation confers one constant of integration, 
+        the solution of a second-order differential equation has two arbitrary constants.
+    </span>
+
+    <div>
+        <style>
+            .diff-eq-capacitor::before{
+                content:'FIGURE 1';
+            }
+        </style>
+        <figure class="diff-eq-capacitor" id="diff-eq-capacitor">
+            <img src="../images/sectionImages/diff-eq-capacitor.png" class="diff-eq-capacitor" alt="diff-eq-capacitor.png">
+        </figure>
+        A <i>capacitor</i> is a device that stores electrical energy on one of its conducting plates. 
+        Capacitance is the ability of a capacitor's plate to hold a charge \(Q.\)
+        The apparatus of 
+        <a href="#diff-eq-capacitor">Figure 1</a>
+        shows a capacitor of capacitance \(C\) connected to an appliance of resistance \(R.\)
+        (This configuration is called an <i>RC circuit</i>.)
+        As current travels through the circuit, the resistance dissipates the charge of the capacitor as modeled by the differential equation
+        \[\frac{Q}{C} + R \frac{\dd Q}{\dd t} = 0 \pd \]
+        Initially, the capacitor's plate holds charge \(Q_0.\)
+        Find the specific solution \(Q(t),\) the function that represents the charge on the capacitor at a given time \(t.\)
+    </div>
+    <span>
+        We first isolate \(\textDeriv{Q}{t} \col\)  
+        \[\deriv{Q}{t} = -\frac{Q}{RC} \pd\]
+        Now we perform Separation of Variables, placing all the \(Q\) terms on the left-hand side: 
+        \[
+        \ba
+        \frac{1}{Q} \di Q &= -\frac{1}{RC} \di t \nl 
+        \ln|Q| &= -\frac{t}{RC} + K \nl  
+        \ea 
+        \]
+        where \(K\) is the constant of integration.
+        Raising both sides to the power of \(e\) yields 
+        \[Q = e^{(-t/RC) + K} = Ke^{-t/RC} \pd\]  
+        We now solve for \(K\) by noting that when \(t = 0,\) \(Q(t) = Q_0.\)
+        So we get 
+        \[
+        Q_0 = Ke^{0} \implies K = Q_0 \pd
+        \]
+        Therefore, the solution becomes 
+        \[Q(t) = \boxed{Q_0 e^{-t/RC}}\]
+        This model demonstrates that the charge on the capacitor's plate decreases exponentially with time. 
+    </span>
+
+    <div>
+        <style>
+            .diff-eq-tank::before{
+                content:'FIGURE 2';
+            }
+        </style>
+        <figure class="diff-eq-tank" id="diff-eq-tank">
+            <img src="../images/sectionImages/diff-eq-tank.jpg" class="diff-eq-tank" alt="diff-eq-tank.png">
+        </figure>
+        Water flows out of a cylindrical tank of water level \(H\) (<a href="#diff-eq-tank">Figure 2</a>).
+        <i>Torricelli’s Law</i> states that the water level decreases with time 
+        at a rate proportional to the square root of the water level, 
+        as modeled by the differential equation 
+        \[\deriv{H}{t} = -k \sqrt{H} \pd\]
+        Initially, the water level in the tank is \(16 \un{ft}.\)
+        After \(10\) minutes, the water level is \(9 \un{ft}.\)
+        Find the specific solution \(H(t),\) the function that represents the water level in the tank at time \(t.\) 
+    </div>
+    <span>
+        Let's first find the general solution \(H(t).\)
+        We isolate the variables, getting 
+        \begin{align}
+        H^{-1/2} \di H &= -k \di t \nonumber \nl 
+        \tfrac{1}{2} \sqrt{H} &= -kt + C \pd \label{eq:tank-1}
+        \end{align}
+        We now solve for \(k\) and \(C \col\)
+        When \(t = 0,\) \(H = 16.\) Thus, we get 
+        \[\tfrac{1}{2} \cdot \sqrt{16} = 0 + C \implies C = 2 \pd\]
+        When \(t = 10,\) \(H = 9.\) We then find 
+        \[\tfrac{1}{2} \cdot \sqrt{9} = -10k + 2 \implies k = -\tfrac{1}{20} \pd \]
+        Therefore, \(\eqRefer{eq:tank-1}\) becomes 
+        \[
+        \ba 
+        \tfrac{1}{2} \sqrt{H} &= -\tfrac{1}{20} t + 2 \nl 
+        H &= \boxed{\par{4 - \tfrac{1}{10}t}^2}
+        \ea 
+        \]
+    </span>
+
+
+</section>

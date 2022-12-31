@@ -1,0 +1,164 @@
+<!--[[[crefId.Sequences]]]-->
+<p>
+    In this section, we define sequences. 
+    We also discuss a test to determine whether a sequence converges. 
+</p>
+<h4>Definition of a Sequence</h4>
+<p>
+    A <span class="emph">sequence</span> is a list of numbers written in definite order:  
+    \[\{a_1, a_2, a_3, \dots, a_N\} \pd\]
+    We call \(a_1\) the <i>first term</i>, \(a_2\) the <i>second term</i>, 
+    and \(a_N\) the <i>\(N\)th term</i>. 
+    A condensed notation for the sequence is \(\{a_n\}\subsuper{1}{N}.\)
+    In calculus, we work with <i>infinite</i> sequences—sequences in the form 
+    \(\{a_n\}\subsuper{k}{\infty}.\)
+    Notice that \(n\) doesn't have to begin at \(1.\)
+</p>
+
+<style>
+    .sequence-converge::before{
+        content:'FIGURE 1';
+    }
+</style>
+<figure class="sequence-converge" id="sequence-converge">
+    <img src="../images/sectionImages/sequence-converge.jpg" class="sequence-converge" alt="sequence-converge.jpg">
+</figure>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        Find a formula for the general term \(a_n\) of 
+        the sequence \(\{2, 5, 8, 11, \dots \}.\)
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button">  </button>
+<div id="solution1" class="solution">
+    Starting with the first term of \(2,\)
+    each following term increases by \(3.\)
+    Thus, we may determine \(a_n = 2 + 3n\) and write 
+    \[\{a_n\} = \{2 + 3n\} \subsuper{0}{\infty} \pd\]
+    If we want the sequence to begin at index \(n = 1,\) 
+    then we can write 
+    \(a_n = 2 + 3(n - 1)\) 
+    and express the sequence as \(\{a_n\} \subsuper{0}{\infty}.\)
+    Both presentations are valid.
+</div>
+
+<h4 id="series-convergence-and-divergence">Series Convergence and Divergence</h4>
+
+<figure class="sequence-diverge" id="sequence-diverge">
+    <img src="../images/sectionImages/sequence-diverge.jpg" class="sequence-diverge" alt="sequence-diverge.jpg">
+</figure>
+<style>
+    .sequence-diverge::before{
+        content:'FIGURE 2';
+    }
+</style>
+
+<p>
+    A sequence \(\{a_n\}\) <span class="emph">converges</span>
+    to \(L\) if \(\lim_{n \to \infty} a_n = L.\)
+    Then we can make the terms of \(\{a_n\}\) as close to \(L\)
+    as we like by increasing \(n\) 
+    (see <a href="#sequence-converge">Figure 1</a>).
+    Conversely, if \(\lim_{n \to \infty} a_n\) does not exist,
+    then \(\{a_n\}\) <span class="emph">diverges</span>—meaning 
+    the terms of \(\{a_n\}\) do not approach any final value as \(n \to \infty\)
+    (<a href="#sequence-diverge">Figure 2</a>). 
+</p>
+<p>
+    For example, the sequence defined by \(a_n = 1/n\)
+    converges to \(0\) because 
+    \[\lim_{n \to \infty} a_n = \lim_{n \to \infty} \tfrac{1}{n} = 0 \pd\]
+    For \(n \geq 1,\) the terms of \(\{a_n\}\) are 
+    \[\left\{1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \frac{1}{5}, \dots \right\} \cma\]
+    and we observe that each term gets closer \(0\) as \(n \to \infty.\)
+</p>
+<p>
+    Formally, a sequence \(\{a_n\}\) converges to \(L\) 
+    if for every \(\varepsilon \gt 0\) there exists an integer \(N\) such that 
+    \[\abs{a_n - L} \lt \varepsilon \for n \gt N \pd\]
+    In words, this statement asserts that for \(n \gt N,\) 
+    \(a_n\) must not differ from \(L\) 
+    by more than \(\varepsilon.\) 
+    The value of \(\varepsilon\) can be made smaller as \(N\) is increased.
+    <a href="#sequences-epsilon">Figure 3</a> depicts a graphical relationship:
+    the distance between \(L\) and \(a_n\) is \(\abs{a_n - L},\)
+    which is bounded by \(\varepsilon\) and shrinks as \(n \to \infty.\)
+</p>
+
+<figure class="sequences-epsilon" id="sequences-epsilon">
+    <img src="../images/sectionImages/sequences-epsilon.jpg" 
+    class="sequences-epsilon" alt="sequences-epsilon.jpg">
+</figure>
+<style>
+    .sequences-epsilon::before{
+        content:'FIGURE 3';
+    }
+</style>
+
+<!-- convergence/divergence of series -->
+<div class="box-title"> CONVERGENCE AND DIVERGENCE OF A SEQUENCE </div>
+<div class="box">
+    A sequence \(\{a_n\}\) <span class="emph">converges</span> to \(L\)
+    if \(\lim_{n \to \infty} a_n = L.\) 
+    If the limit does not exist, then 
+    \(\{a_n\}\) <span class="emph">diverges</span>.
+</div>
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        For each of (i)–(iii), determine the value to which \(\{a_n\}\) converges,
+        or show that the sequence diverges.
+        <ol class="list-roman">
+            <li>
+                <span>
+                    \(\ds a_n = \sqrt[3]{n - 2}\)
+                </span>
+            </li>
+            <li>
+                <span>
+                    \(\ds a_n = \frac{n + 2}{n + 4}\)
+                </span>
+            </li>
+            <li>
+                <span>
+                    \(\ds a_n = \frac{3n^2 - 4n + 5}{2n^2 + n - 7}\)
+                </span>
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    <ol class="list-roman">
+        <li>
+            The sequence \(\{a_n\}\) converges if \(\lim_{n \to \infty} a_n\) exists;
+            otherwise, the sequence diverges. 
+            We find 
+            \[\lim_{n \to \infty} a_n = \lim_{n \to \infty} \sqrt[3]{n - 2} = \infty \pd\]
+            Thus, \(\lim_{n \to \infty} a_n\) does not exist. 
+            We conclude that the sequence <span class="emph">diverges</span>.
+        </li>
+        <hr>
+        <li>
+            We take the limit of \(a_n\) as 
+            \[\lim_{n \to \infty} a_n = \lim_{n \to \infty} \frac{n + 2}{n + 4} \pd\]
+            As \(n \to \infty,\) we may neglect the constant terms: 
+            \[\lim_{n \to \infty} \frac{n + 2}{n + 4} = \lim_{n \to \infty} \frac{n}{n} = 1 \pd \]
+            Thus, \(\{a_n\}\) converges to \(1.\)
+        </li>
+        <hr>
+        <li>
+            To find \(\lim_{n \to \infty} a_n,\) 
+            we consider solely the highest-degree terms of \((3n^2 - 4n + 5)/(2n^2 + n - 7) \col\)
+            \[\lim_{n \to \infty} \frac{3n^2 - 4n + 5}{2n^2 + n - 7} = 
+            \lim_{n \to \infty} \frac{3n^2}{2n^2} = \frac{3}{2} \pd\]
+            Therefore, \(\{a_n\}\) converges to \(3/2.\)
+        </li>
+    </ol>
+</div>
+
+
+

@@ -1,0 +1,170 @@
+<section>
+    <p>GRID</p>
+    <p class="columns">2</p>
+    <p class="directions">find the length of the parameterized curve over the given interval</p>
+
+    <div>
+        \(\ds x = 1 - 2t \cma y = 3t + 3 \cma 0 \leq t \leq 1\)
+    </div>
+    <span>
+        Differentiating, we find 
+        \[x'(t) = -2 \qquad y'(t) = 3 \pd\]
+        Then we get 
+        \[
+        \ba 
+        L &= \int_0^1 \sqrt{[x'(t)]^2 + [y'(t)]^2} \di t \nl 
+        &= \int_0^1 \sqrt{(-2)^2 + (3)^2} \di t \ nl
+        &= \int_0^1 \sqrt{13} \di t \nl 
+        &= \boxed{\sqrt 13}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds x = 3 + 4t \cma y = 5 - 6t \cma 0 \leq t \leq 2\)
+    </div>
+    <span>
+        We find 
+        \[x'(t) = 4 \qquad y'(t) = -6 \pd\]
+        Then 
+        \[
+        \ba 
+        L &= \int_0^2 \sqrt{(4)^2 + (-6)^2} \di t \nl 
+        &= \int_0^2 \sqrt{52} \di t \nl 
+        &= \boxed{2 \sqrt{52}}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds x = \cos 2t \cma y = \sin 2t \cma 0 \leq t \leq \pi\)
+    </div>
+    <span>
+        We differentiate to obtain 
+        \[x'(t) = -2 \sin 2t \qquad y'(t) = 2 \cos 2t \pd\]
+        Thus, 
+        \[
+        \ba 
+        L &= \int_0^\pi \sqrt{(-2 \sin 2t)^2 + (2 \cos 2t)^2} \di t \nl 
+        &= \int_0^\pi \sqrt{4 \sin^2(2t) + 4 \cos^2(2t)} \di t \nl 
+        &= \int_0^\pi 2 \di t \nl 
+        &= \boxed{2 \pi}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds x = 2 \cos t \cma y = 2 \sin t \cma -\frac{\pi}{2} \leq t \leq \pi\)
+    </div>
+    <span>
+        We have 
+        \[x'(t) = -2 \sin t \and y'(t) = 2 \cos t \pd\]
+        Thus, 
+        \[
+        \ba 
+        L &= \int_{-pi/2}^\pi \sqrt{(-2 \sin t)^2 + (2 \cos t)^2} \di t \nl 
+        &= \int_{-pi/2}^\pi \sqrt{4 \sin^2 t + 4 \cos^2 t} \di t \nl 
+        &= \int_{-pi/2}^\pi 2 \di t \nl 
+        &= \boxed{3 \pi}
+        \ea 
+        \]
+    </span>
+    
+    <div>
+        \(\ds x = 3 \sin 4t \cma y = 3 \cos 4t \cma 0 \leq t \leq \frac{\pi}{2}\)
+    </div>
+    <span>
+        We find 
+        \[x'(t) = 12 \cos 4t \qquad y'(t) = -12 \sin 4t \pd\]
+        Then 
+        \[
+        \ba 
+        L &= \int_0^{\pi/2} \sqrt{(12 \cos 4t)^2 + (-12 \sin 4t)^2} \di t \nl
+        &= \int_0^{\pi/2} \sqrt{144 \cos^2(4t) + 144 \sin^2(4t)} \di t \nl 
+        &= \int_0^{\pi/2} 12 \di t \nl 
+        &= \boxed{6 \pi}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds x = 2t^{7/2} \cma y = 4t^{7/2} - 5 \cma 0 \leq t \leq 1\)
+    </div>
+    <span>
+        Differentiating gives 
+        \[x'(t) = 7t^{5/2} \qquad y'(t) = 14t^{5/2} \pd\]
+        Thus, 
+        \[
+        \ba 
+        L &= \int_0^1 \sqrt{\par{7t^{5/2}}^2 + \par{14t^{5/2}}^2} \di t \nl 
+        &= \int_0^1 \sqrt{245t^5} \di t \nl 
+        &= \boxed{\frac{2}{7}\sqrt{245}}
+        \ea 
+        \]
+    </span>
+</section>
+<section>
+    <p>GRID</p>
+    <p class="columns">2</p>
+    <p class="directions">write an integral expression that represents length of the parameterized curve over the given interval</p>
+
+    <div>
+        \(\ds x = e^{t + 3} \cma y = t^3 \cma 0 \leq t \leq 1\)
+    </div>
+    <span>
+        The derivatives of the parametric equations are 
+        \[x'(t) = e^{t + 3} \qquad y'(t) = 3t^2 \pd\]
+        Therefore, the arc length is 
+        \[
+        \ba 
+        L &= \int_0^1 \sqrt{\par{e^{t + 3}}^2 + \par{3t^2}^2} \di t \nl 
+        &= \boxed{\int_0^1 \sqrt{e^{2t + 6} + 9t^4} \di t} 
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds x = \sin 4t \cma y = t^2 \cma 0 \leq t \leq 0.2\)
+    </div>
+    <span>
+        We find 
+        \[x'(t) = 4 \cos 4t \qquad y'(t) = 2t \pd\]
+        Thus, the arc length is 
+        \[
+        \ba 
+        L &= \int_0^{0.2} \sqrt{(4 \cos 4t)^2 + (2t)^2} \di t \nl 
+        &= \boxed{\int_0^{0.2} \sqrt{16 \cos^2(4t) + 4t^2} \di t}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds x = \tan 2t \cma y = \ln t \cma 0 \leq t \leq \tfrac{\pi}{8}\)
+    </div>
+    <span>
+        Differentiating, we obtain
+        \[x'(t) = 2 \sec^2 2t \qquad y'(t) = \tfrac{1}{t}\]
+        Then 
+        \[
+        \ba 
+        L &= \int_0^{\pi/8} \sqrt{(2 \sec^2 2t)^2 + \par{\tfrac{1}{t}}^2} \di t \nl 
+        &= \boxed{\int_0^{\pi/8} \sqrt{4 \sec^4(2t) + \tfrac{1}{t^2}} \di t} 
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds x = t^3 - 2t \cma y = \cos^2 t \cma -1 \leq t \leq 1\)
+    </div>
+    <span>
+        The derivatives are 
+        \[x'(t) = 3t^2 -2 \qquad y'(t) = -2 \cos t \sin t \pd\]
+        Thus, 
+        \[
+        \ba 
+        L &= \int_{-1}^1 \sqrt{(3t^2 - 2)^2 + (-2 \cos t \sin t)^2} \di t \nl 
+        &= \boxed{\int_{-1}^1 \sqrt{9t^4 - 12t^2 + 4 + 4 \cos^2(t) \sin^2(t)} \di t}
+        \ea 
+        \]
+    </span>
+</section>

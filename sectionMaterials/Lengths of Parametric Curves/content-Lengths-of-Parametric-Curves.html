@@ -1,0 +1,140 @@
+<!--[[[crefId.Lengths-of-Parametric-Curves]]]--> 
+<figure>
+    <img src="../images/sectionImages/parametric-arclength-diagram-dS.jpg" alt="parametric-arclength-diagram-dS.jpg">
+</figure>
+<style>
+    .parametric-arclength-diagram-dS::before{
+        content:'FIGURE 1';
+    }
+</style>
+
+<p>
+    Suppose a curve \(C\) is parameterized by the equations  
+    \[x = f(t) \lspace y = g(t)\]
+    for \(\alpha \leq t \leq \beta.\)
+    To calculate the length \(L\) of the curve, 
+    we cut \(C\) into infinitely small segments of length \(\dd S\) and compute their sum. 
+    Then \(L = \int_\alpha^\beta \dd S.\)
+    Using the Pythagorean Theorem, we see 
+    \begin{equation} 
+    \dd S = \sqrt{(\dd x)^2 + (\dd y)^2} \cma \label{eq:dS}
+    \end{equation}
+    as shown by <a href="#parametric-arclength-diagram-dS">Figure 1</a>. 
+    If we differentiate \(x\) and \(y,\) then we find 
+    \(\textDeriv{x}{t} = f'(t)\) and \(\textDeriv{y}{t} = g'(t).\)
+    In each equation, multiplying both sides by \(\dd t\) gives  
+    \[\dd x = f'(t) \di t \lspace \dd y = g'(t) \di t \pd\]
+    Substituting these expressions into \(\eqRefer{eq:dS},\) we obtain 
+    \[\dd S = \sqrt{[f'(t) \di t]^2 + [g'(t) \di t]^2} = \sqrt{[f'(t)]^2 + [g'(t)]^2} \di t \pd\]
+    Thus, \(L = \int_\alpha^\beta \dd S\) becomes 
+    \begin{equation} 
+    L = \int_\alpha^\beta \sqrt{[f'(t)]^2 + [g'(t)]^2} \di t \pd \label{eq:arclength}
+    \end{equation}
+</p>
+<p>
+    We say \(\eqRefer{eq:arclength}\) represents the 
+    <span class="emph">arc length</span> of curve \(C.\)
+    Using this equation requires the interval \(\alpha \leq t \leq \beta\) to traverse the curve <i>only once</i>. 
+    It also requires \(f'\) and \(g'\) to be continuous.
+</p>
+
+<!--box arc length formula -->
+<div class="box-title"> ARC LENGTH WITH PARAMETRIC EQUATIONS </div>
+<div class="box">
+    Let \(C\) be a curve parameterized by the equations \(x = f(t)\) and \(y = g(t)\) for \(\alpha \leq t \leq \beta.\)
+    The <span class="emph">arc length</span> of curve \(C\) is 
+    \[
+    L = \int_\alpha^\beta \sqrt{[f'(t)]^2 + [g'(t)]^2} \di t \pd 
+    \]
+</div>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        Calculate the circumference of the circle expressed by the parametric equations 
+        \[x = \cos 4t \cma \quad y = \sin 4t \cma \quad 0 \leq t \leq \tfrac{\pi}{2} \pd\]
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"></button>
+<div id="solution1" class="solution">
+    Differentiating \(x\) and \(y,\) we see 
+    \[x'(t) = -4 \sin 4t \qquad y'(t) = 4 \cos 4t \pd\]
+    Hence, \(\eqRefer{eq:arclength}\) gives us 
+    \[
+    \ba 
+    L &= \int_0^{\pi/2} \sqrt{(-4 \sin 4t)^2 + (4 \cos 4t)^2} \di t \nl 
+    &= \int_0^{\pi/2} \sqrt{16 \sin^2(4t) + 16 \cos^2(4t)} \di t \nl 
+    &= \int_0^{\pi/2} 4 \di t \nl 
+    &= \boxed{2 \pi}
+    \ea 
+    \]
+    This answer is expected because the parametric equations represent a unit circle, 
+    whose circumference we know to be \(2 \pi.\)
+</div> 
+
+<p>
+    In Example 1, if we double the upper bound of the integral, then we obtain 
+    \[
+    \ba 
+    L &= \int_0^\pi \sqrt{(-4 \sin 4t)^2 + (4 \cos 4t)^2} \di t \nl 
+    &= \int_0^{\pi} 4 \di t \nl 
+    &= 4 \pi \pd
+    \ea 
+    \]
+    This result is twice what we obtained in Example 1 because \(0 \leq t \leq \pi\) traverses the circle <i>twice</i>.
+    Therefore, we must be careful to ensure that our interval traverses a curve only <i>once</i>.
+</p> 
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        Calculate the arc length of the curve parameterized by 
+        \[x = 1 + 4t^2 \cma \quad y = 1 - 3t^2 \cma \quad 0 \leq t \leq 2 \pd \]
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    We differentiate both parametric equations to find 
+    \[x'(t) = 8t \qquad y'(t) = -6t \pd\]
+    Then \(\eqRefer{eq:arclength}\) provides 
+    \[
+    \ba 
+    L &= \int_0^2 \sqrt{(8t)^2 + (-6t)^2} \di t \nl 
+    &= \int_0^2 10 t \di t \nl 
+    &= \boxed{20}
+    \ea 
+    \]
+    Thus, the length of the curve over \(0 \leq t \leq 2\) is \(20.\)
+</div> 
+
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">  
+        Calculate the arc length of the curve parameterized by 
+        \[x = 6t^{3/2} \cma \quad y = 1 + 4t^{3/2} \cma \quad 0 \leq t \leq 1 \pd \]
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button"></button>
+<div id="solution3" class="solution">
+    Differentiating both parametric equations gives  
+    \[x'(t) = 9 \sqrt{t} \qquad y'(t) = 6 \sqrt{t} \pd\]
+    Using \(\eqRefer{eq:arclength},\) we get 
+    \[
+    \ba 
+    L &= \int_0^1 \sqrt{(9 \sqrt{t})^2 + (6 \sqrt{t})^2} \di t \nl 
+    &= \int_0^1 \sqrt{117t} \nl 
+    &= \boxed{\frac{2}{3} \sqrt{117}}
+    \ea 
+    \]
+    Thus, the length of the curve over \(0 \leq t \leq 2\) is \(20.\)
+</div> 
+
+<div class="section-summary">
+    <p>
+        A curve \(C\) defined by parametric equations 
+        \[x = f(t) \cma \qquad y = g(t) \cma \qquad \alpha \leq t \leq \beta\]
+        has arc length 
+        \[L = \int_\alpha^\beta \sqrt{[f'(t)]^2 + [g'(t)]^2} \di t \pd\]
+        Ensure that the interval \(\alpha \leq t \leq \beta\) only traverses \(C\) <i>once</i>.
+    </p>
+</div>

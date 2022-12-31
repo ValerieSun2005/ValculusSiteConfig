@@ -1,0 +1,264 @@
+<!--[[[crefId.Limit-Properties]]]--> 
+<p>
+    This section covers limit properties involving the sums, differences, products, quotients, and compositions 
+    of functions. We'll also cover the laws and procedures for more complex limits. 
+</p>
+<h4 id="limit-properties-with-constants">Limit Properties with Constants</h4>
+<p>
+    If \(c\) is a constant, then 
+
+    \begin{equation} 
+    \lim_{x \to a} c = c \period \label{eq:lim-c}
+    \end{equation}
+
+    and 
+
+    \begin{equation} 
+    \lim_{x \to a} [cf(x)] = c \lim_{x \to a} f(x) \period \label{eq:cf(x)}
+    \end{equation}
+
+    Another trivial limit property is 
+    \begin{equation}
+    \lim_{x \to a} x = a \period \label{eq:lim-x} 
+    \end{equation}
+
+</p>
+<h4 id="limit-properties-sums-differences-products-quotients">Limit Properties with Sums, Differences, Products, and Quotients</h4>
+<p>
+    Consider two functions \(f(x)\) and \(g(x)\) 
+    such that 
+    \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\)
+    both exist. Then
+    \begin{align}
+        \lim_{x \to a} [f(x) + g(x)] &= \lim_{x \to a} f(x) + \lim_{x \to a} g(x) \label{eq:lim-sum} \nl
+        \lim_{x \to a} [f(x) - g(x)] &= \lim_{x \to a} f(x) - \lim_{x \to a} g(x) \label{eq:lim-diff} \nl
+        \lim_{x \to a} [f(x) \cdot g(x)] &= \lim_{x \to a} f(x) \cdot \lim_{x \to a} g(x) \label{eq:lim-prod} \nl
+        \lim_{x \to a} \left[\frac{f(x)}{g(x)}\right] &= 
+        \frac{\ds \lim_{x \to a} f(x)}{\ds \lim_{x \to a} g(x)} \quad \textrm{if} \quad \lim_{x \to a} g(x) \ne 0 \label{eq:lim-quot} \period 
+    \end{align}
+</p>
+
+<div class="box-title"> LIMITS OF SUMS, DIFFERENCES, PRODUCTS, AND QUOTIENTS </div>
+<div class="box">
+    If \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\)
+    both exist, then 
+    \begin{align*}
+        \lim_{x \to a} [f(x) + g(x)] &= \lim_{x \to a} f(x) + \lim_{x \to a} g(x) &&(\text{Sum Law}) \nl
+        \lim_{x \to a} [f(x) - g(x)] &= \lim_{x \to a} f(x) - \lim_{x \to a} g(x) &&(\text{Difference Law}) \nl
+        \lim_{x \to a} [f(x) \cdot g(x)] &= \lim_{x \to a} f(x) \cdot \lim_{x \to a} g(x) &&(\text{Product Law}) \nl
+        \lim_{x \to a} \left[\frac{f(x)}{g(x)}\right] &= 
+        \frac{\ds \lim_{x \to a} f(x)}{\ds \lim_{x \to a} g(x)} \quad \textrm{if} \quad \lim_{x \to a} g(x) \ne 0 &&(\text{Quotient Law}) 
+    \end{align*}
+</div>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        Let \(f\) and \(g\) be functions such that 
+        \(\lim_{x \to 2} f(x) = 4\) and \(\lim_{x \to 2} g(x) = -2.\)
+        Calculate the following limits.
+        <ol class="list-alpha">
+            <li>
+                \(\ds \lim_{x \to 2}[f(x) + g(x)]\)
+            </li>
+            <li>
+                \(\ds \lim_{x \to 2} [f(x) - g(x)]\)
+            </li>
+            <li>
+                \(\ds \lim_{x \to 2} [f(x) g(x)]\)
+            </li>
+            <li>
+                \(\ds \lim_{x \to 2} [f(x)/g(x)]\)
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"></button>
+<div id="solution1" class="solution">
+    <ol class="list-alpha">
+        <li>
+            The limits \(\lim_{x \to 2} f(x)\) and \(\lim_{x \to 2} g(x)\) both exist, 
+            so we use \(\eqRefer{eq:lim-sum}\) to obtain
+            \[
+            \ba 
+            \lim_{x \to 2}[f(x) + g(x)] &= \lim_{x \to 2} f(x) + \lim_{x \to 2} g(x) \nl 
+            &= 4 - 2 \nl
+            &= \boxed{2}
+            \ea 
+            \]
+        </li>
+        <hr>
+        <li>
+            We use \(\eqRefer{eq:lim-diff}\) to find 
+            \[
+            \ba 
+            \lim_{x \to 2}[f(x) - g(x)] &= \lim_{x \to 2} f(x) - \lim_{x \to 2} g(x) \nl 
+            &= 4 - (-2) \nl
+            &= \boxed{6}
+            \ea 
+            \]
+        </li>
+        <hr>
+        <li>
+            Using \(\eqRefer{eq:lim-prod}\) gives 
+            \[
+            \ba 
+            \lim_{x \to 2}[f(x) g(x)] &= \lim_{x \to 2} f(x) \cdot \lim_{x \to 2} g(x) \nl 
+            &= 4 \cdot (-2) \nl
+            &= \boxed{-8}
+            \ea 
+            \]
+        </li>
+        <hr>
+        <li>
+            We apply \(\eqRefer{eq:lim-quot} \col\)
+            \[
+            \ba 
+            \lim_{x \to 2} \frac{f(x)}{g(x)} &= \frac{\lim_{x \to 2} f(x)}{\lim_{x \to 2} g(x)} \nl
+            &= \frac{4}{-2} \nl
+            &= \boxed{-2}
+            \ea 
+            \]
+        </li>
+        <hr>
+    </ol>
+</div>
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        <figure class="fig-1">
+            <img src="../images/sectionImages/1/limit-properties-ex-combination.jpg" alt="Fig. 1">
+        </figure>
+        <style>
+            .fig-1::before{
+                content:'FIGURE 1';
+            }
+        </style>
+        The graphs of \(f\) and \(g\) are shown in Figure 1.
+        Determine each of the following limits if it exists.
+        <ol class="list-alpha">
+            <li>
+                \(\ds \lim_{x \to 0^+} [f(x)/g(x)]\)
+            </li>
+            <li>
+                \(\ds \lim_{x \to -1} [2f(x) + g(x)]\)
+            </li>
+            <li>
+                \(\ds \lim_{x \to \, 0 \;} [f(x) - g(x)]\)
+            </li>
+            <li>
+                \(\ds \lim_{x \to \, 0 \;} [f(x) + g(x)]\)
+            </li>
+        </ol>
+        <p></p>
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    <ol class="list-alpha">
+        <li>
+            Because \(\lim_{x \to 0^+} f(x)\) and \(\lim_{x \to 0^+} g(x)\) 
+            both exist and the latter limit doesn't equal \(0,\) 
+            we use the Quotient Law to find 
+            \[
+            \ba 
+            \lim_{x \to 0^+} \frac{f(x)}{g(x)} &= \frac{\lim_{x \to 0^+} f(x)}{\lim_{x \to 0^+} g(x)} \nl
+            &= \boxed{\frac{4}{3}}
+            \ea 
+            \]
+        </li>
+        <hr>
+        <li>
+            We find \(\lim_{x \to -1} f(x) = 1\) 
+            and \(\lim_{x \to -1} g(x) = 2.\)
+            By \(\eqRefer{eq:cf(x)},\)
+            \[\lim_{x \to -1} [2f(x)] = 2 \lim_{x \to -1} f(x) = 2(1) = 2 \period\] 
+            Now we apply the Sum Law to find 
+            \[
+            \ba 
+            \lim_{x \to -1} [2f(x) + g(x)] &= 2 \lim_{x \to -1} f(x) + \lim_{x \to -1} g(x) \nl
+            &= 2(1) + 2 \nl
+            &= \boxed{4}
+            \ea 
+            \]
+        </li>
+        <hr>
+        <li>
+            The limits \(\lim_{x \to 0} f(x)\) and \(\lim_{x \to 0} g(x)\) 
+            both do not exist, so we cannot apply \(\eqRefer{eq:lim-diff}.\)
+            We instead consider the one-sided limits of \(\lim_{x \to 0} [f(x) - g(x)].\)
+            Since \(\lim_{x \to 0^-} f(x)\) and \(\lim_{x \to 0^-} g(x)\) both exist, 
+            we can apply \(\eqRefer{eq:lim-diff}\) to \(\lim_{x \to 0^-} [f(x) - g(x)] \col\)
+            \[
+            \ba 
+            \lim_{x \to 0^-} [f(x) - g(x)] &= \lim_{x \to 0^-} f(x) - \lim_{x \to 0^-} g(x) \nl
+            &= 3 - 2 \nl
+            &= 1 \period \nl
+            \ea 
+            \] 
+            Likewise, the right-hand limit is 
+            \[
+            \ba 
+            \lim_{x \to 0^+} [f(x) - g(x)] &= \lim_{x \to 0^+} f(x) - \lim_{x \to 0^+} g(x) \nl
+            &= 4 - 3 \nl
+            &= 1 \period
+            \ea 
+            \]
+            Since these one-sided limits are equal, 
+            we conclude 
+            \[\lim_{x \to 0} [f(x) - g(x)] = \boxed{1}\]
+        </li>
+        <hr>
+        <li>
+            Neither \(\lim_{x \to 0} f(x)\) nor \(\lim_{x \to 0} g(x)\) exists,
+            so we can't apply \(\eqRefer{eq:lim-sum}\) to \(\lim_{x \to 0} [f(x) + g(x)].\)
+            But we <i>can</i> apply \(\eqRefer{eq:lim-sum}\) to the one-sided limits:
+            \[
+            \ba 
+            \lim_{x \to 0^-} [f(x) + g(x)] &= \lim_{x \to 0^-} f(x) + \lim_{x \to 0^-} g(x) = 3 + 2 = 5 \nl 
+            \lim_{x \to 0^+} [f(x) + g(x)] &= \lim_{x \to 0^+} f(x) + \lim_{x \to 0^+} g(x) = 4 + 3 = 7 \period
+            \ea  
+            \]
+            These values aren't equivalent, so we conclude that \(\lim_{x \to 0^+} [f(x) + g(x)]\) 
+            <span class="emph">does not exist</span>.
+        </li>
+    </ol>
+</div>
+<p>
+    If we use \(\eqRefer{eq:lim-prod}\) repeatedly with \(f(x) = g(x),\) we find 
+    \begin{equation} 
+    \lim_{x \to a} [f(x)]^n = \left[\lim_{x \to a} f(x)\right]^n 
+    \end{equation}
+    if \(n\) is a positive integer.
+    We also have the properties 
+    \begin{align} 
+    \lim_{x \to a} x^n &= a^n \label{eq:lim-x^n} \nl 
+    \lim_{x \to a} \sqrt[n]{x} &= \sqrt[n]{a} \period \label{eq:lim-sqrtx} 
+    \end{align}
+</p>
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">  
+        Let \(f\) be the function defined by 
+        \[f(x) = x^2 + 4x - 6 \period\]
+        Find \(\lim_{x \to 3} f(x)\) and justify your answer using limit properties as appropriate.
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button"></button>
+<div id="solution3" class="solution">
+    We use the Sum Law to find  
+    \[\lim_{x \to 3} f(x) = \lim_{x \to 3} (x^2) + \lim_{x \to 3} (4x) + \lim_{x \to 3}(-6) \period\]
+</div>
+
+<h4 id="limits-composite-functions">Limits of Composite Functions</h4>
+<p>
+    Consider the composition \(f(g(x)),\) alternatively written as \((f \circ g)(x).\)
+    If \(f\) is continuous at the value \(\lim_{x \to a} g(x),\)
+    then 
+    \begin{equation} 
+    \lim_{x \to a} f(g(x)) = f \left(\lim_{x \to a} g(x) \right) \period \label{eq:lim-composite}
+    \end{equation}    
+
+    
+</p>

@@ -1,0 +1,487 @@
+<!--[[[crefId.Minimum-and-Maximum-Values]]]--> 
+<figure class="min-max-abs-max" id="min-max-abs-max">
+    <img src="../images/sectionImages/min-max-abs-max.jpg" alt="min-max-abs-max.jpg">
+</figure>
+<style>
+    .min-max-abs-max::before{
+        content:'FIGURE 1';
+    }
+</style>
+<p>
+    In the world, many phenomena require efficiency. 
+    Therefore, locating the <i>extrema</i>—the minima or maxima—of a model
+    is a fundamental skill of calculus.
+    In this section, we define the forms of extrema:
+    We begin with <a class="page-anchor" href="#absolute-extrema">Absolute Extrema</a>, 
+    which we define using the <a class="page-anchor" href="#extreme-value-theorem">Extreme Value Theorem</a>. 
+    Then we examine <a class="page-anchor" href="#critical-points">Critical Points</a>
+    to define <a class="page-anchor" href="#relative-extrema">Relative Extrema</a>. 
+    This section culminates in the 
+    <a class="page-anchor" href="#closed-interval-method">Closed Interval Method</a>,
+    a problem-solving strategy for finding extrema.
+</p>
+<h4 id="absolute-extrema">Absolute Extrema</h4>
+<p>
+    <a href="#min-max-abs-max">Figure 1</a> shows the graph of \(y = g(x).\)
+    We say \(g(1) = 8/3\) is the <i>absolute minimum</i> of \(g\) because \((1, 8/3)\) is the <i>lowest</i> point on the graph. 
+    Conversely, \(g(3) = 4\) is the <i>absolute maximum</i> of \(g\) because \((3, 4)\) is the <i>highest</i> point on the graph.
+    Each of these values is an <i>absolute extremum</i> (plural, <i>extrema</i>) of \(g.\)
+    To formally define these terms, 
+    consider \(f(x)\) for \(a \leq x \leq b.\)
+    Let \(c\) be in \([a, b].\)
+    <ul>
+        <li>
+            \(f(c)\) is the <span class="emph">absolute maximum</span> value of \(f\) 
+            if \(f(c) \geq f(x)\) for all \(a \leq x \leq b.\) 
+        </li>
+        <li>
+            \(f(c)\) is the <span class="emph">absolute minimum</span> value of \(f\) 
+            if \(f(c) \leq f(x)\) for all \(a \leq x \leq b.\) 
+        </li>
+    </ul>
+    We may also call \(f(c)\) the <i>global</i> maximum or <i>global</i> minimum, respectively.  
+</p>
+<figure class="min-max-x2" id="min-max-x2">
+    <img src="../images/sectionImages/min-max-x2.jpg" alt="min-max-x2.jpg">
+</figure>
+<style>
+    .min-max-x2::before{
+        content:'FIGURE 2';
+    }
+</style>
+
+<!--box absolute extrema -->
+<div class="box-title"> ABSOLUTE EXTREMA </div>
+<div class="box">
+    Consider \(f(x)\) for \(a \leq x \leq b.\) Suppose \(c\) is in \([a, b].\) 
+    <ul>
+        <li>
+            \(f(c)\) is the <span class="emph">absolute maximum</span> value of \(f\) 
+            if \(f(c) \geq f(x)\) for all \(a \leq x \leq b.\) 
+        </li>
+        <li>
+            \(f(c)\) is the <span class="emph">absolute minimum</span> value of \(f\) 
+            if \(f(c) \leq f(x)\) for all \(a \leq x \leq b.\) 
+        </li>
+    </ul>
+</div>
+
+<p>
+    As shown by <a href="#min-max-x2">Figure 2</a>, 
+    the absolute <i>minimum</i> of \(g(x) = x^2\) is \(g(0) = 0.\) 
+    But \(g\) has no maximum because the graph of \(y = x^2\) has no highest value. 
+    Similarly, \(h(x) = x^3\) has no extrema, since its graph has no lowest point or highest point
+    (<a href="#min-max-x3">Figure 3</a>). 
+    Thus, we conclude that a function may not have an absolute minimum or absolute maximum over its entire domain.
+    Over a closed interval, however, a continuous function must have both an absolute minimum and absolute maximum.
+    This is by the <span class="emph">Extreme Value Theorem</span>.
+</p>
+<figure class="min-max-x3" id="min-max-x3">
+    <img src="../images/sectionImages/min-max-x3.jpg" alt="min-max-x3.jpg">
+</figure>
+<style>
+    .min-max-x3::before{
+        content:'FIGURE 3';
+    }
+</style>
+
+<!-- extreme value theorem -->
+<div class="box-title" id="extreme-value-theorem"> EXTREME VALUE THEOREM </div>
+<div class="box">
+    If \(f\) is continuous over \([a, b],\) 
+    then \(f\) attains an absolute minimum value \(f(c)\) and an absolute maximum value \(f(d),\)
+    where \(c\) and \(d\) are in \([a, b].\)
+</div>
+
+<p>
+    For example, the maximum value of \(g(x) = x^2\) in \(0 \leq x \leq 2\) is \(g(2) = 4,\)
+    while the minimum value in this interval is \(g(0) = 0.\)
+    Similarly, \(h(x) = x^3\) for \(-1 \leq x \leq 1\) has a maximum of \(h(1) = 1\) and a minimum of \(h(-1) = -1.\)
+    In each of these cases, the extrema lie at the <i>endpoints</i> of a closed interval.
+    By the Extreme Value Theorem, an extreme value can be attained multiple times.
+    For example, the graph of \(y = \sin x\) has infinitely many peaks and 
+    troughs—corresponding to the <i>absolute</i> maxima and absolute minima, respectively.
+    If \(f\) is uniform, then the minimum value and maximum value are the same. 
+    For example, the absolute minimum and absolute maximum of \(g(x) = 5\) are both \(5.\) 
+</p>
+
+<aside class="box-caution">
+    The derivative of \(f(x) = 1/x\) is \(f'(x) = -1/x^2,\)
+    which is undefined at \(x = 0.\) But since \(f(0)\) is also undefined, 
+    \(x = 0\) does <span class="warning">not</span> correspond to a critical point of \(f.\)
+</aside> 
+
+<h4 id="critical-points">Critical Points</h4>
+<p>
+    A function \(f\) has a <span class="emph">critical point</span> when \(x = c\) if   
+    \(f'(c) = 0\) or if \(f'(c)\) is undefined and \(f(c)\) is defined. 
+    We then call \(c\) a <span class="emph">critical number</span> of \(f.\)
+    For example, we find the critical numbers of \(g(x) = \frac{1}{3} x^3 - 2x^2 + 3x - 1\)
+    by setting \(g'(x) = 0.\) Since \(g\) is a polynomial, its derivative is never undefined. 
+    Thus, we find 
+    \[
+    \ba 
+    g'(x) = x^2 - 4x + 3 &= 0 \nl 
+    (x - 3)(x - 1) &= 0 \comma 
+    \ea 
+    \] 
+    whose solutions are \(x = 1\) and \(x = 3.\)
+    So these are the critical numbers of \(g.\)
+</p>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        For each of (i)–(iii), determine the critical numbers of the given function \(g.\)
+        <ol class="list-roman">
+            <li>
+                <span>
+                    \(g(x) = \frac{1}{4}x^4 - \frac{4}{3}x^3 + \frac{3}{2}x^2 + 3\)   
+                </span>
+            </li>
+            <li>
+                <span>
+                    \(g(x) = \sqrt[3]{x - 3}\)   
+                </span>
+            </li>
+            <li>
+                <span>
+                    \(g(t) = \sqrt[3]{t} \,  (4 - t)\)   
+                </span>
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"></button>
+<div id="solution1" class="solution">
+    <ol class="list-roman">
+        <li>
+            The function \(g(x)\) has a critical point when \(x = c\) if 
+            \(g'(c) = 0\) or if \(g'(c)\) is undefined and \(g(c)\) is defined. 
+            Since \(g(x)\) is a polynomial, it is continuous and differentiable for all \(x.\) 
+            Therefore, \(g'(x)\) is never undefined; instead, we need \(g'(x) = 0.\)
+            Thus, we solve for \(x\) in \(g'(x) = 0 \col\)
+            \[
+            \ba 
+            g'(x) = x^3 - 4x^2 + 3x &= 0 \nl 
+            x(x - 3)(x - 1) &= 0 \nl 
+            x &= 0 \comma x = 1 \comma x = 3 \pd  
+            \ea 
+            \]
+            Therefore, the critical numbers of \(g(x)\) are \(x = 0,\) \(x = 1,\) and \(x = 3.\)
+        </li>
+        <hr>
+        <li>
+            The derivative of \(g\) is 
+            \[g'(x) = \frac{1}{3(x - 3)^{2/3}} \comma\]
+            which is undefined at \(x = 3.\)
+            Because \(g(3)\) is defined and \(g'(3)\) is undefined, \(x = 3\) is a critical number of \(g.\)
+        </li>
+        <hr>
+        <li>
+            We differentiate \(g\) to find 
+            \[g'(t) = \frac{4 - t}{3t^{2/3}} - \sqrt[3]{t} \pd\]
+            Solving \(g'(t) = 0\) gives \(t = 1.\) 
+            Furthermore, \(g'(0)\) is undefined but \(g(0)\) is defined.
+            Therefore, \(t = 0\) and \(t = 1\) are critical numbers of \(g.\)
+        </li>
+    </ol>
+</div> 
+
+<h4 id="relative-extrema">Relative Extrema</h4>
+<figure class="min-max-deriv-sign-change" id="min-max-deriv-sign-change">
+    <img src="../images/sectionImages/min-max-deriv-sign-change.jpg" alt="min-max-deriv-sign-change.jpg">
+</figure>
+<style>
+    .min-max-deriv-sign-change::before{
+        content:'FIGURE 4';
+    }
+</style>
+
+<p>
+    We now discuss how to find the 
+    <i>relative minima</i> and <i>relative maxima</i> of a function \(f.\)
+    (These terms are also called <i>local extrema</i>.)  
+    Graphically, these points represent troughs and peaks, respectively, of the graph of \(y = f(x).\) 
+    In <a href="#min-max-deriv-sign-change">Figure 4</a>, 
+    Point \(A\) is the location of a relative minimum of \(f,\)
+    whereas Point \(B\) is the location of a relative maximum of \(f.\)
+</p>
+<p>
+    Points \(A\) and \(B\) are both critical points because \(f' = 0\) at each point.
+    At Point \(A\) the sign of \(f'\) flips from negative to positive.
+    Conversely, at Point \(B,\) \(f'\) changes sign from positive to negative.
+    We then see the following: If \(x = c\) is a critical number of \(f(x),\) then
+    <ul>
+        <li>
+            \(f\) has a <span class="emph">relative minimum</span> at \(c\) if 
+            \(f'\) changes sign from negative to positive at \(c.\)
+        </li>
+        <li>
+            \(f\) has a <span class="emph">relative maximum</span> at \(c\) if 
+            \(f'\) changes sign from positive to negative at \(c.\)
+        </li>
+        <li>
+            \(f\) has neither a relative minimum nor relative maximum at \(c\) if 
+            \(f'\) does not change sign at \(c.\)
+        </li>
+    </ul>
+    We call these guidelines the <span class="emph">First Derivative Test</span>.
+    For example, the derivative of \(g(x) = x^3\) is \(g'(x) = 3x^2,\) satisfying \(g'(0) = 0.\) 
+    Therefore, \(x = 0\) is a critical number of \(g.\)
+    But \(g'(x) = 3x^2 \geq 0,\) so \(g'\) does not change sign at \(x = 0.\)
+    Hence, \(x = 0\) is <i>not</i> a relative extremum of \(g\) (see <a href="#min-max-x3">Figure 3</a>).
+</p>
+
+<!-- 1st derivative test -->
+<div class="box-title" id="first-derivative-test"> FIRST DERIVATIVE TEST </div>
+<div class="box">
+    If \(c\) is a critical number of \(f,\) then
+    <ol class="list-alpha">
+        <li>
+            \(f\) has a <span class="emph">relative minimum</span> at \(c\) if 
+            \(f'\) changes sign from negative to positive at \(c.\)
+        </li>
+        <li>
+            \(f\) has a <span class="emph">relative maximum</span> at \(c\) if 
+            \(f'\) changes sign from positive to negative at \(c.\)
+        </li>
+        <li>
+            \(f\) has neither a relative minimum nor relative maximum at \(c\) if 
+            \(f'\) does <i>not</i> change sign at \(c.\)
+        </li>
+    </ol>
+</div>
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        <figure class="min-max-ABC" id="min-max-ABC">
+            <img src="../images/sectionImages/min-max-ABC.jpg" alt="min-max-ABC.jpg">
+        </figure>
+        <style>
+            .min-max-ABC::before{
+                content:'FIGURE 5';
+            }
+        </style>
+        In <a href="#min-max-ABC">Figure 5</a>,
+        classify what type of extremum \(f\) has at points \(A,\) \(B,\) and \(C.\) 
+        <div class="white-space">
+        </div>
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    Point \(A\) is the location of a relative minimum of \(f.\)
+    Point \(B\) is the location of a relative maximum of \(f.\)
+    Point \(C\) is the location of a relative minimum and the absolute minimum of \(f.\)
+</div> 
+
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">  
+        Let \(g(x) = 2x^3 - 3x^2 - 1.\)
+        Find all the relative extrema of \(g.\)
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button"></button>
+<div id="solution3" class="solution">
+    By the First Derivative Test, a critical number \(c\) is a relative extremum of \(g\) if \(g'\) changes sign at \(c.\)
+    We find the critical numbers of \(g\) by letting \(g'(x) = 0 \col\)
+    \[
+    \ba 
+    g'(x) = 6x^2 - 6x &= 0 \nl 
+    6x(x - 1) &= 0 \nl 
+    \implies x &= 0 \comma x = 1 \pd 
+    \ea 
+    \]
+    Now we analyze the sign changes of \(g'\) at each of these critical numbers.
+    In so doing, it's helpful to use the factored form, \(g'(x) = 6x(x - 1).\) 
+    <ul>
+        <li>
+            For \(x \lt 0,\) \(g' \gt 0;\)
+            for \(0 \lt x \lt 1,\) \(g' \lt 0.\)
+            Therefore, because \(g'\) changes sign from positive to negative at \(x = 0,\) 
+            the First Derivative Test asserts that \(g(x)\) has a relative maximum when \(x = 0.\)
+            We conclude that \(g(0) = -1\) is a 
+            <span class="emph">relative maximum</span> of \(g.\)
+        </li>
+        <li>
+            For \(0 \lt x \lt 1,\) \(g' \lt 0;\)
+            for \(x \gt 1,\) \(g' \gt 0.\)
+            The First Derivative Test then states that \(x = 1\) corresponds to a relative minimum of \(g.\)
+            We find \(g(1) = -2,\) a
+            <span class="emph">relative minimum</span> of \(g.\)
+        </li>
+    </ul>  
+</div> 
+
+<div class="example-title"> EXAMPLE 4 </div>
+<div class="example">
+    <div class="example-problem">  
+        <figure class="min-max-ex-g-deriv-critical-pt" id="min-max-ex-g-deriv-critical-pt">
+            <img src="../images/sectionImages/min-max-ex-g-deriv-critical-pt.jpg" alt="min-max-ex-g-deriv-critical-pt.jpg">
+        </figure>
+        <style>
+            .min-max-ex-g-deriv-critical-pt::before{
+                content:'FIGURE 6';
+            }
+        </style>
+
+        Let \(g(x)\) be a continuous function for \(-6 \leq x \leq 6.\)
+        The graph of \(y = g'(x)\) is shown in 
+        <a href="#min-max-ex-g-deriv-critical-pt">Figure 6</a>.
+        Find the critical numbers of \(g.\)
+        At each critical number, determine whether \(g\) has a relative minimum, relative maximum, or neither.
+        <div style="opacity: 0; font-size: 6vh">&nbsp;</div>
+    </div>
+</div>
+<button onclick="toggle4()" class="solution-button"></button>
+<div id="solution4" class="solution">
+    <p>
+        The function \(g\) has a critical number at \(c\) if \(g'(c) = 0\) or if \(g(c)\) exists but \(g'(c)\) is undefined.
+        From <a href="#min-max-ex-g-deriv-critical-pt">Figure 6</a>, 
+        \(g'(x) = 0\) when \(x = -4\) and \(x = 5.\)
+        Moreover, \(g'(x)\) is undefined when \(x = 1\) and \(x = 3,\)
+        whereas \(g(1)\) and \(g(3)\) both exist because it is given that \(g\) is continuous on \([-6, 6].\)
+        Therefore, the critical numbers of \(g\) are \(x = -4,\) \(x = 1,\) \(x = 3,\) and \(x = 5.\)
+        Note that \(x = -6\) and \(x = 6\) are the endpoints of \(g,\) 
+        so they are not critical numbers. 
+    </p>
+    <p>
+        At \(x = -4,\) \(g'\) changes sign from negative to positive.
+        The First Derivative Test then states that \(g\) has a <span class="emph">relative minimum</span>
+        at \(x = -4.\)
+        Likewise, at \(x = 1\) the sign of \(g'\) switches from positive to negative, 
+        so \(g\) has a <span class="emph">relative maximum</span> at \(x = 1.\)
+        Conversely, at \(x = 3\) and \(x = 5,\) \(g'\) does not change sign.
+        Thus, these critical numbers do not correspond to relative minima or relative maxima.  
+    </p>
+</div> 
+
+<p>
+    We now present a coherent strategy for locating absolute extrema.
+    If \(f\) is continuous over \([a, b],\)
+    then the <a href="#extreme-value-theorem">Extreme Value Theorem</a>
+    guarantees that \(f\) has both an absolute minimum and absolute maximum in \([a, b].\)
+    <!-- The <a href="#first-derivative-test">First Derivative Test</a> 
+    provides us an outline of determining critical points.  -->
+    We deduce the following: If \(f\) is continuous over \([a, b]\) and has a critical number \(c\) in \((a, b),\)
+    then the absolute minimum or absolute maximum of \(f\) must lie at the critical number \(c\) or at the endpoints \(a\) and \(b.\)
+    In other words, an extreme value must be at a critical point or an endpoint.
+    To find the absolute minimum and absolute maximum of \(f,\) 
+    we use the <span class="emph">Closed Interval Method</span>, shown below.
+</p>
+
+<!--box closed interval method -->
+<div class="steps-title" id="closed-interval-method"> CLOSED INTERVAL METHOD </div>
+<div class="steps">
+    Suppose \(f\) is continuous over \([a, b].\) To find the absolute minimum and absolute maximum of \(f,\)
+    use the following procedure. 
+    <ol class="list-num">
+        <li>
+            Evaluate \(f\) at the critical numbers in \((a, b).\) 
+        </li>
+        <li>
+            Evaluate \(f\) at the endpoints \(a\) and \(b.\)
+        </li>
+        <li>
+            Determine the smallest and largest of the values in Steps 1 and 2.
+            The largest value is the absolute maximum of \(f,\) 
+            while the smallest value is the absolute minimum of \(f.\)
+        </li>
+    </ol>
+</div>
+
+<div class="example-title"> EXAMPLE 5 </div>
+<div class="example">
+    <div class="example-problem">  
+        Let \(g(x) = x^3 - \frac{3}{2} x^2 - 6x.\)
+        Find the absolute minimum and absolute maximum of \(g\) over the interval \(-2 \leq x \leq 4.\)
+    </div>
+</div>
+<button onclick="toggle5()" class="solution-button"></button>
+<div id="solution5" class="solution">
+    <p>
+        The Closed Interval Method asserts that an absolute extremum of \(g\) 
+        must either lie at the endpoints of \([-2, 4]\) or at a critical number in \((-2, 4).\) 
+        We differentiate \(g\) to determine its critical numbers:
+        \[
+        \ba 
+        g'(x) = 3x^2 - 3x - 6 &= 0 \nl 
+        \implies x &= -1 \comma x = 2 \pd 
+        \ea 
+        \]
+    </p>
+    <p>
+        We now evaluate \(g\) at these two critical numbers and at the endpoints. 
+        The values of \(g\) at the critical points are  
+        \[g(-1) = 7/2 \and g(2) = -10 \pd\]
+        Additionally, the values of \(g\) at the endpoints of \([-2, 4]\) are 
+        \[g(-2) = -2 \and g(4) = 16 \pd\] 
+        The smallest of these values is \(g(2) = -10,\) and the largest is \(g(4) = 16.\)
+        Thus, the <span class="emph">minimum value</span> of \(g\) in \([-2, 4]\) is \(-10,\)
+        and the <span class="emph">maximum value</span> is \(16.\)
+    </p>
+</div> 
+
+<div class="section-summary">
+    <p>
+        A function \(f\) may have two types of extrema: absolute extrema and relative extrema. 
+        Consider \(f(x)\) for \(a \leq x \leq b.\) Suppose \(c\) is in \([a, b].\) 
+        We call \(f(c)\) the <span class="emph">absolute maximum</span> value of \(f\) 
+        if \(f(c) \geq f(x)\) for all \(a \leq x \leq b.\) 
+        In contrast, \(f(c)\) is the <span class="emph">absolute minimum</span> value of \(f\) 
+        if \(f(c) \leq f(x)\) for all \(a \leq x \leq b.\) 
+    </p>
+    <p>
+        The <span class="emph">Extreme Value Theorem</span>
+        states the following: if \(f\) is continuous over \([a, b],\) 
+        then \(f\) attains an absolute minimum value \(f(c)\) and an absolute maximum value \(f(d),\)
+        where \(c\) and \(d\) are in \([a, b].\)
+    </p>
+    <p>
+        A function \(f(x)\) has a <span class="emph">critical point</span> at \(c\) 
+        if \(f'(c) = 0\) or if \(f'(c)\) is undefined and \(f(c)\) is defined. 
+        Then \(x = c\) is called a <span class="emph">critical number</span> of \(f(x).\)
+    </p>
+    <p>
+        The <span class="emph">First Derivative Test</span> states the following: 
+        If \(c\) is a critical number of \(f,\) then 
+        <ol class="list-alpha">
+            <li>
+                \(f\) has a <span class="emph">relative minimum</span> at \(c\) if 
+                \(f'\) changes sign from negative to positive at \(c.\)
+            </li>
+            <li>
+                \(f\) has a <span class="emph">relative maximum</span> at \(c\) if 
+                \(f'\) changes sign from positive to negative at \(c.\)
+            </li>
+            <li>
+                \(f\) has neither a relative minimum nor relative maximum at \(c\) if 
+                \(f'\) does <i>not</i> change sign at \(c.\)
+            </li>
+        </ol>
+    </p>
+    <p>
+        We use the <span class="emph">Closed Interval Method</span>
+        to determine the absolute minimum and absolute maximum of a function \(f\) over a closed interval \([a, b].\)
+        The procedure is as follows. 
+        <ol class="list-num">
+            <li>
+                Evaluate \(f\) at the critical numbers in \((a, b).\) 
+            </li>
+            <li>
+                Evaluate \(f\) at the endpoints \(a\) and \(b.\)
+            </li>
+            <li>
+                Determine the smallest and largest of the values in Steps 1 and 2.
+                The largest value is the absolute maximum of \(f,\) 
+                while the smallest value is the absolute minimum of \(f.\)
+            </li>
+        </ol>
+    </p>
+</div>
+
+
+

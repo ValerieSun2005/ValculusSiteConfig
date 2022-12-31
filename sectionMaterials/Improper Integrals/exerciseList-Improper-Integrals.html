@@ -1,0 +1,509 @@
+<section>
+    <p>GRID</p>
+    <p class="columns">3</p>
+    <p class="directions">determine whether the integral is ordinary or improper. If it is improper, explain why</p>
+
+    <div>
+        \(\ds \int_1^\infty \frac{1}{x^3} \di x\)
+    </div>
+    <span>
+        The upper bound is infinity, 
+        so we have a Type I improper integral.
+    </span>
+
+    <div>
+        \(\ds \int_1^3 \frac{2}{x - 3} \di x\)
+    </div>
+    <span>
+        The graph of \(y = 2/(x - 3)\) has a vertical asymptote at \(x = 3,\) 
+        the upper bound of the integral.
+        Thus, the integral is a Type II improper integral. 
+    </span>
+
+    <div>
+        \(\ds \int_0^4 \frac{1}{t - 5} \di t\)
+    </div>
+    <span>
+        The integral is not improper. The integral's bounds are finite, and \(1/(t - 5)\)
+        is continuous over \(0 \leq t \leq 4.\)
+    </span>
+
+    <div>
+        \(\ds \int_0^2 \frac{1}{x^2 - 1} \di x\)
+    </div>
+    <span>
+        The graph of \(y = 1/(x^2 - 1)\) is undefined at \(x = 1.\)
+        Thus, the integrand is not continuous on the interval \([0, 2]\)
+        and so we have a Type II improper integral.
+    </span>
+</section>
+
+
+<section>
+    <p>GRID</p>
+    <p class="columns">3</p>
+    <p class="directions">evaluate the integral or justify that it diverges</p>
+
+    <div>
+        \(\ds \int_2^\infty \frac{1}{x + 9} \di x\)
+    </div>
+    <span>
+        We have a Type I improper integral with an upper bound of infinity. 
+        Therefore, we replace the upper bound with a variable \(k\) and consider \(k \to \infty.\)
+        We then get 
+        \[
+        \ba 
+        \int_2^\infty \frac{1}{x + 9} \di x &= \lim_{k \to \infty} \int_2^k \frac{1}{x + 9} \di x \nl 
+        &= \lim_{k \to \infty} \ln \abs{x + 9} \Big|_2^k \nl 
+        &= \lim_{k \to \infty} \ln \abs{k + 9} - \ln 11 \period 
+        \ea 
+        \]
+        The limit \(\lim_{k \to \infty} \ln(k + 9)\) approaches \(\infty\) and therefore does not exist,
+        so \(\int_2^\infty \frac{1}{x + 9} \di x\) <u>diverges</u>. 
+    </span>
+
+    <div>
+        \(\ds \int_1^\infty \frac{3}{2\sqrt{x}} \di x\)
+    </div>
+    <span>
+        This integral is a Type I improper integral.
+        We replace the \(\infty\) with a variable \(k\) that approaches \(\infty.\)
+        Also, we rewrite \(1/\sqrt{x}\) as \(x^{-1/2}.\)
+        We then obtain 
+        \[
+        \ba 
+        \lim_{k \to \infty} \int_1^k \frac{3}{2} x^{-1/2} \di x 
+        &= \lim_{k \to \infty} 3 \sqrt{x} \Big|_1^k \nl 
+        &= \lim_{k \to \infty} 3 \sqrt{k} - 3 \period 
+        \ea 
+        \]
+        The limit \(\lim_{k \to \infty} 3 \sqrt{k}\) doesn't exist, so the integral <u>diverges</u>.
+    </span>
+
+    <div>
+        \(\ds \int_3^\infty \frac{1}{x\sqrt[4]{x}} \di x\)
+    </div>
+    <span>
+        The denominator of the integrand is \(x \cdot x^{1/4} = x^{5/4}.\)
+        Moreover, we replace the upper bound \(\infty\) with \(k.\)
+        We have 
+        \[
+        \ba 
+        \lim_{k \to \infty} \int_3^k x^{-5/4} \di x &= \lim_{k \to \infty} -4 x^{-1/4} \Big|_3^k \nl 
+        &= \lim_{k \to \infty} -4k^{-1/4} + 4(3)^{-1/4} \nl 
+        &= \boxed{\frac{4}{\sqrt[4]{3}}} 
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int_{-\infty}^\infty \frac{1}{x^2 + 1} \di x\)
+    </div>
+    <span>
+        We must first establish that \(1/(x^2 + 1)\) is continuous over 
+        the entire interval \((-\infty, \infty).\) And it is,
+        because the denominator \(x^2 + 1\) is never zero. 
+        We choose to break the integral at any point—say, \(x = 0.\) (Any point suffices, however.)
+        This choice gives 
+        \[\int_{-\infty}^0 \frac{1}{x^2 + 1} \di x + \int_0^\infty \frac{1}{x^2 + 1} \di x \period\]
+        Both integrals must converge; otherwise, \( \int_{-\infty}^\infty \dd x/(x^2 + 1)\) diverges.
+        Recall that \(\int \dd x/(x^2 + 1) = \tan^{-1} x + C.\)
+        Also note that \(\tan 0 = 0\) and \(\lim_{x \to \infty} \tan^{-1} x = \pi/2.\)
+        Using this information, the first integral becomes 
+        \[\lim_{a \to -\infty} \int_a^0 \frac{1}{x^2 + 1} \di x 
+        = \lim_{a \to -\infty} \tan^{-1} x \Big|_a^0 = \frac{\pi}{2} \period \]
+        The second integral is 
+        \[\lim_{b \to \infty} \int_0^b \frac{1}{x^2 + 1} \di x 
+        = \lim_{b \to \infty} \tan^{-1} x \Big|_0^b = \frac{\pi}{2} \period\]
+        Therefore, 
+        \[\int_{-\infty}^\infty \frac{1}{x^2 + 1} \di x 
+        = \frac{\pi}{2} + \frac{\pi}{2} = \boxed{\pi}\]
+    </span>
+    
+    <div>
+        \(\ds \int_{-\infty}^{-1} \frac{1}{x^2} \di x\)
+    </div>
+    <span>
+        We rewrite the integral as the limit  
+        \[\lim_{k \to -\infty} \int_k^{-1} \frac{1}{x^2} \di x \period\]
+        We antidifferentiate to find 
+        \[
+        \lim_{k \to -\infty} -\frac{1}{x} \Big|_k^{-1} 
+        = \lim_{k \to -\infty} 1 + \frac{1}{k} = \boxed{1}
+        \] 
+    </span>
+
+    <div>
+        \(\ds \int_0^\infty \sin x \di x\)
+    </div>
+    <span>
+        The graph of \(y = \sin x\) oscillates continuously.
+        Thus, the area bounded by the graph and the \(x\)-axis never settles to a final value.
+        As a result, the integral <u>diverges</u>.
+    </span>
+
+    <div>
+        \(\ds \int_2^5 \frac{1}{x - 4} \di x\)
+    </div>
+    <span>
+        Be careful—this integral is improper!
+        The graph of \(y = 1/(x - 4)\) has a vertical asymptote at \(x = 4\), 
+        so we break the integral as 
+        \[\lim_{k \to 4^-} \int_2^k \frac{1}{x - 4} \di x 
+        + \lim_{k \to 4^+} \int_k^5 \frac{1}{x - 4} \di x \period \]
+        The integral \(\int_2^5 \di x/(x - 4)\) converges if both limits exist.
+        We therefore verify that each limit exists:
+        The left limit becomes 
+        \[\lim_{k \to 4^-} \ln \abs{x - 4}  \Big|_{2}^k = \lim_{k \to 4^-} \ln \abs{k - 4} - \ln 2 \period\]
+        Because \(\lim_{k \to 4^-} \ln \abs{k - 4}\) does not exist, 
+        \(\int_2^5 \di x/(x - 4)\) <u>diverges</u>.
+    </span>
+
+    <div>
+        \(\ds \int_0^\infty \frac{1}{(t + 2)^{3/2}} \di t\)
+    </div>
+    <span>
+        We replace the upper bound \(\infty\) with \(k.\)
+        We find 
+        \[
+        \ba 
+        \lim_{k \to \infty} \int_0^k (t + 2)^{-3/2} \di t 
+        &= \lim_{k \to \infty} -2(t + 2)^{-1/2} \Big|_0^k \nl 
+        &= \lim_{k \to \infty} -2(k + 2)^{-1/2} + 2(2)^{-1/2} \nl 
+        &= \boxed{\sqrt{2}}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int_0^1 \frac{1}{\sqrt{1 - x^2}} \di x\)
+    </div>
+    <span>
+        The function \(1/\sqrt{1 - x^2}\) is undefined at \(x = 1.\)
+        Therefore, we write 
+        \[
+        \ba 
+        \lim_{k \to 1^-} \int_0^k \frac{1}{\sqrt{1 - x^2}} \di x 
+        &= \lim_{k \to 1^-} \sin^{-1} x \Big|_0^k \nl
+        &= \lim_{k \to 1^-} \sin^{-1} k - \sin^{-1} 0 \nl 
+        &= \boxed{\frac{\pi}{2}}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int_{-2}^4 \frac{1}{(x - 1)^4} \di x\)
+    </div>
+    <span>
+        The graph of \(y = 1/(x - 4)^4\) has a vertical asymptote at \(x = 1.\)
+        Thus, we break the integral into 
+        \[\lim_{k \to 1^-} \int_{-2}^k \frac{1}{(x - 1)^4} \di x + 
+        \lim_{k \to 1^+} \int_k^4 \frac{1}{(x - 1)^4} \di x \period \]
+        Both limits must exist; otherwise, \(\int_{-2}^4 \di x/(x - 1)^4\) diverges.
+        The first limit is 
+        \[\lim_{k \to 1^-} \frac{-1}{3(x - 1)^3} \Big|_{-2}^k 
+        = \lim_{k \to 1^-} \frac{-1}{3(k - 1)^3} - \frac{1}{81} \period 
+        \]
+        Because \(\lim_{k \to 1^-} \frac{-1}{3(k - 1)^3}\) does not exist,
+        \(\int_{-2}^4 \di x/(x - 1)^4\) <u>diverges</u>.
+    </span>
+
+    <div>
+        \(\ds \int_{0}^{\pi/2} \sec \theta \tan \theta \di \theta\)
+    </div>
+    <span>
+        The integrand has an infinite discontinuity at \(\theta = \pi/2.\)
+        Thus, we consider 
+        \[\lim_{k \to (\pi/2)^-} \int_0^{k} \sec \theta \tan \theta \di \theta \pd \]
+        Recall that \(\int \sec \theta \tan \theta  \di \theta = \sec \theta + C.\)
+        We therefore get  
+        \[
+        \lim_{k \to (\pi/2)^-} \sec \theta \Big|_0^k 
+        = \lim_{k \to (\pi/2)^-} \sec k - \sec 0 \pd
+        \]
+        Because \(\lim_{k \to (\pi/2)^-} \sec k\) does not exist,
+        \(\int_{0}^{\pi/2} \sec \theta \tan \theta \di \theta\) <u>diverges</u>.
+    </span>
+
+    <div>
+        \(\ds \int_4^\infty \frac{3}{x \ln x} \di x\)
+    </div>
+    <span>
+        We substitute 
+        \[
+        \ba 
+        u &= \ln x \nl 
+        \dd u &= \frac{1}{x} \di x \period 
+        \ea 
+        \]
+        Now we change the bounds:
+        when \(x = 4,\) \(u = \ln 4;\)
+        when \(x = \infty,\) \(u = \infty.\)
+        Thus, the integral becomes 
+        \[\int_{\ln 4}^\infty \frac{3}{u} \di u \pd\]
+        We consider 
+        \[
+        \ba 
+        \lim_{k \to \infty} \int_{\ln 4}^k \frac{3}{u} \di u
+        &= \lim_{k \to \infty} 3 \ln \abs{u} \Big|_{\ln 4}^k \nl 
+        &= \lim_{k \to \infty} 3 \ln k - 3 \ln(\ln 4) \pd 
+        \ea 
+        \]
+        Because \(\lim_{k \to \infty} 3 \ln k\) does not exist, 
+        \(\int_4^\infty \frac{3}{x \ln x} \di x\) <u>diverges</u>.
+    </span>
+
+    <div>
+        \(\ds \int_0^1 t \ln t \di t\)
+    </div>
+    <span>
+        The integrand is undefined at \(t = 0.\)
+        Thus, we write 
+        \[\lim_{k \to 0^+} \int_k^1 t \ln t \di t \period\]
+        We integrate by parts using 
+        \[
+        \baat{2} 
+        u &= \ln t \lspace \dd v &&= t \di t \nl 
+        \dd u &= \tfrac{1}{t} \di t \lspace v &&= \tfrac{1}{2} t^2 \period 
+        \eaat 
+        \]
+        Thus, our antiderivative is 
+        \[
+        \ba 
+        uv - \int v \di u &= \frac{t^2}{2} \ln t - \int \frac{1}{2} t^2 \cdot \frac{1}{t} \di t \nl 
+        &= \frac{t^2}{2} \ln t - \frac{t^2}{4} + C \period
+        \ea 
+        \]
+        Consequently, the improper integral becomes 
+        \[
+        \ba 
+        \lim_{k \to 0^+} \par{\frac{t^2}{2} \ln t - \frac{t^2}{4}} \Big|_k^1 
+        &= \par{0 - \frac{1}{4}} - \lim_{k \to 0^+} \par{\frac{k^2}{2} \ln k - \frac{k^2}{4}} \nl 
+        &= -\frac{1}{4} - \lim_{k \to 0^+} \frac{k^2}{2} \ln k \period
+        \ea 
+        \]
+        The limit \(\lim_{k \to 0^+} \frac{k^2}{2} \ln k\) is in the indeterminate form \(0 \times \infty,\)
+        so we need L'Hôpital's Rule. We rewrite the expression as 
+        \[\lim_{k \to 0^+} \frac{\ln k}{2/k^2} \comma\]
+        which is in the indeterminate form \(\indInfty.\) 
+        After differentiating, we obtain  
+        \[\lim_{k \to 0^+} \frac{1/k}{-4/k^3} = \lim_{k \to 0^+} \frac{-k^2}{4} = 0 \period\]
+        Therefore, 
+        \[\int_0^1 t \ln t \di t = \boxed{-\frac{1}{4}}\]
+    </span>
+
+    <div>
+        \(\ds \int_0^\infty xe^{-x^2} \di x\)
+    </div>
+    <span>
+        We substitute 
+        \[
+        \ba 
+        u &= -x^2 \nl 
+        \dd u &= -2x \di x \period
+        \ea 
+        \]
+        When \(x = 0,\) \(u = 0;\)
+        when \(x = \infty,\) \(u = -\infty.\)
+        Thus, we have 
+        \[-\frac{1}{2} \int_0^{-\infty} e^u \di u = \frac{1}{2} \int_{-\infty}^0 e^u \di u \period\]
+        We now replace the lower bound \(-\infty\) with a variable \(k.\)
+        Doing so gives 
+        \[
+        \ba 
+        \lim_{k \to -\infty} \frac{1}{2} \int_k^0 e^u \di u 
+        &= \lim_{k \to -\infty} \frac{1}{2} e^u \Big|_k^0 \nl 
+        &= \frac{1}{2} e^0 - \frac{1}{2} \lim_{k \to -\infty} e^k \nl 
+        &= \boxed{\frac{1}{2}}
+        \ea 
+        \]
+    </span>
+</section>
+<section>
+    <p>GRID</p>
+    <p class="columns">3</p>
+    <p class="directions">find the values of \(n\) such that the integral converges</p>
+
+    <div>
+        \(\ds \int_{1}^{\infty} \frac{1}{x^{1 - 3n}} \di x\)
+    </div>
+    <span>
+        The integral takes the form \(\int_1^\infty (1/x^p) \di x\) with \(p = 1 - 3n.\)
+        If \(p \gt 1,\) then the integral converges.
+        Thus, we find 
+        \[1 - 3n \gt 1 \implies \boxed{n \lt 0}\]
+    </span>
+
+    <div>
+        \(\ds \int_{2}^{\infty} \frac{1}{x^{5n - 1}} \di x\)
+    </div>
+    <span>
+        The integral is a \(p\)-integral with \(p = 5n - 1.\)
+        If \(p \gt 1,\) then the integral converges.
+        Thus, we find 
+        \[5n - 1 \gt 1 \implies \boxed{n \gt \frac{2}{5}}\]
+    </span>
+
+    <div>
+        \(\ds \int_{2}^{\infty} \frac{1}{x^{n^2 - 4n + 4}} \di x\)
+    </div>
+    <span>
+        We equate the exponent of \(x\) to be greater than \(1.\) 
+        We see 
+        \[
+        \ba 
+        n^2 - 4n + 4 &\gt 1 \nl 
+        n^2 - 4n + 3 &\gt 0 \nl 
+        (n - 3)(n - 1) &\gt 0 \period
+        \ea 
+        \]
+        The solutions to this inequality are 
+        \[\boxed{1 \lt n \lt 3}\]
+    </span>
+</section>
+<section>
+    <div>
+        Let \(f\) be a continuous function such that \(0 \leq f(x) \leq 1/x^{4/3}.\) 
+        Show that \(\int_1^\infty f(x) \di x\) converges and is no greater than \(3.\) 
+    </div>
+    <span>
+        From the given information, we deduce that  
+        \[0 \leq \int_1^\infty f(x) \di x \leq \int_1^\infty \frac{1}{x^{4/3}} \di x \pd \]
+        We evaluate the right-hand integral, as follows:
+        \[
+        \ba 
+        \int_1^\infty \frac{1}{x^{4/3}} \di x
+        &= \lim_{k \to \infty} \int_1^k x^{-4/3} \di x \nl 
+        &= \lim_{k \to \infty} -3 x^{-1/3} \Big|_1^k \nl 
+        &= \lim_{k \to \infty} -3 k^{-1/3} + 3 \nl 
+        &= 3 \period
+        \ea
+        \]
+        Thus, 
+        \[0 \leq \int_1^\infty f(x) \di x \leq 3 \pd \]
+    </span>
+
+    <div>
+        It is known that \(0 \leq 1/x^{5/9} \leq g(x),\) where \(g\) is a continuous function. 
+        Show that \(\int_1^\infty g(x) \di x\) is divergent. 
+    </div>
+    <span>
+        Since 
+        \[\ds 0 \leq \frac{1}{x^{5/9}} \leq g(x) \comma \]  
+        it follows that 
+        \[0 \leq \int_1^\infty \frac{1}{x^{5/9}} \di x \leq \int_1^\infty g(x) \di x \pd \]
+        The integral \(\int_1^\infty (1/x^{5/9}) \di x\) diverges because \(p = 5/9 \leq 1.\) 
+        Therefore, using the Comparison Test, \(\int_1^\infty g(x) \di x\) also diverges.
+    </span>
+
+    <div>
+        Let \(g\) be a differentiable function that satisfies \(g(0) = 0\) and \(g(4) = 12.\) 
+        Evaluate \(\int_0^4 [g'(x)/g(x)] \di x\) or show that it diverges.
+    </div>
+    <span>
+        We substitute \(u = g(x);\)
+        then \(\dd u = g'(x) \di x.\) 
+        When \(x = 0,\) \(u = g(0) = 0.\)
+        When \(x = 4,\) \(u = g(4) = 12.\)  
+        Thus, the integral becomes 
+        \[\int_0^{12} \frac{1}{u} \di u \pd \]
+        The integrand is undefined at \(u = 0,\)
+        so we consider 
+        \[ 
+        \ba 
+        \lim_{k \to 0^+} \int_k^{12} \frac{1}{u} \di u 
+        &= \lim_{k \to 0^+} \ln u \Big|_k^{12} \nl 
+        &= \ln 12 - \lim_{k \to 0^+} \ln k \pd 
+        \ea 
+        \]
+        Because \(\lim_{k \to 0^+} \ln k\) does not exist, 
+        \(\int_0^4 [g'(x)/g(x)] \di x\) <u>diverges</u>.
+    </span>
+
+    <div>
+        Let \(g\) and \(q\) be two continuous functions such that \(g(x) \leq q(x).\)
+        Suppose \(\int_2^\infty q(x) \di x\) converges. 
+        Explain why \(\int_2^\infty g(x) \di x\) could be divergent.
+    </div>
+    <span>
+        The integral \(\int_2^\infty g(x) \di x\) could approach \(-\infty.\)
+    </span>
+
+    <div>
+        If \(f(x)\) is continuous, positive, and decreasing for all \(x \geq 1,\) 
+        and \(\lim_{x \to \infty} f(x) = 0,\) 
+        then must \(\int_1^\infty f(x) \di x\) be convergent?
+    </div>
+    <span>
+        <u>No</u>, the integral could diverge.
+        For example, \(f(x) = 1/x\) is continuous, positive, and decreasing for all \(x \geq 1,\)
+        and it satisfies \(\lim_{x \to \infty} f(x) = 0.\)
+        However, \(\int_1^\infty (1/x) \di x\) diverges.
+    </span>
+
+    <div>
+        The rate at which people like a social media post is given by \(S(t) = 200e^{-t/10},\) where \(t\) is time in hours.
+        How many likes will the post receive?
+    </div>
+    <span>
+        The total number of likes is \(\int_0^\infty S(t) \di t.\)
+        We find 
+        \[
+        \ba 
+        \lim_{k \to \infty} \int_0^k 200e^{-t/10} \di t 
+        &= -2000 \lim_{k \to \infty} e^{-t/10} \Big]_0^k \nl 
+        &= -2000 \lim_{k \to \infty} e^{-k/10} + 2000 e^{0} \nl 
+        &= 2000 \period 
+        \ea 
+        \] 
+        Thus, the post will receive \(2000\) likes.
+    </span>
+
+    <div>
+        For \(t \gt 1,\) a particle moves indefinitely along a line at a velocity given by
+        \(v(t) = 2/t^{2/3},\)
+        where \(v(t)\) is measured in meters per second and \(t\) is measured in seconds.
+        Show that the particle travels an infinite distance.  
+    </div>
+    <span>
+        The distance traveled by the particle is \(\int_1^\infty \abs{v(t)} \di t.\)
+        Since \(v(t) \gt 0,\) we drop the absolute value bars and get 
+        \[\int_1^\infty \frac{44}{t^{2/3}} \di t \pd \]
+        If this improper integral converges, then the particle will cover a finite distance; 
+        if it approaches \(\infty,\) then the particle will travel an infinite distance.
+        We get 
+        \[
+        \ba 
+        \lim_{k \to \infty} \int_1^k 2 t^{-2/3} \di t 
+        &= \lim_{k \to \infty} 6t^{1/3} \Big|_1^k \nl 
+        &= \lim_{k \to \infty} 6k^{1/3} - 6 \nl 
+        &= \infty \pd 
+        \ea 
+        \]
+        Because the improper integral approaches \(\infty,\) the particle travels an infinite distance.
+    </span>
+
+    <div>
+        The density of trees in a forest surrounding a campsite is modeled by 
+        \[T(r) = \frac{290}{r^3 + 8r^2 + 16r} \comma \]
+        where \(r\) is the distance, in meters, from the campsite and \(T(r)\) is measured in trees per square meter.
+        The number of trees within \(K\) meters of the campsite is given by \(\int_0^K 2 \pi r \, T(r) \di r.\)
+        Explain why the total number of trees in the forest is less than \(700.\) 
+    </div>
+    <span>
+        We take \(K \to \infty\) in order to cover the entire forest. 
+        The integral \(\int_0^\infty 2 \pi r T(r) \di r\) is an upper bound to how many trees are truly in the forest.  
+        Thus, we get 
+        \[
+        \ba 
+        2 \pi \lim_{K \to \infty} \int_0^K \frac{290}{r^2 + 8r + 16} \di r 
+        &= 580 \pi \lim_{K \to \infty} \int_0^K \frac{1}{(r + 4)^2} \di r \nl 
+        &= 580 \pi \lim_{K \to \infty} \frac{-1}{r + 4} \Big|_0^k \nl 
+        &= 580 \pi \lim_{K \to \infty} \frac{-1}{K + 4} - \frac{580 \pi}{4} \nl 
+        &= 145 \pi \lt 700 \pd 
+        \ea 
+        \]
+        Thus, the maximum number of trees in the forest is \(145 \pi,\)
+        which is less than \(700.\)
+    </span>
+</section>

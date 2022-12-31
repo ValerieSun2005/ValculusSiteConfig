@@ -1,0 +1,193 @@
+<!--[[[crefId.Implicit-Differentiation]]]--> 
+<p>
+    We have differentiated functions in the form \(y = f(x)\).
+    In this section, however, we discuss how to differentiate <i>implicit</i> equations. 
+</p>
+<p>
+    An equation of the form \(y = f(x)\) is said to be 
+    <span class="emph">explicit</span>; examples of <i>explicit</i> equations are
+    \[y = x - 4 \and y = x^2 - 4x \period\]
+    Conversely, an <span class="emph">implicit equation</span>
+    relates \(x\) and \(y\) through an equation in which \(y\) does not stand alone.
+    For example, 
+    \[x^2 + xy = 6 \and 9x - 4y = 0\]
+    are examples of <i>implicit</i> equations.
+</p>
+<p>
+    Many curves are best expressed as explicit equations.
+    For example, consider
+    \begin{equation} 
+    x^2 + y^2 = 1 \comma \label{eq:unit-circle}
+    \end{equation}
+    the equation of a circle of radius \(1\) (the <i>unit</i> circle).
+    Suppose we wish to determine the slope of this circle at any point \((x, y).\)
+    In other words, we want to find \(\textDeriv{y}{x}.\)
+    We apply <span class="emph">implicit differentiation</span>:
+    We treat \(y\) as \(y(x),\) a function of \(x,\)
+    so \(\eqRefer{eq:unit-circle}\) should be thought of as   
+    \[x^2 + [y(x)]^2 = 1 \period\]
+    Now we differentiate both sides with respect to \(x.\)
+    Applying the chain rule to differentiate \(y(x),\) we get 
+    \[2x + 2y \, \deriv{y}{x} = 0 \period\]
+    Now we solve for \(\textDeriv{y}{x} \col\)
+    \[\deriv{y}{x} = -\frac{x}{y} \period\] 
+    <figure class="fig-1">
+        <img src="../images/sectionImages/implicit-diff-circle.jpg" alt="Fig.1">
+    </figure>
+    <style>
+        .fig-1::before{
+            content:'FIGURE 1';
+        }
+    </style>
+</p>
+<p>
+    Figure 1 shows a diagram of a unit circle with a tangent line.
+    At \((0, -1)\) and \((0, 1),\) the tangent lines to the circle have slope \(0.\)
+    And at \((-1, 0)\) and \((1, 0),\) the tangent lines are vertical and therefore have infinite slope.
+    Hence, \(\textDeriv{y}{x} = -x/y\) is mathematically intuitive. 
+    Alternatively, we can solve for \(y\) in \(\eqRefer{eq:unit-circle},\)
+    although solving explicitly isn't always possible.
+    We obtain two functions: 
+    \[
+    \baat{2}
+    y &= f(x) &&= \sqrt{1 - x^2} \nl 
+    y &= g(x) &&= - \sqrt{1 - x^2} \period 
+    \eaat
+    \]
+    The graph of \(y = f(x)\) is the top half of the unit circle, while the graph of \(y = g(x)\) represents the bottom.
+    You may check that 
+    \[
+    \baat{2}
+    f'(x) &= \frac{-x}{\sqrt{1 - x^2}} \lspace g'(x) &&= \frac{x}{\sqrt{1 - x^2}} \nl 
+    &= \frac{-x}{y} &&= \frac{x}{y} \period
+    \eaat 
+    \] 
+<p>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        Consider the implicit equation \(x^2 + xy - x = 2.\) 
+        Find \(\textDeriv{y}{x}.\)
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"></button>
+<div id="solution1" class="solution">
+    We treat \(y\) as \(y(x),\) a function of \(x.\)
+    You may substitute in this expression for clarity if you desire. 
+    We differentiate with respect to \(x\) both sides of the equation using the chain rule.
+    This gives 
+    \[
+    \ba 
+    \deriv{}{x}(x^2 + xy - x) &= \deriv{}{x}(2) \nl 
+    2x + \par{x \deriv{y}{x} + y} - 1 &= 0 \nl 
+    \deriv{y}{x} &= \boxed{\frac{1 - 2x - y}{x}} 
+    \ea 
+    \]
+</div>
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        Consider the implicit equation \(2x^3y -xy^2 = 16.\) 
+        Find \(\textDeriv{y}{x}.\)
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    We differentiate both sides with respect to \(x\) to get  
+    \[
+    \ba 
+    \deriv{}{x} (2x^3y - xy^2) &= \deriv{}{x}(16) \nl
+    2 \left(3x^2 y + x^3 \deriv{y}{x} \right) - \left(y^2 + 2xy \deriv{y}{x} \right)&= 0 \nl
+    \deriv{y}{x} \left(2x^3 - 2xy\right) &= y^2 - 6x^2y \nl
+    \deriv{y}{x} &= \boxed{\frac{y^2 - 6x^2 y}{2x^3 - 2xy}} 
+    \ea 
+    \]
+</div>
+
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">  
+        Find all the horizontal tangents to the curve \(x^3 - x^2y = 2\).
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button"></button>
+<div id="solution3" class="solution">
+    <p>
+        We first find \(\textDeriv{y}{x} \col\)
+        \[
+        \ba 
+        \deriv{}{x} \left(x^3 - x^2y \right) &= \deriv{}{x} (2) \nl 
+        3x^2 - \left(2xy + x^2 \deriv{y}{x} \right) &= 0 \nl 
+        -x^2 \deriv{y}{x}  &= 2xy - 3x^2 \nl 
+        \deriv{y}{x}  &= \frac{3x - 2y}{x} \period 
+        \ea 
+        \]
+    </p>
+    <p>
+        A horizontal tangent occurs when the slope of the tangent line is \(0.\)
+        Thus, we let \(\textDeriv{y}{x} = 0 \col\)
+        \[\frac{3x - 2y}{x} = 0 \implies 3x - 2y = 0\] 
+        We now have the following system of equations:
+        \[
+        \ba 
+        3x - 2y &= 0 \nl
+        x^3 - x^2 y &= 2 \period 
+        \ea 
+        \]
+        The first equation shows that \(y = 3x/2.\)
+        Then 
+        \[
+        \ba 
+        x^3 - x^2 \left(\frac{3x}{2}\right) = 2 \implies x &= \sqrt[3]{-4} \nl 
+        y &= \frac{3\sqrt[3]{-4}}{2} \period 
+        \ea 
+        \] 
+        Thus, the curve has a horizontal tangent at
+        \[\boxed{\left(\sqrt[3]{-4}, \frac{3\sqrt[3]{-4}}{2} \right)}\]
+    </p>
+</div>
+
+<div class="example-title"> EXAMPLE 4 </div>
+<div class="example">
+    <div class="example-problem">  
+        Find all the vertical tangents to the curve \(xy - y^2 = 4.\)
+    </div>
+</div>
+<button onclick="toggle4()" class="solution-button"></button>
+<div id="solution4" class="solution">
+    <p> 
+        We differentiate both sides of the equation with respect to \(x\) to solve for \(\textDeriv{y}{x}.\)
+        \[
+        \ba 
+        \deriv{}{x} \left(xy - y^2 \right) &= \deriv{}{x}(4) \nl
+        \left(y + x \deriv{y}{x} \right) - 2y \deriv{y}{x} &= 0 \nl
+        \deriv{y}{x} \left(x - 2y\right) &= -y \nl
+        \deriv{y}{x} &= \frac{y}{2y - x} \period 
+        \ea
+        \]
+        To find the vertical tangents to the curve, 
+        we set the denominator of \(\textDeriv{y}{x}\) 
+        equal to \(0.\) We get the equation
+        \[2y - x = 0 \period\]
+        We now have a system of equations in which we solve for \(x\) and \(y \col\)
+        \begin{align}
+        2y - x &= 0 \label{eq:ex-vert-1} \nl 
+        xy - y^2 &= 4 \label{eq:ex-vert-2} \period 
+        \end{align}
+        From \(\eqRefer{eq:ex-vert-1},\) we find \(x = 2y.\)
+        Then we substitute this expression into \(\eqRefer{eq:ex-vert-2}\) to find
+        \[2y^2 - y^2 = 4 \implies y = \pm 2 \period \]
+    </p>
+    <p>
+        Now we find the \(x\)-values that correspond to \(y = \pm 2.\)
+        From \(\eqRefer{eq:ex-vert-1},\) letting \(y = -2\) gives
+        \[2(-2) - x = 0 \implies x = -4 \period \] 
+        Likewise, substituting \(y = 2\) gives
+        \[2(2) - x = 0 \implies x = 4 \period \] 
+        Therefore, the points
+        \[\boxed{(-4, -2) \and (4, 2)}\]
+        are the points at which the curve has vertical tangents.
+    </p>
+</div>

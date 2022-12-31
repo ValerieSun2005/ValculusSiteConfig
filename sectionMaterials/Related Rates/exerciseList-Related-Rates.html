@@ -1,0 +1,1181 @@
+<section>
+<div>
+    A right triangle has legs of lengths \(x\) and \(y.\)
+    Length \(x\) is increasing at a rate of \(3\) inches per minute, 
+    while length \(y\) remains constant.
+    At a certain moment, \(y = 4 \un{in}.\)
+    Find the rate at which the triangle's area is changing at this time.
+</div>
+<span>
+    The area of the triangle is 
+    \begin{equation} 
+    A = \tfrac{1}{2} xy \pd \label{eq:triangle-area}
+    \end{equation}
+    Quantity \(x\) varies with time, so we treat it as a function of time.
+    And \(y\) is constant, so we don't perceive it as depending on time.
+    We want to find the rate at which the triangle's area is changing—this represents \(\textDeriv{A}{t}.\)
+    And so we differentiate both sides of \(\eqRefer{eq:triangle-area}\) with respect to time, 
+    using the Chain Rule:
+    \begin{equation} 
+    \deriv{A}{t} = \tfrac{1}{2} \deriv{x}{t} y \pd \label{eq:triangle-dA/dt}
+    \end{equation}
+    Since \(x\) is increasing at \(3 \undiv{in}{min},\) 
+    \(\textDeriv{x}{t} = 3 \undiv{in}{min};\) 
+    and we are interested in the <i>moment</i> at which \(y = 4.\) 
+    Plugging these values into \(\eqRefer{eq:triangle-dA/dt}\) gives 
+    \[\deriv{A}{t} = \tfrac{1}{2}(3)(4) = 6 \pd\]
+    Thus, the triangle's area is increasing at a rate of \(6\) square inches per minute.
+    In \(\eqRefer{eq:triangle-area}\) it is important <i>not</i> to plug in \(y = 4\) 
+    immediately; we substitute this value <i>after</i> differentiating, as in \(\eqRefer{eq:triangle-dA/dt}.\)
+</span>
+
+<div>
+    A square's sides all are shrinking at a rate of \(2\) inches per minute.
+    When each side is \(6\) inches long, how quickly is the square's area decreasing?
+</div>
+<span>
+    Let \(x\) be one of the square's sides.
+    Since each side is <i>decreasing</i> at a rate of \(2 \undiv{in}{min},\) 
+    we have \(\textDeriv{x}{t} = -2 \undiv{in}{min}.\)
+    Let's call \(A\) the square's area; we want to find \(\textDeriv{A}{t},\)
+    the rate at which the area changes. 
+    We expect this rate to be negative.
+    To relate \(x\) and \(A,\) we know 
+    \begin{equation} 
+    A = x^2 \pd \label{eq:square-A}
+    \end{equation}
+    Both \(x\) and \(A\) vary with time, so we treat them as functions of time.
+    And so we differentiate both sides of \(\eqRefer{eq:square-A}\)
+    with respect to time (by the Chain Rule), obtaining 
+    \begin{equation} 
+    \deriv{A}{t} = 2x \deriv{x}{t} \pd \label{eq:square-dA/dt}
+    \end{equation}
+    We are interested in the <i>instant</i> at which \(x = 6,\)
+    and we are given that \(\textDeriv{x}{t} = -2.\) 
+    Thus, we substitute these values in \(\eqRefer{eq:square-dA/dt}\) to get 
+    \[\deriv{A}{t} \Big|_{x = 6} = 2(6)(-2) = -24 \pd\]
+    We conclude that the square's area is <i>decreasing</i> at a rate of \(24 \un{in}^2/\un{min}.\)
+</span>
+
+<div>
+    A rectangle's width is increasing at a rate of \(2\) centimeters per second, 
+    and its height is increasing at a rate of \(0.5\) centimeter per second. 
+    At what rate is the rectangle's area changing when its width is \(4\) centimeters 
+    and its height is \(5\) centimeters?
+</div>
+<span>
+    Let's call \(w\) the rectangle's width and \(h\) its height.
+    These suggestive variables decrease the risk of confusion.
+    We're given that the width increases at a rate of \(2 \undiv{cm}{sec}\)
+    and that the height increases at a rate of \(0.5 \undiv{cm}{sec}.\)
+    Thus, \(\textDeriv{w}{t} = 2 \undiv{cm}{sec}\) and \(\textDeriv{h}{t} = 0.5 \undiv{cm}{sec}.\)
+    Let \(A\) be the rectangle's area. 
+    We want to find \(\textDeriv{A}{t}\) when \(w = 4\) and \(h = 5.\)
+    We establish a relationship between these quantities by writing
+    \begin{equation} 
+    A = wh \pd \label{eq:rectangle-wh}
+    \end{equation}
+    All three quantities vary with time, so when we differentiate \(\eqRefer{eq:rectangle-wh}\)
+    we need the Chain Rule:
+    \begin{equation} 
+    \deriv{A}{t} = \deriv{w}{t} \, h + w \deriv{h}{t} \pd \label{eq:rectangle-wh-dA/dt}
+    \end{equation}
+    We can now substitute the given quantities—namely, \(\textDeriv{w}{t} = 2\) and 
+    \(\textDeriv{h}{t} = 0.5.\) 
+    We also plug in \(w = 4\) and \(h = 5,\) which correspond to the moment we want. 
+    \(\eqRefer{eq:rectangle-wh-dA/dt}\) then becomes 
+    \[\deriv{A}{t} = 2(5) + 4(0.5) = 12 \pd\]
+    Thus, the rectangle's area is increasing at a rate of \(12 \un{cm}^2/\un{sec}.\)
+</span>
+
+<div>
+    If \(y = 2x^2 + 3x\) and \(\textDeriv{x}{t} = -2,\) then find \(\textDeriv{y}{t}\) when \(x = 2.\)
+</div>
+<span>
+    The givens establish that \(x\) is a function of \(t.\)
+    The Chain Rule states that 
+    \begin{equation} 
+    \deriv{y}{t} = \deriv{y}{x} \deriv{x}{t} \pd \label{eq:chain-rule-dy/dt}
+    \end{equation}
+    We find \(\textDeriv{y}{x} = 4x + 3,\) and we're given \(\textDeriv{x}{t} = -2.\)
+    Plugging these expressions into \(\eqRefer{eq:chain-rule-dy/dt}\) yields 
+    \[\deriv{y}{t} = (4x + 3)(-2) = -8x - 6 \pd\]
+    When \(x = 2\) we have 
+    \[\deriv{y}{t} \Big|_{x = 2} = -8(2) - 6 = \boxed{-22}\] 
+</span>
+
+<div>
+    If \(y = \sqrt{x + 4}\) and \(\textDeriv{x}{t} = 4,\) then find \(\textDeriv{y}{t}\) when \(x = 12.\)
+</div>
+<span>
+    The problem implies that \(x\) is a function of \(t.\)
+    By the Chain Rule 
+    \begin{equation} 
+    \deriv{y}{t} = \deriv{y}{x} \deriv{x}{t} \pd \label{eq:chain-rule-dy/dt-2}
+    \end{equation}
+    We find 
+    \[\deriv{y}{x} = \frac{1}{2 \sqrt{x + 4}} \cma\]
+    and we are given \(\textDeriv{x}{t} = 4.\)
+    Substituting these expressions in \(\eqRefer{eq:chain-rule-dy/dt-2}\) then gives 
+    \[\deriv{y}{t} = \frac{1}{2 \sqrt{x + 4}} \cdot 4 \pd\]
+    When \(x = 12\) 
+    \[\deriv{y}{t} \Big|_{x = 12} = \frac{1}{2 \sqrt{12 + 4}} \cdot 4 = \boxed{\frac{1}{2}}\]
+</span>
+
+<div>
+    A \(6\)-meter string swings to form an angle \(\theta\) with the vertical, and \(\theta\) extends outward at a rate of \(2\) 
+    radians per second. What is the rate of change of the area of the circular sector intercepted by \(\theta \; ?\)
+</div>
+<span>
+    The area of the circular sector that \(\theta\) intercepts is 
+    \begin{equation} 
+    A = \tfrac{1}{2}(6)^2 \theta \pd \label{eq:sector}
+    \end{equation}
+    We are given that \(\theta\) increases at a rate of \(2 \undiv{rad}{sec},\)
+    so this value is \(\textDeriv{\theta}{t}.\)
+    We want to find \(\textDeriv{A}{t}.\)
+    Quantities \(\theta\) and \(A\) vary with time, so we treat them each as a function of time.
+    We differentiate both sides of \(\eqRefer{eq:sector}\) with respect to time, obtaining 
+    \[
+    \deriv{A}{t} = \tfrac{1}{2} (6)^2 \deriv{\theta}{t} = \tfrac{1}{2} (6)^2 \, (2) = 36 \pd
+    \] 
+    Thus, the area of the sector is increasing at a rate of \(36 \un{m}^2/\text{sec}.\)
+</span>
+
+<div>
+    Water is pumped, at a rate of \(15\) cubic inches per minute, into a cylindrical tank of radius \(5\) inches.
+    How fast is the tank's water level rising? 
+</div>
+<span>
+    Let \(r\) be the tank's radius and \(h\) be the water level.
+    We relate the volume of the water to \(r\) and \(h\) by 
+    \[V = \pi r^2 h \pd\]
+    (These quantities represent the <i>water</i>, not the entire tank.)
+    We are given \(r = 5 \un{in},\) so we have 
+    \begin{equation} 
+    V = 25 \pi h \pd \label{eq:water-tank-cylinder}
+    \end{equation}
+    Since water is pumped in at a rate of \(15 \un{in}^3/\un{min},\)
+    this value is \(\textDeriv{V}{t}.\)
+    We want to find \(\textDeriv{h}{t}.\)
+    We therefore differentiate \(\eqRefer{eq:water-tank-cylinder}\) with respect to time to get 
+    \begin{equation} 
+    \deriv{V}{t} = 25 \pi \deriv{h}{t} \pd \label{eq:water-tank-cylinder-dV/dt}
+    \end{equation}
+    Substituting \(\textDeriv{V}{t} = 15\) in \(\eqRefer{eq:water-tank-cylinder-dV/dt}\) gives 
+    \[15 = 25 \pi \deriv{h}{t} \implies \deriv{h}{t} = \frac{3}{5 \pi} \pd\]
+    Thus, the tank's water level is rising at a rate of \(3/(5 \pi)\) \(\approx 0.191 \undiv{in}{min}.\)  
+    Note that \(\textDeriv{h}{t}\) is constant; it does <i>not</i> change when \(h\) is changed. 
+</span>
+
+<div>
+    A uniform trough has a cross-sectional area of \(64\) square inches.
+    If water is pumped into the trough at a rate of \(7\) cubic inches per second, then
+    how quickly is the water level rising?
+</div>
+<span>
+    Let \(V\) be the water's volume and \(h\) be its water level.
+    Note that \(\text{volume}\) \(= \text{area}\) \(\times \, \text{height}.\)
+    The trough's cross-sectional area is \(64 \un{in}^2,\) so 
+    \begin{equation} 
+    V = 64 h \pd \label{eq:V-trough}
+    \end{equation}
+    We are given that water enters the trough at a rate of \(7\) cubic inches per second,
+    so this value is \(\textDeriv{V}{t}.\)
+    We differentiate both sides of \(\eqRefer{eq:V-trough}\) with respect to time, obtaining 
+    \[
+    \ba 
+    \deriv{V}{t} &= 64 \deriv{h}{t} \nl 
+    7 &= 64 \deriv{h}{t} \nl 
+    \deriv{h}{t} &= \frac{7}{64} \pd
+    \ea 
+    \]
+    Thus, the trough's water level is increasing at a rate of \(7/64\) \(\approx 0.109 \undiv{in}{sec}.\)
+</span>
+
+<div>
+    <i>Boyle's Law</i> states that a sample of gas of volume \(V\) exposed to pressure \(P\) 
+    obeys the relationship \(PV = C,\) where \(C\) is a constant.
+    Many gases obey this law if \(P\) is not too high and the gas's temperature is constant.
+    Suppose that a gas has a volume of \(60\) cubic inches
+    and is exposed to \(200\) kilopascals of pressure.
+    If the pressure is increased at a rate of \(30\) kilopascals per second,
+    then find the rate at which the gas's volume decreases.
+</div>
+<span>
+    We are given that \(\textDeriv{P}{t} = 30 \undiv{kPa}{sec}.\)
+    We want to find \(\textDeriv{V}{t}\) for this gas when \(V = 60 \un{in}^3\) and \(P = 200 \un{kPa}.\)
+    We differentiate both sides of \(PV = C\) with respect to time,
+    noting that \(C\) is a constant:
+    \begin{align} 
+    \deriv{P}{t} \, V + P \deriv{V}{t} &= 0 \nonumber \nl 
+    \deriv{V}{t} &= -\frac{V}{P} \deriv{P}{t} \pd \label{eq:gas-diff}
+    \end{align}
+    We substitute \(V = 60,\) \(P = 200,\) and \(\textDeriv{P}{t} = 30\) in \(\eqRefer{eq:gas-diff}\) 
+    to obtain 
+    \[\deriv{V}{t} = -\frac{60}{200} \cdot 30 = -9 \pd\]
+    Therefore, the gas's volume is <i>decreasing</i> at a rate of \(9 \un{in}^3/\text{sec}.\)
+</span>
+
+<div>
+    <figure class="related-rates-charges" id="related-rates-charges">
+        <img src="../images/sectionImages/related-rates-charges.jpg" alt="related-rates-charges.jpg">
+    </figure>
+    <style>
+        .related-rates-charges::before{
+            content:'FIGURE 1';
+        }
+    </style>
+    Two positive charges are located \(r\) meters apart.
+    Both charges repel each other by exerting the same force \(F\) on the other
+    (<a href="#related-rates-charges">Figure 1</a>), 
+    and \(F = 0.4/r^2.\) 
+    The force decreases at a rate of \(0.4\) newton per second.
+    Find the rate at which \(r\) changes when the charges are \(2\) meters apart.
+</div>
+<span>
+    This problem asserts that \(r\) and \(F\) vary with time.
+    Therefore, we treat these quantities as functions of time.
+    The force decreases at \(0.4 \undiv{N}{sec},\) 
+    so \(\textDeriv{F}{t} = -0.4.\)
+    We want \(\textDeriv{r}{t}\) when \(r = 2.\)
+    We differentiate the given relationship using the Chain Rule, and we plug in the given \(\textDeriv{F}{t} = -0.4.\)
+    Doing so yields 
+    \begin{align}
+    \deriv{F}{t} &= \deriv{F}{r} \deriv{r}{t} \nonumber \nl 
+    -0.4 &= -\frac{0.8}{r^3} \deriv{r}{t} \pd \label{eq:force-diff}
+    \end{align}
+    In \(\eqRefer{eq:force-diff}\) we plug in the moment of interest—when \(r = 2\)—to get  
+    \[-0.4 = -\frac{0.8}{8} \deriv{r}{t} \implies \deriv{r}{t} = 4 \pd\]
+    Thus, the distance between the two charges is increasing at a rate of \(4\) meters per second.
+</span>
+
+<div>
+    A square-shaped sheet of dough is stretched horizontally at a rate of \(3\) inches per second.
+    The vertical length of the sheet then decreases such that the sheet retains an area of \(70\) square inches.
+    When the dough's horizontal length is \(14\) inches, how fast is its vertical length decreasing?
+</div>
+<span>
+    Let \(x\) be the dough's horizontal length and \(y\) be its vertical length.
+    We are given that the horizontal length is stretched at a rate of \(3 \undiv{in}{sec},\)
+    so this value is \(\textDeriv{x}{t}.\)
+    We want to find \(\textDeriv{y}{t}\) when \(x = 14.\)
+    The relationship between \(x\) and \(y\) is represented by the sheet's area:
+    \begin{equation} 
+    70 = xy \pd \label{eq:sheet-area}
+    \end{equation}
+    Differentiating both sides of \(\eqRefer{eq:sheet-area}\) 
+    with respect to time and solving for \(\textDeriv{y}{t},\) we get 
+    \begin{align} 
+    0 &= x \deriv{y}{t} + \deriv{x}{t} \, y \nonumber \nl 
+    \deriv{y}{t} &= -\frac{y}{x} \deriv{x}{t} \pd \label{eq:sheet-dy/dt} 
+    \end{align}
+    When \(x = 14,\) \(\eqRefer{eq:sheet-area}\) gives \(y = 70/14 = 5.\)
+    We therefore substitute these quantities and the given \(\textDeriv{x}{t} = 3\)  
+    in \(\eqRefer{eq:sheet-dy/dt}\) to get 
+    \[\deriv{y}{t} = -\frac{5}{14} \cdot 3 = -\frac{15}{14} \pd\]
+    Thus, the sheet's vertical length is <i>decreasing</i> at a rate of \(15/14\) \(\approx 1.071 \undiv{in}{sec}.\)
+</span>
+
+<div>
+    The radius of a circular cone is decreasing at a rate of \(7\) inches per hour, 
+    and its height is increasing at a rate of \(8\) inches per hour.
+    At what rate is the cone's volume changing when its radius is \(4\) inches and its height is \(3\) inches? 
+</div>
+<span>
+    Let \(r\) be the cone's radius and \(h\) be its height.
+    The volume of the cone is then 
+    \begin{equation} 
+    V = \tfrac{1}{3} \pi r^2 h \pd \label{eq:cone-V}
+    \end{equation}
+    We treat \(r\) and \(h\) as functions of time.
+    We want to find \(\textDeriv{V}{t},\) the rate at which the cone's volume is changing.
+    Differentiating \(\eqRefer{eq:cone-V}\) with respect to time gives 
+    \begin{equation} 
+    \deriv{V}{t} = \tfrac{1}{3} \pi \left(2r \deriv{r}{t} h + r^2 \deriv{h}{t}\right) \pd \label{eq:cone-dV/dt}
+    \end{equation}
+    We are given that \(\textDeriv{r}{t} = -7\) and \(\textDeriv{h}{t} = 8.\)
+    When \(r = 4\) and \(h = 3,\) \(\eqRefer{eq:cone-dV/dt}\) becomes 
+    \[\deriv{V}{t} = \tfrac{1}{3} \pi \left[2(4)(-7)(3) + (4)^2 (8) \right] = -40 \pi \pd\]
+    Thus, the cone's volume is <i>decreasing</i> at a rate of \(40 \pi\) \(\approx 125.664 \un{in}^3/\un{hr}.\)
+</span>
+
+<div>
+    A <i>meteor</i> is a piece of matter that enters Earth's atmosphere at a very high speed.
+    Most meteors are small and quickly burn up, completely disintegrating before they strike the ground. 
+    Suppose that a meteor of mass \(10\) grams enters Earth's atmosphere with a velocity of 
+    \(40\) kilometers per second.
+    This meteor loses mass at a rate of \(0.5\) gram per second 
+    and decelerates at a rate of \(4\) kilometers per second per second.
+    <i>Momentum</i> is the product of mass and velocity.
+    (The units of momentum in this context are gram–kilometers per second.)
+    Immediately after the meteor enters Earth's atmosphere, 
+    what is the rate of change of its momentum? 
+</div>
+<span>
+    Let \(p\) be the meteor's momentum. 
+    Also let \(m\) and \(v\) be its mass and velocity, respectively.
+    Then 
+    \begin{equation} 
+    p = mv \pd \label{eq:meteor-p}
+    \end{equation}
+    We are given that \(\textDeriv{m}{t} = -0.5 \undiv{g}{sec}.\) 
+    Acceleration is the rate at which velocity changes, so \(\textDeriv{v}{t} = -4 \undiv{km}{sec}^2.\)
+    We want to find \(\textDeriv{p}{t}\) immediately after the meteor enters Earth's atmosphere—that is,
+    when \(m = 10 \un{g}\) and \(v = 40 \undiv{km}{sec}.\)
+    To relate these rates, we differentiate both sides of \(\eqRefer{eq:meteor-p}\)
+    with respect to time.
+    Quantities \(p,\) \(m,\) and \(v\) all vary with time, so we use the Chain Rule to differentiate:
+    \begin{align} 
+    \deriv{p}{t} &= \deriv{m}{t} \, v + m \deriv{v}{t} \nonumber \nl 
+    &= -0.5v -4m \pd \label{eq:meteor-dp/dt}
+    \end{align}
+    When \(m = 10 \un{g}\) and \(v = 40 \undiv{km}{sec},\) \(\eqRefer{eq:meteor-dp/dt}\) becomes 
+    \[\deriv{p}{t} = -0.5(40) - 4(10) = -60 \pd\]
+    Thus, immediately when the meteor enters Earth's atmosphere, 
+    its momentum is <i>decreasing</i> at a rate of \(60 \undiv{g km}{sec}^2.\)
+</span>
+
+<div>
+    A balloon is inflated such that it maintains its spherical shape. 
+    Air enters the balloon at a rate of \(50\) milliliters per minute.
+    When the ballon's volume is \(4000 \pi/3\) milliliters, 
+    find the rate at which the ballon's radius is increasing.
+    (Note: \(1 \un{mL} = 1 \un{cm}^3.\))
+</div>
+<span>
+    Let's call the balloon's radius \(r\) and its volume \(V.\)
+    The problem states that the balloon's volume increases at a rate of \(50 \undiv{mL}{min},\)
+    so this value is \(\textDeriv{V}{t}.\)
+    We want to find \(\textDeriv{r}{t}\) when \(V = 4000 \pi/3.\)
+    The relationship between \(r\) and \(V\) is 
+    \begin{equation} 
+    V = \tfrac{4}{3} \pi r^3 \pd \label{eq:sphere-V}
+    \end{equation}
+    Since \(r\) and \(V\) vary with time, we treat them as functions of time.
+    Thus, we use the Chain Rule to differentiate \(\eqRefer{eq:sphere-V}\) with respect to time, \(t \col\)
+    \begin{align} 
+    \deriv{V}{t} &= 4 \pi r^2 \deriv{r}{t} \pd \label{eq:sphere-dV/dt}
+    \end{align}
+    We now need to find \(\textDeriv{V}{t}\) when \(V = 4000 \pi/3.\)
+    At this instant, we find the sphere's radius using \(\eqRefer{eq:sphere-V} \col\) 
+    \[\frac{4000 \pi}{3} = \frac{4}{3} \pi r^3 \implies r = 10 \pd\]
+    Thus, we substitute \(r = 10\) in \(\eqRefer{eq:sphere-dV/dt};\) also recall that \(\textDeriv{V}{t} = 50.\)
+    These values give 
+    \[50 = 4 \pi (10)^2 \deriv{r}{t} \implies \deriv{r}{t} = \frac{1}{8 \pi} \pd\]
+    We therefore conclude that, when its volume is \(4000 \pi/3 \un{mL},\) the ballon's radius is increasing at a rate 
+    of \(1/(8 \pi)\) \(\approx 0.040 \undiv{cm}{min}.\)
+</span>
+
+<div>
+    Two cars are approaching an intersection. Car A is driving due east at \(30\) miles per hour, 
+    and car B is driving due north at \(25\) miles per hour. 
+    Each car maintains its speed and direction.
+    When car A is \(3\) miles west of the intersection and car B is \(4\) miles south of the intersection, 
+    at what rate is the distance between the cars changing?
+</div>
+<span>
+    <figure class="related-rates-intersection" id="related-rates-intersection">
+        <img src="../images/sectionImages/related-rates-intersection.jpg" alt="related-rates-intersection.jpg">
+    </figure>
+    Let \(x\) be the distance between car A and the intersection, 
+    and let \(y\) be the distance between car B and the intersection.
+    Also let \(z\) be the distance between the two cars.
+    We are given that car A drives \(30\) mph due east. 
+    Velocity is the rate of change of position, 
+    and \(x\) is decreasing as car A approaches the intersection. 
+    Thus, \(\textDeriv{x}{t} = -30 \undiv{mi}{hr}.\)
+    Likewise, the problem states that car B drives \(25\) mph due north, 
+    so \(\textDeriv{y}{t} = -25 \undiv{mi}{hr}\) by similar logic.
+    We want to find \(\textDeriv{z}{t}\) when \(x = 3 \un{mi}\) and \(y = 4 \un{mi}.\)
+    To relate \(x,\) \(y,\) and \(z\) we use the Pythagorean Theorem to obtain 
+    \begin{equation} 
+    z^2 = x^2 + y^2 \pd \label{eq:intersection-pythag}
+    \end{equation}
+    We also could write \(z = \sqrt{x^2 + y^2},\) but this form is harder to differentiate. 
+    We treat all three quantities as functions of time, 
+    so we use the Chain Rule to differentiate both sides of \(\eqRefer{eq:intersection-pythag} \col\)
+    \begin{equation} 
+    2z \deriv{z}{t} = 2x \deriv{x}{t} + 2y \deriv{y}{t} \pd \label{eq:intersection-pythag-diff}
+    \end{equation}
+    We now consider the moment we need—when \(x = 3\) and \(y = 4.\)
+    We also need \(z\) at this instant; we find \(z\) from \(\eqRefer{eq:intersection-pythag}\)
+    to be \(\sqrt{3^2 + 4^2} = 5.\)
+    Substituting these quantities in \(\eqRefer{eq:intersection-pythag-diff}\) gives 
+    \[2(5) \deriv{z}{t} = 2(3)(-30) + 2(4)(-25) \implies \deriv{z}{t} = -38 \pd\]
+    Thus, the distance between cars A and B is <i>decreasing</i>
+    at a rate of \(38 \undiv{mi}{hr}.\)
+</span>
+
+
+<div>
+    The straight edge of a \(5\)-inch candy cane leans against a wall of a gingerbread house.
+    The candy cane slides down the wall at a rate of \(0.1\) inch per second.
+    When the foot of the cane is \(3\) inches from the wall, find the rate at which the cane slides away from the house.
+</div>
+<span>
+    <figure class="related-rates-candy-cane" id="related-rates-candy-cane">
+        <img src="../images/sectionImages/related-rates-candy-cane.jpg" alt="related-rates-candy-cane.jpg">
+    </figure>
+    We call \(x\) the distance between the wall of the gingerbread house and the foot of the candy cane.
+    Also let \(y\) be the height of the candy cane against the wall.
+    The problem states that the candy cane slides <i>down</i> the house at \(0.1 \undiv{in}{sec},\)
+    so \(\textDeriv{y}{t} = -0.1 \undiv{in}{sec}.\)
+    We want to find \(\textDeriv{x}{t}\) when \(x = 3.\)
+    Since the cane is sliding <i>away</i> from the house, we expect \(\textDeriv{x}{t}\) to be positive.
+    To relate \(x\) and \(y,\) we use the Pythagorean Theorem:
+    \begin{equation} 
+    x^2 + y^2 = 5^2 \pd \label{eq:candy-cane}
+    \end{equation}
+    Both \(x\) and \(y\) are functions of time; 
+    thus, we use the Chain Rule to differentiate \(\eqRefer{eq:candy-cane}.\)
+    Doing so gives 
+    \begin{align} 
+    2x \deriv{x}{t} + 2y \deriv{y}{t} &= 0 \nonumber \nl 
+    \deriv{x}{t} &= -\frac{y}{x} \deriv{y}{t} \pd \label{eq:candy-cane-diff}
+    \end{align}
+    We now plug in values:
+    We're given \(\textDeriv{y}{t} = -0.1.\) 
+    And when \(x = 3,\) \(y = \sqrt{5^2 - 3^2} = 4\) from \(\eqRefer{eq:candy-cane}.\)
+    Putting these values in \(\eqRefer{eq:candy-cane-diff}\) gives
+    \[\deriv{x}{t} = -\frac{4}{3}(-0.1) = \frac{2}{15} \pd\]
+    Thus, the candy cane slides <i>away</i> from the house at a rate of \(2/15\) \(\approx 0.133 \undiv{in}{sec}.\)
+</span>
+
+<div>
+    A \(15\)-foot ladder leans against a wall. 
+    The ladder slides away from the wall at a rate of \(3\) feet per second. 
+    When the top of the ladder is \(8\) feet above the ground, 
+    determine the rate of change of the area of the triangle formed under the ladder.
+</div>
+<span>
+    <figure class="related-rates-ladder-triangle" id="related-rates-ladder-triangle">
+        <img src="../images/sectionImages/related-rates-ladder-triangle.jpg" alt="related-rates-ladder-triangle.jpg">
+    </figure>
+    Let's call \(x\) the ground distance between the wall and the ladder.
+    Also let \(y\) be the height of the ladder on the wall.
+    The triangle formed under the ladder then has area
+    \begin{equation} 
+    A = \tfrac{1}{2} xy \label{eq:ladder-A}
+    \end{equation}
+    (see the figure). 
+    The ladder slides away from the wall at a rate of \(3 \undiv{ft}{sec},\)
+    so \(\textDeriv{x}{t} = 3 \undiv{ft}{sec}.\)
+    We want to find \(\textDeriv{A}{t}\) when \(y = 8.\)
+    Differentiating \(\eqRefer{eq:ladder-A}\) with respect to time—noting 
+    that \(x\) and \(y\) are functions of time—gives
+    \begin{equation} 
+    \deriv{A}{t} = \tfrac{1}{2} \left(\deriv{x}{t} y + x \deriv{y}{t} \right) \pd \label{eq:ladder-dA/dt}
+    \end{equation}
+    In \(\eqRefer{eq:ladder-dA/dt}\) we need the value of \(\textDeriv{y}{t}.\)
+    This value isn't given, so we obtain it by forming another relationship between \(x\) 
+    and \(y,\) using the Pythagorean Theorem:
+    \begin{equation} 
+    x^2 + y^2 = 15^2 \pd \label{eq:ladder-area-pythag}
+    \end{equation}
+    Differentiating \(\eqRefer{eq:ladder-area-pythag}\) gives 
+    \begin{align} 
+    2x \deriv{x}{t} + 2y \deriv{y}{t} &= 0 \nonumber \nl 
+    \deriv{y}{t} &= -\frac{x}{y} \deriv{x}{t} \pd \label{eq:ladder-area-dy/dt}
+    \end{align}
+    In \(\eqRefer{eq:ladder-area-dy/dt}\) we plug in values:
+    We have the given \(\textDeriv{x}{t} = 3;\) and when \(y = 8,\)
+    \(x = \sqrt{15^2 - 8^2}\) \(= \sqrt{161}\) [\(\eqRefer{eq:ladder-area-pythag}\)].
+    We then get 
+    \begin{equation} 
+    \deriv{y}{t} = -\frac{\sqrt{161}}{8} \cdot 3 = -\frac{3\sqrt{161}}{8} \pd \label{eq:ladder-area-dy/dt-value}
+    \end{equation}
+    Now we have all the required values:
+    We have \(y = 8,\) \(x = \sqrt{161},\) \(\textDeriv{x}{t} = 3,\) and \(\textDeriv{y}{t} = -3\sqrt{161}/8\)
+    [from \(\eqRefer{eq:ladder-area-dy/dt-value}\)].
+    Plugging these values into \(\eqRefer{eq:ladder-dA/dt}\) gives 
+    \[\deriv{A}{t} = \tfrac{1}{2} \left[3(8) + \sqrt{161} \left(-\frac{3\sqrt{161}}{8}\right) \right] = -\frac{291}{16}\pd\]
+    Thus, the area of the triangle formed under the ladder is <i>decreasing</i> at a rate of 
+    \(291/16\) \(\approx 18.188 \un{ft}^2 / \un{sec}.\)
+</span>
+
+<div>
+    An electrical appliance of resistance \(R\) is connected to a wire that carries a current \(I.\)
+    <i>Electrical power</i> is given by 
+    \[P = I^2 R \pd\] 
+    The appliance's resistance is increasing at a rate of \(3\) ohms per second,
+    and the wire's current is increasing at a rate of \(0.1\) ampere per second.
+    Find the rate at which the appliance's electrical power is changing when its resistance is \(20\) ohms
+    and the wire's current is \(2\) amperes.
+</div>
+<span>
+    Quantities \(I\) and \(R\) both vary with time, so we 
+    use the Chain Rule to differentiate \(P\) with respect to time.
+    We get 
+    \begin{equation} 
+    \deriv{P}{t} = 2I \deriv{I}{t} R + I^2 \deriv{R}{t} \pd \label{eq:power-diff}
+    \end{equation}
+    We are given that the resistance is increasing at \(3 \, \Omega/\text{sec}\) and current is increasing at \(0.1 \undiv{A}{sec}.\)
+    Thus, \(\textDeriv{R}{t} = 3\) and \(\textDeriv{I}{t} = 0.1.\)
+    We want to find \(\textDeriv{P}{t}\) when \(R = 20 \, \Omega\) and \(I = 2 \un{A}.\)
+    Substituting these values in \(\eqRefer{eq:power-diff}\) gives 
+    \[\deriv{P}{t} = 2(2)(0.1)(20) + (2)^2(3) = 20 \pd\]
+    Thus, the power of the electrical appliance is increasing at a rate of \(20\) ohm–square amperes per second,
+    or \(20\) <i>watts</i> per second.
+</span>
+
+<div>
+    Jack is initially located \(10\) miles due west of Jorge.
+    At the same moment, 
+    Jorge begins to walk due south at \(3\) miles per hour, and Jack walks due west at \(4\) miles per hour. 
+    After \(1\) hour, how fast is the distance between the two men changing?
+</div>
+<span>
+    <figure class="related-rates-jack-jorge" id="related-rates-jack-jorge">
+        <img src="../images/sectionImages/related-rates-jack-jorge.jpg" alt="related-rates-jack-jorge.jpg">
+    </figure>
+    Let \(x\) be the distance Jack walks, and let \(y\) be the distance Jorge walks. 
+    The horizontal distance between the two men is \(10 + x,\)
+    and the vertical distance is \(y.\)
+    Let \(z\) be the distance between the two men; then by the Pythagorean Theorem
+    \begin{equation} 
+        z^2 = (10 + x)^2 + y^2 \pd \label{eq:pythag-jack-jorge}
+    \end{equation}
+    We want to find \(\textDeriv{z}{t}\) after one hour.
+    In \(\eqRefer{eq:pythag-jack-jorge}\) we differentiate both sides with respect to time:
+    \begin{equation} 
+    2z \deriv{z}{t} = 2(10 + x) \deriv{x}{t} + 2y \deriv{y}{t} \pd \label{eq:pythag-jack-jorge-diff}
+    \end{equation}
+    From the men's speeds, we have \(\textDeriv{x}{t} = 4 \undiv{mi}{hr}\) and \(\textDeriv{y}{t} = 3 \undiv{mi}{hr}.\)
+    After one hour, Jorge will have walked \(3\) miles and Jack will have walked \(4\) miles.
+    And so \(x = 4\) and \(y = 3.\)
+    The distance between them will be, by \(\eqRefer{eq:pythag-jack-jorge},\) 
+    \(z = \sqrt{(10 + 4)^2 + 3^2} = \sqrt{205}.\)
+    Substituting these values in \(\eqRefer{eq:pythag-jack-jorge-diff}\) gives 
+    \[2 \sqrt{205} \deriv{z}{t} = 2(10 + 4)(4) + 2(3)(3) \implies \deriv{z}{t} = \frac{65}{\sqrt{205}} \pd\]
+    Therefore, the distance between Jack and Jorge is increasing at a rate of \(65/\sqrt{205}\) \(\approx 4.540 \undiv{mi}{hr}.\)
+</span>
+
+<div>
+    A roll of string is pivoted on a balcony that is \(10\) feet above the ground.
+    One end of the string is then dropped to the ground
+    and pulled away from the balcony at a rate of \(2\) feet per second.
+    Find the rate at which the string's length is changing when the dropped end of the string is \(8\) feet away from the balcony.
+</div>
+<span>
+    <figure class="related-rates-balcony" id="related-rates-balcony">
+        <img src="../images/sectionImages/related-rates-balcony.jpg" alt="related-rates-balcony.jpg">
+    </figure>
+    Let \(x\) be the ground distance from the balcony to the end of the string.
+    The string is pulled away at a rate of \(2 \undiv{ft}{sec},\) 
+    so this value is \(\textDeriv{x}{t}.\)
+    Let \(\ell\) be the string's length; then by the Pythagorean Theorem 
+    \begin{equation} 
+    \ell^2 = 10^2 + x^2 \pd \label{eq:string-length}
+    \end{equation}
+    We want to find \(\textDeriv{\ell}{t}\) when \(x = 8.\)
+    Quantities \(\ell\) and \(x\) vary with time, so we treat them as functions of time.
+    Differentiating both sides of \(\eqRefer{eq:string-length}\) with respect to time 
+    and solving for \(\textDeriv{\ell}{t},\) we get 
+    \begin{align} 
+    2 \ell \deriv{\ell}{t} &= 2x \deriv{x}{t} \nonumber \nl 
+    \deriv{\ell}{t} &= \frac{x}{\ell} \deriv{x}{t} \pd \label{eq:string-length-diff}
+    \end{align}
+    When \(x = 8,\) \(\eqRefer{eq:string-length}\) gives \(\ell = \sqrt{10^2 + 8^2} = \sqrt{164}.\)
+    In \(\eqRefer{eq:string-length-diff}\) 
+    we substitute the given \(\textDeriv{x}{t} = 2\) along with \(x = 8\) and \(\ell = \sqrt{164},\) obtaining 
+    \[\deriv{\ell}{t} = \frac{8}{\sqrt{164}}(2) = \frac{16}{\sqrt{164}} \pd\]
+    Thus, when the dropped end of the string is \(8\) feet away from the balcony,
+    the string's length is increasing at a rate of \(16/\sqrt{164}\) \(\approx 1.249 \undiv{ft}{sec}.\)
+</span>
+
+<div>
+    A cable connects a boat at sea to an anchored point on the pier, located \(12\) feet above the water level.
+    The boat is reeled toward the pier at a speed of \(0.1\) foot per second.
+    Find the rate at which the cable's length is changing when the boat is \(7\) feet from the foot of the pier.
+</div>
+<span>
+    <figure class="related-rates-pier" id="related-rates-pier">
+        <img src="../images/sectionImages/related-rates-pier.jpg" alt="related-rates-pier.jpg">
+    </figure>
+    Let \(x\) be the horizontal distance between the boat and the pier, 
+    and let \(\ell\) be the cable's length.
+    The boat is reeled <i>in</i> at a rate of \(0.1 \undiv{ft}{sec},\) so 
+    \(\textDeriv{x}{t} = -0.1 \undiv{ft}{sec}.\)
+    The pier is \(12\) feet above the water, so by the Pythagorean Theorem 
+    \begin{equation} 
+    \ell^2 = x^2 + 12^2 \pd \label{eq:pier-pythag}
+    \end{equation}
+    We want to find \(\textDeriv{\ell}{t}\) when \(x = 7.\)
+    Since the cable is being retracted, we expect this rate to be negative. 
+    Differentiating \(\eqRefer{eq:pier-pythag}\) with respect to time and solving for \(\textDeriv{\ell}{t},\)
+    we get 
+    \begin{align} 
+    2 \ell \deriv{\ell}{t} &= 2x \deriv{x}{t} \nonumber \nl 
+    \deriv{\ell}{t} &= \frac{x}{\ell} \deriv{x}{t} \pd \label{eq:pier-dl/dt}
+    \end{align}
+    When \(x = 7,\) \(\eqRefer{eq:pier-pythag}\) gives \(\ell = \sqrt{7^2 + 12^2} = \sqrt{193}.\)
+    Therefore, in \(\eqRefer{eq:pier-dl/dt}\) we substitute \(x = 7,\) \(\ell = \sqrt{193},\)
+    and the given \(\textDeriv{x}{t} = -0.1\) to obtain 
+    \[\deriv{\ell}{t} = \frac{7}{\sqrt{193}}(-0.1) = \frac{-7}{10 \sqrt{193}} \pd\]
+    Thus, when the boat is \(7 \un{ft}\) from the pier, the cable's length 
+    is <i>decreasing</i> at a rate of \(7/(10 \sqrt{193})\) \(\approx 0.05 \undiv{ft}{sec}.\)
+</span>
+
+<div>
+    Two resistors with resistances \(R_1\) and \(R_2\) are connected in parallel with each other.
+    The <i>equivalent resistance</i> of this configuration is 
+    \[\frac{1}{R_{\text{eq}}} = \frac{1}{R_1} + \frac{1}{R_2} \pd\]
+    Resistance \(R_1\) is increasing at a rate of \(2\) ohms per second,
+    and resistance \(R_2\) is increasing at a rate of \(3\) ohms per second. 
+    When \(R_1 = 10 \, \Omega\) and \(R_2 = 15 \, \Omega\) (\(\Omega =\) ohm),
+    at what rate is \(R_{\text{eq}}\) changing?
+</div>
+<span>
+    Quantities \(R_1,\) \(R_2,\) and \(R_{\text{eq}}\) all change with time, 
+    so we treat them as functions of time.
+    Differentiating both sides of the given equation with respect to time, we get 
+    \begin{align} 
+    -\frac{1}{\par{R_{\text{eq}}}^2} \deriv{R_{\text{eq}}}{t} 
+    &= -\frac{1}{\par{R_1}^2} \deriv{R_1}{t} -\frac{1}{\par{R_2}^2} \deriv{R_2}{t} \nonumber \nl 
+    \deriv{R_{\text{eq}}}{t} 
+    &= \par{R_{\text{eq}}}^2 \par{\frac{1}{\par{R_1}^2} \deriv{R_1}{t} + \frac{1}{\par{R_2}^2} \deriv{R_2}{t}}
+    \pd \label{eq:res-diff} 
+    \end{align}
+    We are given that \(\textDeriv{R_1}{t} = 2 \, \Omega/\text{sec}\) and \(\textDeriv{R_2}{t} = 3 \, \Omega/\text{sec}.\)
+    When \(R_1 = 10 \, \Omega\) and \(R_2 = 15 \, \Omega,\)
+    \[R_{\text{eq}} = \par{\frac{1}{10} + \frac{1}{15}}^{-1} = 6 \, \Omega \pd\]
+    Thus, substituting these values in \(\eqRefer{eq:res-diff}\) gives
+    \[\deriv{R_{\text{eq}}}{t} = (6)^2 \left(\frac{1}{10^2} \cdot 2 + \frac{1}{15^2} \cdot 3 \right) = \frac{6}{5} \pd\]
+    The equivalent resistance is therefore increasing at a rate of \(6/5\) \(= 1.2 \, \Omega/\text{sec}.\)
+</span>
+
+<div>
+    A \(5\)-foot man walks, at a speed of \(3\) feet per second, away from a street light that is \(17\) feet tall. 
+    When the man is \(6\) feet away from the light, find the rate at which the man's shadow length is increasing. 
+</div>
+<span>
+    <figure class="related-rates-shadow-exercise" id="related-rates-shadow-exercise">
+        <img src="../images/sectionImages/related-rates-shadow-exercise.jpg" alt="related-rates-shadow-exercise.jpg">
+    </figure>
+    Let \(s\) be the shadow length, and let \(x\) be the distance between the man and street light. 
+    We are given that the man walks away from the light at \(3 \undiv{ft}{sec},\)
+    so this value is \(\textDeriv{x}{t}.\)
+    Let the angle between the ground and the light ray be \(\theta;\)
+    then two similar right triangles are formed:
+    <ul>
+        <li>
+            The legs of the one triangle are \(s\) and the man's height, \(5 \un{ft}.\) 
+        </li>
+        <li>
+            The legs of the other triangle are \(s + x\) and the height of the street light, \(17 \un{ft}.\)
+        </li>
+    </ul>
+    Both similar triangles have \(\theta\) as an angle. 
+    We equate \(\tan \theta\) in both triangles: 
+    \begin{equation} 
+    \frac{5}{s} = \frac{17}{s + x} \pd \label{eq:shadow-man}
+    \end{equation}
+    We want to find \(\textDeriv{s}{t}\) when \(x = 6.\)
+    We solve for \(s\) in \(\eqRefer{eq:shadow-man},\)
+    obtaining \(s = 5x/12.\) 
+    Both \(s\) and \(x\) are functions of time, so we differentiate to obtain 
+    \begin{equation} 
+    \deriv{s}{t} = \frac{5}{12} \deriv{x}{t} \pd \label{eq:shadow-man-diff}
+    \end{equation}
+    We are given \(\textDeriv{x}{t} = 3,\) so \(\eqRefer{eq:shadow-man-diff}\) becomes 
+    \[\deriv{s}{t} = \frac{5}{12} \cdot 3 = \frac{5}{4} \pd\]
+    Thus, the man's shadow length is increasing at a rate of \(5/4\) \(= 1.25 \undiv{ft}{sec}.\)
+</span>
+
+<div>
+    A \(6\)-foot man jogs \(9\) feet per second due west of a light post that is \(25\) feet tall. 
+    When the man is \(9\) feet west of the light, find the rate at which 
+    the tip of his shadow is changing.
+</div>
+<span>
+    We call \(s\) the shadow's length and \(x\) the distance between the man and light post.
+    The man jogs at a speed of \(9 \undiv{ft}{sec}\) away from the light post, so 
+    \(\textDeriv{x}{t} = 9 \undiv{ft}{sec}.\)
+    The tip of the man's shadow has length \(L = s + x,\) 
+    so we want to find \(\textDeriv{L}{t}\) when \(x = 9.\)
+    We have two similar right triangles:
+    <ul>
+        <li>
+            The legs of triangle \(1\) are \(s\) and the man's height, \(6 \un{ft}.\)
+        </li>
+       <li>
+            The legs of triangle \(2\) are \(s + x\) and the light post's height, \(25 \un{ft}.\)
+       </li>
+    </ul>
+    Let \(\theta\) be the angle between the ground and light ray.
+    In triangle \(1,\) \(\tan \theta = 6/s;\) in triangle \(2,\) \(\tan \theta = 25/(s + x).\)
+    These triangles are similar, so we have 
+    \begin{equation} 
+    \frac{6}{s} = \frac{25}{s + x} \pd \label{eq:shadow-jog}
+    \end{equation}
+    In \(\eqRefer{eq:shadow-jog}\) we get \(s = 6x/19.\)
+    Differentiating this expression with respect to time then yields 
+    \begin{equation*} 
+    \deriv{s}{t} = \frac{6}{19} \deriv{x}{t} \pd
+    \end{equation*}
+    We're given that \(\textDeriv{x}{t} = 9,\) so we have 
+    \begin{equation} 
+    \deriv{s}{t} = \frac{6}{19} \cdot 9 = \frac{54}{19} \pd \label{eq:shadow-jog-ds/dt}
+    \end{equation}
+    Differentiating \(L = s + x\) with respect to time gives 
+    \begin{equation} 
+    \deriv{L}{t} = \deriv{s}{t} + \deriv{x}{t} \pd \label{eq:shadow-jog-dL/dt}
+    \end{equation}
+    We have \(\textDeriv{x}{t} = 9,\) and from \(\eqRefer{eq:shadow-jog-ds/dt}\) 
+    \(\textDeriv{s}{t} = 54/19.\)
+    So \(\eqRefer{eq:shadow-jog-dL/dt}\) is 
+    \[\deriv{L}{t} = \frac{54}{19} + 9 = \frac{225}{19} \pd\]
+    Thus, the tip of the man's shadow is growing at a rate of 
+    \(225/19\) \(\approx 11.842 \undiv{ft}{sec}.\)
+</span>
+
+<div>
+    An inverted conical tank has a radius of \(5\) feet and a height of \(10\) feet.
+    Water is pumped into the tank at a rate of \(8\) cubic feet per minute. 
+    When the water is \(4\) feet deep, how quickly is the water level rising?
+</div>
+<span>
+    <figure class="related-rates-inverted-cone-exercise" id="related-rates-inverted-cone-exercise">
+        <img src="../images/sectionImages/related-rates-inverted-cone-exercise.jpg" alt="related-rates-inverted-cone-exercise.jpg">
+    </figure>
+    Let \(V\) be the water's volume, \(h\) be the water level, and \(r\) be the radius of the water's circular surface.
+    (These quantities are for the <i>water</i>, not the entire cone.)
+    Water enters the cone at a rate of \(8 \un{ft}^3/\text{min},\) so this value is \(\textDeriv{V}{t}.\)
+    We want to find \(\textDeriv{h}{t}\) when \(h = 4.\)
+    We relate \(V\) to \(r\) and \(h\) as
+    \begin{equation} 
+    V = \tfrac{1}{3} \pi r^2 h \pd \label{eq:inverted-cone-V}
+    \end{equation}
+    We want to express \(\eqRefer{eq:inverted-cone-V}\) in terms of solely one quantity: \(h.\)
+    By similar triangles, 
+    \[\frac{r}{h} = \frac{5}{10} \pd\]
+    Thus, \(r = \frac{1}{2} h.\)
+    Substituting this expression in \(\eqRefer{eq:inverted-cone-V}\) gives 
+    \begin{equation} 
+    V = \tfrac{1}{12} \pi h^3 \pd \label{eq:inverted-cone-V-h}
+    \end{equation}
+    We differentiate both sides of \(\eqRefer{eq:inverted-cone-V-h}\) with respect to time
+    and solve for \(\textDeriv{h}{t} \col\)
+    \begin{align} 
+    \deriv{V}{t} &= \tfrac{1}{4} \pi h^2 \deriv{h}{t} \nonumber \nl 
+    \deriv{h}{t} &= \frac{4}{\pi h^2} \deriv{V}{t} \pd \label{eq:inverted-cone-dh/dt}
+    \end{align}
+    We now substitute \(h = 4\) and the given \(\textDeriv{V}{t} = 8\) 
+    in \(\eqRefer{eq:inverted-cone-dh/dt}\) to get 
+    \[\deriv{h}{t} = \frac{4}{\pi(4)^2} \cdot 8 = \frac{2}{\pi} \pd\]
+    Thus, the water level is increasing at a rate of \(2/\pi\) \(\approx 0.637 \undiv{ft}{min}.\)
+</span>
+
+<div>
+    In the \(xy\)-plane, let \(\theta\) be the angle subtended by the \(x\)-axis and 
+    a line connecting the origin to the graph of \(y = \sqrt x.\)
+    If \(x\) increases at a rate of \(3\) inches per second,
+    then find the rate at which \(\theta\) changes when \(x = 4.\)
+</div>
+<span>
+    Because \(x\) increases at \(3 \undiv{in}{sec},\) this value is \(\textDeriv{x}{t}.\)
+    We relate \(\theta\) to \(x\) and \(y\) through \(\tan \theta = y/x.\)
+    Since \(y = \sqrt x,\) we have 
+    \begin{equation} 
+    \tan \theta = \frac{1}{\sqrt x} \pd \label{eq:theta-sqrt}
+    \end{equation}
+    We want to find \(\textDeriv{\theta}{t}\) when \(x = 4.\)
+    Both \(\theta\) and \(x\) vary with time, so 
+    we differentiate both sides of \(\eqRefer{eq:theta-sqrt}\) with respect to time to get 
+    \begin{equation} 
+    \sec^2 \theta \deriv{\theta}{t} = -\tfrac{1}{2} x^{-3/2} \deriv{x}{t} \pd \label{eq:theta-sqrt-diff}
+    \end{equation}
+    It's easiest to express \(\eqRefer{eq:theta-sqrt-diff}\) only in terms of \(x.\)
+    Since \(\sec^2 \theta = \tan^2 \theta + 1\) and \(\tan \theta = 1/\sqrt{x}\) 
+    [from \(\eqRefer{eq:theta-sqrt}\)], 
+    \(\eqRefer{eq:theta-sqrt-diff}\) becomes 
+    \begin{align} 
+    \par{\tfrac{1}{x} + 1} \deriv{\theta}{t} &= -\tfrac{1}{2} x^{-3/2} \deriv{x}{t} \nonumber \nl 
+    \deriv{\theta}{t} &= \frac{1}{1 + 1/x} \par{-\tfrac{1}{2} x^{-3/2}} \deriv{x}{t} \pd \label{eq:theta-sqrt-dtheta}
+    \end{align}
+    We are given that \(\textDeriv{x}{t} = 3,\) and we plug \(x = 4\) into \(\eqRefer{eq:theta-sqrt-dtheta}\) to find 
+    \[\deriv{\theta}{t} = \frac{1}{1 + 1/4} \left(-\tfrac{1}{2}(4)^{-3/2}\right)(3) = \frac{-3}{20} \pd\]
+    Thus, \(\theta\) is <i>decreasing</i> at a rate of \(3/20\) \(= 0.15 \undiv{rad}{sec}.\)
+    This answer is intuitive because as \(x\) increases, \(\theta\) shrinks.
+</span>
+
+<div>
+    On a flat field, Kristine extends a \(20\)-foot kite into the air. 
+    A gust of wind blows the kite upward toward the sky at a rate of \(2\) feet per minute.
+    Find the rate at which the ground distance between Kristine and her kite 
+    is changing when the kite is \(10\) feet above the ground.
+</div>
+<span>
+    Let \(h\) be the kite's height in the air.
+    We are given that \(h\) increases at a rate of \(2 \undiv{ft}{min},\)
+    so this value is \(\textDeriv{h}{t}.\)
+    Let \(x\) be the ground distance between Kristine and the kite;
+    we want to find \(\textDeriv{x}{t}\) when \(h = 10.\)
+    We relate \(x\) and \(h\) by the Pythagorean Theorem:
+    \begin{equation} 
+    x^2 + h^2 = 20^2 \pd \label{eq:kite-pythag}
+    \end{equation}
+    Both \(x\) and \(h\) vary with time.
+    We differentiate both sides of \(\eqRefer{eq:kite-pythag}\) to obtain 
+    \begin{align} 
+    2x \deriv{x}{t} + 2h \deriv{h}{t} &= 0 \nonumber \nl 
+    \deriv{x}{t} &= \frac{-h}{x} \deriv{h}{t} \pd \label{eq:kite-diff} 
+    \end{align}
+    When \(h = 10,\) \(\eqRefer{eq:kite-pythag}\) gives 
+    \(x = \sqrt{20^2 - 10^2} = \sqrt{300}.\)
+    In \(\eqRefer{eq:kite-diff}\) we substitute the given \(\textDeriv{h}{t} = 2\)
+    along with \(h = 10\) and \(x = \sqrt{300} \col\)
+    \[\deriv{x}{t} = \frac{-10}{\sqrt{300}} \cdot 2 = \frac{-2}{\sqrt 3} \pd\]
+    Thus, the ground distance between Kristine and her kite is <i>decreasing</i> 
+    at a rate of \(2/\sqrt 3\) \(\approx 1.155 \undiv{ft}{min}.\)
+</span>
+
+<div>
+    A hot air balloon rises at a rate of \(3\) feet per second over a flat terrain.
+    A house is \(100\) feet away from the balloon's shadow directly below.
+    When the balloon is \(200\) feet above the ground,
+    find the rate at which the angle of elevation from the house to the balloon is changing.
+</div>
+<span>
+    The ground distance between the house and the hot air balloon is a constant \(100 \un{ft}.\)
+    Let \(y\) be the height of the balloon above the ground.
+    Let \(\theta\) be the angle of elevation, subtended by the ground 
+    and a line connecting the house to the balloon. 
+    Quantities \(\theta\) and \(y\) both vary with time. 
+    Because the hot air balloon rises at a rate of \(3 \undiv{ft}{sec},\)
+    this value is \(\textDeriv{y}{t}.\)
+    We want to find \(\textDeriv{\theta}{t}\) when \(y = 200.\)
+    The relationship between \(\theta\) and \(y\) is 
+    \begin{equation} 
+    \tan \theta = \frac{y}{100} \pd \label{eq:balloon-angle}
+    \end{equation}
+    We differentiate both sides of \(\eqRefer{eq:balloon-angle}\) with respect to time, finding 
+    \begin{equation} 
+    \sec^2 \theta \deriv{\theta}{t} = \tfrac{1}{100} \deriv{y}{t} \pd \label{eq:balloon-angle-diff}
+    \end{equation}
+    It is simpler to continue using only \(y.\) 
+    Because \(\sec^2 \theta = \tan^2 \theta + 1\) and \(\tan \theta = y/100\) [see \(\eqRefer{eq:balloon-angle}\)],
+    \(\eqRefer{eq:balloon-angle-diff}\) becomes 
+    \begin{align} 
+    \left[\par{\tfrac{y}{100}}^2 + 1\right] \deriv{\theta}{t} &= \tfrac{1}{100} \deriv{y}{t} \nonumber \nl 
+    \deriv{\theta}{t} &= \frac{1}{(y/100)^2 + 1} \par{\tfrac{1}{100} \deriv{y}{t}} \pd \label{eq:balloon-angle-dtheta/dt}
+    \end{align}
+    In \(\eqRefer{eq:balloon-angle-dtheta/dt}\) we substitute \(\textDeriv{y}{t} = 3\) and \(y = 200\) to get 
+    \[\deriv{\theta}{t} = \frac{1}{(200/100)^2 + 1} \par{\tfrac{1}{100} \cdot 3} = \frac{3}{500} \pd\]
+    The angle of elevation therefore is increasing at a rate of \(3/500\) \(= 0.006 \undiv{rad}{sec}.\)
+</span>
+
+<div>
+    A boat leaks \(300\) cubic inches of oil into a pond. 
+    The oil spill spreads over the surface of the pond in the shape of a cylinder with uniform depth.
+    The radius of the cylinder steadily increases at a rate of \(4\) inches per second.
+    When the cylinder's radius is \(6\) inches,
+    find the rate at which the cylinder's thickness is changing. 
+</div>
+<span>
+    Let \(r\) be the cylinder's radius and \(h\) be its thickness. 
+    The volume of the cylinder remains a constant \(300 \un{in}^3,\) 
+    so we have 
+    \begin{equation} 
+    \pi r^2 h = 300 \pd \label{eq:cylinder-V}
+    \end{equation}
+    Quantities \(r\) and \(h\) vary with time, so we treat them as functions of time.
+    We are given that the radius of the cylinder increases at a rate of \(4 \undiv{in}{sec},\)
+    so this value is \(\textDeriv{r}{t}.\)
+    We want to find \(\textDeriv{h}{t}\) when \(r = 6 \un{in}.\)
+    We differentiate both sides of \(\eqRefer{eq:cylinder-V}\) with respect to time, obtaining 
+    \begin{align} 
+    \pi \left[2r \deriv{r}{t} h + r^2 \deriv{h}{t} \right] &= 0 \nonumber \nl
+    \deriv{h}{t} &= \frac{-2h}{r} \deriv{r}{t} \pd \label{eq:cylinder-V-diff}
+    \end{align}
+    When \(r = 6,\) \(\eqRefer{eq:cylinder-V}\) gives \(h = 300/(36 \pi) = 25/(3 \pi).\)
+    Also, \(\textDeriv{r}{t} = 4\) is given. 
+    Substituting these values in \(\eqRefer{eq:cylinder-V-diff}\) yields 
+    \[\deriv{h}{t} = \par{\frac{-2}{6}} \par{\frac{25}{3 \pi}} (4) = \frac{-100}{9 \pi} \pd\]
+    Thus, the cylinder's thickness is <i>decreasing</i> at a rate of \(100/(9 \pi)\) 
+    \(\approx 3.537 \undiv{in}{sec}.\)
+</span>
+
+<div>
+    A clock's minute hand has length \(\ell\) inches.
+    In terms of \(\ell,\) find the rate at which the hand sweeps out area
+    in terms of square inches per minute.
+</div>
+<span>
+    Suppose that the clock begins ticking at some time—say, 
+    \(12\) o'clock. 
+    Let \(\theta\) be the angle the minute hand sweeps out after this time;
+    in other words, \(\theta\) is the angle between the vertical and the minute hand.
+    The area of the sector intercepted by \(\theta\) is then 
+    \begin{equation} 
+    A = \tfrac{1}{2} \theta \, \ell^2 \pd \label{eq:clock-A}
+    \end{equation}
+    Only \(A\) and \(\theta\) vary with time; \(\ell\) is a constant length.
+    We want to find \(\textDeriv{A}{t}.\)
+    Differentiating both sides of \(\eqRefer{eq:clock-A}\) with respect to time, we obtain 
+    \begin{equation} 
+    \deriv{A}{t} = \tfrac{1}{2} \ell^2 \deriv{\theta}{t} \pd \label{eq:clock-dA/dt}
+    \end{equation}
+    Since the problem needs \(\textDeriv{A}{t}\) to be in terms of square inches per minute,
+    \(t\) needs to be in minutes.
+    We therefore need \(\textDeriv{\theta}{t}\) to be in terms of radians per minute,
+    because radians are a dimensionless quantity that enable the units 
+    on both sides of \(\eqRefer{eq:clock-dA/dt}\) to align with each other.
+    We make the following remarks:
+    <ul>
+        <li>
+            The minute hand makes one revolution around the clock in one hour.
+        </li>
+        <li>
+            There are \(60\) minutes in one hour.
+        </li>
+        <li>
+            There are \(2 \pi\) radians in one revolution.
+        </li>
+    </ul>
+    For clarity we use dimensional analysis, beginning with the first remark, to convert
+    revolutions per hour to radians per minute:
+    \[\frac{1 {\color{green} \cancel{\un{rev}}}}{1 {\color{orange} \cancel{\un{hr}}}} \times 
+    \frac{1 {\color{orange} \cancel{\un{hr}}}}{60 \un{min}} \times \frac{2 \pi \un{rad}}{1 {\color{green} \cancel{\un{rev}}}}
+    = \frac{\pi \un{rad}}{30 \un{min}} \pd\]
+    Thus, \(\textDeriv{\theta}{t} = \frac{\pi}{30} \undiv{rad}{min}.\)
+    \(\eqRefer{eq:clock-dA/dt}\) then becomes 
+    \[\deriv{A}{t} = \tfrac{1}{2} \ell^2 \par{\frac{\pi}{30}} = \boxed{\frac{\pi}{60} \ell^2}\]
+</span>
+
+<div>
+    When a \(10\)-foot ladder slides down a wall at a rate of \(0.6\) foot per second, 
+    the angle \(\theta\) between the floor and the ladder is changing.
+    Find the rate at which \(\theta\) is changing when the bottom of the ladder is \(6\) feet away from the wall.
+</div>
+<span>
+    <figure class="related-rates-ladder-angle" id="related-rates-ladder-angle">
+        <img src="../images/sectionImages/related-rates-ladder-angle.jpg" alt="related-rates-ladder-angle.jpg">
+    </figure>
+    We assign \(x\) to be the distance between the wall and the ladder's foot.
+    Also let \(y\) be the height of the ladder on the wall.
+    The ladder slides down the wall at a rate of \(0.6 \undiv{ft}{sec},\)
+    so \(\textDeriv{y}{t} = -0.6 \undiv{ft}{sec}.\)
+    The angle \(\theta\) is formed between the floor and the ladder, as shown in the figure. 
+    We want \(\textDeriv{\theta}{t}\) when \(x = 6.\)
+    The relationship between \(\theta\) and the two lengths \(x\) and \(y\) is 
+    \begin{equation} 
+    \tan \theta = \frac{y}{x} \pd \label{eq:ladder-angle}
+    \end{equation}
+    In \(\eqRefer{eq:ladder-angle}\) \(x\) and \(y\) are functions of time.
+    Therefore, we use the Chain Rule in differentiating both sides with respect to time:
+    \begin{equation} 
+    \sec^2 \theta \deriv{\theta}{t} = \frac{\deriv{y}{t} \, x - y \deriv{x}{t}}{x^2} \pd \label{eq:ladder-angle-diff} 
+    \end{equation}
+    We want to express \(\eqRefer{eq:ladder-angle-diff}\) in terms of solely \(x\) and \(y.\)
+    Since \(\sec^2 \theta = 1 + \tan^2 \theta\) and \(\tan \theta = y/x\) [from \(\eqRefer{eq:ladder-angle}\)],
+    \(\eqRefer{eq:ladder-angle-diff}\) becomes 
+    \begin{equation} 
+    \par{1 + \frac{y^2}{x^2}} \deriv{\theta}{t} = \frac{\deriv{y}{t} \, x - y \deriv{x}{t}}{x^2} \pd \label{eq:ladder-angle-diff-x-y}
+    \end{equation}
+    The value of \(\textDeriv{x}{t}\) isn't given. 
+    We find it by constructing another relationship between \(x\) and \(y\) using the Pythagorean Theorem:
+    \begin{equation} 
+    x^2 + y^2 = 10^2 \pd \label{eq:ladder-angle-pythag}
+    \end{equation}
+    Differentiating \(\eqRefer{eq:ladder-angle-pythag}\) and solving for \(\textDeriv{x}{t}\) give 
+    \begin{align} 
+    2x \deriv{x}{t} + 2y \deriv{y}{t} &= 0 \nonumber \nl 
+    \deriv{x}{t} &= -\frac{y}{x} \deriv{y}{t} \pd \label{eq:ladder-angle-dx/dt}
+    \end{align}
+    When \(x = 6,\) \(\eqRefer{eq:ladder-angle-pythag}\) gives \(y = \sqrt{10^2 - 6^2} = 8\) 
+    and so \(\eqRefer{eq:ladder-angle-dx/dt}\) becomes 
+    \begin{equation} 
+    \deriv{x}{t} = -\frac{8}{6}(-0.6) = 0.8 \pd
+    \end{equation}
+    Thus, for \(x = 6\) and \(y = 8\) \(\eqRefer{eq:ladder-angle-diff-x-y}\) becomes 
+    \[\deriv{\theta}{t} = \frac{1}{1 + (8/6)^2} \, \frac{-0.6(6) - 8(0.8)}{6^2} = \frac{-1}{10} \pd\]
+    We therefore conclude that \(\theta\) is <i>decreasing</i> at a rate of \(\tfrac{1}{10} \undiv{rad}{sec}.\)
+    This answer is physically intuitive because the angle between the floor and ladder shrinks as the ladder 
+    slides across the floor.
+</span>
+
+<div>
+    A security camera is positioned \(40\) feet north of parking space \(\text{B}1.\)
+    The security camera spins at a speed of \(10\) revolutions per minute.
+    At what speed does the camera sweep the region \(20\) feet east of space \(\text{B}1?\)
+</div>
+<span>
+    <figure class="related-rates-parking-lot" id="related-rates-parking-lot">
+        <img src="../images/sectionImages/related-rates-parking-lot.jpg" alt="related-rates-parking-lot.jpg">
+    </figure>
+    The figure shows a top-down view of the parking lot. 
+    Let \(x\) be the distance east of parking space \(\text{B}1.\)
+    When the camera pans around, it faces a specific point—labeled in the figure as "X."
+    The angle the camera has rotated is \(\theta.\)
+    The speed at which the camera sweeps out the region "X" is \(\textDeriv{x}{t}.\)
+    We therefore want to find \(\textDeriv{x}{t}\) when \(x = 20.\)
+    The camera rotates at a speed of \(10 \undiv{rev}{min},\) which we convert to radians per minute
+    because radians are a dimensionless quantity. 
+    We have 
+    \[\frac{10 \cancel{\un{rev}}}{1 \un{min}} \times \frac{2 \pi \un{rad}}{1 \cancel{\un{rev}}} = \frac{20 \pi \un{rad}}{1 \un{min}} \pd
+    \]
+    Thus, \(\textDeriv{\theta}{t} = 20 \pi \undiv{rad}{min}.\)
+    We relate \(x\) and \(\theta\) through 
+    \begin{equation} 
+    \tan \theta = \frac{x}{40} \pd \label{eq:camera}
+    \end{equation}
+    Differentiating both sides of \(\eqRefer{eq:camera}\) with respect to time, we get 
+    \begin{equation} 
+    \sec^2 \theta \deriv{\theta}{t} = \tfrac{1}{40} \deriv{x}{t} \pd \label{eq:camera-diff}
+    \end{equation}
+    We want to express all quantities in terms of \(x.\)
+    Using the identity \(\sec^2 \theta = \tan^2 \theta + 1\) and \(\tan \theta = x/40\) [\(\eqRefer{eq:camera}\)],
+    from \(\eqRefer{eq:camera-diff}\) we get  
+    \begin{align} 
+    \left[\par{\tfrac{x}{40}}^2 + 1\right] \deriv{\theta}{t} &= \tfrac{1}{40} \deriv{x}{t} \nonumber \nl 
+    \deriv{x}{t} &= 40 \left[\par{\tfrac{x}{40}}^2 + 1\right] \deriv{\theta}{t} \pd \label{eq:camera-diff-dx/dt}
+    \end{align}
+    In \(\eqRefer{eq:camera-diff-dx/dt}\) we plug in \(\textDeriv{\theta}{t} = 20 \pi\) and \(x = 20 \col\)
+    \[\deriv{x}{t} = 40 \left[\par{\tfrac{20}{40}}^2 + 1 \right] \cdot 20 \pi = 1000 \pi \pd\]
+    Thus, the camera sweeps the area \(20\) feet east of parking space \(\text{B}1\) at a speed of \(1000 \pi\)
+    \(\approx 3141.593 \undiv{ft}{min}.\)
+</span>
+
+<div>
+    A lighthouse is \(5\) miles north of a straight shoreline.
+    The lighthouse has a revolving beacon that spins at a speed of \(2\) revolutions per second. 
+    What is the speed of the spot of light along the shoreline when the spot of light is \(3\) miles away from the point nearest the lighthouse?
+</div>
+<span>
+    <figure class="related-rates-lighthouse" id="related-rates-lighthouse">
+        <img src="../images/sectionImages/related-rates-lighthouse.jpg" alt="related-rates-lighthouse.jpg">
+    </figure>
+    The figure shows a top-down view of the situation. 
+    The point nearest the lighthouse is \(P,\) \(5 \un{mi}\) to the south.
+    When the lighthouse's beacon spins, light faces a certain spot on the shoreline—point \(Q,\) a distance \(x\) miles
+    away from \(P.\)
+    Let \(\theta\) be the angle shown in the figure.
+    The beacon revolves at \(2 \undiv{rev}{sec};\) in radians per second this rate is 
+    \[\frac{2 \cancel{\un{rev}}}{1 \un{sec}} \times \frac{2 \pi \un{rad}}{1 \cancel{\un{rev}}} = \frac{4 \pi \un{rad}}{1 \un{sec}} \pd
+    \]
+    Thus, \(\textDeriv{\theta}{t} = 4 \pi \undiv{rad}{sec}.\)
+    We want to find \(\textDeriv{x}{t}\) when \(x = 3.\)
+    Quantities \(x\) and \(\theta\) are related by 
+    \begin{equation} 
+    \tan \theta = \frac{x}{5} \pd \label{eq:lighthouse-theta}
+    \end{equation}
+    We differentiate both sides of \(\eqRefer{eq:lighthouse-theta}\) with respect to time, obtaining 
+    \begin{equation} 
+    \sec^2 \theta \deriv{\theta}{t} = \tfrac{1}{5} \deriv{x}{t} \pd \label{eq:lighthouse-theta-diff}
+    \end{equation}
+    We use the identity \(\sec^2 \theta = \tan^2 \theta + 1\) 
+    combined with \(\tan \theta = x/5\) [\(\eqRefer{eq:lighthouse-theta}\)] to rewrite \(\eqRefer{eq:lighthouse-theta-diff}\) as 
+    \[\left[\par{\tfrac{x}{5}}^2 + 1\right] \deriv{\theta}{t} = \tfrac{1}{5} \deriv{x}{t} \pd\]
+    Solving for \(\textDeriv{x}{t},\) and substituting \(x = 3\) and \(\textDeriv{\theta}{t} = 4 \pi,\)
+    we have 
+    \[\deriv{x}{t} = 5 \left[\par{\tfrac{3}{5}}^2 + 1\right] \cdot 4 \pi = \frac{136 \pi}{5} \pd\]
+    Thus, the light's speed is \(136 \pi/5\) \(\approx 85.451 \undiv{mi}{sec}\)
+    on the shoreline \(3 \un{mi}\) away from the nearest point to the lighthouse.  
+</span>
+
+<div>
+    A uniform, conducting wire has a linear charge density \(\lambda.\)
+    The electric field experienced by a charged object \(r\) meters away due to the wire is 
+    \[E = \frac{\lambda}{2 \pi \varepsilon_0 r} \cma\]
+    where \(\varepsilon_0\) is a physical constant called the <i>permittivity of free space</i>.
+    The wire's charge density is decreasing at a rate of \(3\) coulombs per meter per second,
+    and the object's distance from the wire is increasing at a rate of \(2\) meters per second.
+    At a certain instant, the wire's charge density is \(1\) coulomb per meter  
+    and the object is \(9\) meters away from the wire. 
+    How fast is the electric field changing at this moment?
+</div>
+<span>
+    Quantities \(\lambda\) and \(r\) both vary with time. 
+    We are given that \(\textDeriv{\lambda}{t} = -3 \undiv{(C}{m})/\text{sec}\) and 
+    \(\textDeriv{r}{t} = 2 \undiv{m}{sec}.\)
+    We want to find \(\textDeriv{E}{t}\) when \(\lambda = 1 \undiv{C}{m}\) and \(r = 9 \un{m}.\)
+    Differentiating \(E\) with respect to time, we get 
+    \begin{equation} 
+    \deriv{E}{t} = \frac{1}{2 \pi \varepsilon_0} \frac{\deriv{\lambda}{t} r - \lambda \deriv{r}{t}}{r^2} \pd \label{eq:E-field}
+    \end{equation}
+    When \(\lambda = 1 \undiv{C}{m}\) and \(r = 9 \un{m},\) \(\eqRefer{eq:E-field}\) becomes 
+    \[\deriv{E}{t} = \frac{1}{2 \pi \varepsilon_0} \frac{-3(9) - 1(2)}{9^2} = \frac{-29}{162 \pi \varepsilon_0} \pd\]
+    Thus, the electric field is <i>decreasing</i> at a rate of \(-29/(162 \pi \varepsilon_0).\)
+</span>
+
+<div>
+    <figure class="related-rates-baseball-field" id="related-rates-baseball-field">
+        <img src="../images/sectionImages/related-rates-baseball-field.jpg" alt="related-rates-baseball-field.jpg">
+    </figure>
+    <style>
+        .related-rates-baseball-field::before{
+            content:'FIGURE 2';
+        }
+    </style>
+    In baseball the playing field consists of a <i>home plate</i> and three bases—bases \(1,\) \(2,\) and \(3.\)
+    These points are the vertices of a diamond whose sides are \(90\) feet long. 
+    (<a href="#related-rates-baseball-field">Figure 2</a> shows a simplified diagram of the playing field.)
+    A baseball player begins to run from second base to third base at a speed of \(20\) feet per second.
+    After three seconds of running, find the rate at which the distance between the player and home plate is changing. 
+</div>
+<span>
+    <figure class="related-rates-baseball-23" id="related-rates-baseball-23">
+        <img src="../images/sectionImages/related-rates-baseball-23.jpg" alt="related-rates-baseball-23.jpg">
+    </figure>
+    Let \(x\) be the distance the player runs.
+    Since the player runs at a speed of \(20 \undiv{ft}{sec},\)
+    this value is \(\textDeriv{x}{t}.\)
+    After three seconds, the player will have run \(60 \un{ft}.\)
+    Let \(z\) be the distance between the player and home base. 
+    We want to find \(\textDeriv{z}{t}\) when \(x = 60 \un{ft}.\)
+    Quantities \(x\) and \(z\) are related by 
+    \begin{equation} 
+    (90 - x)^2 + 90^2 = z^2 \pd \label{eq:baseball-pythag}
+    \end{equation}
+    We differentiate both sides of \(\eqRefer{eq:baseball-pythag}\) with respect to time, obtaining 
+    \begin{align} 
+    -2(90 - x) \deriv{x}{t} &= 2z \deriv{z}{t} \nonumber \nl
+    \deriv{z}{t} &= \frac{x - 90}{z} \deriv{x}{t} \pd \label{eq:baseball-dz/dt} 
+    \end{align}
+    When \(x = 60,\) \(\eqRefer{eq:baseball-pythag}\) gives 
+    \[z = \sqrt{(90 - 60)^2 + 90^2} = \sqrt{9000} = 30 \sqrt{10} \pd\]
+    Substituting this value, along with \(x = 60\) and \(\textDeriv{x}{t} = 20,\) in \(\eqRefer{eq:baseball-dz/dt}\) gives 
+    \[\deriv{z}{t} = \frac{60 - 90}{30 \sqrt{10}} \cdot 20 = -2 \sqrt{10} \pd \]
+    Thus, the distance between the player and home base is <i>decreasing</i>
+    at a rate of \(2 \sqrt{10}\) \(\approx 6.325 \undiv{ft}{sec}.\)
+</span>
+
+<div>
+    A batter hits a baseball from home plate straight to second base at a speed of \(122\) feet per second.
+    After \(0.5\) second, how quickly is the distance between the baseball and first base changing? 
+    (See <a href="#related-rates-baseball-field">Figure 2</a>.)
+</div>
+<span>
+    <figure class="related-rates-baseball-home2" id="related-rates-baseball-home2">
+        <img src="../images/sectionImages/related-rates-baseball-home2.jpg" alt="related-rates-baseball-home2.jpg">
+    </figure>
+    Let \(x\) be the distance the baseball travels. 
+    Let \(z\) be the distance between the baseball and first base.
+    Since the ball travels at \(122 \undiv{ft}{sec},\) this value is \(\textDeriv{x}{t}.\)
+    After \(0.5 \un{sec}\) the ball will have traveled \(x = 61 \un{ft}.\)
+    We want to find \(\textDeriv{z}{t}\) when \(x = 61 \un{ft}.\)  
+    Note that the angle between the baseball's path and the path from home base to first base is 
+    \(45 \degree.\)
+    By the Law of Cosines, 
+    \[z^2 = x^2 + 90^2 - 2(x)(90) \cos 45 \degree \cma\]
+    or 
+    \begin{equation} 
+    z^2 = x^2 + 90^2 - 90 \sqrt 2 \, x \pd \label{eq:baseball-cos}
+    \end{equation}
+    We differentiate both sides of \(\eqRefer{eq:baseball-cos}\) to get 
+    \begin{align} 
+    2z \deriv{z}{t} &= 2x \deriv{x}{t} - 90 \sqrt 2 \deriv{x}{t} \nonumber \nl 
+    \deriv{z}{t} &= \frac{x - 45 \sqrt 2}{z} \deriv{x}{t} \pd \label{eq:baseball-cos-dz/dt}
+    \end{align}
+    When \(x = 61,\) \(\eqRefer{eq:baseball-cos}\) gives 
+    \[z = \sqrt{61^2 + 90^2 - 90(61) \sqrt 2} \pd\]
+    Substituting this value, as well as \(x = 61\) and \(\textDeriv{x}{t} = 122,\) 
+    in \(\eqRefer{eq:baseball-cos-dz/dt}\) gives 
+    \[\deriv{z}{t} = \frac{61 - 45 \sqrt 2}{\sqrt{61^2 + 90^2 - 90(61) \sqrt 2}} \cdot 122 \approx -5.056 \pd \]
+    Thus, the distance between the baseball and first base is <i>decreasing</i>
+    at a rate of \(5.056 \undiv{ft}{sec}.\)
+</span>
+
+</section>

@@ -1,0 +1,280 @@
+<!--[[[crefId.Integral-Test]]]--> 
+<p> 
+    This section introduces the 
+    <a href="#integral-test" class="page-anchor">Integral Test</a>.
+    We also prove that the 
+    <a href="#harmonic-series-diverges" class="page-anchor">Harmonic Series Diverges</a>, 
+    and then we discuss 
+    <a href="#p-series" class="page-anchor">\(p\)-Series</a>.
+     
+</p>
+<h4 id="integral-test">Integral Test</h4>
+<p>
+    Consider the sum 
+    \[S = \sum_{n = k}^\infty a_n \comma \]
+    and let \(f\) be a function that satisfies \(f(n) = a_n.\)
+    The function \(f(x)\) must satisfy three conditions:
+    \(f(x)\) must be continuous, positive, and decreasing for all \(x \geq k.\)
+    Let 
+    \[I = \int_k^\infty f(x) \di x \period\]
+    Then by the Integral Test,
+</p>
+<ul>
+    <li>
+        if \(I\) diverges, then \(S\) also diverges.
+    </li>
+    <li>
+        if \(I\) converges, then \(S\) also converges.
+    </li>
+</ul>
+In other words, the convergence or divergence of the improper integral 
+\(\int_k^\infty f(x) \di x\) 
+matches the convergence or divergence of the infinite series 
+\(\sum_{n = k}^\infty a_n.\)
+
+<!-- integral test -->
+<div class="box-title"> INTEGRAL TEST </div>
+<div class="box">
+    Let \(f\) be a function that satisfies \(f(n) = a_n.\)
+    If \(f(x)\) is continuous, positive, and decreasing for all \(x \geq k,\)
+    then
+    <ul>
+        <li>
+            if \(\int_k^\infty f(x) \di x\) converges, 
+            then \(\sum_{n = k}^\infty a_n\) also converges.
+        </li>
+        <li>
+            if \(\int_k^\infty f(x) \di x\) diverges,
+            then \(\sum_{n = k}^\infty a_n\) also diverges.
+        </li>
+    </ul>
+</div>
+
+<h4 id="harmonic-series-diverges">Proof: The Harmonic Series Diverges</h4>
+<p>
+    For \(k \geq 1,\) consider the Harmonic Series,
+    \[S = \sum_{n = k}^\infty \frac{1}{n} \period\]
+    Let \(f\) be a function that satisfies \(f(n) = 1/n.\)
+    For all \(n \geq k,\)
+    \[\frac{1}{n + 1} \lt \frac{1}{n} \period \]
+    Therefore, \(f(x)\) is positive, continuous, and decreasing for all \(x \geq k.\)
+    Then the convergence or divergence of \(S\) 
+    matches the convergence or divergence of 
+    \[I = \int_k^\infty \frac{1}{x} \di x \period\]
+    We evaluate this integral and find 
+    \[
+    I = \ln|x| \Big|_k^\infty \comma
+    \]
+    which diverges. 
+    Since \(I\) diverges, the Integral Test states that \(S\) also diverges.
+    Consequently, we assert that Harmonic Series is divergent.
+</p>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        Determine whether \(\ds \sum_{n=2}^{\infty} n^{2}e^{-n^3}\) 
+        converges or diverges.
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"></button>
+<div id="solution1" class="solution">
+    Let \(f(x) = x^{2}e^{-x^3}.\) 
+    Then we find 
+    \[ 
+    \ba 
+    f'(x) &= 2xe^{-x^3} - 3x^{4} e^{-x^3} \\ 
+    &= xe^{-x^3}(2-3x^3) \period 
+    \ea 
+    \]
+    Since \(f'(x) \lt 0\) for all \(x \geq 2,\) 
+    \(f(x)\) is decreasing on this interval.
+    Consequently, the series meets the conditions of the Integral Test:
+    \(f(x)\) is continuous, positive, and decreasing for all \(x \geq 2.\) 
+    Thus, we consider 
+    \[I = \int_2^\infty f(x) \di x \period\]
+    If \(I\) diverges, then \(\sum_{n=2}^{\infty} n^{2}e^{-n^3}\) also diverges.
+    Likewise, if \(I\) converges, then the series also converges.
+    To evaluate \(I,\) we substitute 
+    \[
+    \ba 
+    u &= x^3 \\ 
+    \di u &= 3x^2 \di x \period  
+    \ea 
+    \]
+    When \(x = 2,\) \(u = 2^3 = 8;\) 
+    when \(x = \infty,\) \(u = \infty.\)
+    Thus, 
+    \[
+    \ba 
+    I &= \int_8^\infty e^{-u} \di u \\[1ex]  
+    &= -\frac{1}{e^u} \Big]_8^\infty \\[1ex]
+    &= \frac{1}{8} \period
+    \ea 
+    \]
+    Since \(I\) converges (is finite), 
+    \(\sum_{n = 2}^\infty n^2 e^{-n^3} \) converges.
+</div>
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        Determine whether \(\ds \sum_{n=3}^{\infty} \frac{1}{n \ln n}\) 
+        converges or diverges.
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    <p> 
+        We let 
+        \[f(x) = \frac{1}{x \ln x} \comma\] 
+        which is positive and continuous for \(x \geq 3.\)
+        To determine whether \(f(x)\) is decreasing on this interval, we find  
+        \[f'(x) = \frac{-1 - \ln x }{(x \ln x)^2} \comma \]
+        which is negative for \(x \geqslant e.\)
+        Consequently, \(f(x)\) is decreasing for \(x \geqslant 3,\) 
+        so \(\sum_{n = 3}^\infty \frac{1}{n \ln n} \) meets all three criteria of the Integral Test.
+    </p>
+    <p> 
+        Now we evaluate 
+        $$\int_3^\infty f(x) \di x = \int_{3}^{\infty} \frac{1}{x \ln x} \, \textrm{d} x \period $$
+        We substitute 
+        \[
+        \ba 
+        u &= \ln x \\
+        \di u &= \frac{1}{x} \di x \period 
+        \ea 
+        \]
+        When \(x = 3,\) \(u = \ln 3;\) when \(x = \infty,\) \(u = \infty.\)
+        Thus, the integral becomes  
+        \[ \int_{\ln 3}^{\infty} \frac{1}{u} \di u 
+        = \ln|u| \Big|_{\ln 3}^{\infty} \implies \textrm{divergent.} \]
+    </p>
+    <p>
+        Because \(\int_{3}^{\infty} f(x) \di x\) diverges, 
+        so does \(\sum_{n = 3}^{\infty} \frac{1}{n \ln n}\) by the Integral Test.
+    </p>
+</div>
+
+<!-- p-series -->
+<h4 id="p-series">\(p\)-Series</h4>
+<p>
+    Consider the family of series  
+    \[S = \sum_{n = k}^\infty \frac{1}{n^p} \period\]
+    Let \(f(x) = 1/x^p.\) 
+    Since \(f(x)\) is positive, continuous, and decreasing for \(x \geq k,\) 
+    we compare \(S\) to the improper integral 
+    \[I = \int_k^\infty \frac{1}{x^p} \di x \period \]
+    If \(I\) converges, then \(S\) also converges; if \(I\) diverges, then \(S\) also converges. 
+    Consider three cases:
+</p>
+<ul>
+    <li>
+        Case 1, \(p \lt 1\)
+    </li>
+    <li>
+        Case 2, \(p = 1\)
+    </li>
+    <li>
+        Case 3, \(p \gt 1.\)
+    </li>
+</ul>
+<p>
+    We start with Cases 1 and 3:
+    If \(p \ne 1,\) then we obtain  
+    \[
+    \ba 
+    I &= \int_k^\infty \frac{1}{x^p} \di x \\[1ex]
+    &= \frac{x^{1 - p}}{1 - p} \Big|_k^\infty \period
+    \ea 
+    \]
+</p>
+<p>
+    For Case 1, we have 
+    \[p \lt 1 \implies 1 - p \gt 0 \period\] 
+    Then as \(x \to \infty,\) \(\frac{x^{1 - p}}{1 - p} \to \infty.\)
+    Therefore, \(I\) diverges and so \(S\) also diverges. 
+    Conversely, for Case 3, 
+    \[p \gt 1 \implies 1 - p \lt 0 \period\]
+    Since this exponent is negative, 
+    it follows that as \(x \to \infty,\) \(\frac{x^{1 - p}}{1 - p} \to 0.\)
+    Thus, \(I\) converges, so by the Integral Test \(S\) also converges.
+</p>
+<p>
+    For Case 2, \(p = 1,\) we have 
+    \[
+    \ba 
+    I &= \int_k^\infty \frac{1}{x^p} \di x \\[1ex] 
+    &= \int_k^\infty \frac{1}{x} \di x \\[1ex]
+    &= \ln|x| \Big|_k^\infty \comma 
+    \ea 
+    \]
+    which diverges. 
+    Consequently, by the Integral Test, \(S\) also diverges. 
+</p>
+
+<div class="box-title"> \(p\)-SERIES </div>
+<div class="box">
+    Consider the family of sums
+    \[S = \sum_{n = k}^\infty \frac{1}{n^p} \period \]
+    <ul>
+        <li>
+            If \(p \leq 1,\) then \(S\) diverges. 
+        </li>
+        <li>
+            If \(p \gt 1,\) then \(S\) converges. 
+        </li>
+    </ul>
+</div>
+
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">  
+        Find the values of \(k\) such that 
+        \(\ds \sum_{n = 1}^\infty \frac{1}{n^{2k - 3}} \)
+        converges.
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button"></button>
+<div id="solution3" class="solution">
+    <p> 
+       For convergence, we compare \(\sum_{n = 1}^\infty 1/n^{2k - 3}\) 
+       to a \(p\)-series of \(p \gt 1.\)
+       We see \(p = 2k - 3,\)
+       so we set this expression greater than \(1:\)
+       \[2k - 3 \gt 1 \implies k \gt 2 \period \]
+       Thus, for \(\boxed{k \gt 2,}\) the series converges.
+    </p>
+</div>
+
+<!--section summary-->
+<div class="section-summary">
+    <ul>
+        <li>
+            Consider the infinite series 
+            \[S = \sum_{n = k}^\infty a_n \period\]
+            Let \(f\) be a function such that \(f(n) = a_n.\)
+            If \(f(x)\) is positive, continuous, and decreasing for \(x \geq k,\)
+            then 
+            <ul>
+                <li>
+                    if \(\int_k^\infty f(x) \di x\) converges, then \(S\) also converges. 
+                </li>
+                <li>
+                    if \(\int_k^\infty f(x) \di x\) diverges, then \(S\) also diverges.
+                </li>
+            </ul>
+        </li>
+        <li>
+            A \(p\)-series is of the form \(S = \sum_{n = k}^\infty 1/n^p.\)
+            <ul>
+                <li>
+                    If \(p \leq 1,\) then \(S\) diverges. 
+                </li>
+                <li>
+                    If \(p \gt 1,\) then \(S\) converges.
+                </li>                
+            </ul>
+        </li>
+    </ul>
+</div>

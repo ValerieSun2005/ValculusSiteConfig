@@ -1,0 +1,241 @@
+<!--[[[crefId.Exponential-and-Logistic-Models]]]--> 
+    In this section we learn the mathematical basis of exponential growth and decay,
+    and discuss the applications of these models. 
+    <figure class="fig-1">
+        <img src="../images/sectionImages/7/exponential-growth.jpg" alt="Fig. 1.">
+    </figure>
+    <style>
+        .fig-1::before{
+            content:'FIGURE 1';
+        }
+    </style>
+</p>
+<h4>Exponential Models</h4>
+<p>
+    <span class="emph">Exponential growth</span> is a phenomenon that
+    confers very fast growth.
+    Numerically, it represents repeated multiplication, 
+    which has applications in population growth and continuous compounding. 
+    Conversely, in
+    <span class="emph">exponential decay</span> a function rapidly shrinks, usually to \(0.\) 
+</p>
+<p>
+    The definition of an <i>exponential model</i> is represented by the differential equation 
+    \begin{equation} 
+    \deriv{y}{x} = k y \comma  \label{eq:exp-diff-eq}
+    \end{equation}
+    where \(k\) is a proportionality constant. 
+    In exponential <i>growth</i>, \(k \gt 0\) and \(y\) increases (Figure 1); 
+    in exponential <i>decay</i>, \(k \lt 0\) and \(y\) decreases (Figure 2).
+    \(\eqRefer{eq:exp-diff-eq}\) shows that rate of change of \(y\) is directly proportional to itself,
+    meaning that a <i>small</i> \(y\) changes <i>slowly</i> and a <i>large</i> \(y\) changes <i>quickly</i>. 
+    Solving for \(y\) in \(\eqRefer{eq:exp-diff-eq}\) using Separation of Variables, 
+    we get
+    <figure class="fig-2">
+        <img src="../images/sectionImages/7/exponential-decay.jpg" alt="Fig. 2.">
+    </figure>
+    <style>
+        .fig-2::before{
+            content:'FIGURE 2';
+        }
+    </style>
+    \[
+    \ba 
+    \frac{1}{y} \di y &= k \di x \nl 
+    \ln \abs{y} &= kx + C_1 \nl 
+    y &= e^{C_1} e^{kx} \comma  
+    \ea 
+    \]
+    where we let \(C = e^{C_1}\) for notational convenience. 
+    We now have 
+    \[y = Ce^{kx} \period\]
+    If \(x = 0,\) then \(e^{kx} = 1\) and so \(C\) is the value of \(y\) at \(x = 0.\) 
+</p>
+<p>
+</p>
+<div class="box-title"> EXPONENTIAL MODELS </div>
+<div class="box">
+    If \(k\) is a constant, 
+    then the differential equation for an exponential model is 
+    \[\deriv{y}{x} = ky \period\]
+    The solution is 
+    \[y = C e^{kx} \comma\]
+    where \(C\) is the value of \(y\) when \(x = 0.\)
+    <ul>
+        <li>
+            In <span class="emph">exponential growth</span>, 
+            \(k \gt 0\) and \(y\) increases.
+        </li>
+        <li>
+            In <span class="emph">exponential decay</span>,
+            \(k \lt 0\) and \(y\) decreases.
+        </li>
+    </ul>
+</div>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        A population of sheep as a function of time is modeled by the differentiable function \(N(t),\)
+        where \(N(t)\) is the number of sheep and \(t\) is years. 
+        The population exhibits continuous, exponential growth at a rate of \(2\%.\)
+        <ol class="list-alpha">
+            <li>
+                Write an expression for \(\textDeriv{N}{t}.\)
+            </li>
+            <li>
+                How quickly is the population changing when it has \(500\) sheep?
+            </li>
+            <li>
+                The population initially has \(300\) sheep. 
+                After how many years does the population exceed \(700\) sheep?
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button">  </button>
+<div id="solution1" class="solution">
+    <ol class="list-alpha">
+        <li>
+            The population grows continuously at a rate of \(2\%.\) 
+            Thus, by \(\eqRefer{eq:exp-diff-eq}\) \(k = 0.02\) and the differential equation is  
+            \[\boxed{\deriv{N}{t} = 0.02N}\]
+        </li>
+        <hr>
+        <li>
+            When the population has \(500\) sheep, the population is growing at a rate of 
+            \[\deriv{N}{t} = 0.02(500) = \boxed{10 \undiv{sheep}{year}}\]
+        </li>
+        <hr>
+        <li>
+            The population of sheep is initially \(300.\) 
+            Therefore, by \(\eqRefer{eq:exp-solution},\) 
+            \[N = 300e^{0.02t} \period\]
+            We solve for \(t\) when \(N = 700 \col\)
+            \[
+            \ba 
+            700 &= 300e^{0.02t} \nl 
+            \ln \frac{700}{300} &= 0.02t \nl 
+            t &\approx 42.364 \period 
+            \ea 
+            \]
+            Therefore, after \(42.364\) years (or \(43\) years), the population contains more than \(700\) sheep.
+        </li>
+    </ol>
+</div>
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        A deposit of \(\$500\) is made to a bank account. 
+        This amount is compounded continuously at a rate of \(3\%.\) 
+        The amount of money in the account is given by \(M(t),\) 
+        where \(M(t)\) is measured in dollars and \(t\) is measured in years. 
+        <ol class="list-alpha">
+            <li>
+                Write a differential equation for \(\textDeriv{M}{t}.\)
+            </li>
+            <li>
+                Find the expression for \(M(t).\)
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button">  </button>
+<div id="solution2" class="solution">
+    <ol class="list-alpha">
+        <li>
+            We have \(k = 0.03,\)
+            so from \(\eqRefer{eq:exp-diff-eq}\) the differential equation is 
+            \[\boxed{\deriv{M}{t} = 0.03M}\]
+        </li>
+        <hr>
+        <li>
+            Initially, \(M(t) = \$500.\)
+            We can either solve the differential equation in part (a) 
+            or use \(\eqRefer{eq:exp-solution}.\)
+            Either method produces 
+            \[\boxed{M(t) = 500e^{0.03t}}\]
+        </li>
+    </ol>
+</div>
+
+<h4 id="logistic-models">Logistic Models</h4>
+<!-- <p>
+    Species in a population cannot reproduce indefinitely. 
+    There is a limit to how many individuals a population can sustain; 
+    we call this limit the <span class="emph">carrying capacity</span>. 
+    Thus, we need a function that grows exponentially when the population is small 
+    but levels off as the population approaches its carrying capacity. 
+    Such a representation is an example of a <span class="emph">logistic model</span>. 
+</p> -->
+<figure class="fig-3">
+    <img src="../images/sectionImages/7/logistic-growth.jpg" alt="Fig. 3.">
+</figure>
+<style>
+    .fig-3::before{
+        content:'FIGURE 3';
+    }
+</style> 
+<p>
+    The differential equation that defines a logistic model is
+    \begin{equation} 
+    \deriv{y}{x} = ky \par{1 - \frac{y}{L}} \comma \label{eq:logistic-diff-eq}  
+    \end{equation}
+    where \(L\) is the carrying capacity.
+    The solution to \(\eqRefer{eq:logistic-diff-eq}\) is 
+    \begin{equation} 
+    y = \frac{L}{1 + Ce^{-kx}} \comma \label{eq:logistic-eq}
+    \end{equation}
+    whose derivation is at the end of this section.
+    Similar to exponential models, 
+    <span class="emph">logistic growth</span> occurs if \(k \gt 0\) 
+    and 
+    <span class="emph">logistic decay</span> occurs if \(k \lt 0.\)
+</p>
+<figure class="fig-4">
+    <img src="../images/sectionImages/7/logistic-decay.jpg" alt="Fig. 4.">
+</figure>
+<style>
+    .fig-4::before{
+        content:'FIGURE 4';
+    }
+</style>
+<p>
+    Logistic <i>growth</i> is highly intuitive:  
+    As \(y\) grows, the term \((1 - y/L)\) acts as an <i>inhibitor</i> that brings \(\textDeriv{y}{x}\) to \(0\) as \(y\) approaches \(L.\)
+    Therefore, the graph of \(\eqRefer{eq:logistic-eq}\) for \(k \gt 0\) 
+    has the horizontal asymptote \(y = L\) because \(\lim_{x \to \infty} y = L;\)
+    see Figure 3.
+    Conversely, the graph of logistic <i>decay</i> (\(k \lt 0\) in \(\eqRefer{eq:logistic-eq}\)) 
+    has the property \(\lim_{x \to -\infty} y = L;\) see Figure 4. 
+</p>
+
+
+
+
+
+    <!-- To find the solution to \(\eqRefer{eq:logistic-diff-eq},\) 
+    we rewrite the differential equation as 
+    \[
+    \ba 
+    \deriv{y}{x} &= ky \par{\frac{L - y}{L}} \nl 
+    \frac{1}{ky(L - y)} \di y &= \frac{1}{L} \di x \nl 
+    \par{\frac{A}{ky} + \frac{B}{L - y}} \di y &= \frac{1}{L} \di x \period
+    \ea  
+    \]
+    After breaking \(\frac{1}{ky(L - y)}\) into the partial fractions \(A/ky\) and \(B/(L - y),\)
+    we solve for \(A\) and \(B\) by finding 
+    \[
+    \ba 
+    \frac{A}{ky} + \frac{B}{L - y} &= \frac{1}{ky(L - y)} \nl 
+    \frac{A(L - y) - Bky}{ky(L - y)} &= \frac{1}{ky(L - y)} \nl 
+    A(L - y) - Bky &= 1 \period
+    \ea 
+    \]
+    We let \(y = 0\) to find 
+    \[A(L - 0) - Bk \cdot 0 = 1 \implies A = \frac{1}{L} \period \]
+    Similarly, we assign \(y = L\) to get 
+    \[A \cdot 0 - BkL = 1 \implies B = -\frac{1}{kL} \period\] -->
+
+

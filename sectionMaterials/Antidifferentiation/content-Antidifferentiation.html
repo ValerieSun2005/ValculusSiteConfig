@@ -1,0 +1,737 @@
+<!--[[[crefId.Antidifferentiation]]]-->
+<p>
+    In Section <!--[[[cref.Defining-a-Derivative]]]--> we asserted a derivative measures a function's rate of change.
+    If we have the rate \(f'(x)\) and want to find \(f(x),\) then we use <i>antidifferentiation</i>.
+    Antidifferentiation has many applications: 
+    If we have a particle's velocity, then we can find its position at a given time.
+    If we know an ecosystem's growth factor, then we can model the population at a given time.
+    In this section we'll be 
+    <a class="page-anchor" href="#defining-an-antiderivative">Defining an Antiderivative</a>;
+    <a class="page-anchor" href="#evaluating-antiderivatives">Evaluating Antiderivatives</a>; and 
+    connecting antiderivatives to 
+    <a class="page-anchor" href="#pos-vel-acc">Position, Velocity, and Acceleration</a> and 
+    <a class="page-anchor" href="#freefalling-objects">Freefalling Objects</a>.
+</p>
+<h4 id="defining-an-antiderivative">Defining an Antiderivative</h4>
+<p>
+    <span class="emph">Antidifferentiation</span>
+    is the inverse operation of differentiation:
+    If function \(g'\) is the derivative of \(g,\)
+    then \(g\) is an <i>antiderivative</i> of \(g'.\)
+    To generalize this principle, 
+    we say that function \(F\) is an <span class="emph">antiderivative</span>
+    of \(f\) if \(F' = f.\)
+    For example, an antiderivative of \(h(x) = x^2\) is \(H(x) = \frac{1}{3} x^3\)
+    because \(H'(x) = x^2 = h(x).\) 
+    But \(H(x) = \frac{1}{3} x^3 + 2\) is also <i>an</i> antiderivative of \(f.\)
+    Therefore, any function \(H(x) = \frac{1}{3} x^3 + C,\) where \(C\) is a constant,
+    is an antiderivative of \(h.\)
+    If a function has an antiderivative, then the function has <i>infinitely</i>
+    many antiderivatives—all of which differ by a constant. 
+    <a href="#antidiff-x3">Figure 1</a> shows the graphs of some antiderivatives of \(h(x) = x^2,\)
+    in which all graphs take the form \(y = \frac{1}{3} x^3 + C\) and therefore differ by a vertical translation.
+</p>
+<figure class="antidiff-x3" id="antidiff-x3">
+    <img src="../images/sectionImages/antidiff-x3.jpg" alt="antidiff-x3.jpg">
+</figure>
+<style>
+    .antidiff-x3::before{
+        content:'FIGURE 1';
+    }
+</style>
+<p>
+    The symbol for the antidifferentiation operator is "\(\int \,\)";
+    for example, for \(h(x) = x^2,\)
+    \begin{equation} 
+    H(x) = \int h(x) \di x = \int x^2 \di x = \tfrac{1}{3} x^3 + C \pd \label{eq:int-h(x)}
+    \end{equation}
+    The term \(\dd x\) specifies that we antidifferentiate with respect to \(x.\)
+    Note the following terminology in \(\eqRefer{eq:int-h(x)} \col\)
+    <ul>
+        <li>
+            "\(\int \,\)" is the <span class="emph">integral sign</span>.
+        </li>
+        <li>
+            \(h(x) = x^2\) is the <span class="emph">integrand</span>.
+        </li>
+        <li>
+            \(\dd x\) is the <span class="emph">differential</span>.
+        </li>
+        <li>
+            \(C\) is the <span class="emph">constant of integration</span>.
+        </li>
+        <li>
+            \(H(x) = \frac{1}{3}x^3 + C\) is an <span class="emph">antiderivative</span> of \(h(x).\)
+        </li>
+        <li>
+            The entire expression \(\int h(x) \di x\) is an 
+            <span class="emph">indefinite integral</span>.
+        </li>
+    </ul>
+    The verbs <i>antidifferentiate</i> and <i>integrate</i> are often used interchangeably.
+    An integral that contains bounds—for example, \(\int_1^3 x^3 \di x\)—is called a <i>definite integral</i>.
+    Whereas an <i>indefinite</i> integral returns an antiderivative (a function),
+    a <i>definite</i> integral returns a value.
+    We will explore definite integrals in Section <!--[[[cref.Fundamental-Theorem-of-Calculus]]]-->,
+    in which we connect antiderivatives to calculating areas bounded by curves. 
+</p>
+
+<div class="box-title">DEFINING AN ANTIDERIVATIVE</div>
+<div class="box">
+    Function \(F\) is an 
+    <span class="emph">antiderivative</span>
+    of \(f\) if \(F'(x) = f(x).\)
+    Then 
+    \[\int f(x) \di x = F(x) + C \cma\]
+    where \(C\) is a <span class="emph">constant of integration</span>. 
+</div>
+
+<aside class="box-tip">
+    When evaluating an indefinite integral, <span class="good">always</span> write a constant of integration \(C\) in your answer.
+    But when evaluating a derivative, <span class="warning">never</span> write a constant in your answer.
+</aside>
+
+<p>
+    To obtain antidifferentiation statements, we read differentiation statements from right to left.
+    For example, 
+    \[
+    \baat{2}
+    &\deriv{}{x} [\sin x] = {\color{orange} \cos x} &&\Longleftrightarrow \int {\color{orange} \cos x} \di x = \sin x + C \nl 
+    &\deriv{}{x} [-\cos x] = {\color{orange} \sin x} &&\Longleftrightarrow \int {\color{orange} \sin x} \di x = -\cos x + C \nl
+    &\deriv{}{x} [\tan x] = {\color{orange} \sec^2 x} &&\Longleftrightarrow \int {\color{orange} \sec^2 x} \di x = \tan x + C \nl
+    &\deriv{}{x} [\sec x] = {\color{orange} \sec x \tan x} &&\Longleftrightarrow \int {\color{orange} \sec x \tan x} \di x = \sec x + C \nl
+    &\deriv{}{x}  \left[\sin^{-1} x\right] = {\color{orange}\frac{1}{\sqrt{1 - x^2}}} 
+        &&\Longleftrightarrow \int {\color{orange}\frac{1}{\sqrt{1 - x^2}}} \di x = \sin^{-1} x + C \nl
+    &\deriv{}{x}  \left[\tan^{-1} x\right] = {\color{orange}\frac{1}{1 + x^2}}
+        &&\Longleftrightarrow \int {\color{orange}\frac{1}{1 + x^2}} \di x = \tan^{-1} x + C \nl 
+    &\deriv{}{x}  \left[e^x\right] = \orange{e^x} &&\Longleftrightarrow \int \orange{e^x} \di x = e^x + C \pd 
+    \eaat 
+    \]
+    Formally, each differentiation statement should include a constant—for example, \(\textDeriv{}{x} \, [\sin x + C] = \cos x.\)
+    This list drops the constants in the differentiation statements for the sake of familiarity.
+</p>
+
+<div class="example-title" id="ex-1"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        Evaluate each expression.
+        <ol class="list-roman">
+            <li>
+                <span>
+                    \(\ds \int \cos x \di x\)   
+                </span>
+            </li>
+            <li>
+                <span>
+                    \(\ds \int e^x \di x\)   
+                </span>
+            </li>
+            <li>
+                <span>
+                    \(\ds \int \frac{1}{x} \di x\)   
+                </span>
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"></button>
+<div id="solution1" class="solution">
+    <ol class="list-roman">
+        <li>
+            This problem asks: "The derivative of what function is \(\cos x \ques\)" 
+            And one such function is \(\sin x.\)
+            But the derivative of \(\sin x\) plus any constant—for example, the derivative of 
+            \((\sin x + 1)\) or of \((\sin x - 100)\)—is also \(\cos x.\)
+            Thus, if \(C\) is any constant, then the general antiderivative of \(\cos x\) is \(\sin x + C.\) 
+            So  
+            \[\int \cos x \di x = \boxed{\sin x + C}\]
+        </li>
+        <hr>
+        <li>
+            The derivative of \(e^x\) is \(e^x,\)
+            so the converse statement is that \(e^x\) is an <i>antiderivative</i>
+            of \(e^x.\)
+            We always add a constant of integration, so 
+            \[\int e^x \di x = \boxed{e^x + C}\]
+        </li>
+        <hr>
+        <li>
+            Since the derivative of \(\ln|x|\) is \(1/x,\)
+            an <i>antiderivative</i> of \(1/x\) is \(\ln|x|.\)
+            We then add an arbitrary constant in our final answer:
+            \[\int \frac{1}{x} \di x = \boxed{\ln|x| + C}\] 
+        </li>
+    </ol>
+</div> 
+
+<h4 id="evaluating-antiderivatives">Evaluating Antiderivatives</h4>
+<p>
+    If \(f(x) = x^n,\) where \(n \ne -1,\) then the <span class="emph">reverse power rule</span> 
+    gives an antiderivative of \(f\) to be
+    \begin{equation} 
+    F(x) = \frac{x^{n + 1}}{n + 1} \pd \label{eq:reverse-power-rule}
+    \end{equation}
+    In words, \(\eqRefer{eq:reverse-power-rule}\) states that to find an antiderivative of a power function
+    (if the power isn't \(-1\)), 
+    we add one to the power and divide by the result. 
+    This fact is easy to verify because \(F'(x) = x^n = f(x).\)
+    For example, if \(n = 4,\) then using \(\eqref{eq:reverse-power-rule}\) gives 
+    \begin{equation} 
+    \int x^4 \di x = \frac{x^{4 + 1}}{4 + 1} + C = \frac{x^5}{5} + C \pd \label{eq:int-x^4}
+    \end{equation}
+    We accept this answer because \(\textDeriv{}{x}\,\left[\frac{1}{5}x^5 + C\right] = x^4,\)
+    which matches the integrand in \(\eqref{eq:int-x^4}.\) Additionally, if \(n = 0\) then 
+    \begin{equation} 
+    \int x^0 \di x = \int \dd x = \frac{x^{0 + 1}}{0 + 1} + C = x + C \pd \label{eq:int-n=0}
+    \end{equation}
+    In \(\int \dd x,\) the integrand is <span class="warning">not</span>
+    \(0;\) rather, \(\int \dd x = \int 1 \di x.\)
+    And \(\textDeriv{}{x}\,[x + C] = 1,\) thus affirming the result in \(\eqRefer{eq:int-n=0}.\)
+    But if \(n = -1,\) then an antiderivative of \(f(x) = x^n\) is \(\ln|x|,\)
+    as we asserted in (iii) of <a href="#ex-1">Example 1</a>.
+</p>
+<aside class="box-remark">
+    It is common to see expressions like \(\int \dd x/x^2,\)
+    whose meaning is identical to \(\int \frac{1}{x^2} \di x.\)
+    Likewise, when an integrand contains a sum or difference,
+    using parentheses is a stylistic decision:
+    Some people write \(\int (2x - 3)\di x,\)
+    while others prefer \(\int 2x - 3 \di x.\)
+    Both expressions carry the same meaning.
+</aside>
+<div class="box-title">INTEGRATING POWER FUNCTIONS</div>
+<div class="box">
+    If \(n \ne -1,\) then the <span class="emph">reverse power rule</span> gives
+    \[\int x^n \di x = \frac{x^{n + 1}}{n + 1} + C \pd \]
+    If \(n = -1,\) then \(\int (1/x) \di x = \ln|x| + C.\)
+</div>
+<p>
+    If functions \(f\) and \(g\) have antiderivatives \(F\) and \(G,\)
+    respectively, then 
+    \begin{equation} 
+    \int f(x) \pm g(x) \di x = \int f(x) \di x \pm \int g(x) \di x = F(x) \pm G(x) + C \pd \label{eq:int-sum}
+    \end{equation}
+    If \(k\) is a constant, then 
+    \begin{equation} 
+    \int kf(x) \di x = k \int f(x) \di x = kF(x) + C \pd \label{eq:int-constant}
+    \end{equation}
+    Antiderivatives are said to be <i>linear</i> because they satisfy \(\eqref{eq:int-sum}\) and \(\eqref{eq:int-constant}.\)
+    In \(\eqRefer{eq:int-sum},\) \(\int f(x) \di x\) and \(\int g(x) \di x\) 
+    each output a constant of integration; we write the sum or difference of these constants simply as \(C,\)
+    because adding or subtracting two constants gives another <i>arbitrary</i> constant.
+    By similar logic, multiplying or dividing a constant of integration by a number does <i>not</i>
+    alter the identity of the constant—the constant can still be <i>any</i> value.  
+    For example, if \(C\) is a constant of integration, then we may write expressions such as 
+    \(2C\) and \(C + 100\) simply as \(C.\)
+</p>
+
+<div class="box-title">LINEARITY OF ANTIDERIVATIVES</div>
+<div class="box">
+    <ol class="list-alpha">
+        <li>
+            \(\int f(x) \pm g(x) \di x = \int f(x) \di x \pm \int g(x) \di x.\)
+        </li>
+        <li>
+            If \(k\) is a constant, then \(\int kf(x) \di x = k \int f(x) \di x.\)
+        </li>
+    </ol>
+</div>
+
+<div class="example-title" id="ex-2"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        Evaluate each expression.
+        <ol class="list-roman">
+            <li>
+                <span>
+                    \(\ds \int \frac{1}{x^2} \di x\)   
+                </span>
+            </li>
+            <li>
+                <span>
+                    \(\ds \int 5x^4 + \cos x \di x\)   
+                </span>
+            </li>
+            <li>
+                <span>
+                    \(\ds \int \sqrt{t} - 2 \sin t + \frac{4}{1 + t^2} \di t\)   
+                </span>
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    <ol class="list-roman">
+        <li>
+            We use the reverse power rule to obtain 
+            \[\int x^{-2} \di x = \frac{x^{-2 + 1}}{-2 + 1} + C = \boxed{\frac{-1}{x} + C}\]
+        </li>
+        <hr>
+        <li>
+            Since antiderivatives are linear, as in \(\eqRefer{eq:int-sum},\)
+            we split the integral into two:
+            \[\int 5x^4 \di x + \int \cos x \di x \pd\]
+            In the first integral we pull out the constant \(5\) [by \(\eqref{eq:int-constant}\)], obtaining 
+            \begin{equation} 
+            5 \int x^4 \di x + \int \cos x \di x \pd \label{eq:ex-4x^4-decomp}
+            \end{equation}
+            In \(\eqref{eq:ex-4x^4-decomp},\) the first integral requires the reverse power rule
+            and the second integral is \(\sin x + C.\)
+            Thus, \(\eqref{eq:ex-4x^4-decomp}\) becomes 
+            \[5 \par{\frac{x^{4 + 1}}{4 + 1}} + \sin x + C = \boxed{x^5 + \sin x + C}\]
+        </li>
+        <aside class="box-remark">
+            In (ii) and (iii), we only need to write one constant of integration, \(C.\)
+        </aside>
+        <hr>
+        <li>
+            By \(\eqref{eq:int-sum}\) we split the integral into a sum of three integrals:
+            \begin{equation} 
+            \int \sqrt t \di t + \int -2 \sin t \di t + \int \frac{4}{1 + t^2} \di t \pd \label{eq:ex-sqrtt-s1}
+            \end{equation}
+            In \(\eqref{eq:ex-sqrtt-s1}\) we write \(\sqrt t\) as \(t^{1/2}\)
+            and use the reverse power rule.
+            We then pull out the constants in the second and third integrals.
+            Doing so gives 
+            \begin{align*}    
+            \int t^{1/2} \di t - 2 \int \sin t \di t + 4 \int \frac{1}{1 + t^2} \di t 
+            &= \frac{t^{1 + 1/2}}{1 + 1/2} -2(-\cos t) + 4 \tan^{-1} t + C \nl 
+            &= \boxed{\tfrac{2}{3} t^{3/2} + 2 \cos t + 4 \tan^{-1} t + C} 
+            \end{align*}
+        </li>
+    </ol>
+</div> 
+<p>
+    An equation that relates \(f\) and its derivatives is called a
+    <span class="emph">differential equation</span>.
+    In calculus, we often have a rate \(f'\) and need to find a <i>solution</i> \(f.\)
+    (Differential equations are fundamental to modeling natural phenomena, 
+    which we discuss further in Section <!--[[[cref.Modeling-with-Differential-Equations]]]-->.)
+    We often want \(f\) that satisfies a specific point, called an 
+    <span class="emph">initial condition</span>. 
+    To find \(f\) given \(f'\) and an initial condition, we first integrate \(f'.\)
+    Doing so produces a 
+    <span class="emph">general solution</span>
+    that contains a constant of integration. 
+    We then plug in the initial condition to solve for this constant. 
+    For example, if \(f'(x) = 2x\) and \(\orange{f(1) = 2},\)
+    then we antidifferentiate \(f'(x)\) and substitute the given initial condition to solve for the constant of integration:
+    \begin{align} 
+    f(x) = \int 2x \di x &= x^2 + C \nonumber \nl 
+    \orange{f(1)} &= (1)^2 + C = \orange{2} \implies C = 1 \pd \nonumber \nl 
+    \therefore f(x) &= \boxed{x^2 + 1} \label{eq:diff-eq-f(x)-particular}
+    \end{align}
+    \(\eqRefer{eq:diff-eq-f(x)-particular}\) is called the 
+    <span class="emph">particular solution</span>
+    of the differential equation \(f'(x) = 2x\) that satisfies the initial condition \(\orange{f(1) = 2}.\)
+</p>
+
+<div class="example-title" id="ex-3"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">  
+        Suppose \(f'(x) = e^x + 2x + 7\) and \(f(0) = 4.\)
+        Find \(f(x).\)
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button"></button>
+<div id="solution3" class="solution">
+    <p>
+        We antidifferentiate \(f',\) finding 
+        \begin{equation} 
+        f(x) = e^x + x^2 + 7x + C \pd \label{eq:ex-diff-eq} 
+        \end{equation}
+        We call \(\eqRefer{eq:ex-diff-eq}\) a <i>general</i>
+        solution to the differential equation \(f'(x) = e^x + 2x + 7.\)
+        To find the <i>particular</i> solution,
+        we substitute in \(\eqref{eq:ex-diff-eq}\) the given initial condition, \(\orange{f(0) = 4},\) 
+        to obtain 
+        \[\orange{f(0)} = e^0 + (0)^2 + 7(0) + C = \orange 4 \implies C = 3 \pd\]
+        Thus, substituting \(C = 3\) in \(\eqref{eq:ex-diff-eq}\) gives 
+        \begin{equation} 
+        f(x) = \boxed{e^x + x^2 + 7x + 3}\cma \label{eq:ex-diff-eq-f(x)-particular}
+        \end{equation}
+        the particular solution that passes through the point \((0, 4).\)
+    </p>
+    <p>
+        Checking our answer is simple: 
+        It's easy to see that \(\eqRefer{eq:ex-diff-eq-f(x)-particular}\) passes through \((0, 4)\) because 
+        \[\orange{f(0)} = e^0 + 0^2 + 7(0) + 3 \equalsCheck \orange{4} \pd\]
+        Moreover, differentiating \(\eqref{eq:ex-diff-eq-f(x)-particular}\) yields  
+        \[f'(x) = e^x + 2x + 7 \cma\]
+        which matches the differential equation we were given.
+    </p>
+</div>
+
+<div class="example-title" id="ex-4"> EXAMPLE 4 </div>
+<div class="example">
+    <div class="example-problem">  
+        <figure class="antidiff-ex-graph-f" id="antidiff-ex-graph-f">
+            <img src="../images/sectionImages/antidiff-ex-graph-f.jpg" alt="antidiff-ex-graph-f.jpg">
+        </figure>
+        <style>
+            .antidiff-ex-graph-f::before{
+                content:'FIGURE 2';
+            }
+        </style>
+        In <a href="#antidiff-ex-graph-f">Figure 2</a>,
+        the graph of \(y = f(x)\) is shown for \(0 \lt x \lt 4.\)
+        Let \(F\) be an antiderivative of \(f\) such that \(F(0) = 2.\)
+        Sketch a rough graph of \(y = F(x).\)
+        <span class="white-space"></span>
+    </div>
+</div>
+<button onclick="toggle4()" class="solution-button"></button>
+<div id="solution4" class="solution">
+    <figure class="antidiff-ex-graph-f-antideriv" id="antidiff-ex-graph-f-antideriv">
+        <img src="../images/sectionImages/antidiff-ex-graph-f-antideriv.jpg" alt="antidiff-ex-graph-f-antideriv.jpg">
+    </figure>
+    <style>
+        .antidiff-ex-graph-f-antideriv::before{
+            content:'FIGURE 3';
+        }
+    </style>
+    The <b>key idea</b> to sketching \(y = F(x)\) is that 
+    at any point \(x,\) the slope of \(F(x)\) is \(f(x).\)
+    In <a href="#antidiff-ex-graph-f-antideriv">Figure 3</a>
+    we begin the graph at the point \((0, 2).\)
+    We make the following remarks about the first derivative of \(F,\)
+    \(f \col\)
+    <ul>
+        <li>
+            When \(0 \lt x \lt 1\) and \(x \gt 3,\) \(f\) is negative, meaning the slope of \(F\) is negative.
+            Thus, \(F\) is <i>decreasing</i> on these intervals.
+        </li>
+        <li>
+            For \(1 \lt x \lt 3,\) \(f\) is positive, so the slope of \(F\) is positive.
+            Therefore, \(F\) is <i>increasing</i> on this interval.
+        </li>
+        <li>
+            Since \(f(1) = 0\) and \(f(3) = 0,\) \(F\) has horizontal tangents when \(x = 1\) and \(x = 3.\)
+            By the First Derivative Test (see Section <!--[[[cref.Minimum-and-Maximum-Values]]]-->),
+            \(F(1)\) is a local <i>minimum</i> because \(F' = f\) changes sign from negative to positive at \(x = 1,\)
+            and \(F(3)\) is a local <i>maximum</i> because \(F' = f\) changes sign from positive to negative at \(x = 3.\)
+        </li>
+    </ul>
+    We now consider the graph's shape using the second derivative of \(F,\) \(f' \col\)
+    <ul>
+        <li>
+            \(F''(2) = f'(2) = 0,\) so \(F\) has an inflection point when \(x = 2.\)
+        </li>
+        <li>
+            \(F'' = f' \gt 0\) for \(0 \lt x \lt 2,\) so \(F\) is concave <i>up</i> on this interval. 
+            In contrast, \(F'' = f' \lt 0\) when \(x \gt 2,\) so \(F\) is concave <i>down</i> for \(x \gt 2.\)
+        </li>
+    </ul>
+</div>
+
+<h4 id="pos-vel-acc">Position, Velocity, and Acceleration</h4>
+<p>
+    In Section <!--[[[cref.Particle-Motion]]]--> we connected position to velocity and acceleration using derivatives.
+    These relationships are examples of differential equations.
+    We now relate these quantities using integrals, and we have the tools to solve these differential equations.
+    If \(s(t)\) represents an object's position at time \(t,\) 
+    then the particle's <i>velocity</i> function is \(v(t) = \textDeriv{s}{t}.\)
+    Thus, the reverse statement is that \(s(t)\) is the integral of \(v(t)\) with respect to time:
+    \begin{equation} 
+    s(t) = \int v(t) \di t \pd \label{eq:s(t)=intv(t)}
+    \end{equation}
+    <i>Acceleration</i>, \(a(t),\) is the derivative of velocity, so
+    velocity is the integral of acceleration:
+    \begin{equation} 
+    v(t) = \int a(t) \di t \pd \label{eq:v(t)=inta(t)}
+    \end{equation}
+</p>
+
+<div class="example-title" id="ex-5"> EXAMPLE 5 </div>
+<div class="example">
+    <div class="example-problem">  
+        A particle travels along the \(x\)-axis with acceleration given by 
+        \(a(t) = 4t + 6,\) where \(t\) is measured in seconds and \(x\) is measured in inches.
+        Given that the particle's initial position is \(x(0) = 2\)
+        and its initial velocity is \(v(0) = 3,\) find its position function \(x(t).\)
+    </div>
+</div>
+<button onclick="toggle5()" class="solution-button"></button>
+<div id="solution5" class="solution">
+    <p>
+        Velocity is the integral of acceleration [\(\eqRefer{eq:v(t)=inta(t)}\)].
+        The particle's <i>general</i> velocity function is then  
+        \begin{align} 
+        v(t) &= \int 4t + 6 \di t \nonumber \nl 
+        &= 2t^2 + 6t + C \cma \label{eq:particle-xaxis-v(t)}
+        \end{align}
+        where \(C\) is a constant of integration.
+        To find the particle's <i>particular</i> velocity function,
+        in which \(C\) has a value,
+        we note that the particle's initial velocity is \(\orange{v(0) = 3}.\)
+        Substituting this point in \(\eqref{eq:particle-xaxis-v(t)}\) gives 
+        \[\orange{v(0)} = 2(0)^2 + 6(0) + C = \orange 3 \implies C = 3 \pd\]
+        Thus, \(\eqref{eq:particle-xaxis-v(t)}\) becomes
+        \begin{equation} 
+        v(t) = 2t^2 + 6t + 3 \pd \label{eq:particle-xaxis-v(t)-spec}
+        \end{equation}
+    </p>
+    <p>
+        Position is the integral of velocity [\(\eqref{eq:s(t)=intv(t)}\)], 
+        so we obtain the general position function by integrating \(\eqref{eq:particle-xaxis-v(t)-spec} \col\) 
+        \begin{align} 
+        x(t) &= \int 2t^2 + 6t + 3 \di t \nonumber \nl 
+        &= \tfrac{2}{3} t^3 + 3t^2 + 3t + D \cma \label{eq:particle-xaxis-x(t)}
+        \end{align}
+        where \(D\) is a constant.
+        To solve for \(D\) we plug into \(\eqref{eq:particle-xaxis-x(t)}\) the initial condition \(\orange{x(0) = 2}\) 
+        to obtain 
+        \[\orange{x(0)} = \tfrac{2}{3}(0)^3 + 3(0)^2 + 3(0) + D = \orange 2 \implies D = 2 \pd\]
+        Thus, \(\eqRefer{eq:particle-xaxis-x(t)}\) becomes 
+        \begin{equation} 
+        x(t) = \boxed{\tfrac{2}{3} t^3 + 3t^2 + 3t + 2} \label{eq:particle-xaxis-x(t)-particular}
+        \end{equation}
+    </p>
+    <p>
+        To check our answer, we need to verify that \(\eqRefer{eq:particle-xaxis-x(t)-particular}\)
+        satisfies the given initial conditions and that \(x''(t) = 4t + 6,\) the given differential equation.
+        It's easy to see that \(\eqref{eq:particle-xaxis-x(t)-particular}\)
+        satisfies \(\orange{x(0) = 2} \col\)
+        \[\orange{x(0)} = \tfrac{2}{3}(0)^3 + 3(0)^2 + 3(0) + 2 \equalsCheck \orange{2} \pd\]
+        Moreover, differentiating \(\eqref{eq:particle-xaxis-x(t)-particular}\) shows 
+        \begin{equation} 
+        x'(t) = v(t) = 2t^2 + 6t + 3 \pd \label{eq:particle-xaxis-x(t)-particular-diff}
+        \end{equation}
+        This expression should satisfy the given \(\orange{v(0) = 3} \col\)
+        \[\orange{v(0)} = 2(0)^2 + 6(0) + 3 \equalsCheck \orange{3} \pd\]
+        Finally, we differentiate \(\eqref{eq:particle-xaxis-x(t)-particular-diff} \col\)
+        \[x''(t) = a(t) \equalsCheck 4t + 6 \cma\]
+        which is the expression given.
+    </p>
+</div>
+
+<h4 id="freefalling-objects">Freefalling Objects</h4>
+<p>
+    On Earth's surface, the acceleration due to gravity is \(g,\) whose value is \(32 \undiv{ft}{sec}^2\) 
+    or \(9.8 \undiv{m}{sec}^2.\)
+    When objects fall, we select a direction to be positive and a direction to be negative.
+    It's intuitive to assign the positive direction to be upward,
+    and let the object's position function represent its <i>height</i> above the ground.
+    For example, when an object is thrown upward, its initial velocity is positive and its acceleration is \(-g.\)
+    Conversely, as an object falls to the ground, its velocity is always negative and its acceleration is \(-g.\)
+    Let's make a few remarks about freefalling objects:
+    <ul>
+        <li id="remark-1">
+            <i>Remark 1.</i> An object <i>dropped</i> from rest has an initial velocity of \(0.\)
+        </li>
+        <li id="remark-2">
+            <i>Remark 2.</i> When an object hits the ground, its final velocity is 
+            <span class="warning">not \(0.\)</span>
+            We take the object's final velocity to be the velocity 
+            <i>the instant before</i> it hits the ground.
+        </li>
+        <li id="remark-3">
+            <i>Remark 3.</i> An object that is thrown upward reaches its maximum height when its velocity is \(0.\)
+        </li>
+    </ul>
+</p>
+
+<div class="example-title" id="ex-6"> EXAMPLE 6 </div>
+<div class="example">
+    <div class="example-problem">  
+        A rock is dropped from the top of \(100\)-foot cliff.
+        Derive an expression for the rock's height as a function of time, \(t,\) in seconds.
+        How long does the rock take to fall to the ground? 
+        What is the rock's speed right before it hits the ground?
+    </div>
+</div>
+<button onclick="toggle6()" class="solution-button"></button>
+<div id="solution6" class="solution">
+    <p>
+        Since the rock is dropped from rest, its initial velocity is \(0\) (<a href="#remark-1">Remark 1</a>).
+        Its initial position is \(100 \un{ft}.\)
+        We take the positive direction to be upward; the rock's velocity and acceleration are therefore 
+        both negative as it falls.
+    </p>
+    <p>
+        By \(\eqRefer{eq:v(t)=inta(t)},\) the rock's velocity function is the integral of acceleration.
+        The acceleration due to gravity is \(g = -32 \undiv{ft}{sec}^2,\)
+        so we get 
+        \begin{align} 
+        v(t) &= \int -32 \di t \nonumber \nl 
+        &= -32t + C \cma \label{eq:rock-v(t)-general}
+        \end{align}
+        where \(C\) is a constant of integration. 
+        To solve for \(C\) we
+        substitute in \(\eqref{eq:rock-v(t)-general}\) the initial condition \(\orange{v(0) = 0} \col\)
+        \[\orange{v(0)} = -32(0) + C = \orange 0 \implies C = 0 \pd\]
+        Thus, the rock's velocity function is 
+        \begin{equation} 
+        v(t) = -32t \pd \label{eq:rock-v(t)-particular}
+        \end{equation}
+    </p>
+    <p>
+        To obtain position we integrate \(\eqref{eq:rock-v(t)-particular}\) to get 
+        \begin{equation} 
+        h(t) = -16t^2 + D \cma \label{eq:rock-h(t)-general}
+        \end{equation}
+        where \(D\) is a constant. 
+        Function \(h(t)\) represents the rock's <i>height</i> above the ground,
+        so this model has the initial condition \(\orange{h(0) = 100}.\)
+        In \(\eqref{eq:rock-h(t)-general}\) we substitute this initial condition
+        to solve for \(D \col\)
+        \[\orange{h(0)} = -16(0)^2 + D = \orange{100} \implies D = 100 \pd\]
+        Thus, \(\eqRefer{eq:rock-h(t)-general}\) becomes 
+        \begin{equation} 
+        h(t) = \boxed{-16t^2 + 100} \label{eq:rock-h(t)-ans}
+        \end{equation}
+    </p>
+    <p>
+        The rock's final velocity is <span class="warning">not \(0\)</span> (<a href="#remark-2">Remark 2</a>);
+        it is instead the rock's velocity <i>right before</i> it hits the ground—when 
+        \(h(t) = 0.\)
+        Equating \(\eqref{eq:rock-h(t)-ans}\) to \(0\) and solving for the positive value of \(t,\) we have 
+        \[-16t^2 + 100 = 0 \implies t = \tfrac{10}{4} = 2.5 \pd\]
+        The ball therefore hits the ground after \(2.5\) seconds.
+        In \(\eqRefer{eq:rock-v(t)-particular}\) we substitute \(t = 2.5 \col\)
+        \[v(t) = -32(2.5) = -80 \pd\]
+        Speed is the magnitude (absolute value) of velocity, so
+        the rock's final <i>speed</i> is \(|-80| = 80 \undiv{ft}{sec}.\)
+    </p>
+</div>
+
+<div class="example-title" id="ex-7"> EXAMPLE 7 </div>
+<div class="example">
+    <div class="example-problem">  
+        A ball is launched from the ground straight upward at a speed of \(16\) feet per second.
+        <ol class="list-alpha">
+            <li>
+                Find the ball's velocity function. 
+                After how many seconds does the ball reach its maximum height?
+            </li>
+            <li>
+                How high does the ball travel?
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle7()" class="solution-button"></button>
+<div id="solution7" class="solution">
+    <ol class="list-alpha">
+        <li>
+            We choose up to be the positive direction.
+            The ball's initial velocity is \(16 \undiv{ft}{sec},\)
+            and the ball's acceleration due to gravity is \(-32 \undiv{ft}{sec}^2.\)
+            By \(\eqRefer{eq:v(t)=inta(t)},\) 
+            we integrate acceleration to find the ball's general velocity function: 
+            \begin{align} 
+            v(t) &= \int -32 \di t \nonumber \nl 
+            &= -32 t + C \pd \label{eq:ball-v(t)}
+            \end{align}
+            We solve for \(C\) by substituting in \(\eqref{eq:ball-v(t)}\) the initial condition \(\orange{v(0) = 16}\col\)
+            \[\orange{v(0)} = -32(0) + C = \orange{16} \implies C = 16 \pd\]
+            Thus, \(\eqref{eq:ball-v(t)}\) becomes 
+            \begin{equation} 
+            v(t) = \boxed{-32t + 16} \label{eq:ball-v(t)-ans}
+            \end{equation}
+            The ball reaches its maximum height when \(v = 0\) 
+            (<a href="#remark-3">Remark 3</a>).
+            In \(\eqRefer{eq:ball-v(t)-ans}\) solving \(v(t) = 0\) gives 
+            \(t = 16/32.\)
+            The ball therefore reaches its maximum height after \(0.5 \un{sec}.\)
+        </li>
+        <hr>
+        <li>
+            We need the object's height function, \(h(t).\)
+            Integrating velocity in \(\eqref{eq:ball-v(t)-ans}\) gives 
+            \begin{equation} 
+            h(t) = -16t^2 + 16t + D \cma \label{eq:ball-h(t)}
+            \end{equation}
+            where \(D\) is a constant of integration.
+            We choose the ground to be \(h = 0;\)
+            the ball initially begins on the ground,
+            so \(\orange{h(0) = 0}.\)
+            Plugging this initial condition into \(\eqRefer{eq:ball-h(t)}\) shows 
+            \[\orange{h(0)} = -16(0)^2 + 16(0) + D = \orange 0 \implies D = 0 \pd\]
+            Thus, \(\eqref{eq:ball-h(t)}\) becomes 
+            \[h(t) = -16t^2 + 16t \pd\]
+            The ball therefore reaches a height of 
+            \[s \par{\tfrac{1}{2}} = -16 \par{\tfrac{1}{2}}^2 + 16 \par{\tfrac{1}{2}} = \boxed{4 \un{ft}}\]
+        </li>
+    </ol>
+</div>
+
+<div class="section-summary">
+    <p>
+        <span class="emph">Antidifferentiation</span> is the inverse operation of differentiation.
+        Function \(F\) is called an <span class="emph">antiderivative</span>
+        of function \(f\) if \(F' = f.\)
+        We represent an antiderivative by using an <span class="emph">indefinite integral</span>:
+        \[\int f(x) \di x = F(x) + C \cma\]
+        where "\(\int \,\)" is the <span class="emph">integral sign</span>,
+        \(f(x)\) is the <span class="emph">integrand</span>,
+        \(\dd x\) is the <span class="emph">differential</span>,
+        \(F(x)\) is an <span class="emph">antiderivative</span> of \(f(x),\)
+        and \(C\) is the <span class="emph">constant of integration.</span>
+        If a function has an antiderivative, then the function has infinitely many antiderivatives—all of which differ by a constant, \(C.\) 
+        The verbs <i>antidifferentiate</i> and <i>integrate</i> are interchangeable.
+        It is easy to verify your answer to an integral: differentiating your answer should yield the integrand you were given.
+        <span class="good">Always</span> write \(+C\) when you evaluate an indefinite integral,
+        but <span class="warning">never</span> write \(+C\) when you evaluate a derivative.
+    </p>
+    <p>
+        To integrate a power function \(x^n,\) \(n \ne -1,\) we use the <span class="emph">reverse power rule</span>:
+        \[\int x^n \di x = \frac{x^{n + 1}}{n + 1} + C \pd\]
+        But if \(n = -1,\) then \(\int x^{-1} \di x = \ln|x| + C.\)
+    </p>
+    <p>
+        Antiderivatives are <i>linear</i>; that is, if \(f\) and \(g\) are functions and \(k\) is a constant, then 
+        <ul>
+            <li>
+                \(\int f(x) \pm g(x) \di x = \int f(x) \di x \pm \int g(x) \di x.\)
+            </li>
+            <li>
+                If \(k\) is a constant, then \(\int kf(x) \di x = k \int f(x) \di x.\)
+            </li>
+        </ul>
+    </p>
+    <p>
+        A <span class="emph">differential equation</span> relates function \(f\) with its derivatives. 
+        To solve a differential equation in which you are given \(f'\) and a specific point 
+        (called an <span class="emph">initial condition</span>), 
+        integrate \(f'\) and plug in the initial condition to solve for the constant of integration \(C.\)
+        A <span class="emph">general solution</span> of a differential equation does not have a value for the constant \(C,\)
+        whereas a <span class="emph">particular solution</span> does have a value for \(C.\)
+        If you are given an initial condition, then you want to find the <i>particular</i> solution.
+    </p>
+    <p>
+        In particle motion, position is related to velocity and acceleration through differential equations. 
+        Velocity and acceleration are then connected to position by integrals:
+        If \(t\) is time, \(s(t)\) is position, \(v(t)\) is velocity, and \(a(t)\) is acceleration, then
+        <ul>
+            <li>
+                \(v(t) = \int a(t) \di t.\)
+            </li>
+            <li>
+                \(s(t) = \int v(t) \di t.\)
+            </li>
+        </ul>
+    </p>
+    <p>
+        To solve problems with freefalling objects, select an axis orientation. 
+        It is logical to let the upward direction be the positive direction.
+        In these cases a falling object's acceleration is \(-9.8 \undiv{m}{sec}^2,\) 
+        or \(-32 \undiv{ft}{sec}^2.\)
+        Note the following:
+        <ul>
+            <li id="remark-1">
+                <i>Remark 1.</i> An object <i>dropped</i> from rest has an initial velocity of \(0.\)
+            </li>
+            <li id="remark-2">
+                <i>Remark 2.</i> When an object hits the ground, its final velocity is 
+                <span class="warning">not \(0.\)</span>
+                We take the object's final velocity to be the velocity 
+                <i>the instant before</i> it hits the ground.
+            </li>
+            <li id="remark-3">
+                <i>Remark 3.</i> An object that is thrown upward reaches its maximum height when its velocity is \(0.\)
+            </li>
+        </ul>
+    </p>
+</div>

@@ -1,0 +1,275 @@
+<section>
+    <div>
+        What is the difference between a sequence and a series? 
+        Provide an example of each.
+    </div>
+    <span>
+        A sequence is a <i>list</i> of numbers—for example, 
+        \[\{1, 2, 3, \dots\} \pd\]
+        A series is a <i>sum</i> of numbers—for example, 
+        \[1 + 2 + 3 + \cdots \pd\]
+    </span>
+</section>
+<section>
+    <p>GRID</p>
+    <p class="columns">2</p>
+    <p class="directions">write the formula \(a_n\) starting at \(n = 0\) that models each sequence</p>
+
+    <div>
+        \(\{1, 3, 5, 7, \dots \}\)
+    </div>
+    <span>
+        Each term is an increment by \(2.\)
+        If \(n\) starts at \(0,\) then the sequence is represented by 
+        \[a_n = \boxed{1 + 2n}\]
+    </span>
+
+    <div>
+        \(\{2, 6, 18, 54, \dots\}\)
+    </div>
+    <span>
+        Each term is \(3\) times its preceding term. 
+        Thus, 
+        \[a_n = \boxed{2(3)^n}\]
+    </span>
+
+    <div>
+        \(\ds \left\{\frac{2}{3}, -\frac{3}{4}, \frac{4}{5}, -\frac{5}{6}, \dots \right\}\)
+    </div>
+    <span>
+        If \(n\) increases by \(1,\) then 
+        each term's numerator and denominator both increase by \(1.\) 
+        We must also account for each term's alternating sign. 
+        The correct choice of \(a_n\) is 
+        \[a_n = \boxed{\frac{2 + n}{3 + n} (-1)^n}\]
+    </span>
+
+    <div>
+        \(\ds \left\{\frac{1}{2}, -\frac{2}{3}, \frac{3}{4}, -\frac{4}{5}, \dots \right\}\)
+    </div>
+    <span>
+        If \(n\) increases by \(1,\) then each term's numerator and denominator both increase by \(1.\)
+        The sign of each term alternates. 
+        We therefore have 
+        \[a_n = \boxed{\frac{1 + n}{2 + n} (-1)^n}\]
+    </span>
+</section>
+<section>
+    <p>GRID</p>
+    <p class="columns">2</p>
+    <p class="directions">find the value to which the sequence converges or state that it diverges</p>
+
+    <div>
+        \(\{-2, 2, -2, 2, \dots\}\)
+    </div>
+    <span>
+        The terms of the sequence alternate and never settle to any final value.
+        Thus, the sequence diverges. 
+    </span>
+
+    <div>
+        \(\ds \left\{\frac{n - 2}{n + 5} \right\} \subsuper{1}{\infty}\)
+    </div>
+    <span>
+        We take the limit as \(n \to \infty\) of the \(n\)th term:
+        \[\lim_{n \to \infty} \frac{n - 2}{n + 5} = 1 \pd\]
+        Therefore, the sequence converges to \(1.\)
+    </span>
+
+    <div>
+        \(\ds \{0, -3, -6, -9, \dots\}\)
+    </div>
+    <span>
+        As \(n \to \infty,\) the terms of the sequence approach \(-\infty.\)
+        Thus, the sequence diverges.
+    </span>
+
+    <div>
+        \(\ds \{b_n\} \subsuper{0}{\infty} \cma b_n = \frac{n^2 + 4n - 8}{3n^4 + 5}\)
+    </div>
+    <span>
+        We find 
+        \[\lim_{n \to \infty} b_n = \lim_{n \to \infty} \frac{n^2 + 4n - 8}{3n^4 + 5} = 0 \pd\]
+        Thus, sequence \(\{b_n\}\) converges to \(0.\)
+    </span>
+
+    <div>
+        \(\ds \{a_n\} \subsuper{1}{\infty} \cma a_n = \frac{n^3 - 8n^2 + 12n - 5}{9n^2 + 5n - 12}\)
+    </div>
+    <span>
+        We find 
+        \[\lim_{n \to \infty} \frac{n^3 - 8n^2 + 12n - 5}{9n^2 + 5n - 12} = \infty \pd\]
+        Since \(\{a_n\}\) does not approach any value, 
+        the sequence diverges.
+    </span>
+
+    <div>
+        \(\ds \left\{\frac{3}{4}, \frac{9}{16}, \frac{27}{64}, \frac{81}{256}, \dots\right\}\)
+    </div>
+    <span>
+        The general term of this sequence is 
+        \[a_n = \par{\frac{3}{4}}^n \cma\]
+        starting from \(n = 1.\)
+        Then \(\lim_{n \to \infty} a_n = 0,\)
+        so the sequence converges to \(0.\)
+    </span>
+</section>
+<section>
+    <p>GRID</p>
+    <p class="columns">2</p>
+    <p class="directions">determine whether the Divergence Test establishes divergence for the series</p>
+
+    <div>
+        \(\ds \sum_{n = 2}^\infty \frac{2n^2}{5n^2 + 11n - 7}\)
+    </div>
+    <span>
+        We see 
+        \[\lim_{n \to \infty} \frac{2n^2}{5n^2 + 11n - 7} = \frac{2}{5} \pd\]
+        This limit doesn't equal \(0,\) 
+        so the Divergence Test states that \(\sum_{n = 2}^\infty \frac{2n^2}{5n^2 + 11n - 7}\) diverges.
+    </span>
+
+    <div>
+        \(\ds \sum_{n = 0}^\infty \cos n\)
+    </div>
+    <span>
+        The function \(\cos n\) oscillates continuously as \(n \to \infty,\)
+        never settling to any final value. 
+        The limit \(\lim_{n \to \infty} \cos n\) therefore does not exist. 
+        So the Divergence Test asserts that the sum diverges. 
+    </span>
+
+    <div>
+        \(\ds \sum_{n = 1}^\infty e^n \cdot 3^{-n}\)
+    </div>
+    <span>
+        We rewrite the series as 
+        \[\sum_{n = 1}^\infty \par{\frac{e}{3}}^n \pd\]
+        Then  
+        \[\lim_{n \to \infty} \par{\frac{e}{3}}^n = \lim_{n \to \infty} \frac{e^n}{3^n} = 0 \pd\]
+        [The denominator's base in \((e/3)^n\) is greater than the numerator's,
+        so the denominator grows faster and thus forces the limit to \(0.\)]
+        Because this limit is \(0,\) 
+        the Divergence Test is 
+        <b>inconclusive</b>.
+    </span>
+
+    <div>
+        \(\ds 2 + \frac{1}{2} + \frac{1}{8} + \frac{1}{32} + \cdots\)
+    </div>
+    <span>
+        The sum can be expressed in summation notation as 
+        \[\sum_{n = 0}^\infty 2 \par{\frac{1}{4}}^n \pd\]
+        We see 
+        \[\lim_{n \to \infty} 2 \par{\frac{1}{4}}^n = \lim_{n \to \infty} \frac{2}{4^n} = 0 \pd\]
+        Thus, the Divergence Test is <b>inconclusive</b>.
+    </span>
+
+    <div>
+        \(\ds \sum_{n = 1}^\infty \frac{n!}{n^{1234567890}}\)
+    </div>
+    <span>
+        It is a fact that factorials grow faster than do exponential functions. 
+        Thus, 
+        \[\lim_{n \to \infty} \frac{n!}{n^{1234567890}} = \infty \pd\]
+        Since this limit doesn't equal \(0,\) the sum diverges.
+    </span>
+</section>
+<section>
+    <div>
+        <label class="true-or-false"></label> If \(\lim_{n \to \infty} a_n = 0,\) 
+        then \(\sum a_n\) converges.
+    </div>
+    <span>
+        This statement is false. 
+        The Divergence Test asserts that \(\sum a_n\) <i>diverges</i>
+        if \(\lim_{n \to \infty} a_n \ne 0;\)
+        the test stands silent when \(\lim_{n \to \infty} = 0.\)
+    </span>
+
+    <div>
+        <label class="true-or-false"></label> If \(\{a_n\}\) 
+        diverges, then \(\sum a_n\) also diverges.
+    </div>
+    <span>
+        This statement is true. 
+        If \(\{a_n\}\) diverges, then \(\lim_{n \to \infty} a_n\) does not exist. 
+        The Divergence Test states that \(\sum a_n\) <i>diverges</i>
+        if \(\lim_{n \to \infty} a_n \ne 0.\)
+    </span>
+
+    <div>
+        <label class="true-or-false"></label> If \(\{a_n\}\) 
+        converges, then \(\sum a_n\) also converges.
+    </div>
+    <span>
+        This statement is false. 
+        If \(\{a_n\}\) converges, then \(\lim_{n \to \infty} a_n\) 
+        equals a finite value. 
+        But this says nothing about \(\sum a_n \col\)
+        If \(\lim_{n \to \infty} a_n \ne 0,\)
+        then the Divergence Test states that \(\sum a_n\) <i>diverges</i>.
+        And if \(\lim_{n \to \infty} a_n,\)
+        then the test is <i>inconclusive</i>.
+        For example, the sequence 
+        \[\{1, 1, 1, \dots\}\]
+        converges to \(1.\)
+        But the sum 
+        \[1 + 1 + 1 + \cdots\]
+        diverges.
+    </span>
+
+    <div>
+        Consider the family of sums 
+        \[S = \sum_{n = 1}^\infty a_n + \sum_{n = 1}^\infty b_n \pd\]
+        <ol class="list-alpha">
+            <li>
+                Find formulas for \(a_n\) and \(b_n\) such that 
+                \(\sum_{n = 1}^\infty a_n\) and \(\sum_{n = 1}^\infty b_n\) 
+                both diverge 
+                and \(S\) diverges. 
+            </li>
+            <li>
+                Find formulas for \(a_n\) and \(b_n\) such that 
+                \(\sum_{n = 1}^\infty a_n\) and \(\sum_{n = 1}^\infty b_n\) 
+                both diverge 
+                and \(S\) converges. 
+            </li>
+        </ol>
+    </div>
+    <span>
+        <ol class="list-alpha">
+            <li>
+                If \(a_n = n\) and \(b_n = n,\) then both 
+                \[\sum_{n = 1}^\infty a_n \and \sum_{n = 1}^\infty b_n\]
+                diverge by the Divergence Test because 
+                both \(\lim_{n \to \infty} a_n\) and \(\lim_{n \to \infty} b_n\) approach \(\infty.\)
+                Then
+                \[S = \sum_{n = 1}^\infty n + \sum_{n = 1}^\infty n \pd\]
+                The terms of \(S\) are 
+                \[\par{1 + 2 + 3 + \cdots} + \par{1 + 2 + 3 + \cdots} \cma\]
+                a clearly divergent series.
+                Thus, \(a_n = n\) and \(b_n = -n\)
+                represent <i>one</i> satisfactory option. 
+            </li>
+            <hr>
+            <li>
+                If \(a_n = n\) and \(b_n = -n,\) then both 
+                \[\sum_{n = 1}^\infty a_n \and \sum_{n = 1}^\infty b_n\]
+                diverge by the Divergence Test because 
+                both \(\lim_{n \to \infty} a_n\) and \(\lim_{n \to \infty} b_n\) are unbounded and therefore do not equal \(0.\)
+                These choices of \(a_n\) and \(b_n\) show 
+                \[
+                \ba 
+                S &= \sum_{n = 1}^\infty n + \sum_{n = 1}^\infty (-n) \nl 
+                &= \sum_{n = 1}^\infty n - \sum_{n = 1}^\infty n \nl 
+                &= 0 \pd 
+                \ea
+                \]
+                So \(S\) is convergent. 
+                Thus, \(a_n = n\) and \(b_n = -n\)
+                represent <i>one</i> satisfactory option. 
+            </li>
+        </ol>
+    </span>
+</section>

@@ -1,0 +1,292 @@
+<section>
+    <p>GRID</p>
+    <p class="columns">2</p>
+    <p class="directions">evaluate the infinite geometric series or show that it diverges</p>
+
+    <div>
+        \(\ds \sum_{n = 0}^\infty \left(\frac{1}{2}\right)^n \) 
+    </div>
+    <span>
+        This series has common ratio \(r = 1/2.\) 
+        Since \(|r| \lt 1,\) the sum converges.
+        The series starts at \(n = 0,\) so the first term is \((1/2)^0 = 1.\)
+        So the value of the sum is 
+        \[
+        \frac{1}{1 - \tfrac{1}{2}} = \boxed{2}
+        \]
+    </span>
+
+    <div>
+        \(\ds \sum_{n = 1}^\infty \left(\frac{2}{3}\right)^n \) 
+    </div>
+    <span>
+        We find the common ratio to be \(r = 2/3.\)
+        The magnitude of \(r\) is less than \(1,\) so the infinite geometric series is convergent. 
+        The first term in the sum is \((2/3)^1 = 2/3.\)
+        Thus, the sum is 
+        \[\frac{2/3}{1 - \tfrac{2}{3}} = \boxed{2}\]
+    </span>
+
+    <div>
+        \(\ds \sum_{n = 0}^\infty \frac{3}{5^n} \) 
+    </div>
+    <span>
+        At first glance, the series does not appear to be geometric.
+        But we rewrite the series as 
+        \[3 \sum_{n = 0}^\infty \par{\frac{1}{5}}^n \cma \]
+        which we easily identify as a geometric series of common ratio \(r = 1/5.\)
+        The first term in the series is \(3 \par{\frac{1}{5}}^0 = 3.\)
+        Thus, the sum of the series is 
+        \[\frac{3}{1 - \tfrac{1}{5}} = \boxed{\frac{15}{4}}\]
+    </span>
+
+    <div>
+        \(\ds \sum_{n = 0}^\infty \frac{5^n}{e^{n + 1}} \)
+    </div>
+    <span>
+        We rewrite the series as 
+        \[\sum_{n = 0}^\infty \frac{5^n}{e^n \, e} = \frac{1}{e} \sum_{n = 0}^\infty \par{\frac{5}{e}}^n \pd\]
+        The common ratio is \(r = 5/3,\) which is greater than \(1.\)
+        Therefore, the series <u>diverges</u>.
+    </span>
+
+    <div>
+        \(\ds 3 - \frac{3}{5} + \frac{3}{25} - \frac{3}{125} + \cdots \)
+    </div>
+    <span>
+        We identify the series as geometric with common ratio \(r = 1/5.\)
+        The first term is \(3,\) so the sum is 
+        \[\frac{3}{1 - \tfrac{1}{5}} = \boxed{\frac{15}{4}}\] 
+    </span>
+
+    <div>
+        \(\ds 2 \pi + 2 \pi^2 + 2 \pi^3 + 2 \pi^4 + \cdots \) 
+    </div>
+    <span>
+        This series is geometric with common ratio \(r = \pi.\)
+        Because \(r \gt 1,\) the series is <u>divergent</u>.
+    </span>
+
+    <div>
+        \(\ds \sum_{n = 0}^\infty \frac{e^{n + 3}}{\pi^n} \) 
+    </div>
+    <span>
+        We rewrite the series as 
+        \[\sum_{n = 0}^\infty \frac{e^n \, e^3}{\pi^n} = e^3 \sum_{n = 0}^\infty \par{\frac{e}{\pi}}^n \cma\]
+        a geometric series with common ratio \(r = e/\pi.\)
+        Note that \(-1 \lt r \lt 1,\) so the series is convergent.
+        The first term of the series is \(e^3 \par{\frac{e}{\pi}}^0 = e^3.\)
+        Thus, the sum is 
+        \[\frac{e^3}{1 - \tfrac{e}{\pi}} = \boxed{\frac{\pi e^3}{\pi - e}}\]
+    </span>
+
+    <div>
+        \(\ds \sum_{n = 0}^\infty \frac{2^{3n - 1}}{7^n} \) 
+    </div>
+    <span>
+        The series is equivalent to 
+        \[\sum_{n = 0}^\infty \frac{2^{3n} \cdot 2^{-1}}{7^n} = \frac{1}{2} \sum_{n = 0}^\infty \frac{8^n}{7^n} \pd\]
+        We identify that the common ratio is \(r = 8/7.\)
+        Since \(r \gt 1,\) the series <u>diverges</u>.
+    </span>
+
+    <div>
+        \(\ds \sum_{n = 0}^\infty \frac{5^{2n}}{e^{n + 1}} \) 
+    </div>
+    <span>
+        We rewrite the series as 
+        \[\sum_{n = 0}^\infty \frac{25^n}{e^n \cdot e} \pd\]
+        We see \(r = 25/e,\) which is greater than \(1.\)
+        Therefore, the series <u>diverges</u>.
+    </span>
+
+    <div>
+        \(\ds \frac{2}{3} - \frac{2 e}{9} + \frac{2 e^2}{27} - \frac{2e^3}{81} + \cdots \)
+    </div>
+    <span>
+        If you find it difficult to identify the common ratio of a known geometric series, 
+        then you may divide a term by its preceding term. 
+        For example, dividing the second term by the first term shows  
+        \[r = \frac{-2e/9}{2/3} = -\frac{e}{3} \pd\]
+        The first term is \(2/3,\) so the sum is 
+        \[
+        \frac{2/3}{1 - \par{-\tfrac{e}{3}}} = \boxed{\frac{2}{3 + e}}
+        \]
+    </span>
+</section>
+<section>
+    <p>GRID</p>
+    <p class="columns">3</p>
+    <p class="directions">determine the values of \(k\) for which the geometric series converges</p>
+
+    <div>
+        \(\ds \sum_{n = 1}^\infty \left(\frac{2k}{3}\right)^n \) 
+    </div>
+    <span>
+        We identify the common ratio to be \(r = 2k/3.\)
+        We require \(-1 \lt r \lt 1,\) so the series converges for 
+        \[
+        \boxed{-\tfrac{3}{2} \lt \; k \lt \tfrac{3}{2}}
+        \]
+    </span>
+
+    <div>
+        \(\ds \sum_{n = 0}^\infty \frac{k^n}{3^{n + 2}} \) 
+    </div>
+    <span>
+        Rewriting the series as 
+        \[\sum_{n = 0}^\infty \frac{k^n}{3^n \, e^2} = \frac{1}{e^2} \sum_{n = 0}^\infty \par{\frac{k}{3}}^n \cma\]
+        we find the common ratio to be \(r = k/3.\)
+        We need \(-1 \lt r \lt 1,\) so 
+        \[\boxed{-3 \lt k \lt 3}\]
+    </span>
+
+    <!-- <div>
+        \(\ds \sum_{n = 1}^\infty \left(k^2 - 6k + 10\right)^n \)
+    </div>
+    <span>
+        We identify the common ratio to be \(r = k^2 - 6k + 10.\)
+        This quantity needs to be between \(-1\) and \(1\) (exclusive), so we obtain 
+
+    </span> -->
+<!-- 
+    <div>
+        \(\ds \sum_{n = 0}^\infty \left(\frac{2k}{k - 8}\right)^n \)
+    </div>
+    <span>
+        The common ratio is \(r = 2k/(k - 8),\)
+        which must satisfy \(-1 \lt r \lt 1.\)
+        Thus, 
+    </span> -->
+
+    <!-- <div>
+        \(\ds \sum_{n = 0}^\infty \left(\frac{2}{k^2 - 8k + 16}\right)^n \)
+    </div>
+    <span></span>
+
+    <div>
+        \(\ds \sum_{n = 10}^\infty \left(\frac{k}{2k + 3}\right)^n \) 
+    </div>
+    <span>
+
+    </span> -->
+</section>
+<section>
+    <p>GRID</p>
+    <p class="columns">3</p>
+    <p class="directions">express the repeating decimal as a fraction</p>
+    <!-- <div> 
+        \(\ds 0.387\overline{2} \) 
+    </div>
+    <span></span> -->
+
+    <div>
+        \(\ds 0.\overline{4} \)  
+    </div>
+    <span>
+        The series representation of the repeating decimal is 
+        \[\frac{4}{10} \par{1 + \frac{1}{10} + \frac{1}{100} + \frac{1}{1000} + \cdots} \cma\]
+        a geometric series of common ratio \(r = 1/10.\)
+        The first term of the series is \(4/10,\) so the sum is 
+        \[\frac{4/10}{1 - \tfrac{1}{10}} = \boxed{\frac{4}{9}}\]
+    </span>
+
+    <div>
+        \(\ds 4.\overline{3}\)
+    </div>
+    <span>
+        We express the decimal as \(4 + 0.\overline{3}.\)
+        We write the latter term as 
+        \[3 \par{\frac{1}{10} + \frac{1}{100} + \frac{1}{1000} + \cdots} \pd\]
+        This series has common ratio \(r = 1/10\) and first term \(3/10,\)
+        and therefore sums to 
+        \[\frac{3/10}{1 - \tfrac{1}{10}} = \frac{1}{30} = \frac{1}{3} \pd\]
+        We add this value to \(4\) to obtain 
+        \[4 + \frac{1}{3} = \boxed{\frac{13}{3}}\]
+    </span>
+
+    <div>
+        \(\ds 5.3\overline{2} \)
+    </div>
+    <span>
+        The repeating decimal is the same as \(5.3 + 0.0\overline{2}.\)
+        We express \(0.0\overline{2}\) as 
+        \[2\par{\frac{1}{100} + \frac{1}{1000} + \frac{1}{10000} + \cdots} \cma \]
+        a geometric series of common ratio \(r = 1/10\) and first term \(2/100.\)
+        We therefore find 
+        \[0.0\overline{2} = \frac{2/100}{1 - \tfrac{1}{10}} = \frac{2}{90} = \frac{1}{45} \pd\]
+        The decimal \(5.3\) is \(5 + \tfrac{3}{10} = \tfrac{53}{10}.\)
+        The repeating decimal \(5.3\overline{2}\) is then 
+        \[\frac{53}{10} + \frac{1}{45} = \boxed{\frac{479}{90}}\]
+
+    </span>
+<!-- 
+    <div>
+        \(\ds 6.23\overline{1} \)
+    </div>
+    <span></span> -->
+
+    <div>
+        \(\ds 2.8\overline{5} \)
+    </div>
+    <span>
+        Note that the decimal is equivalent to \(2.8 + 0.0\overline{5}.\)
+        We write \(0.0\overline{5}\) as 
+        \[5 \par{\frac{1}{100} + \frac{1}{1000} + \frac{1}{10000} + \cdots} \cma\]
+        a geometric series of common ratio \(r = 1/10\) and first term \(5/100.\)
+        Its sum is then 
+        \[\frac{5/100}{1 - \tfrac{1}{10}} = \frac{5}{90} = \frac{1}{18} \pd\]
+        We write \(2.8\) as \(28/10 = 14/5,\) 
+        so \(2.8\overline{5}\) equals 
+        \[\frac{14}{5} + \frac{1}{18} = \boxed{\frac{257}{90}}\]
+    </span>
+
+    <div>
+        \(\ds 4.6\overline{7} \) 
+    </div>
+    <span>
+        We split the decimal as \(4.6 + 0.0\overline{7}.\)
+        The piece \(0.0\overline{7}\) is equivalent to 
+        \[7 \par{\frac{1}{100} + \frac{1}{1000} + \frac{1}{10000} + \cdots} \cma\]
+        an infinite geometric series of common ratio \(r = 10\) and first term \(7/100.\)
+        It therefore has sum 
+        \[\frac{7/100}{1 - \tfrac{1}{10}} = \frac{7}{90} \pd\]
+        We add this value to \(4.6 = 46/10,\) getting 
+        \[\frac{46}{10} + \frac{7}{90} = \boxed{\frac{421}{90}}\]
+    </span>
+</section>
+<section>
+    <div>
+        A bouncy ball is dropped from \(100\) feet.
+        Each time the ball hits the floor, it rebounds to one-third of the height from which it fell. 
+        What is the total vertical distance the ball travels?
+    </div>
+    <span>
+        When the ball is initially dropped, it travels \(100\) feet. 
+        On the first rebound, it travels up \(100/3\) feet before falling back down \(100/3\) feet—thus 
+        traveling a total distance of \(200/3\) feet. 
+        The total distance the ball travels from rebounds is then 
+        \[2 \par{\frac{100}{3} + \frac{100}{9} + \frac{100}{27} + \cdots} \cma\]
+        a geometric series of common ratio \(r = 1/3\) and first term \(200/3.\)
+        Its sum is therefore 
+        \[\frac{200/3}{1 - \tfrac{1}{3}} = 100 \un{feet}.\]
+        Since the ball was initially dropped from \(100 \un{feet},\)
+        the total distance thr ball travels is \(\boxed{200 \un{feet}.}\)
+    </span>
+
+    <div>
+        Suppose that the citizens of a country, on average, spend \(70\) percent of their income and save \(30\) percent.
+        Because money changes hands indefinitely, the government can spend \(x\) dollars to generate  
+        \[x + 0.7x + (0.7)^2 x + (0.7)^3 x + \cdots\]
+        dollars of economic activity. 
+        How much money must the government spend to generate \(\$60\) billion of economic activity?
+    </div>
+    <span>
+        We must solve for \(x\) in 
+        \[x + 0.7x + (0.7)^2x + (0.7)^3 x + \cdots = 60 \pd\]
+        (For simplicity we let \(x\) be in billions.)
+        The left-hand side is an infinite geometric series of common ratio \(r = 0.7\) and first term \(x,\)
+        so its sum is 
+        \[\frac{x}{1 - 0.7} = \]
+    </span>
+</section>

@@ -1,0 +1,689 @@
+<!--[[[crefId.Optimization]]]-->
+<p>
+    Optimization is the process by which a quantity of interest is maximized or minimized. 
+    It is a mathematical procedure that applies absolute extrema to real-world problems.
+    The emphasis on efficiency in the everyday world cultivates the need for optimization in a wide range of applications, 
+    including geometry, finance, and science.
+    Examples of optimization problems include maximizing volume, 
+    minimizing surface area, minimizing materials used, minimizing time, and maximizing profit.  
+    In this section, we explore the strategy to solve these problems and see their diverse uses.
+</p>
+
+<p>
+    Often, the most difficult step is understanding the problem and setting up equations. 
+    Let's introduce some general problem-solving steps for optimization problems.
+</p>
+
+<!-- table for problem-solving steps -->
+<div class="steps-title"> SOLVING OPTIMIZATION PROBLEMS </div>
+<div class="steps">
+    <ol class="list-num">
+        <li>
+            <i>Understand.</i> Understand the situation by drawing diagrams and testing various possibilities. 
+        </li>
+        <li>
+            <i>Notation.</i> Assign a variable—say, \(Q\)—to the quantity to maximize or minimize.
+            Introduce notation by assigning algebraic quantities to unknown values. 
+            It is helpful to use suggestive variables, such as \(A\) for area, \(d\) for distance, and \(L\) for length.
+        </li>
+        <li>
+            <i>Express.</i> Express \(Q\) in terms of one variable—say, \(x\)—to obtain \(Q(x).\)
+        </li>
+        <li>
+            <i>Minimize or Maximize.</i> Use calculus 
+            to to find the absolute minimum or maximum of \(Q(x).\)  
+            Find the critical numbers of \(Q\) and consider the endpoints of the domain in context.
+        </li>
+    </ol>
+</div>
+
+<p>
+    The First Derivative Test and the Second Derivative Test allow us to determine
+    whether a critical number corresponds to a <i>relative</i> minimum or maximum. 
+    To locate the <i>absolute</i> minimum or maximum,
+    first establish the domain of \(Q.\) 
+    For example, if \(Q(x)\) represents area, then no side length \(x\) can 
+    result in a negative value of \(Q.\) 
+    Afterward, consider the endpoints or end behavior of the domain.
+    Analyze extreme cases: 
+    What happens to \(Q(x)\) if \(x\) is made as small as possible?
+    What happens if \(x\) is made as large as possible?
+</p>
+
+<!-- 1st derivative test -->
+<div class="box-title"> FIRST DERIVATIVE TEST </div>
+<div class="box">
+    Let \(x = a\) be the location of a critical point of \(f(x).\)
+    <ol class="list-alpha">
+        <li>
+            If \(f'(x)\) changes sign from positive to negative at \(x = a,\) 
+            then \(f(a)\) is a relative maximum of \(f.\)
+        </li>
+        <li>
+            If \(f'\) changes sign from negative to positive at \(x = a,\) 
+            then \(f(a)\) is a relative minimum of \(f.\)
+        </li>
+        <li>
+            If \(f'\) does not change sign at \(x = a,\)
+            then \(f(a)\) is 
+            <span class="warning">not</span> 
+            a relative extremum of \(f.\)
+        </li>
+    </ol>
+</div>
+
+<br>
+
+<!-- 2nd derivative test -->
+<div class="box-title"> SECOND DERIVATIVE TEST </div>
+<div class="box">
+    Let \(x = a\) be the location of a critical point of \(f.\)
+    <ol class="list-alpha">
+        <li>
+            If \(f''(a) \gt 0,\) then \(f(a)\) is a relative minimum of \(f.\) 
+        </li>
+        <li>
+            If \(f''(a) \lt 0,\) then \(f(a)\) is a relative maximum of \(f.\) 
+        </li>
+        <li>
+            If \(f''(a) = 0,\) then the test is <span class="warning">inconclusive.</span>
+        </li>
+    </ol>
+</div>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        The sum of two numbers \(a\) and \(b\) is \(14.\) 
+        Find the values of \(a\) and \(b\) such that their product, \(P,\) is maximized. 
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"></button>
+<div id="solution1" class="solution">
+    <p>
+        <figure class="optimization-ex-product" id="optimization-ex-product">
+            <img src="../images/sectionImages/optimization-ex-product.jpg" alt="optimization-ex-product.jpg">
+        </figure>
+        <style>
+            .optimization-ex-product::before{
+                content:'FIGURE 1';
+            }
+        </style>
+        To understand the problem, we experiment with some possibilities: 
+        <ul>
+            <li>
+                If \(a = 13\) and \(b = 1,\) then their product is \(P = 13.\)
+            </li>
+            <li>
+                If \(a = 12\) and \(b = 2,\) then their product is \(P = 24.\)
+            </li>
+            <li>
+                If \(a = 11\) and \(b = 3,\) then their product is \(P = 33.\)
+            </li>
+        </ul>
+    </p>
+    <p>
+        We want to find \(a\) and \(b\) that maximize the product \(P = ab\) 
+        and adhere to the condition \(a + b = 14.\) 
+        Since \(a\) and \(b\) add to \(14,\)
+        \begin{equation}
+            a + b = 14 \pd \label{eq:product-step-1}
+        \end{equation}
+        We want to <i>maximize</i>
+        \begin{equation}
+            P = ab \pd \label{eq:product-step-2}
+        \end{equation}
+        Our goal is to express \(P\) in terms of one variable—for example, \(a.\)
+        From \(\eqRefer{eq:product-step-1},\) we find \(b = 14 - a.\)
+        We substitute this expression into \(\eqRefer{eq:product-step-2}\) 
+        to get 
+        \[P = a(14 - a) = 14a - a^2 \pd\]
+        We may now write \(P\) as \(P(a).\) 
+        We find the critical numbers of \(P(a)\) by solving \(P'(a) = 0 \col\) 
+        \[
+        \ba 
+        P'(a) = 14 - 2a &= 0 \nl
+        \implies a &= 7 \pd 
+        \ea 
+        \]
+        For \(a \lt 7,\) \(P' \gt 0;\) 
+        for \(a \gt 7,\) \(P' \lt 0.\)
+        Since \(P'(a)\) changes sign from positive to negative at \(a = 7,\) 
+        the First Derivative Test states that \(a = 7\) is the location of a <i>relative</i> maximum of \(P.\)
+        Also note the following:
+        <ul>
+            <li>
+                If \(a \lt 0,\) then \(b \gt 0\) and \(P \lt 0.\) 
+            </li>
+            <li>
+                If \(a \gt 14,\) then \(b \lt 0\) and \(P \lt 0.\) 
+            </li>
+        </ul>
+        Thus, \(a = 7\) must also correspond to the <i>absolute</i> maximum of \(P\)
+        (see <a href="#optimization-ex-product">Figure 1</a>).
+        If \(a = 7,\) then 
+        \[b = 14 - 7 = 7\] and \(P = 7 \cdot 7 = 49.\) 
+        So \(\boxed{a = 7}\) and \(\boxed{b = 7}\)
+        maximize the product \(P.\)
+    </p>
+</div>
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        A farmer has \(40\) feet of fence to build a closed, rectangular pen for her pumpkin farm. 
+        She uses the side of her barn as one side of the pen. 
+        What dimensions should she make the pen to maximize its area? 
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"> </button>
+<div id="solution2" class="solution">
+    <p>
+        <figure class="optimization-ex-farmer-pen" id="optimization-ex-farmer-pen">
+            <img src="../images/sectionImages/optimization-ex-farmer-pen.jpg" alt="optimization-ex-farmer-pen.jpg">
+        </figure>
+        <style>
+            .optimization-ex-farmer-pen::before{
+                content:'FIGURE 2';
+            }
+        </style>
+        We create a sketch of the scenario (<a href="#optimization-ex-farmer-pen">Figure 2</a>).
+        Let \(w\) denote the pen's width and \(\ell\) denote the pen's length. 
+        Also let \(A\) be the area of the pen. 
+        These suggestive variables help us avoid confusion.
+    </p>
+    <p>
+        Let's construct a system of equations. The equation for the pen's perimeter is 
+        \begin{equation}
+            2w + \ell = 40 \pd \label{eq:farmer-1}
+        \end{equation}
+        We want to <i>maximize</i>
+        \begin{equation}
+            A = w \ell\ \pd \label{eq:farmer-2}
+        \end{equation}
+    </p>
+    <p>
+        Rearranging \(\eqRefer{eq:farmer-1}\) yields \(\ell = 40 - 2w,\) 
+        which we substitute into \(\eqRefer{eq:farmer-2}\) to acquire
+        \[ A = w \ell = w(40 - 2w) \pd\]
+        We now have a function of \(A\) composed solely of \(w,\)
+        so we may differentiate \(A\) to find its critical numbers: 
+        \[ 
+        \ba 
+        A'(w) = 40 - 4w &= 0 \nl 
+        \implies w &= 10 \pd 
+        \ea 
+        \]
+    </p>
+    <p>
+        <figure class="optimization-ex-farmer-graph" id="optimization-ex-farmer-graph">
+            <img src="../images/sectionImages/optimization-ex-farmer-graph.jpg" alt="optimization-ex-farmer-graph.jpg">
+        </figure>
+        <style>
+            .optimization-ex-farmer-graph::before{
+                content:'FIGURE 3';
+            }
+        </style>
+        The width must satisfy \(0 \leq w \leq 20;\) otherwise, \(A \lt 0.\) 
+        The <i>absolute</i> maximum either of \(A\) lies either at the endpoints of \(0 \leq w \leq 20\) or at its critical numbers.  
+        By the First Derivative Test, \(w = 10\) corresponds to a relative maximum of \(A\) since 
+        \(A'(w)\) switches sign from positive to negative at \(w = 10.\)
+        At \(w = 0\) and \(w = 20,\) \(A = 0\) because the pen collapses into a line. 
+        Thus, \(w = 10\) corresponds to the <i>absolute</i> maximum of \(A\) 
+        (<a href="#optimization-ex-farmer-graph">Figure 3</a>).   
+        For \(w = 10,\) we have \(\ell = 40 - 2(10) = 20.\)
+        Thus, a pen of dimensions \(20\) feet by \(10\) feet produces the maximum area, \(200\) square feet. 
+    </p>
+</div>
+
+<!--example 3-->
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">  
+        A can is designed to hold \(40\) cubic inches of water. 
+        Find the dimensions that minimize the materials used to manufacture the can. 
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button"> </button>
+<div id="solution3" class="solution">
+    <p>
+        <figure class="optimization-ex-can-diagram" id="optimization-ex-can-diagram">
+            <img src="../images/sectionImages/optimization-ex-can-diagram.jpg" alt="optimization-ex-can-diagram.jpg">
+        </figure>
+        <style>
+            .optimization-ex-can-diagram::before{
+                content:'FIGURE 4';
+            }
+        </style>
+        To understand the problem, 
+        we construct a picture (<a href="#optimization-ex-can-diagram">Figure 4</a>). 
+        Let \(r\) be the can's radius and \(h\) be its height.
+        The volume of the cylinder is then 
+        \begin{equation}
+            40 = \pi r^2 h \pd \label{eq:equation-cylinder-volume}
+        \end{equation}
+        We want to <i>minimize</i> the surface area:
+        \begin{equation}
+            S = 2 \pi r^2 + 2 \pi r h \pd \label{eq:equation-cylinder-SA}
+        \end{equation}
+        (To remember this formula, see that the bases of the can are circles of area \(\pi r^2,\) 
+        and a rectangular sheet of area \(2 \pi r h\) is wrapped around the can.)
+    </p>
+    <p>
+        We aim to express \(S\) in terms of one variable.
+        From \(\eqRefer{eq:equation-cylinder-volume},\) 
+        we have \(h = 40/(\pi r^2),\)
+        which we plug into \(\eqRefer{eq:equation-cylinder-SA}\) to get 
+        \[
+        \ba 
+        S &= 2 \pi r^2 + 2 \pi r \left(\frac{40}{\pi r^2}\right) \nl
+        &= 2 \pi r^2 + \frac{80}{r} \pd 
+        \ea 
+        \] 
+        We solve \(S'(r) = 0,\) as follows:  
+        \[
+        \ba 
+        S'(r) = 4 \pi r - \frac{80}{r^2} &= 0 \nl
+        \implies r &= \sqrt[3]{\frac{20}{\pi}} \pd \nl
+        \ea 
+        \]
+    </p>
+    <p>
+        <figure class="optimization-ex-can-graph" id="optimization-ex-can-graph">
+            <img src="../images/sectionImages/optimization-ex-can-graph.jpg" alt="optimization-ex-can-graph.jpg">
+        </figure>
+        <style>
+            .optimization-ex-can-graph::before{
+                content:'FIGURE 5';
+            }
+        </style>
+        For \(r \lt \sqrt[3]{20/\pi},\) \(S' \lt 0;\) for \(r \gt \sqrt[3]{20/\pi},\) \(S' \gt 0.\)
+        Since \(S'\) changes sign from negative to positive at \(r = \sqrt[3]{20/\pi},\) 
+        this value corresponds to a <i>relative</i> minimum of \(S\) by the First Derivative Test. 
+        Also, because \(\lim_{r \to 0^+} S(r) = \infty\) and \(\lim_{r \to \infty} S(r) = \infty,\)
+        there needs to be a minimum value of \(S(r),\) which must exist at the critical number 
+        (<a href="#optimization-ex-can-graph">Figure 5</a>).
+        So \(r = \sqrt[3]{20/\pi}\) corresponds to the <i>absolute</i> minimum of \(S.\) 
+        We then have \(r \approx 1.853 \un{in}\) and
+        \[h = \frac{40}{\pi (20/\pi)^{2/3}} \approx 3.707 \un{in} \pd\]
+        Thus, a can of radius \(1.853 \un{in}\) and height \(3.707 \un{in}\)
+        minimizes the materials used while holding the required volume.
+        With a radius of \(1.853 \un{in},\) the cylinder's diameter is \(3.707 \un{in}\)—the
+        same dimension as the height. 
+    </p>
+</div>
+
+<p>
+    In some situations, minimizing or maximizing the square of a function is more convenient. 
+    If \(f(x)\) has a relative minimum or maximum at \(x = a,\) then so does \(\sqrt{f(x)}.\) 
+    For example, 
+    \[p(x) = \sqrt{3 + (x - 2)^2} \and q(x) = 3 + (x - 2)^2\]
+    each have a relative minimum at \(x = 2.\)
+    This fact is convenient because we can choose to optimize the <i>square</i> 
+    of a function—a process that is sometimes easier.
+</p>
+
+<div class="example-title"> EXAMPLE 4 </div>
+<div class="example">
+    <div class="example-problem">  
+        Find two points on the parabola \(y = x^2\) that are closest to \((0, 1).\)
+    </div>
+</div>
+<button onclick="toggle4()" class="solution-button"></button>
+<div id="solution4" class="solution">
+    <figure class="optimization-ex-distance-sketch" id="optimization-ex-distance-sketch">
+        <img src="../images/sectionImages/optimization-ex-distance-sketch.jpg" alt="optimization-ex-distance-sketch.jpg">
+    </figure>
+    <style>
+        .optimization-ex-distance-sketch::before{
+            content:'FIGURE 6';
+        }
+    </style>
+    <p>
+        We sketch a picture of the situation (<a href="#optimization-ex-distance-sketch">Figure 6</a>).
+        Let \(d\) be this shortest distance. The Distance Formula then provides 
+        \begin{equation} 
+        d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \pd \label{eq:parabola-d}
+        \end{equation}
+        We have \((x_1, y_1)\) \(= (0, 1)\) 
+        and the point on the parabola, \((x_2, y_2)\) \(= (x, x^2).\)
+        Thus, \(\eqRefer{eq:parabola-d}\) becomes 
+        \[d = \sqrt{x^2 + (x^2 - 1)^2} \pd \]
+    </p>
+    <figure class="optimization-ex-distance-graph" id="optimization-ex-distance-graph">
+        <img src="../images/sectionImages/optimization-ex-distance-graph.jpg" alt="optimization-ex-distance-graph.jpg">
+    </figure>
+    <style>
+        .optimization-ex-distance-graph::before{
+            content:'FIGURE 7';
+        }
+    </style>
+    <p>
+        We need to find the critical numbers of \(d.\)
+        But \(d^2\) has the same critical numbers,
+        so we choose to optimize \(d^2\) for convenience:
+        Let \(q(x) = d^2.\) Then 
+        \[q(x) = x^2 + (x^2 - 1)^2 \cma\]
+        whose derivative is
+        \[q'(x) = 4x^3 - 2x \pd\]
+        Solving \(q'(x) = 0,\) we get 
+        \[
+        \ba 
+        4x^3 - 2x &= 0 \nl
+        2x(2x^2 - 1) &= 0 \nl
+        \implies x &= 0 \cma \tfrac{-1}{\sqrt 2} \cma \tfrac{1}{\sqrt 2} \pd 
+        \ea 
+        \]       
+        <aside class="box-remark">
+            If we differentiated \(d,\) then we would've gotten
+            \[d'(x) = \frac{2x(2x^2-1)}{\sqrt{x^4 - x^2 + 1}} \cma\]
+            which has the same zeros as \(q'(x),\) 
+            confirming that \(d\) and \(q(x) = d^2\) have the same critical numbers. 
+        </aside>
+    </p>
+    <p>
+        We see \(q'\) changes sign from positive to negative at \(x = 0,\)
+        so this value corresponds to a relative <i>maximum</i> of \(q.\) 
+        But we want to <i>minimize</i> \(q,\) so we ignore this critical number. 
+        Conversely, \(q'\) changes sign from negative to positive at both \(x = -1/\sqrt 2\) and \(x = 1/\sqrt 2.\) 
+        So both values are relative <i>minima</i> of \(q.\)
+        Because \(\lim_{x \to -\infty} q\) \(= \infty\) and \(\lim_{x \to \infty} q\) \(= \infty,\)  
+        the <i>absolute</i> minima of \(q\) (and therefore of \(d\)) 
+        must occur when \(x = -1/\sqrt 2\) and \(x = 1/\sqrt 2\) (<a href="#optimization-ex-distance-graph">Figure 7</a>).
+        At each value, 
+        \[y = \par{\frac{1}{\sqrt 2}}^2 = \frac{1}{2} \pd\]
+        Thus,  
+        \[\boxed{\par{\frac{-1}{\sqrt 2} \cma \frac{1}{2}}} \and \boxed{\par{\frac{1}{\sqrt 2} \cma \frac{1}{2}}}\]
+        are the closest points on \(y = x^2\) to \((0, 1).\)
+    </p>
+</div>
+
+<div class="example-title"> EXAMPLE 5 </div>
+<div class="example">
+    <div class="example-problem">   
+        Find the area of the largest rectangle that can be inscribed in the parabola 
+        \(y = 9 - x^2\) for \(-3 \leq x \leq 3.\)
+    </div>
+</div>
+<button onclick="toggle5()" class="solution-button"></button>
+<div id="solution5" class="solution">
+    <figure class="optimization-ex-inscribed-diagram" id="optimization-ex-inscribed-diagram">
+        <img src="../images/sectionImages/optimization-ex-inscribed-diagram.jpg" alt="optimization-ex-inscribed-diagram.jpg">
+    </figure>
+    <style>
+        .optimization-ex-inscribed-diagram::before{
+            content:'FIGURE 8';
+        }
+    </style>
+    <p>
+        The word <i>inscribed</i> means the rectangle has two vertices on the parabola and two vertices on the \(x\)-axis 
+        (<a href="#optimization-ex-inscribed-diagram">Figure 8</a>). 
+        Since the rectangle has length \(2x\) and height \(y,\) its area is 
+        \begin{equation}
+            A = 2xy \pd \label{eq:inscribe-area}
+        \end{equation}
+        But \(y = 9 - x^2,\) so \(\eqRefer{eq:inscribe-area}\) becomes  
+        \[A(x) = 2x(9 - x^2) \pd\]
+        We solve \(A'(x) = 0,\) finding
+        \[
+        \ba 
+        A'(x) = 18 - 6x^2 &= 0 \nl
+        \implies x &= \nspace -\sqrt 3 \cma \sqrt 3 \pd 
+        \ea 
+        \]
+        The domain of \(A(x)\) is \(0 \leq x \leq 3,\)
+        so we discard \(x = - \sqrt 3.\)
+        The value \(x = \sqrt 3\) corresponds to a <i>relative</i> maximum of \(A\) because 
+        \(A'\) changes sign from positive to negative at that point.
+        At each endpoint, \(A = 0\) since the rectangle collapses into a line.
+        Thus, \(x = \sqrt 3\) is the location of the <i>absolute</i> maximum of \(A.\)
+        Then \(y = 9 - (\sqrt 3)^2 = 6,\) so \(\eqRefer{eq:inscribe-area}\) gives the maximum area to be 
+        \[A = 2(\sqrt 3)(6) = \boxed{12 \sqrt 3}\]
+    </p>
+</div>
+
+<h4 id="optimization-in-business">Optimization in Business</h4>
+
+<p>
+    <span class="emph">Revenue</span>
+    is the amount of money a firm earns from sales. 
+    Revenue is the product of quantity and price.
+    Let \(x\) be the number of units sold. 
+    If \(R(x)\) is a firm's <i>revenue function</i> 
+    and \(p(x)\) is the firm's <i>price function</i>, then 
+    \[R(x) = x \, p(x) \pd\]
+    In many situations, \(p\) is a constant function because 
+    the price of each unit is the same. 
+    <span class="emph">Profit</span>
+    is the positive difference between revenue and cost.
+    If a firm produces \(x\) units, then its profit function \(P(x)\) is 
+    \[
+    \ba 
+    P(x) &= R(x) - C(x) \cma 
+    \ea 
+    \]
+    where \(R(x)\) is the <span class="emph">revenue function</span> and \(C(x)\) is the <span class="emph">cost function</span>.
+</p>
+
+<div class="example-title"> EXAMPLE 6 </div>
+<div class="example">
+    <div class="example-problem">  
+        Sydney operates a food truck in which she sells hot dogs for \(12\) dollars each. 
+        The cost, in dollars, of her producing \(x\) hot dogs is modeled by the function 
+        \[C(x) = 3000 - 100x + x^2 \pd\]
+        How many hot dogs should Sydney sell to maximize her profit from hot dog sales?
+        What are her profit and average cost at that output level? 
+    </div>
+</div>
+<button onclick="toggle6()" class="solution-button"></button>
+<div id="solution6" class="solution">
+    <p>
+        Profit is the positive difference between revenue and cost. 
+        The revenue function is \(12x\) and the cost function is \(C(x),\) so 
+        the profit function is 
+        \[
+        \ba 
+        P(x) &= 12x - (3000 - 100x + x^2) \nl 
+        &= -x^2 + 112x - 3000 \pd
+        \ea 
+        \]
+        We want to <i>maximize</i> \(P(x).\)
+        We find the critical numbers of \(P \col\)
+        \[
+        \ba 
+        P'(x) = -2x + 112 &= 0\nl 
+        \implies x &= 56 \pd \nl
+        \ea 
+        \]
+        For \(x \lt 56,\) \(P' > 0;\) for \(x \gt 56,\) \(P' \lt 0.\) 
+        So \(P\) has a <i>relative</i> maximum at \(x = 56.\) 
+        The domain of \(P(x)\) is \(x \geq 0.\)
+        At the endpoints \(P(0) = -3000\) and \(\lim_{x \to \infty} P(x) = -\infty.\) 
+        This analysis asserts that \(P\) has a maximum value, which must correspond to \(x = 56.\)
+        Sydney therefore should sell \(\boxed{56}\) hot dogs to maximize her profit. 
+    </p>
+</div>
+
+<div class="example-title"> EXAMPLE 7</div>
+<div class="example">
+    <div class="example-problem">  
+        A store sells makeup products. 
+        In a day, the store sells \(40\) eyeliner pencils if they are priced at \(\$10\) each.
+        For every \(\$2\) increase in price, the manager predicts that the store will sell \(4\) fewer pencils.
+        Determine the price of the pencils such that the store maximizes its revenue from eyeliner sales.
+    </div>
+</div>
+<button onclick="toggle7()" class="solution-button"></button>
+<div id="solution7" class="solution">
+    <p>
+        Let \(x\) be the number of dollars the store raises the price of eyeliner pencils. 
+        For every \(\$2\) increase in the pencil,
+        the price function is \((10 + 2x)\) and the quantity function is \((40 - 4x).\)
+        Revenue is the product of quantity and price, so we have
+        \[
+        \ba 
+        R(x) &= (40 - 4x)(10 + 2x) \nl
+        &= -8x^2 + 40x + 400 \pd
+        \ea 
+        \]
+        Its critical numbers are
+        \[
+        \ba 
+        R'(x) = -16x + 40 &= 0 \nl
+        x &= \tfrac{40}{16} = 2.5 \pd
+        \ea 
+        \]
+        For \(x \lt 2.5,\) \(R' \gt 0;\) for \(x \gt 2.5,\) \(R' \lt 0.\) 
+        Thus, the First Derivative Test states that \(x = 2.5\) 
+        corresponds to a <i>relative maximum</i> of \(R(x).\)
+        The domain of \(R(x)\) is \(x \geq 0,\) and we note the following:
+        <ul>
+            <li>
+                \(R(0) = 400.\)
+            </li>
+            <li>
+                \(R(2.5) = 450.\)
+            </li>
+            <li>
+                \(\ds \lim_{x \to \infty} R(x) = -\infty.\)
+            </li>
+        </ul>
+        Thus, \(x = 2.5\) corresponds to the <i>absolute maximum</i> of \(R(x).\) 
+        The store should raise the price of the eyeliner pencil by \(\boxed{\$2.5}.\) 
+    </p>
+</div>
+
+<div class="example-title"> EXAMPLE 8 </div>
+<div class="example">
+    <div class="example-problem">  
+        <figure class="optimization-ex-lifeguard-diagram" id="optimization-ex-lifeguard-diagram">
+            <img src="../images/sectionImages/optimization-ex-lifeguard-diagram.jpg" alt="optimization-ex-lifeguard-diagram.jpg">
+        </figure>
+        <style>
+            .optimization-ex-lifeguard-diagram::before{
+                content:'FIGURE 9';
+            }
+        </style>
+        A lifeguard on the shoreline runs to rescue a drowning swimmer
+        located \(20\) feet east of the lifeguard and \(8\) feet from the shoreline.
+        The lifeguard can run at \(10\) feet per second and swim at \(6\) feet per second.
+        She runs a distance \(x\) before jumping into the water and swimming to the drowning person 
+        (<a href="#optimization-ex-lifeguard-diagram">Figure 9</a>).
+        At what distance \(x\) should the lifeguard enter the water in order to minimize the time to rescue the swimmer?
+    </div>
+</div>
+<button onclick="toggle8()" class="solution-button"></button>
+<div id="solution8" class="solution">
+    <p>
+        We need to derive an expression for the time, \(t,\) the lifeguard takes to rescue the swimming person.
+        The distance she runs is \(x,\) and the distance she swims is \(\sqrt{(20 - x)^2 + 64}.\)
+        The relationship between time, distance, and speed is
+        \[\textrm{time} = \frac{\textrm{distance}}{\textrm{speed}} \pd\]
+        The lifeguard's speed is \(10\) feet per second onshore and \(6\) feet per second in water. 
+        Therefore, her time for the first part of the trip, running onshore, is   
+        \[t_1 = \frac{x}{10} \pd\]
+        Her time for the second part of the trip, swimming, is 
+        \[t_2 = \frac{\sqrt{(20 - x)^2 + 64}}{6} \pd\]
+        The total time, \(t,\) is the sum of these times:
+        \[
+        \ba 
+        t &= t_1 + t_2 \nl
+        &= \frac{x}{10} + \frac{\sqrt{(20 - x)^2 + 64}}{6} \pd
+        \ea 
+        \]
+        This expression is in terms of \(x,\) so we differentiate to locate its critical numbers:
+        \[
+        \ba 
+        t'(x) = \frac{1}{10} + \frac{x - 20}{6 \sqrt{x^2 - 40x + 464}} &= 0 \nl
+        \implies x &= 14 \pd
+        \ea 
+        \]
+        <figure class="optimization-ex-lifeguard-graph" id="optimization-ex-lifeguard-graph">
+            <img src="../images/sectionImages/optimization-ex-lifeguard-graph.jpg" alt="optimization-ex-lifeguard-graph.jpg">
+        </figure>
+        <style>
+            .optimization-ex-lifeguard-graph::before{
+                content:'FIGURE 10';
+            }
+        </style>
+        Since \(t'(x)\) changes sign from negative to positive at \(x = 14,\) 
+        this value corresponds to a <i>relative minimum</i> of \(t.\) 
+        You may verify that this value also corresponds to the <i>absolute minimum</i> of \(t\) 
+        (<a href="#optimization-ex-lifeguard-graph">Figure 10</a>).
+        So the lifeguard should run \(\boxed{14 \un{ft}}\) before jumping in the water.
+    </p>
+</div>
+
+<div class="example-title"> EXAMPLE 9 </div>
+<div class="example">
+    <div class="example-problem"> 
+        <figure class="optimization-ex-triangle-diagram" id="optimization-ex-triangle-diagram">
+            <img src="../images/sectionImages/optimization-ex-triangle-diagram.jpg" alt="optimization-ex-triangle-diagram.jpg">
+        </figure>
+        <style>
+            .optimization-ex-triangle-diagram::before{
+                content:'FIGURE 11';
+            }
+        </style>
+        <a href="#optimization-ex-triangle-diagram">Figure 11</a> shows an arrangement of right triangles that subtend an angle 
+        \(\theta.\)
+        Find \(x\) such that \(\theta\) is maximized. (Calculator required.)
+        <p></p>
+        <br>
+    </div>
+</div>
+<button onclick="toggle9()" class="solution-button"></button>
+<div id="solution9" class="solution">
+    <p>
+        The three angles 
+        \[\andThree{\theta}{\tan^{-1} \par{\frac{x}{4}}}{\tan^{-1} \par{\frac{3}{x + 1}}}\]
+        add to \(\pi.\)
+        Thus, we have
+        \[\theta = \pi - \tan^{-1} \left( \frac{x}{4} \right) - \tan^{-1} \left(\frac{3}{x + 1}\right) \pd\]
+        The absolute maximum of \(\theta\) occurs when \(\boxed{x = 0.899}.\)
+    </p>
+</div>
+
+<div class="example-title"> EXAMPLE 10 </div>
+<div class="example">
+    <div class="example-problem" id="optimization-ex-power"> 
+        <figure class="optimization-ex-power">
+            <img src="../images/sectionImages/optimization-ex-power.jpg" class="optimization-ex-power" alt="optimization-ex-power.jpg">
+        </figure>
+        <style>
+            .optimization-ex-power::before{
+                content:'FIGURE 12';
+            }
+        </style>
+        Two power towers—one of height \(10\) meters and the other of height \(15\) meters—are \(30\) meters apart. 
+        Wire is anchored from the ground to the top of each tower (<a href="#optimization-ex-power">Figure 12</a>).
+        Where on the ground should the wires be anchored to use the least amount of wire? 
+    </div>
+</div>
+<button onclick="toggle10()" class="solution-button"></button>
+<div id="solution10" class="solution">
+    <p>
+        Let Tower A be the \(10 \un{m}\) tower and Tower B be the \(15 \un{m}\) tower.
+        Let \(x\) be the distance from the base of Tower A to the anchor point. 
+        The amount of wire needed to connect top of Tower A to the anchor point is then 
+        \[w_1 = \sqrt{x^2 + 15^2} = \sqrt{x^2 + 225} \pd\]
+        Likewise, the amount of wire needed to connect the anchor point to the top of Tower B is  
+        \[w_2 = \sqrt{(30 - x)^2 + 10^2} = \sqrt{x^2 - 60x + 1000} \pd\] 
+        Therefore, the total amount of wire required is 
+        \[
+        \ba 
+        w &= w_1 + w_2 \nl 
+        &= \sqrt{x^2 + 225} + \sqrt{x^2 - 60x + 1000} \pd 
+        \ea 
+        \]
+        We differentiate \(w\) and equate it to \(0\) to find  
+        \[
+        \ba 
+        \frac{\dd w}{\dd x} = \frac{x - 30}{\sqrt{x^2 - 60x + 1000}} + \frac{x}{\sqrt{x^2 + 225}} &= 0 \nl
+        \implies x &= 18 \pd
+        \ea 
+        \]
+        This critical number corresponds to the absolute minimum of \(w.\)
+        Thus, the optimal spot to anchor the wires is \(\boxed{18 \un{m}}\) east of Tower A.
+    </p>
+</div>

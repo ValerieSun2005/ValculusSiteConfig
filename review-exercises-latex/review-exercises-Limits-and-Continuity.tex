@@ -1,0 +1,770 @@
+\documentclass[letterstyle,12pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[nomarginpar, margin=0.5in]{geometry}
+\usepackage{tabularx}
+\usepackage[document]{ragged2e}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{mlmodern}
+\usepackage{float}
+\usepackage{supertabular}
+% \usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\linespread{1.3} % Set line spacing 
+\usepackage{pgfplots}
+\usepackage{bigstrut}
+\usepackage[ngerman]{babel}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\newcounter{qcounter}
+\usepackage{multicol}
+\pgfplotsset{compat = newest}
+\usepackage{fancyhdr}
+\everymath{\displaystyle}
+\definecolor{agua}{RGB}{90,160,254}
+\newcommand{\nspace}{\hspace{2.52mm}}
+
+\newcommand\Tstrut{\smash[b]{\strut}}
+\newcommand\Bstrut{\smash[t]{\strut}}
+\newcommand{\dd}{\text{d}}
+\newcommand{\di}{\, \text{d}}
+
+\newcommand{\oldchoices}[1]{
+\vspace{0.8em} 
+\begin{enumerate}[label=(\Alph*)]
+\setlength\itemsep{1em} #1 \interlinepenalty10000 
+\end{enumerate}
+}
+
+\newcommand{\choices}[5]{
+\vspace{0.8em} 
+\begin{enumerate}[label=(\Alph*)]
+\setlength\itemsep{1em} 
+\item
+#1 
+\item 
+#2
+\item
+#3
+\item
+#4
+\item
+#5
+\end{enumerate}
+}
+
+
+\newcommand{\choicesline}[5]{    
+\vspace{2em} \break 
+\begin{tabularx}{0.95 \textwidth} { 
+>{\arraybackslash}X 
+>{\arraybackslash}X 
+>{\arraybackslash}X 
+>{\arraybackslash}X 
+>{\arraybackslash}X }
+(A) \; #1
+& 
+(B) \; #2
+& 
+(C) \; #3
+& 
+(D) \; #4
+&
+(E) \; #5 
+\end{tabularx}
+\vspace{2em} \break
+}
+
+\pgfplotsset{every axis/.append style={
+    axis on top = true,
+    width = \textwidth,  
+    height =  \textwidth,
+    clip=false, 
+    axis line style = ultra thick, 
+    axis lines = middle,
+    label style={font=\Huge}, %x- and y-label sizes
+    x label style={at={(axis description cs:1.04,0.03)},anchor=north},
+    y label style={at={(axis description cs:-0.135,1.13)}}
+    every tick label/.append style={font=\Huge},
+    every major tick/.append style={very thick, major tick length=10pt},
+    tick style = {xticklabel style={yshift=-0.2em, anchor=south}}
+    }}
+\pgfplotsset{tick style = {xticklabel style={yshift=-4ex, anchor=south}}}
+\newcommand{\drawOrigin}{\draw (0, 0) node[left, below, xshift = -0.9em] {\Large $O$}} % draws the "O" marking the origin
+
+\newcommand{\plotCircle}[4]{\draw #1 circle (#4 pt) [#2, fill = #3]}
+
+\newcommand{\qspace}[1]{\begin{spacing}{1.8}#1\end{spacing}}
+\newcommand{\ans}[1]{{\color{black} #1}}
+
+\newenvironment{question}
+    {\begin{minipage}{0.9 \textwidth}
+        \item
+    }
+    { 
+    \end{minipage} \vspace{4ex}
+    }
+    %
+
+\newcommand{\bq}{\begin{question}}
+\newcommand{\eq}{\end{question}}
+
+\newcommand{\ques}[1]{\begin{minipage}{0.9 \textwidth} \item #1 \end{minipage} \vspace{4ex}}
+\newcommand{\romanlist}[1]{\begin{enumerate}[label=\Roman*., leftmargin=15mm] #1 \end{enumerate}}
+
+   
+\pagestyle{fancy}
+\lhead{\begin{figure}[H] \vspace{10ex} \includegraphics[scale=0.1]{logo-light.png} \vspace{-7.3ex} \end{figure}}
+\rhead{\large \textsc{Review Exercises—Limits and Continuity}}
+\fancyfoot{}
+\lfoot{\copyright \textsc{Valculus} 2023}
+\cfoot{\textbf{-\thepage-}}
+
+\geometry{
+    head = 1.1in,
+    bottom = 1.3in,
+    left = 0.5in,
+    right = 0.5in
+    }
+    
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headsep}{0.9in}
+
+\begin{document}
+\begin{center}
+    {\bf
+    \MakeUppercase{Limits and Continuity\\[1ex]
+    NUMBER OF QUESTIONS—45 \\[1ex] 
+    NO CALCULATOR \\[5ex]
+    }}
+\end{center}
+
+\begin{list}{\textbf{\arabic{qcounter}.}~}{\usecounter{qcounter}}
+\setlength\itemsep{3em}
+
+\begin{question}
+If \(\lim_{x \to 3} f(x) = 8,\) then which option is true?
+\choices
+{\(f(3) = 8.\)}
+{\ans{As \(x\) approaches \(3,\) \(f(x)\) approaches \(8.\)}}
+{\(f(8) = 3.\)} 
+{As \(x\) approaches \(8,\) \(f(x)\) approaches \(3.\)} 
+{\(f\) is continuous at \(x = 3.\)}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to 0} \frac{\sin 3x}{x}\) is 
+\choicesline
+{\(0\)}
+{\(\frac{1}{3}\)}
+{1}
+{\ans 3}
+{nonexistent}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to -7} \frac{x + 7}{49 - x^2}\) is 
+\choicesline
+{\(-7\)}
+{\ans{\(-\frac{1}{14}\)}}
+{\(-\frac{1}{49}\)}
+{\(\frac{1}{14}\)}
+{\(49\)}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to 0} \frac{x}{\tan x}\) is 
+\choicesline
+{\(-1\)}
+{0}
+{\ans 1}
+{\(\pi\)}
+{nonexistent}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to \infty} \frac{3x^4 - 8x^3 + x^2 - 10}{2x^2 - 5x^3 - 10x^4}\) is 
+\choicesline
+{\ans{\(-\frac{3}{10}\)}}
+{\(0\)}
+{\(\frac{3}{10}\)}
+{\(\frac{3}{2}\)}
+{nonexistent}
+\end{question}
+
+\begin{question}
+The horizontal asymptote of \(f(x) = \frac{3x^3 + x^2 - 4}{8 - 5x^3}\) \, is \\
+\choicesline
+{\(y = -\frac{5}{3}\)}
+{\ans{\(y = -\frac{3}{5}\)}}
+{\(y = \frac{3}{8}\)}
+{\(y = \frac{3}{5}\)}
+{\(y = \frac{5}{3}\)}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to \pi/2} \tan 2x\) is
+\choicesline
+{\(-1\)}
+{\(-\frac{1}{2}\)}
+{\ans 0}
+{1}
+{\(\pi\)}
+\end{question}
+
+\begin{question}
+Function \(g\) is discontinuous at \(x = 5.\)
+Selected values of $g$ are shown in the table below. \\[1ex]
+\renewcommand{\arraystretch}{1.2}
+\begin{center}
+\begin{tabularx}{0.7\textwidth} { 
+  | >{\arraybackslash}X 
+  || >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X | }
+ \hline
+ $\hspace{2.2ex} x$ & 4.99 & 4.999 & 5 & 5.0001 &5.001  \\
+ \hline
+ $f(x)$ & 2.99 & 2.999 & $-4$ & 3.001  &3.01 \\
+ \hline
+\end{tabularx} \\[1.5ex]
+\end{center}
+A reasonable estimate for \(\lim_{x \to 5} g(x)\) is \\
+\choicesline
+{\(-4\)}
+{\(-3\)}
+{2}
+{\ans 3}
+{5}
+\end{question}
+
+\begin{question}
+If
+\(f(x)= \begin{cases} 
+3x - 2 \cos x& x < \pi \\
+x^2 & x \geqslant \pi, \\ 
+\end{cases} 
+\) \, 
+then \(\lim_{x \to \pi^-} f(x)\) is \\
+\choicesline
+{\(-\pi^2\)}
+{\(3 \pi\)}
+{\(3 \pi - 2\)}
+{\ans{\(3 \pi + 2\)}}
+{\(\pi^2\)}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to 3} \frac{\sqrt{x - 2} - 1}{9 - 3x}\) is 
+\choicesline
+{\(-\frac{1}{2}\)}
+{\ans{\(-\frac{1}{6}\)}}
+{\(\frac{1}{6}\)}
+{\(\frac{1}{2}\)}
+{nonexistent}
+\end{question}
+
+\begin{question}
+Given that \(\lim_{x \to a} f(x)\) exists, which statements must be true?
+\romanlist{
+\item
+\(f(x)\) is continuous at \(x = a.\)
+\item
+\(\lim_{x \to a^-} f(x) = \lim_{x \to a^+} f(x).\)
+\item
+\(f(a)\) is defined.
+}
+\choices
+{I only}
+{\ans{II only}}
+{I and II only}
+{II and III only}
+{I, II, and III}
+\end{question}
+
+\begin{question}
+If \(\lim_{k \to 0} \frac{e^k - 1}{k} = 1,\) then \(\lim_{k \to 0} \frac{e^2 - e^{2 + k}}{k}\) is \\
+\choicesline
+{\ans{\(-e^2\)}}
+{\(-e^{-2}\)}
+{\(e^{-2}\)}
+{1}
+{\(e^2\)}
+\end{question}
+
+\begin{question}
+\(g(x) = \frac{x^2 - 5x + 6}{x - 3}\) \; has a removable discontinuity at \\ 
+\choicesline
+{\(x = -3\)}
+{\(x = -2\)}
+{\(x = 0\)}
+{\(x = 2\)}
+{\ans{\(x = 3\)}}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to \infty} \frac{\sin(2x)}{x + 2}\) is 
+\choicesline
+{\(-1\)}
+{\ans 0}
+{1}
+{2}
+{\(\infty\)}
+\end{question}
+
+\begin{question}
+Let
+\( f(x) = \begin{cases} 
+2 - kx & x\leqslant 3 \\
+kx^2 -22 & x > 3. \\ 
+\end{cases}
+\)
+For what value of \(k\) is \(f\) continuous at \(x = 3 \; ?\) \\
+\choicesline
+{\(-4\)}
+{0}
+{1}
+{\ans 2}
+{3}
+\end{question}
+
+\begin{question}
+The oblique asymptote of \(f(x) = \frac{x^2 + 7x + 1}{x - 2}\) is \\ 
+\choicesline
+{\(y = 9\)}
+{\(y = x - 9\)}
+{\(y = x\)}
+{\(y = x + 5\)}
+{\ans{\(y = x + 9\)}}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to \infty} \frac{\sqrt{4x^2 - 1}}{x + 3} \, \) is 
+\choicesline
+{\(-4\)}
+{\(-2\)}
+{\ans 2}
+{4}
+{nonexistent}
+\end{question}
+
+\begin{minipage}{\textwidth}
+Questions \ref{q:graph-start}--\ref{q:graph-end} refer to the following graph.
+%
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xlabel=\large $x$,
+    ylabel=\large $y$,
+    every axis x label/.style={at={(current axis.right of origin)},anchor=west},
+    every axis y label/.style={at=(current axis.above origin),anchor=south},
+    xmin = -5.5, xmax = 5.5,
+    ymin = -5.5, ymax = 5.5,
+    xticklabel={
+        % test if the x value is below zero
+        \ifdim \tick pt < 0pt
+          % if yes, calculate the absolute value
+          \pgfmathparse{abs(\tick)}
+          % and print first a minus sign in a zero-width box, followed by the absolute value
+          \llap{$-{}$}\pgfmathprintnumber{\pgfmathresult}
+      \else
+         % if no, print as usual
+          \pgfmathprintnumber{\tick}
+      \fi
+        },
+    xtick distance = 1,
+    ytick distance = 1,
+    grid = both,
+    major grid style = {lightgray},
+    minor grid style = {lightgray!25},
+    width = 0.7 \textwidth,
+    height = 0.7 \textwidth]
+    \addplot[red, ultra thick, smooth, domain=-5:0]{x + 4};
+    \addplot[red, ultra thick, smooth, domain=0:4.8]{2 - x}node[pos=1.07]{\Large $f$};
+    \addplot[agua!70, ultra thick, smooth, domain=-4.8:0]{(x + 2)^2 - 3};
+    \addplot[agua!70, ultra thick, smooth, domain=0:4.8]{2 + (1/2)* sin(deg(x))}node[pos=1.07]{\Large $g$};
+    \plotCircle{(0, 2)}{red}{red}{3};
+    \plotCircle{(0, 1)}{agua!70}{agua!70}{3};
+    \plotCircle{(0, 4)}{red}{white}{3};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+\begin{question}
+\label{q:graph-start}
+\(\lim_{x \to 0} f(x)\) is 
+\choicesline
+{0}
+{1}
+{2}
+{4}
+{\ans{nonexistent}}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to 0^+} g(x)\) is
+\choicesline
+{0}
+{1}
+{\ans 2}
+{4}
+{nonexistent}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to -2} [f(x) - g(x)]\) is \\
+\choicesline
+{\(-5\)}
+{\(-1\)}
+{1}
+{\ans 5}
+{nonexistent}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to -2} [g(x)]^2\) is 
+\choicesline
+{\(-4\)}
+{\(-2\)}
+{2}
+{4}
+{\ans 9}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to 0} [f(x) g(x)]\) is 
+\choicesline
+{1}
+{2}
+{\ans 4}
+{8}
+{nonexistent}
+\end{question}
+
+\begin{question}
+\label{q:graph-end}
+\(\lim_{x \to 0} f(-x^2)\) is 
+\choicesline
+{0}
+{1}
+{2}
+{\ans 4}
+{nonexistent}
+\end{question}
+
+\begin{question}
+On what interval of \(x\) is \(f(x) = \frac{\ln(x - 2)}{x^2 - 9}\) continuous?
+\choices
+{\((-\infty, -3)\cup(3, \infty)\)}
+{\((-\infty, -2)\)}
+{\((2, \infty)\)}
+{\((3, \infty)\)}
+{\ans{\((2, 3)\cup(3, \infty)\)}}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to -3} \frac{5\sin(x + 3)}{6 + 2x}\) is 
+\choicesline
+{0}
+{\(\frac{5}{6}\)}
+{1}
+{\ans{\(\frac{5}{2}\)}}
+{nonexistent}
+\end{question}
+
+\begin{question}
+Function \(f\) is continuous and satisfies \(f(4) = 8.\) If \(\lim_{x \to 2} g(x) = 4,\) then \(\lim_{x \to 2} f(g(x))\) is \\
+\choicesline
+{\(-8\)}
+{\(-4\)}
+{2}
+{4}
+{\ans 8}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to 2} \cfrac{\cfrac{1}{2 \Bstrut} - \cfrac{1}{x \Bstrut} }{\Tstrut 2 - x}\) is
+\choicesline
+{\(-\frac{1}{2}\)}
+{\ans{\(-\frac{1}{4}\)}}
+{\(\frac{1}{4}\)}
+{\(\frac{1}{2}\)}
+{nonexistent}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to 0} x \sin\left( \frac{1}{x^2}\right)\) is 
+\choicesline
+{\ans 0}
+{\(\frac{1}{4}\)}
+{\(\frac{1}{2}\)}
+{1}
+{nonexistent}
+\end{question}
+
+\begin{question}
+Let
+\(f(x)= \begin{cases} 
+x^2 + 1& x < p \\
+2x & x \geqslant p. \\ 
+\end{cases} 
+\)
+If \(f(x)\) is continuous at \(x = p,\) then \(p\) is \\
+\choicesline
+{\ans{\(-1\)}}
+{0}
+{1}
+{2}
+{4}
+\end{question}
+
+\begin{question}
+\(\lim_{t \to \infty} \sin t\) is 
+\choicesline
+{\(-1\)}
+{0}
+{1}
+{\(\pi\)}
+{\ans{nonexistent}}
+\end{question}
+
+\begin{question}If \(\lim_{x \to 2} f(x) = -3,\)
+then \(\lim_{x \to 2} \left([f(x)]^2 - 2x \right)\) is \\
+\choicesline
+{\(-7\)}
+{\(-3\)}
+{4}
+{\ans 5}
+{9}
+\end{question}
+
+\begin{question}
+Function \(f\) is continuous. Selected values of \(f(x)\) are shown in the table below. \\
+\begin{center}
+\begin{tabularx}{0.7\textwidth} { 
+  | >{\arraybackslash}X 
+  || >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X | }
+ \hline
+ \(\hspace{2.2ex} x\) & \(-1\) & 2 & 3 & 6 & 11  \\
+ \hline
+ \(f(x)\) & 2 & 1 & \(1\) & 1  & 2 \\
+ \hline
+\end{tabularx} \\
+\end{center}
+Following the Intermediate Value Theorem, which value of \(f(x)\) is guaranteed to exist for \(-1 \leqslant x \leqslant 11 \; ?\) \\
+\choicesline
+{\ans 0}
+{3}
+{5}
+{6}
+{11}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to -\infty} \frac{\sqrt{4x^6 - 4x^2 + 1}}{3x^3 + 2} \, \) is 
+\choicesline
+{\ans{\(-\infty\)}}
+{\(-\frac{2}{3}\)}
+{\(\frac{2}{3}\)}
+{\(\infty\)}
+{nonexistent}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to \infty} x \sin \left(\frac{1}{x}\right)\) is 
+\choicesline
+{\(-1\)}
+{0}
+{\ans 1}
+{\(\pi\)}
+{nonexistent}
+\end{question}
+
+\begin{question}
+At \(x = 4,\) which choice about \(g(x) = \frac{12 + x - x^2}{x - 4}\) is true?
+\choices
+{\(g(x)\) has a vertical asymptote at \(x = 4.\)}
+{\(g(x)\) has a jump discontinuity at \(x = 4.\)}
+{\ans{\(g(x)\) has a removeable discontinuity at \(x = 4.\)}}
+{\(\lim_{x \to 4} g(x)\) does not exist.}
+{\(g(x)\) is continuous at \(x = 4.\)}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to 0^+} \ln(\sin x)\) is 
+\choicesline
+{\ans{\(-\infty\)}}
+{0}
+{1}
+{\(e\)}
+{\(\infty\)}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to 0} \frac{x^2}{\sin^2 2x}\) is 
+\choicesline
+{0}
+{\ans{\(\frac{1}{4}\)}}
+{1}
+{4}
+{nonexistent}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to 0} \frac{x - x\cos(x)}{x^2}\) is 
+\choicesline
+{\(-\pi\)}
+{\ans 0}
+{1}
+{\(\pi\)}
+{nonexistent}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to 0^+} \arctan \left(\frac{1}{x}\right)\) is 
+\choicesline
+{\(-\infty\)}
+{\(-\frac{\pi}{2}\)}
+{0}
+{\ans{\(\frac{\pi}{2}\)}}
+{\(\infty\)}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to \infty} \frac{5e^{x} - x}{8e^{x} + 9}\) is 
+\choicesline
+{\(-\frac{5}{8}\)}
+{0}
+{\ans{\(\frac{5}{8}\)}}
+{1}
+{\(\infty\)}
+\end{question}
+
+\begin{question}
+\(\lim_{x \to \pi/4} \, \frac{\cos 2x}{\cos x - \sin x}\) is 
+\choicesline
+{0}
+{\(\frac{\sqrt 2}{2}\)}
+{\ans{\(\sqrt 2\)}}
+{\(\pi\)}
+{nonexistent}
+\end{question}
+
+\begin{question}
+Functions \(g\) and \(h\) are continuous and satisfy \(g(1) = h(1) = 3.\) Function \(f\) satisfies \(g(x) \leqslant f(x) \leqslant h(x)\) for \(0 \leqslant x \leqslant 2.\) 
+Which statements must be true?
+\romanlist{
+\item
+\(\lim_{x \to 1} g(x) = \lim_{x \to 1} h(x) = 3.\) 
+\item
+\(\lim_{x \to 1} f(x) = 3.\)
+\item
+\(f(x)\) is continuous at \(x = 1.\)
+}
+\choices
+{I only}
+{II only}
+{I and II only}
+{II and III only}
+{\ans{I, II, and III}}
+\end{question}
+
+\begin{question}
+If \(f(1) = 2,\) \(\lim_{x \to 1^-} f(x) = 4,\) and \(\lim_{x \to 1^+} f(x) = -1,\) then \(\lim_{x \to 1} f(\cos(x - 1))\) is 
+\choicesline
+{\(-1\)}
+{0}
+{2}
+{\ans 4}
+{nonexistent}
+\end{question}
+
+\begin{question}
+If \(\lim_{x \to 3} (2x + 4) = 10,\) then \(|(2x + 4) - 10| < \epsilon\) and \(|x - 3| < \delta,\) where \(\delta =\) \\
+\choicesline
+{\(\frac{\epsilon}{4}\)}
+{\ans{\(\frac{\epsilon}{2}\)}}
+{\(\epsilon\)}
+{\(2 \epsilon\)}
+{\(4 \epsilon\)}
+\end{question}
+
+\begin{question}
+If \(\lim_{x \to a} f(x) = \infty,\) then which option is true?
+\choices
+{For positive \(M,\) there exists a positive \(\delta\) such that \(f(x) > M\) for \(|x - a| > 0.\)}
+{For positive \(M,\) there exists a positive \(\delta\) such that \(f(x) < M\) for \(|x - a| > \delta.\)}
+{For positive \(M,\) there exists a positive \(\delta\) such that \(f(x) > M\) for \(|x - a| > \delta.\)}
+{For positive \(M,\) there exists a positive \(\delta\) such that \(f(x) < M\) for \(0 < |x - a| < \delta.\)}
+{\ans{For positive \(M,\) there exists a positive \(\delta\) such that \(f(x) > M\) for \(0 < |x - a| < \delta.\)}}
+\end{question}
+
+
+\end{list}
+
+\clearpage 
+
+\twocolumn
+
+\begin{supertabular}{ll}
+% e.g., 1 & B \\
+{\bf1}. & B \\ 
+{\bf2}. & D \\ 
+{\bf3}. & B \\ 
+{\bf4}. & C \\ 
+{\bf5}. & A \\ 
+{\bf6}. & B \\ 
+{\bf7}. & C \\ 
+{\bf8}. & D \\ 
+{\bf9}. & D \\ 
+{\bf10}. & B \\ 
+{\bf11}. & B \\ 
+{\bf12}. & A \\ 
+{\bf13}. & E \\ 
+{\bf14}. & B \\ 
+{\bf15}. & D \\ 
+{\bf16}. & E \\ 
+{\bf17}. & C \\ 
+{\bf18}. & E \\ 
+{\bf19}. & C \\ 
+{\bf20}. & D \\ 
+{\bf21}. & E \\ 
+{\bf22}. & C \\ 
+{\bf23}. & D \\ 
+{\bf24}. & E \\ 
+{\bf25}. & D \\ 
+{\bf26}. & E \\ 
+{\bf27}. & B \\ 
+{\bf28}. & A \\ 
+{\bf29}. & A \\ 
+{\bf30}. & E \\ 
+{\bf31}. & D \\ 
+{\bf32}. & A \\ 
+{\bf33}. & A \\ 
+{\bf34}. & C \\ 
+{\bf35}. & C \\ 
+{\bf36}. & A \\ 
+{\bf37}. & B \\ 
+{\bf38}. & B \\ 
+{\bf39}. & D \\ 
+{\bf40}. & C \\ 
+{\bf41}. & C \\ 
+{\bf42}. & E \\ 
+{\bf43}. & D \\ 
+{\bf44}. & B \\ 
+{\bf45}. & E \\ 
+
+\end{supertabular}
+\end{document}

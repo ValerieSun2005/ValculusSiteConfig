@@ -1,0 +1,426 @@
+<section>
+    <div>
+        The <i>standard form</i> of a first-order linear differential equation is 
+        \[y' + P(x) y = Q(x) \pd\]
+        Find an expression for an <i>integrating factor</i>, \(\mu(x).\)
+        How do we use this function?
+    </div>
+    <span>
+        An integrating factor is 
+        \[\mu(x) = e^{\int P(x) \di x} \pd\]
+        We only require one integrating factor, 
+        so we omit the constant of integration in \(\int P(x) \di x.\)
+        We use the integrating factor to express the left side of 
+        \[y' + P(x) y = Q(x)\]
+        as the derivative of the product \(y e^{\int P(x) \di x}.\)
+        We then integrate and solve for \(y.\)
+    </span>
+</section>
+<section>
+    <p>GRID</p>
+    <p class="columns">2</p>
+    <p class="directions">use an integrating factor to solve the differential equation</p>
+
+    <div>
+        \(\ds y' - 4xy = e^{2x^2}\)
+    </div>
+    <span>
+        This differential equation is in the form 
+        \[y' + P(x) y = Q(x) \cma\]
+        with \(P(x) = -4x\) and \(Q(x) = e^x.\)
+        To find an <i>integrating factor</i>, we use 
+        \[\mu(x) = e^{\int -4x \di x} = e^{-2x^2} \pd\]
+        We multiply the differential equation by this factor to obtain 
+        \begin{equation} 
+        e^{-2x^2} y' - 4xe^{-2x^2}y = 1 \pd \label{eq:-4xy-mult-expand}
+        \end{equation}
+        In \(\eqRefer{eq:-4xy-mult-expand}\) the left side 
+        is the Product Rule expansion of \(\par{ye^{-2x^2}}'.\)
+        Thus, \(\eqRefer{eq:-4xy-mult-expand}\) is 
+        \[\par{ye^{-2x^2}}' = 1 \pd\]
+        Integrating both sides then gives 
+        \[ye^{-2x^2} = x + C \implies \boxed{y = e^{2x^2}(x + C)}\]
+    </span>
+
+
+    <div>
+        \(\ds xy' - y = x\)
+    </div>
+    <span>
+        The differential equation is linear and non-separable. 
+        We divide the equation by \(x\) to get 
+        \begin{equation}
+        y' - \frac{1}{x} y = 1 \pd \label{eq:-y-standard}
+        \end{equation}
+        \(\eqRefer{eq:-y-standard}\) is in the form 
+        \[y' + P(x) y = Q(x) \cma\]
+        with \(P(x) = -1/x\) and \(Q(x) = 1.\)
+        Thus, we choose an <i>integrating factor</i> to be 
+        \[\mu(x) = e^{\int P(x) \di x} = e^{\int (-1/x) \di x} = e^{-\ln|x|} = x^{-1} = \frac{1}{x} \pd\]
+        Multiplying \(\eqRefer{eq:-y-standard}\) by \(\mu(x) = 1/x\) then yields 
+        \begin{equation}
+        \frac{1}{x} y' - \frac{1}{x^2} y = \frac{1}{x} \pd \label{eq:-y-multiplied}
+        \end{equation}
+        In \(\eqRefer{eq:-y-multiplied}\) the left side is the Product Rule expansion of 
+        \(\par{\frac{1}{x} y}'.\)
+        Thus, we rewrite \(\eqRefer{eq:-y-multiplied}\) as 
+        \[\par{\frac{1}{x} y}' = \frac{1}{x} \pd\]
+        Integrating both sides then gives 
+        \[
+        \frac{1}{x} y = \ln|x| + C 
+        \implies \boxed{y = x \ln|x| + Cx} 
+        \]
+
+    </span>
+
+    <div>
+        \(\ds xy' - y = 1 \cma y(1) = 1\)
+    </div>
+    <span>
+        We divide the differential equation by \(x \col\)
+        \begin{equation}
+        y' - \frac{1}{x} y = \frac{1}{x} \pd \label{eq:xy'-y=1-standard}
+        \end{equation}
+        The coefficient of \(y\) is \(-1/x,\) so we select an integrating factor to be 
+        \[\mu(x) = e^{\int (-1/x) \di x} = e^{-\ln x} = \frac{1}{x} \pd\]
+        We multiply \(\eqRefer{eq:xy'-y=1-standard}\) by \(\mu(x) = 1/x\) to get 
+        \begin{equation}
+        \frac{1}{x} y' - \frac{1}{x^2} y = \frac{1}{x^2} \pd \label{eq:xy'-y=1-expanded}
+        \end{equation}
+        In \(\eqRefer{eq:xy'-y=1-expanded}\) the left side is, by the Product Rule,
+        the derivative of \(\tfrac{1}{x} y.\)
+        We then condense \(\eqRefer{eq:xy'-y=1-expanded}\) as
+        \[\par{\frac{1}{x} y}' = \frac{1}{x^2} \pd\]
+        Integrating both sides then gives 
+        \begin{equation}
+        \frac{1}{x} y = -\frac{1}{x} + C \pd \label{eq:xy'-y=1-C}
+        \end{equation}
+        Plugging the initial condition, \(y(1) = 1,\) into \(\eqRefer{eq:xy'-y=1-C}\) shows 
+        \[1 = -1 + C \implies C = 2 \pd\]
+        Thus, \(\eqRefer{eq:xy'-y=1-C}\) becomes 
+        \[\frac{1}{x} y = -\frac{1}{x} + 2 \implies \boxed{y = -1 + 2x}\]
+
+    </span>
+
+    <div>
+        \(\ds y' + 2xy = 4x \cma y(0) = 3\)
+    </div>
+    <span>
+        This differential equation is in the form 
+        \[y' + P(x) y = Q(x) \cma\]
+        with \(P(x) = 2x\) and \(Q(x) = 4x.\)
+        To find an <i>integrating factor</i>, we use 
+        \[\mu(x) = e^{\int P(x) \di x} = e^{\int 2x \di x} = e^{x^2} \pd\]
+        We ignore the constant of integration because we only need <i>one</i> integrating factor. 
+        We multiply the differential equation by \(\mu(x) = e^{x^2},\) finding 
+        \begin{equation}
+        e^{x^2} y' + 2x e^{x^2} y = 4x e^{x^2} \pd \label{eq:2xy-expanded}
+        \end{equation}
+        In \(\eqRefer{eq:2xy-expanded}\) the left side is,
+        by the Product Rule, the derivative of \(e^{x^2} y.\)
+        We therefore rewrite \(\eqRefer{eq:2xy-expanded}\) as 
+        \[\par{e^{x^2} y}' = 4x e^{x^2} \pd \]
+        Integrating both sides gives 
+        \begin{equation}
+        e^{x^2} y = \int 4x e^{x^2} \di x \label{eq:2xy-integrated}
+        \end{equation}
+        We evaluate the integral on the right-hand side of \(\eqRefer{eq:2xy-integrated}\)
+        by substituting 
+        \[u = x^2 \lspace \dd u = 2x \di x \pd \] 
+        The integral then becomes 
+        \[\int 2 e^u \di u = 2 e^u + C = 2 e^{x^2} + C \pd\]
+        Hence, \(\eqRefer{eq:2xy-integrated}\) is 
+        \begin{equation}
+        ye^{x^2} = 2 e^{x^2} + C \pd \label{eq:2xy-constant}
+        \end{equation}
+        We are given that \(y(0) = 3;\)
+        substituting this point into \(\eqRefer{eq:2xy-constant}\) shows 
+        \[3 = 2 + C \implies C = 1 \pd\]
+        Then we solve for \(y\) in \(\eqRefer{eq:2xy-constant} \col\)
+        \[y = \boxed{2 + e^{-x^2}}\]
+    </span>
+
+    <div>
+        \(\ds (\csc x) y' - y = 3 \cma y(0) = 1\)
+    </div>
+    <span>
+        We first manipulate the coefficient of \(y'\) to be \(1,\)
+        so we multiply the equation by \(\sin x.\)
+        We get 
+        \begin{equation}
+        y' - (\sin x) y = 3 \sin x \pd \label{eq:cscx-standard}
+        \end{equation}
+        We then select the integrating factor 
+        \[\mu(x) = e^{\int (-\sin x) \di x} = e^{\cos x} \pd\]
+        We multiply \(\eqRefer{eq:cscx-standard}\) by this factor, obtaining 
+        \begin{equation}
+        e^{\cos x} \, y' - (\sin x) e^{\cos x} \, y = 3 (\sin x) e^{\cos x} \pd \label{eq:cscx-mu-expanded}
+        \end{equation}
+        In \(\eqRefer{eq:cscx-mu-expanded}\) the left side is the Product Rule expansion of 
+        \(\par{y e^{\cos x}}'.\)
+        We thus rewrite \(\eqRefer{eq:cscx-mu-expanded}\) and integrate:
+        \begin{equation}
+        ye^{\cos x} = \int 3(\sin x) e^{\cos x} \di x \pd \label{eq:cscx-mu-int}
+        \end{equation}
+        The right side of \(\eqRefer{eq:cscx-mu-int}\) requires substituting 
+        \[u = \cos x \lspace \dd u = - \sin x \di x \scol\]
+        the integral then becomes
+        \[\int - 3e^u \di u = -3e^u + C = -3e^{\cos x} + C \pd\]
+        Then \(\eqRefer{eq:cscx-mu-int}\) is 
+        \begin{equation}
+        ye^{\cos x} = -3e^{\cos x} + C \pd \label{eq:cscx-mu-C}
+        \end{equation}
+        Plugging the given initial condition, \(y(0) = 1,\) into \(\eqRefer{eq:cscx-mu-C}\) then gives 
+        \[e = -3e + C \implies C = 4e \pd\]
+        Hence, \(\eqRefer{eq:cscx-mu-C}\) becomes 
+        \[ye^{\cos x} = - 3e^{\cos x} + 4e \implies \boxed{y = -3 + 4e^{1 -\cos x}}\]
+    </span>
+
+    <div>
+        \(\ds y' + y = x \cma y(0) = 0\)
+    </div>
+    <span>
+        The coefficient of \(y\) is \(1,\)
+        so we select an integrating factor to be 
+        \[\mu(x) = e^{\int 1 \di x} = e^x \pd\]
+        Multiplying the differential equation by \(\mu(x)\) gives 
+        \begin{equation}
+        e^x \, y' + e^x \, y = xe^x \pd \label{eq:y'+y-expanded}
+        \end{equation}
+        The left side of \(\eqRefer{eq:y'+y-expanded}\) is the
+        Product Rule expansion of \(\par{ye^x}'.\)
+        We thus rewrite \(\eqRefer{eq:y'+y-expanded}\) and integrate, finding 
+        \begin{equation}
+        y \, e^x = \int x e^x \di x \pd \label{eq:y'+y-int}
+        \end{equation}
+        The right side of \(\eqRefer{eq:y'+y-int}\) requires Integration by Parts.
+        The formula for Integration by Parts is 
+        \[\int u \di v = uv - \int v \di u \pd\]
+        We select 
+        \[
+        \baat{2} 
+        u &= x \lspace \dd v &&= e^x \di x \nl 
+        \dd u &= \dd x \lspace v &&= e^x \pd
+        \eaat
+        \]
+        Then 
+        \[\int xe^x \di x = xe^x - \int e^x \di x = xe^x - e^x + C \pd\]
+        Thus, \(\eqRefer{eq:y'+y-int}\) becomes 
+        \begin{equation}
+        y \, e^x = xe^x - e^x + C \pd \label{eq:y'+y-C} 
+        \end{equation}
+        We substitute the initial condition into \(\eqRefer{eq:y'+y-C},\) finding 
+        \[0 = 0 - 1 + C \implies C = 1 \pd\]
+        Thus, \(\eqRefer{eq:y'+y-C}\) becomes 
+        \[y \, e^x = xe^x - e^x + 1 \implies \boxed{y = x - 1 + e^{-x}}\]
+    </span>
+
+    <div>
+        \(\ds y' = 2x - y\)
+    </div>
+    <span>
+        We rewrite the differential equation as 
+        \begin{equation}
+        y' + y = 2x \pd \label{eq:2x-y-standard}
+        \end{equation}
+        The coefficient of \(y\) is \(1;\) we then choose an integrating factor to be 
+        \[\mu(x) = e^{\int 1 \di x} = e^x \pd\]
+        Multiplying \(\eqRefer{eq:2x-y-standard}\) by this factor, we get 
+        \begin{equation}
+        e^x \, y' + e^x \, y = 2x e^x \pd \label{eq:2x-y-mu-expanded}
+        \end{equation}
+        In \(\eqRefer{eq:2x-y-mu-expanded}\) the left side is the Product Rule
+        expansion of \(\par{ye^x}'.\)
+        We thus rewrite \(\eqRefer{eq:2x-y-mu-expanded}\) and integrate:
+        \begin{equation}
+        ye^x = \int 2x e^x \di x \pd \label{eq:2x-y-int}
+        \end{equation}
+        The right side of \(\eqRefer{eq:2x-y-int}\) 
+        requires Integration by Parts; 
+        in \(\int 2x e^x \di x\) \(= \int u \di v\) we choose  
+        \[
+        \baat{2} 
+        u &= 2x \lspace \dd v &&= e^x \di x \nl 
+        \dd u &= 2 \di x \lspace v &&= e^x \pd
+        \eaat 
+        \]
+        The integral then becomes 
+        \[
+        \ba 
+        uv - \int v \di u &= 2x e^x - \int e^x (2) \di x \nl 
+        &= 2xe^x - 2e^x + C \pd
+        \ea 
+        \]
+        Thus, \(\eqRefer{eq:2x-y-int}\) becomes
+        \[ye^x = 2xe^x - 2e^x + C \implies \boxed{y = 2x - 2 + Ce^{-x}}\]
+    </span>
+
+    <div>
+        \(\ds y' + 2xy = x^3\)
+    </div>
+    <span>
+        The coefficient of \(y\) is \(2x,\) so an integrating factor is 
+        \[\mu(x) = e^{\int 2x \di x} = e^{x^2} \pd\]
+        We then multiply the differential equation by this factor to obtain 
+        \begin{equation}
+        e^{x^2} \, y' + 2x e^{x^2} \, y = x^3 e^{x^2} \pd \label{eq:-2xy=x^3}
+        \end{equation}
+        In \(\eqRefer{eq:-2xy=x^3}\) the left side is the Product Rule expansion of 
+        \(\par{ye^{x^2}}'.\)
+        We then condense \(\eqRefer{eq:-2xy=x^3}\) and integrate:
+        \begin{equation}
+        y \, e^{x^2} = \int x^3 e^{x^2} \di x \pd \label{eq:-2xy=x^3-int}
+        \end{equation}
+        We rewrite the integral on the right side of \(\eqRefer{eq:-2xy=x^3-int}\) 
+        as 
+        \[\int x \, x^2 \, e^{x^2} \di x \pd\]
+        Substituting \(a = x^2,\) we get \(\dd a = 2x \di x\) and so the integral becomes 
+        \begin{equation}
+        \int \tfrac{1}{2} ae^a \di a \pd \label{exp:-2xy=x^3-int-asub}
+        \end{equation}
+        The Integration by Parts formula is 
+        \[\int u \di v = uv - \int v \di u \pd\]
+        In \(\eqref{exp:-2xy=x^3-int-asub}\) we perform Integration by Parts with 
+        \[
+        \baat{2} 
+        u &= \tfrac{1}{2} a \lspace \dd v &&= e^a \di a \nl 
+        \dd u &= \tfrac{1}{2} \di a \lspace v &&= e^a \pd 
+        \eaat 
+        \]
+        Thus, \(\eqref{exp:-2xy=x^3-int-asub}\) becomes 
+        \[
+        \ba 
+        \tfrac{1}{2} a e^a - \int \tfrac{1}{2} e^a \di a &= \tfrac{1}{2} ae^a - \tfrac{1}{2} e^a + C \nl 
+        &= \tfrac{1}{2} x^2 e^{x^2} - \tfrac{1}{2} e^{x^2} + C \pd
+        \ea 
+        \]
+        Thus, \(\eqRefer{eq:-2xy=x^3-int}\) is 
+        \[y \, e^{x^2} = \tfrac{1}{2} x^2 e^{x^2} - \tfrac{1}{2} e^{x^2} + C \implies \boxed{y = \tfrac{1}{2} x^2 - \tfrac{1}{2} + Ce^{-x^2}}\]
+    </span>
+
+</section>
+<section>
+    <div>
+        A ball of mass \(m\) is dropped from rest.
+        Let \(v(t)\) be the ball's velocity at any time \(t.\)
+        The ball experiences two forces: <i>gravitational force</i> and <i>drag force</i>. 
+        Gravitational force is \(mg,\) where \(g\) is the acceleration due to gravity. 
+        Drag force is \(bv(t),\) where \(b\) is a drag coefficient.
+        Newton's Second Law gives a differential equation for the ball's velocity to be 
+        \[m \deriv{v}{t} + bv(t) = mg \pd\]
+        Using an integrating factor, show that 
+        \[v(t) = \frac{mg}{b} \par{1 - e^{-bt/m}} \pd\]
+        <i>Terminal velocity</i>, \(v_T,\) 
+        is the maximum velocity the ball can exhibit. 
+        Show that \(v_T = mg/b.\)
+    </div>
+    <span>
+        For simplicity we write \(v(t)\) as \(v.\)
+        We divide the given differential equation by \(m\) to get 
+        \begin{equation}
+        \deriv{v}{t} + \frac{b}{m} v = g \pd \label{eq:drag-linear}
+        \end{equation}
+        We then choose an integrating factor to be 
+        \[\mu(t) = e^{\int (b/m) \di t} = e^{bt/m} \pd\]
+        Multiplying \(\eqRefer{eq:drag-linear}\) by \(\mu(t) = e^{bt/m}\) yields 
+        \[e^{bt/m} \deriv{v}{t} + \frac{b}{m} e^{bt/m} v = g e^{bt/m} \pd\]
+        The left side is the Product Rule expansion of \(\par{ve^{bt/m}}',\)
+        so we rewrite the equation as 
+        \begin{equation}
+        \par{ve^{bt/m}}' = g e^{bt/m} \pd \label{eq:drag-condensed}
+        \end{equation}
+        Integrating both sides of \(\eqRefer{eq:drag-condensed}\) then gives 
+        \begin{equation}
+        ve^{bt/m} = \frac{mg}{b} e^{bt/m} + C \cma \label{eq:drag-constant}
+        \end{equation}
+        where \(C\) is a constant of integration. 
+        We solve for \(C\) by noting that \(v(0) = 0;\)
+        substituting this point into \(\eqRefer{eq:drag-constant}\) shows 
+        \[0= \frac{mg}{b} + C \implies C = - \frac{mg}{b} \pd\]
+        Then \(\eqRefer{eq:drag-constant}\) becomes 
+        \[
+        \ba 
+        ve^{bt/m} &= \frac{mg}{b} e^{bt/m} - \frac{mg}{b} \nl 
+        \implies v(t) &= \frac{mg}{b} \par{1 - e^{-bt/m}} \cma 
+        \ea 
+        \]
+        as requested.
+        <br>
+        We then find the terminal velocity to be 
+        \[
+        \ba 
+        v_T &= \lim_{t \to \infty} v(t) \nl 
+        &= \lim_{t \to \infty} \frac{mg}{b} \par{1 - e^{-bt/m}} \nl 
+        &= \frac{mg}{b} \pd
+        \ea 
+        \]
+    </span>
+
+    <div>
+        <figure class="linear-diff-eq-tank-torricelli" id="linear-diff-eq-tank-torricelli">
+            <img src="../images/sectionImages/linear-diff-eq-tank-torricelli.jpg" alt="linear-diff-eq-tank-torricelli.jpg">
+        </figure>
+        <style>
+            .linear-diff-eq-tank-torricelli::before{
+                content:'FIGURE 1';
+            }
+        </style>
+        Water is pumped into a cylindrical water tank at a constant rate of \(K\) \(\undiv{cm}{sec},\)
+        and by <i>Torricelli's Law</i> water flows out of the tank at a rate of \(140 \sqrt{h}\) \(\undiv{cm}{sec},\)
+        where \(h\) is the tank's water level in centimeters (<a href="#linear-diff-eq-tank-torricelli">Figure 1</a>).
+        The differential equation for the water level in the tank is therefore 
+        \[\deriv{h}{t} = K - 140 \sqrt h \pd\]
+        The tank's initial water level is \(50 \un{cm},\)
+        and after \(60\) seconds the water level is \(20 \un{cm}.\)
+        Find \(h(t),\) the water level in the tank at time \(t.\)
+    </div>
+    <span>
+
+    </span>
+
+    <div>
+        A <i>Bernoulli</i> differential equation is of the form 
+        \[\deriv{y}{x} + P(x) y = Q(x) y^n \pd\]
+        To solve this differential equation, 
+        we first rewrite the equation by substituting \(y = u^{1/(1 - n)}.\)
+        Use this method to solve 
+        \[\deriv{y}{x} + \frac{1}{x} y = 2x y^3 \pd\]
+    </div>
+    <span>
+        We see \(n = 3.\)
+        Thus, we substitute
+        \begin{equation} 
+        y = u^{1/(1 - 3)} = u^{-1/2} \pd \label{eq:bernoulli-sub}
+        \end{equation}
+        Then we use the Chain Rule to get 
+        \[\deriv{y}{x} = -\frac{1}{2} u^{-3/2} \, \deriv{u}{x} \pd\]
+        The differential equation then becomes 
+        \begin{align}
+        -\frac{1}{2} u^{-3/2} \deriv{u}{x} + \frac{1}{x} u^{-1/2} &= 2x u^{-3/2} \nonumber \nl 
+        \deriv{u}{x} - \frac{2}{x} u &= -4x \pd \label{eq:bernoulli-linear}
+        \end{align}
+        We now have a linear equation in terms of \(u.\)
+        In \(\eqRefer{eq:bernoulli-linear}\) the coefficient of \(u\) is \(-2/x,\)
+        so we choose an integrating factor 
+        \[e^{\int -(2/x) \di x} = e^{-2 \ln x} = \frac{1}{x^2} \pd\]
+        Multiplying both sides of \(\eqRefer{eq:bernoulli-linear}\) by this factor gives 
+        \begin{equation} 
+        \frac{1}{x^2} \deriv{u}{x} - \frac{2}{x^3} u = -\frac{4}{x} \pd \label{eq:bernoulli-mu-expanded}
+        \end{equation}
+        The left side of \(\eqRefer{eq:bernoulli-mu-expanded}\) is the Product Rule expansion of \(\par{\frac{1}{x^2}u}',\)
+        so we rewrite \(\eqRefer{eq:bernoulli-mu-expanded}\) and integrate to get 
+        \begin{align} 
+        \frac{1}{x^2}u &= -4 \ln|x| + C \nonumber \nl 
+        u &= -4 x^2 \ln|x| + Cx^2 \pd \label{eq:bernoulli-u}
+        \end{align}
+        From \(\eqRefer{eq:bernoulli-sub}\) we have 
+        \(u = y^{-2},\) so \(\eqRefer{eq:bernoulli-u}\) becomes 
+        \[
+        \ba 
+        y^{-2} &= -4 x^2 \ln|x| + Cx^2 \nl 
+        y &= \boxed{\par{-4 x^2 \ln|x| + Cx^2}^{-1/2}}
+        \ea 
+        \]
+    </span>
+    <!-- figure out smth with toricelli's law — dh/dt = -2gsqrt(h) + P(h) -->
+</section>

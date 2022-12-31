@@ -1,0 +1,542 @@
+<section>
+    <div>
+        Let \(F\) be an antiderivative of function \(f.\)
+        What property does \(F\) satisfy?
+        How many functions \(F\) exist?
+    </div>
+    <span>
+        By definition of an antiderivative, 
+        \(F' = f.\) 
+        Moreover, \(f\) has <i>infinitely</i> many antiderivatives \(F\)—all
+        of which differ by a constant.
+    </span>
+
+    <div>
+        In \(\int f(x) \di x = F(x) + C,\) define each symbol.
+    </div>
+    <span>
+        <ul>
+            <li>
+                \(\int\) is called the <i>integral sign</i>;
+            </li>
+            <li>
+                \(f(x)\) is called the <i>integrand</i>;
+            </li>
+            <li>
+                \(\dd x\) is called the <i>differential</i>;
+            </li>
+            <li>
+                \(F(x)\) is an <i>antiderivative</i> of \(f;\) and 
+            </li>
+            <li>
+                \(C\) is called a <i>constant of integration</i>.
+            </li>
+        </ul>
+    </span>
+</section>
+<section>
+    <p>GRID</p>
+    <p class="columns">3</p>
+    <p class="directions">evaluate the integral</p>
+
+    <div>
+        \(\ds \int \sin x \di x\)
+    </div>
+    <span>
+        The derivative of \(-\cos x\) is \(\sin x.\)
+        Thus, \(-\cos x\) is an <i>antiderivative</i> of \(\sin x.\)
+        The general antiderivative of \(\sin x\)
+        is \(-\cos x + C,\) where \(C\) is a constant.
+        So 
+        \[\int \sin x \di x = \boxed{- \cos x + C}\]
+    </span>
+
+    <div>
+        \(\ds \int \frac{1}{\sqrt{1 - x^2}} \di x\)
+    </div>
+    <span>
+        Since the derivative of \(\sin^{-1} x\) is \(1/\sqrt{1 - x^2},\) 
+        an <i>antiderivative</i> of \(1/\sqrt{1 - x^2}\) is \(\sin^{-1} x.\)
+        The general antiderivative of \(1/\sqrt{1 - x^2}\) is \(\sin^{-1} x + C;\)
+        therefore, 
+        \[\int \frac{1}{\sqrt{1 - x^2}} \di x = \boxed{\sin^{-1} x + C}\]
+    </span>
+
+    <div>
+        \(\ds \int \sec \theta \tan \theta \di \theta\)
+    </div>
+    <span>
+        An antiderivative of \(\sec \theta \tan \theta\) is \(\sec \theta.\)
+        We then add a constant of integration in our final answer:
+        \[\int \sec \theta \tan \theta \di \theta = \boxed{\sec \theta + C}\]
+    </span>
+
+    <div>
+        \(\ds \int x^6 \di x\)
+    </div>
+    <span>
+        Using the reverse power rule,
+        \[\int x^6 \di x = \frac{x^{6 + 1}}{6 + 1} + C = \boxed{\tfrac{1}{7} x^7 + C}\]
+    </span>
+
+    <div>
+        \(\ds \int \sqrt[3]{x} \di x\)
+    </div>
+    <span>
+        We write the integrand as \(x^{1/3}\) and antidifferentiate using the reverse power rule:
+        \[\int x^{1/3} \di x = \frac{x^{1 + 1/3}}{1 + 1/3} + C = \boxed{\tfrac{3}{4} x^{4/3} + C}\]
+    </span>
+
+    <div>
+        \(\ds \int \frac{1}{x^3} \di x\)
+    </div>
+    <span>
+        Writing the integrand as \(x^{-3},\) we antidifferentiate using the reverse power rule:
+        \[\int x^{-3} \di x = \frac{x^{-3 + 1}}{-3 + 1} + C= -\tfrac{1}{2} x^{-2} + C = \boxed{-\frac{1}{2x^2} + C}\]
+    </span>
+
+    <div>
+        \(\ds \int 3y - 5 \di y\)
+    </div>
+    <span>
+        By the linearity property of integrals, we split the integral as 
+        \[\int 3y \di y- \int 5 \di y \pd\]
+        The same property allows us to pull out the constants in each integral, so we obtain 
+        \[3 \int y \di y - 5 \int \di y \pd\]
+        Using the reverse power rule then gives 
+        \[\boxed{\tfrac{3}{2} y^2 - 5y + C}\]
+    </span>
+
+    <div>
+        \(\ds \int 9 \di t\)
+    </div>
+    <span>
+        We pull out the constant \(9 \col\)
+        \[9 \int \di t = \boxed{9t + C}\]
+    </span>
+
+    <div>
+        \(\ds \int 2t - \cos t \di t\)
+    </div>
+    <span>
+        Since integrals exhibit the property of linearity, we split the integral.
+        Breaking the integral into two and pulling out constants give 
+        \begin{equation} 
+        2 \int t \di t - \int \cos t \di t \pd \label{eq:2t-cost-dt}
+        \end{equation}
+        We use the reverse power rule to evaluate the first integral, 
+        and the second integral (without regard to the negative sign) is \(\sin t.\)
+        Thus, \(\eqref{eq:2t-cost-dt}\) becomes 
+        \[2 \frac{t^{1 + 1}}{1 + 1} - (\sin t) + C = \boxed{t^2 - \sin t + C}\]
+    </span>
+
+    <div>
+        \(\ds \int \pi^2 \di x \)
+    </div>
+    <span>
+        The integrand, \(\pi^2,\) is a constant.
+        Thus, we pull out the constant to obtain 
+        \[\pi^2 \int \di x = \boxed{\pi^2 x + C}\]
+    </span>
+
+    <div>
+        \(\ds \int u \sqrt u \di u\)
+    </div>
+    <span>
+        We write the integrand as \(u \cdot u^{1/2} = u^{3/2}.\)
+        Then using the reverse power rule, we obtain, as the general antiderivative,
+        \[\frac{u^{1 + 3/2}}{1 + 3/2} + C = \boxed{\tfrac{2}{5} u^{5/2} + C}\]
+    </span>
+
+    <div>
+        \(\ds \int \frac{3}{x} + \frac{1}{\sqrt{x}} - 3x^2 \di x\)
+    </div>
+    <span>
+        We express all terms as powers. We then break up the integral into three and pull out constants: 
+        \begin{equation} 
+        3 \int x^{-1} \di x + \int x^{-1/2} \di x - 3 \int x^2 \di x \pd \label{eq:3/x+}
+        \end{equation}
+        The first integral is \(\ln|x|,\) 
+        while the others require the reverse power rule. 
+        Thus, \(\eqref{eq:3/x+}\) becomes 
+        \[3 \ln|x| + \frac{x^{1 - 1/2}}{1 - 1/2} - 3 \frac{x^{2 + 1}}{2 + 1} + C = \boxed{3 \ln|x| + 2 \sqrt x - x^3 + C}\]
+    </span>
+
+    <div>
+        \(\ds \int (2x - 3)(x + 4) \di x\)
+    </div>
+    <span>
+        We expand the integrand as 
+        \[2x^2 + 5x - 12 \pd\]
+        We then integrate this expression using the reverse power rule, obtaining 
+        \[\boxed{\tfrac{2}{3} x^3 + \tfrac{5}{2} x^2 - 12x + C}\]
+    </span>
+
+    <div>
+        \(\ds \int \frac{3x^3 + 6x^2 - \sqrt x}{x^2} \di x\)
+    </div>
+    <span>  
+        We write the integral as 
+        \[\int 3x + 6 - \frac{\sqrt x}{x^2} \di x = \int 3x + 6 - x^{-3/2} \di x \pd\]
+        Using the reverse power rule on each term, we obtain 
+        \[\boxed{\tfrac{3}{2} x^2 + 6x + \frac{2}{\sqrt x} + C}\]
+    </span>
+</section>
+<section>
+    <p>GRID</p>
+    <p class="columns">2</p>
+    <p class="directions">find a particular solution to the differential equation</p>
+    <div>
+        \(\ds f'(x) = 3x - 4 \cma f(0) = 1\)
+    </div>
+    <span>
+        We integrate \(f'\) to get 
+        \begin{equation} 
+        f(x) = \tfrac{3}{2} x^2 - 4x + C \pd \label{eq:diff-eq-3x-4}
+        \end{equation}
+        To solve for \(C\) we substitute in \(\eqref{eq:diff-eq-3x-4}\) 
+        the initial condition \(\orange{f(0) = 1} \col\)
+        \[\orange{f(0)} = \tfrac{3}{2}(0)^2 - 4(0) + C = \orange{1} \implies C = 1 \pd\] 
+        Thus, \(\eqrefer{eq:diff-eq-3x-4}\) becomes 
+        \[f(x) = \boxed{\tfrac{3}{2} x^2 - 4x + 1}\]
+        This is the particular solution of the given differential equation 
+        that satisfies \(f(0) = 1.\)
+    </span>
+
+    <div>
+        \(\ds g'(t) = 3t^2 - 4 \cos t \cma g(0) = 2\)
+    </div>
+    <span>
+        We integrate \(g',\) getting 
+        \begin{equation} 
+        g(t) = t^3 - 4 \sin t + C \pd \label{eq:diff-eq-3t^2}
+        \end{equation}
+        To solve for \(C\) we substitute in \(\eqref{eq:diff-eq-3t^2}\)
+        the initial condition \(\orange{g(0) = 2} \col\)
+        \[\orange{g(0)} = (0)^3 - 4 \sin 0 + C = \orange{2} \implies C = 2 \pd\]
+        We plug \(C = 2\) into \(\eqref{eq:diff-eq-3t^2}\) to obtain the particular solution:
+        \[g(t) = \boxed{t^3 - 4 \sin t + 2}\]
+    </span>
+
+    <div>
+        \(\ds \deriv{p}{x} = e^x + 2x \cma p(1) = 2\)
+    </div>
+    <span>
+        Antidifferentiating \(p'\) gives 
+        \begin{equation} 
+        p(x) = e^x + x^2 + C \pd \label{eq:diff-eq-p(x)}
+        \end{equation}
+        In \(\eqref{eq:diff-eq-p(x)}\) we plug in the initial condition, \(\orange{p(1) = 2},\)
+        to get 
+        \[\orange{p(1)} = e^1 + (1)^2 + C = \orange{2} \implies C = 1 - e \pd\]
+        Thus, substituting this value of \(C\) in \(\eqrefer{eq:diff-eq-p(x)}\) confers the particular solution,
+        \[p(x) = \boxed{e^x + x^2 + 1 - e}\] 
+    </span>
+</section>
+<section>
+    <p>GRID</p>
+    <p class="columns">2</p>
+    <p class="directions">a particle moves along the \(x\)-axis 
+        following the given velocity function \(v(t),\) where \(t\) is time. 
+        Find the particle's position function, \(x(t)\)</p>
+
+    <div>
+        \(v(t) = 8t - 3 \cma x(0) = 2\)
+    </div>
+    <span>
+        To obtain \(x(t)\) we integrate \(v(t) \col\)
+        \[x(t) = \int 8t - 3 \di t = 4t^2 - 3t + C \pd\]
+        We substitute the initial condition \(\orange{x(0) = 2} \col\)
+        \[\orange{x(0)} = 4(0)^2 - 3(0) + C = \orange 2 \implies C = 2 \pd\]
+        Thus, the particle's position function is 
+        \[x(t) = \boxed{4t^2 - 3t + 2}\]
+    </span>
+
+    <div>
+        \(v(t) = 4 - \cos t \cma x(\pi) = 1\)
+    </div>
+    <span>
+        Integrating \(v(t)\) gives 
+        \[x(t) = 4t - \sin t + C \pd\]
+        We find \(C\) by substituting \(\orange{x(\pi) = 1} \col\)
+        \[\orange{x(\pi)} = 4 \pi - \sin \pi + C = \orange 1 \implies C = 1 - 4 \pi \pd\]
+        The particle's position function is then 
+        \[x(t) = \boxed{4t - \sin t + 1 - 4 \pi}\]
+    </span>
+</section>
+<section>
+    <p>GRID</p>
+    <p class="columns">2</p>
+    <p class="directions">a particle along a straight line 
+        following the given acceleration function \(a(t),\) where \(t\) is time. 
+        Find the particle's position function, \(s(t)\)</p>
+    
+    <div>
+        \(a(t) = 6t + 2 \cma v(0) = 0 \cma s(0) = 2\)
+    </div>
+    <span>
+        We obtain velocity by integrating acceleration with respect to time:
+        \[v(t) = \int 6t + 2 \di t = 3t^2 + 2t + C \pd\]
+        To solve for \(C\) we substitute the given initial condition \(\orange{v(0) = 0} \col\)
+        \[\orange{v(0)} = 3(0)^2 + 2(0) + C = \orange 0 \implies C = 0 \pd\]
+        Thus, the particle's velocity function is 
+        \[v(t) = 3t^2 + 2t \pd\]
+        We integrate this expression to get the particle's position function:
+        \[s(t) = \int 3t^2 + 2t \di t = t^3 + t^2 + D \pd\]
+        Then we plug in the initial condition \(\orange{s(0) = 2} \col\)
+        \[\orange{s(0)} = (0)^3 + (0)^2 + D = \orange 2 \implies D = 2 \pd\]
+        Hence, the particle's position function is 
+        \[s(t) = \boxed{t^3 + t^2 + 2}\]
+    </span>
+
+    <div>
+        \(a(t) = t^2 + 2 \cma v(0) = 1 \cma s(0) = 0\)
+    </div>
+    <span>
+        Integrating \(a(t)\) gives 
+        \[v(t) = \tfrac{1}{3} t^3 + 2t + C \pd\]
+        When \(t = 0,\) \(v = 1.\) 
+        Substituting this initial condition gives 
+        \[\orange{v(0)} = \tfrac{1}{3}(0)^3 + 2(0) + C = \orange 1 \implies C = 1 \pd\]
+        The particle's velocity function is therefore 
+        \[v(t) = \tfrac{1}{3} t^3 + 2t + 1 \pd\]
+        Integrating \(v(t)\) gives 
+        \[s(t) = \tfrac{1}{12} t^4 + t^2 + t + D \pd\]
+        To solve for \(D\) we substitute the initial condition \(\orange{s(0) = 0} \col\)
+        \[\orange{s(0)} = \tfrac{1}{12} (0)^4 + (0)^2 + (0) + D = \orange 0 \implies D = 0 \pd\]
+        Hence, the particle's position function is 
+        \[s(t) = \boxed{\tfrac{1}{12} t^4 + t^2 + t}\]
+    </span>
+
+    <div>
+        \(a(t) = 1 - \sin t \cma v(\pi) = 0 \cma s(2) = -1\)
+    </div>
+    <span>
+        We find \(v(t)\) by integrating \(a(t)\) with respect to time:
+        \[v(t) = t + \cos t + C \pd\]
+        To solve for \(C\) we substitute the initial condition \(\orange{v(\pi) = 0} \col\)
+        \[\orange{v(\pi)} = \pi + \cos \pi + C = \orange 0 \implies C = 1 - \pi \pd\]
+        Hence, we have 
+        \[v(t) = t + \cos t + 1 - \pi \pd\]
+        We integrate again to obtain \(s(t) \col\)
+        \[s(t) = \tfrac{1}{2} t^2 + \sin t + (1 - \pi) t + D \pd\]
+        We solve for \(D\) by substituting the initial condition \(\orange{s(2) = -1} \col\)
+        \[\orange{s(2)} = \tfrac{1}{2}(2)^2 + \sin 2 + (1 - \pi)(2) + D = \orange{-1} \implies D = 2 \pi - 5 - \sin 2 \pd\]
+        Hence, 
+        \[s(t) = \boxed{\tfrac{1}{2}t^2 + \sin t + (1 - \pi)t + 2 \pi - 5 - \sin 2}\]
+    </span>
+</section>
+<section>
+    <div>
+        A penny is dropped from the roof of a \(50\)-foot building.
+        Find \(h(t),\) the penny's height above the ground
+        as a function of time, in seconds.
+        Determine the penny's speed right before it hits the ground.
+    </div>
+    <span>
+        Since the penny is <i>dropped</i>, its initial velocity is \(v(0) = 0.\)
+        Because we want the penny's height function, we let the upward direction be positive; 
+        thus, the object's acceleration due to gravity is \(-g = -32 \undiv{ft}{sec}^2.\)
+        We integrate this value to obtain the penny's general velocity function:
+        \[v(t) = \int -32 \di t = -32t + C \pd\]
+        To solve for \(C\) we substitute the initial condition \(\orange{v(0) = 0} \col\)
+        \[\orange{v(0)} = -32(0) + C = \orange 0 \implies C = 0 \pd\]
+        Thus, the penny's velocity function is 
+        \[v(t) = -32t \pd \]
+        The penny's height function is \(h(t) = \int v(t) \di t,\)
+        and this model takes the initial condition \(\orange{h(0) = 50}.\)
+        Integrating, we have 
+        \[h(t) = -16t^2 + D \pd\]
+        To solve for \(D\) we substitute the initial condition \(\orange{h(0) = 50}:\)
+        \[\orange{h(0)} = -16(0)^2 + D = \orange{50} \implies D = 50 \pd\]
+        Hence, the penny's height at time \(t\) is 
+        \[h(t) = \boxed{-16t^2 + 50}\]
+        To find the penny's final velocity \(v_f,\) we find the time at which \(h(t) = 0.\)
+        We get 
+        \[-16t^2 + 50 = 0 \implies t = \frac{5}{2 \sqrt 2} \pd\]
+        Then 
+        \[v_f = v \par{\frac{5}{2 \sqrt 2}} = -32 \par{\frac{5}{2 \sqrt 2}} = -40 \sqrt 2 \pd\]
+        Speed is the magnitude (absolute value) of velocity,
+        so the penny's final <i>speed</i> is \(|-40 \sqrt 2|\) \(\approx 56.569 \undiv{ft}{sec}.\)
+    </span>
+
+    <div>
+        A pencil rolls off a desk that is \(6\) feet above the ground. 
+        How long does the pencil take to hit the ground?
+    </div>
+    <span>
+        We need to choose an axis orientation. 
+        It is logical to let up be positive; then the pencil's acceleration due to gravity is 
+        \(-32 \undiv{ft}{sec}^2.\)
+        We find the pencil's velocity function by integrating this value of acceleration with respect to time:
+        \[v(t) = \int -32 \di t = -32t + C \pd\]
+        The pencil <i>rolls</i> off the desk, so its initial velocity is \(\orange{v(0) = 0}.\)
+        Substituting this initial condition gives 
+        \[\orange{v(0)} = -32(0) + C = \orange 0 \implies C = 0 \pd\]
+        Hence, the pencil's velocity function is 
+        \(v(t) = -32t.\)
+        The pencil's height function is the integral of \(v(t)\) with respect to time—that is, 
+        \[h(t) = \int -32 t \di t = -16t^2 + D \pd\]
+        The pencil initially is \(6\) feet above the ground; thus, \(\orange{h(0) = 6}.\)
+        Substituting this initial value shows 
+        \[\orange{h(0)} = -16(0)^2 + D = \orange 6 \implies D = 6 \pd\]
+        Thus, the pencil's height function is 
+        \[h(t) = -16t^2 + 6 \pd\]
+        We want to find the positive value of \(t\) for which \(h(t) = 0,\) so we solve to find 
+        \[t = \sqrt{\frac{6}{16}} \approx \boxed{0.612 \un{sec}}\]
+    </span>
+
+    <div>
+        A rock is thrown straight downward at a speed of \(20\) feet per second into a canyon
+        of depth \(180\) feet. 
+        How long does the rock take to fall to the bottom of the canyon?
+        With what speed does the rock hit the bottom?
+    </div>
+    <span>
+        We want to find the rock's height function, \(h(t)\)
+        (where \(t\) is time),
+        to find the time when the rock hits the bottom of the canyon.
+        We choose up to be the positive direction, so the rock's acceleration due to gravity 
+        is \(-g = -32 \undiv{ft}{sec}^2.\)
+        We integrate this acceleration to find the rock's general velocity function:
+        \[v(t) = \int -32 \di t = -32t + C \pd\] 
+        To solve for \(C\) we substitute the initial condition \(\orange{v(0) = -20} \col\)
+        \[\orange{v(0)} = -32(0) + C = \orange{-20} \implies C = -20 \pd\]
+        Hence, the rock's velocity function is 
+        \[v(t) = -32t - 20 \pd\]
+        We then integrate \(v(t)\) to find the rock's position function, \(h(t).\) 
+        Giving this model the initial condition \(\orange{h(0) = 180}\)
+        ensures that \(h(t)\) represents the rock's <i>height</i> above the canyon's bottom.
+        We have 
+        \[h(t) = \int -32t - 20 \di t = -16t^2 - 20t + D \pd\]
+        To solve for \(D\) we substitute the initial condition:
+        \[\orange{h(0)} = -16(0)^2 - 20(0) + D = \orange{180} \implies D = 180 \pd\]
+        Thus, the rock's height function is 
+        \begin{equation*} 
+        h(t) = -16t^2 - 20t + 180 \pd 
+        \end{equation*}
+        We want the positive solution of \(h(t) = 0 \col\)
+        \[
+        \ba 
+        t &= \frac{20 \pm \sqrt{(-20)^2 - 4(-16)(180)}}{2(-16)} \nl 
+        t &\approx -4.037, t \approx 2.787 \pd 
+        \ea 
+        \]
+        Therefore, the rock takes \(2.787 \un{sec}\) to fall to the bottom of the canyon.
+        And the rock hits the bottom with a <i>speed</i> of 
+        \[|v(2.787)| = |-32(2.787) - 20| = \boxed{109.184 \undiv{ft}{sec}}\]
+    </span>
+
+    <div>
+        A teddy bear is thrown from the ground straight upward with an initial speed of \(19.6\) meters per second.
+        What is the maximum height above the ground that the teddy bear reaches?
+    </div>
+    <span>  
+        Let's take the upward direction to be positive.
+        Then the teddy bear's acceleration due to gravity is \(-9.8 \undiv{m}{sec}^2.\)
+        If \(t\) is time in seconds, then the bear's general velocity function is therefore 
+        \[v(t) = \int -9.8 \di t = -9.8 t + C \pd\]
+        To determine \(C\) we substitute the initial condition \(\orange{v(0) = 19.6} \col\)
+        \[\orange{v(0)} = -9.8(0) + C = \orange{19.6} \implies C = 19.6 \pd\]
+        Hence, the bear's velocity function is 
+        \begin{equation} 
+        v(t) = -9.8t + 19.6 \pd \label{eq:bear-velocity}
+        \end{equation}
+        We want to find \(h(t),\) the bear's height as a function of time. 
+        We want to impose the initial condition \(\orange{h(0) = 0}\) because then \(h\) 
+        represents the bear's height above the ground.
+        Integrating the bear's velocity function [\(\eqref{eq:bear-velocity}\)] yields 
+        \[h(t) = -4.9t^2 + 19.6t + D \pd\]
+        Plugging in the initial condition then shows 
+        \[\orange{h(0)} = -4.9(0)^2 + 19.6(0) + D = \orange 0 \implies D = 0 \pd \]
+        Then the bear's height from the ground is 
+        \[h(t) = -4.9t^2 + 19.6t \pd\]
+        When the bear reaches its maximum height, \(v = 0.\)
+        In \(\eqRefer{eq:bear-velocity}\) setting \(v(t) = 0\) gives \(t = 2.\)
+        Hence, the bear's maximum height is 
+        \[h(2) = -4.9(2)^2 + 19.6(2) = \boxed{19.6 \un{m}}\]
+    </span>
+
+    <div>
+        A marshmallow is launched up into the air.
+        After \(2\) seconds the marshmallow reaches its maximum height.
+        Determine the marshmallow's launch velocity in feet per second.
+    </div>
+    <span>
+        We select the up direction to be positive. 
+        Then the marshmallow's acceleration due to gravity is \(-32 \undiv{ft}{sec}^2.\)
+        The marshmallow's velocity as a function of time is the integral of this acceleration:
+        \[v(t) = \int -32 \di t = -32 t + C \pd\]
+        To solve for \(C,\) we note that the marshmallow's velocity is \(0\) when it is at its maximum height, after \(2 \un{sec}.\)
+        Thus, we substitute the initial condition \(\orange{v(2) = 0} \col\)
+        \[\orange{v(2)} = -32(2) + C = \orange 0 \implies C = 64 \pd\]
+        Hence, the marshmallow's velocity function is 
+        \[v(t) = -32t + 64 \pd\]
+        Its launch velocity is therefore \(v(0) = 64 \undiv{ft}{sec}.\)
+    </span>
+
+    <div>
+        An object's acceleration as a function of time varies directly with time 
+        raised to the power of \(n,\) a positive number.
+        With what degree of time does the object's position vary?
+    </div>
+    <span>
+        The object's acceleration takes the form 
+        \[a(t) = kt^n \cma\]
+        where \(k\) is a constant.
+        Velocity, \(v(t),\) is the integral of acceleration with respect to time; thus, 
+        \[v(t) = k \, \frac{t^{n + 1}}{n + 1} + C \pd\]
+        If we integrate again, then the power of the \(t\) becomes \(n + 2.\)
+        Thus, the object's position varies directly with \(t\) to the power of \(n + 2.\)  
+    </span>
+
+    <div>
+        A particle moves in a straight line
+        with initial position \(s_0,\) initial velocity \(v_0,\)
+        and uniform acceleration \(a.\)
+        <ol class="list-alpha">
+            <li>
+                If \(t\) is time, then show that the particle's velocity function is 
+                \[v(t) = v_0 + at \pd\]
+            </li>
+            <li>
+                Show that the particle's position function is 
+                \[s(t) = s_0 + v_0 t + \tfrac{1}{2} at^2 \pd\]
+            </li>
+        </ol>
+    </div>
+    <span>
+        <ol class="list-alpha">
+            <li>
+                The particle's velocity function is the integral of acceleration, \(a,\)
+                with respect to time.
+                Since \(a\) is constant,
+                \begin{align} 
+                v(t) &= \int a \di t \nonumber \nl 
+                &= at + C \pd \label{eq:particle-v(t)}
+                \end{align}
+                To solve for \(C\) we substitute in \(\eqref{eq:particle-v(t)}\) the initial condition \(\orange{v(0) = v_0} \col\)
+                \[\orange{v(0)} = a \cdot 0 + C = \orange{v_0} \implies C = v_0 \pd\]
+                Thus, \(\eqRefer{eq:particle-v(t)}\) becomes 
+                \begin{equation} 
+                v(t) = v_0 + at \cma \label{eq:particle-v(t)-ans}
+                \end{equation}
+                as requested.
+            </li>
+            <hr>
+            <li>
+                Position is the integral of velocity, so we integrate \(\eqref{eq:particle-v(t)-ans},\) obtaining  
+                \begin{align} 
+                s(t) &= \int v_0 + at \di t \nonumber \nl 
+                &= v_0t + \tfrac{1}{2} at^2 + D \pd \label{eq:particle-s(t)}
+                \end{align}
+                To solve for \(D\) we substitute in \(\eqref{eq:particle-s(t)}\) 
+                the initial condition \(\orange{s(0) = s_0} \col\)
+                \[\orange{s(0)} = v_0(0) + \tfrac{1}{2} a(0)^2 + D = \orange{s_0} \implies D = s_0 \pd\]
+                Thus, \(\eqRefer{eq:particle-s(t)}\) becomes 
+                \[s(t) = s_0 + v_0 t + \tfrac{1}{2} at^2 \cma\]
+                as requested.
+            </li>
+        </ol>
+    </span>
+</section>

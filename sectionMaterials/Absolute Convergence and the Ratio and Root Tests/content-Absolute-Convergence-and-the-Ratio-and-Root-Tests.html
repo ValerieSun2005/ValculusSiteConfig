@@ -1,0 +1,87 @@
+<!--[[[crefId.Absolute-Convergence-and-the-Ratio-and-Root-Tests]]]--> 
+<p>
+    A series \(\sum a_n\) <span class="emph">converges absolutely</span>
+    if \(\sum \abs{a_n}\) converges. 
+    Conversely, \(\sum a_n\) <span class="emph">converges conditionally</span> 
+    if \(\sum a_n\) converges but \(\sum \abs{a_n}\) diverges.
+</p>
+
+<div class="box-title"> ABSOLUTE AND CONDITIONAL CONVERGENCE </div>
+<div class="box">
+    <ol class="list-alpha">
+        <li>
+            If \(\sum \abs{a_n}\) converges, then \(\sum a_n\) <span class="emph">converges absolutely</span>.
+        </li>
+        <li>
+            If \(\sum \abs a_n\) converges but \(\sum \abs{a_n}\) diverges,
+            then \(\sum a_n\) <span class="emph">converges conditionally</span>.
+        </li>
+    </ol>
+</div>
+
+<p>
+    If \(\sum a_n\) converges <i>absolutely</i>, then \(\sum a_n\) converges.
+    In other words, we can consider \(\sum \abs{a_n}\)—if this sum converges, 
+    then \(\sum a_n\) also converges. 
+    This fact can serve as another series convergence test, 
+    useful if we know how to work with \(\sum \abs{a_n}\) but not \(\sum \abs a_n.\)
+</p>
+
+<div class="box-title"> THEOREM 1 </div>
+<div class="box">
+    If \(\sum a_n\) is absolutely convergent, then it is convergent.
+</div>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        Determine whether the following series converges conditionally, converges absolutely, or diverges:
+        \[\sum_{n = 3}^{\infty} \frac{(-1)^n}{\sqrt{n}} \period \]
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"></button>
+<div id="solution1" class="solution">
+    Let \(a_n = (-1)^n/\sqrt{n}.\)
+    The terms of {\(a_n\)} are alternating and decrease in magnitude to zero. 
+    Also, \(\lim_{n \to \infty} a_n = 0,\)
+    so \(\sum a_n\) converges by the Alternating Series Test.
+    But 
+    \[\sum \abs{a_n} = \sum \frac{1}{\sqrt{n}} \period \] 
+    This is a p-series with \(p = 0.5,\) so \(\sum \abs{a_n}\) diverges.
+    Since \(\sum a_n\) converges but \(\sum \abs{a_n}\) diverges, 
+    we say \(\sum a_n\) <span class="emph">converges conditionally</span>.
+</div>
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        Determine whether \(\ds \sum_{n = 1}^{\infty} \frac{\sin n}{n^2}\) converges or diverges.
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    <p>
+        It's difficult to test this series in its raw form. 
+        Instead, we can determine whether the series converges <i>absolutely</i>.
+        In other words, if we find that \(\sum_{n = 1}^\infty \abs{(\sin n)/n^2}\)
+        is convergent, then Theorem 1 states that \(\sum_{n = 1}^\infty (\sin n)/n^2\)
+        also converges.
+    </p>
+    <p>
+        We find convergence of
+        \[\sum_{n = 1}^{\infty} \abs{\frac{\sin(n)}{n^2}}\]
+        by using Direct Comparison:
+        Since \(0 \leq \abs{\sin n} \leq 1,\) we have 
+        \[
+        0 \leq \sum_{n = 1}^{\infty} \abs{\frac{\sin n}{n^2}} \leq 
+        \sum_{n = 1}^{\infty} \frac{1}{n^2} \period 
+        \]
+        The sum \(\sum_{n = 1}^\infty 1/n^2\) converges and \(\sum_{n = 1}^{\infty} \abs{(\sin n)/n^2} \gt 0.\)
+        Hence, \(\sum_{n = 1}^{\infty} \abs{(\sin n)/n^2}\) converges.
+     </p>
+     <p>
+        Because \(\sum_{n = 1}^{\infty} \abs{(\sin n)/n^2}\) converges,
+        \(\sum_{n = 1}^{\infty} (\sin n)/n^2\) converges absolutely and therefore 
+        <span class="emph">converges</span>.
+     </p>
+</div>

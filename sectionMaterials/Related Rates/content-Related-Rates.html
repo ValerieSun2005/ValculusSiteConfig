@@ -1,0 +1,487 @@
+<!--[[[crefId.Related-Rates]]]--> 
+<p>
+    When you inflate a basketball, both its volume and radius are expanding; 
+    the rates at which the radius and volume increase are <i>related rates</i>.
+    In this section, we manage multiple related rates. 
+    You'll learn to determine the rate at which the basketball's radius is increasing 
+    when given another rate—the rate at which the basketball's volume expands.
+    This topic applies the Chain Rule, which we discussed in Section <!--[[[cref.Chain-Rule]]]-->,
+    to physical phenomena.
+</p>
+<p>
+    In <span class="emph">related rates</span> problems, 
+    one or more quantities are changing with respect to time.
+    When given a problem, it is important to read carefully, draw a diagram, and assign symbols. 
+    The objective is to write an equation that relates changing quantities,
+    and then differentiate with respect to time. 
+    We use the Chain Rule because we treat each quantity—for example, 
+    height, volume, length—as a function of time.
+    For example, suppose \(x\) and \(Q\) are physical quantities in \(Q(x) = x^2 + 4x,\) and \(\textDeriv{x}{t} = 3.\)
+    We use the Chain Rule to calculate \(\textDeriv{Q}{t} \col\)
+    \[
+    \ba 
+    \deriv{Q}{t} &= \deriv{Q}{x} \deriv{x}{t} \nl 
+    &= (2x + 4)(3) = 6x + 12 \pd 
+    \ea 
+    \]
+    The rate \(Q'(2) = 24\) represents how quickly \(Q\) is changing when \(x = 2.\)
+
+    Since we treat physical quantities as functions of time, \(t,\) we may write a physical quantity \(Q\) 
+    as \(Q(t).\)
+    For example, we can denote a height that changes with time either as \(h\) or \(h(t);\)
+    the difference is purely notational, and the latter form is implied.
+</p>
+
+<div class="steps-title">STRATEGY FOR RELATED RATES</div>
+<div class="steps">
+    <ol class="list-num">
+        <li>
+            <i>Understand.</i> Carefully read the problem and construct a sketch.
+        </li>
+        <li>
+            <i>Assign.</i> Give symbols to the changing quantities.
+            For clarity, use suggestive variables—for example, \(A\) for area, \(V\) 
+            for volume, \(h\) for height.
+            Note what you are given and what you need to find.
+        </li>
+        <li>
+            <i>Relate.</i> Write equations that relate quantities to each other. 
+            It's useful to consider what geometric shapes are formed.
+        </li>
+        <li>
+            <i>Differentiate.</i> Use the Chain Rule to differentiate the equation in (3) with respect to time 
+            and solve for the quantity you need. 
+        </li>
+    </ol>
+</div>
+
+<div class="example-title" id="ex-tank"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        Water is pumped into a cylindrical tank of radius \(10\) inches at a rate of \(30\) 
+        cubic inches per second.
+        How quickly is the water level increasing? 
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"></button>
+<div id="solution1" class="solution">
+    <figure class="related-rates-tank" id="related-rates-tank">
+        <img src="../images/sectionImages/related-rates-tank.jpg" alt="related-rates-tank.jpg">
+    </figure>
+    <style>
+        .related-rates-tank::before{
+            content:'FIGURE 1';
+        }
+    </style>
+    <p>
+        To understand the problem, we construct a sketch (<a href="#related-rates-tank">Figure 1</a>).
+        Let \(V\) be the water's volume and \(h\) be the water's height.
+        Note that these quantities represent the <i>water</i>, not the entire tank.
+        Quantities \(h\) and \(V\) vary with time, so we treat them as functions of time.
+        Derivatives represent the rate of change of a quantity:
+        The water's volume is increasing at a rate of \(30\) cubic inches per second,
+        so \(\textDeriv{V}{t} = 30 \un{in}^3/\text{sec}.\)
+        We want to find \(\textDeriv{h}{t},\) the rate at which the water's height is increasing.
+    </p>
+    <p>
+        We need to construct a relationship between \(h\) and \(V.\) 
+        The volume of a cylinder of radius \(r\) and height \(h\) is \(V = \pi r^2 h.\)
+        Here \(r = 10,\) so the water's volume is 
+        \begin{equation} 
+        V = 100 \pi h \pd \label{eq:tank-V}
+        \end{equation}
+        We use the Chain Rule to differentiate both sides of \(\eqRefer{eq:tank-V}\) with respect to time, \(t.\)
+        Differentiating and solving for \(\textDeriv{h}{t},\) we get 
+        \begin{align} 
+        \deriv{V}{t} &= 100 \pi \deriv{h}{t} \nonumber \nl 
+        \deriv{h}{t} &= \frac{1}{100 \pi} \deriv{V}{t} \pd \label{eq:tank-dh/dt}
+        \end{align}
+        Since \(\textDeriv{V}{t} = 30 \un{in}^3/\text{sec},\) \(\eqRefer{eq:tank-dh/dt}\) becomes  
+        \[\deriv{h}{t} = \frac{1}{100 \pi}(30) = \frac{3}{10 \pi} \pd\]
+        Thus, the water level is increasing at a rate of \(3 /(10 \pi)\) \(\approx 0.095 \undiv{in}{sec}.\)  
+    </p>
+</div>
+
+<p>
+    <a href="#ex-tank">Example 1</a> shows a situation in which the rates are constant.
+    In other words, \(\textDeriv{h}{t}\) does not depend on \(h,\)
+    the depth of the water.
+    But in other problems, rates are not constant: 
+    Sometimes we must evaluate a derivative at a given point.
+    In these cases, we must plug in the point <i>after</i> computing the derivative.
+</p>
+<p>
+    It is best practice to plug in numbers as the <i>final</i> step.
+    In other words, after differentiating you should immediately solve for the quantity you need, before substituting values.
+    This practice reduces the risk of committing arithmetic errors.
+</p>
+
+<div class="example-title" id="ex-snowball"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        A snowball melts in such a way that it maintains its spherical shape. 
+        The snowball's volume decreases at a rate of \(15\) cubic inches per minute.
+        At a certain instant, the snowball's radius is \(10\) inches. 
+        How quickly is the radius decreasing at this instant?
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    <figure class="related-rates-snowball" id="related-rates-snowball">
+        <img src="../images/sectionImages/related-rates-snowball.jpg" alt="related-rates-snowball.jpg">
+    </figure>
+    <style>
+        .related-rates-snowball::before{
+            content:'FIGURE 2';
+        }
+    </style>
+    <p>
+        We begin by constructing a sketch (<a href="#related-rates-snowball">Figure 2</a>).
+        We call \(r\) the snowball's radius and \(V\) the snowball's volume.
+        We treat these quantities as functions of time.
+        Since the volume is shrinking at \(15 \un{in}^3/\un{sec},\) 
+        \(\textDeriv{V}{t} = -15 \un{in}^3/\un{sec}.\)
+        The snowball's radius is also decreasing, so we expect \(\textDeriv{r}{t}\) to be negative. 
+        We want \(\textDeriv{r}{t}\) when \(r = 10 \un{in}.\)
+    </p>
+    <p>
+        To relate \(V\) and \(r,\) a sphere of radius \(r\) has volume 
+        \begin{equation} 
+        V = \tfrac{4}{3} \pi r^3 \pd \label{eq:snowball-V}
+        \end{equation}
+        In \(\eqRefer{eq:snowball-V}\) we differentiate both sides with respect to time by using the Chain Rule.
+        Doing so and solving for \(\textDeriv{r}{t}\) yield
+        \begin{align} 
+        \deriv{V}{t} &= 4 \pi r^2 \deriv{r}{t} \nonumber \nl 
+        \deriv{r}{t} &= \frac{1}{4 \pi r^2} \deriv{V}{t} \pd \label{eq:snowball-dV/dt}
+        \end{align}
+        <aside class="box-remark">
+            In \(\eqRefer{eq:snowball-V}\) we <i>first</i> differentiate \(V\) <i>before</i> substituting \(r = 10 \un{in}.\)
+            The other way around modifies function \(V(t)\) such that \(\textDeriv{V}{t} = 0,\) a nonsensical result.
+        </aside>
+        In \(\eqRefer{eq:snowball-dV/dt},\) we substitute \(r = 10 \un{in}\)
+        and the given \(\textDeriv{V}{t} = -15 \un{in}^3/\un{sec}\) to find 
+        \[
+        \deriv{r}{t} = \frac{1}{4 \pi(10)^2}(-15) = \frac{-3}{80 \pi} \pd 
+        \]
+        Therefore, when the snowball's radius is \(10 \un{in},\)
+        its radius is <i>decreasing</i> at a rate of \(3/(80 \pi) \approx 0.012 \undiv{in}{sec}.\)
+    </p>
+</div>
+
+<div class="example-title" id="ex-ladder"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">  
+        A \(20\)-foot ladder leans against a wall. 
+        The bottom of the ladder begins to slide away from the wall at a constant rate of \(2\) feet per second.
+        When the bottom of the ladder is \(7\) feet away from the wall, how quickly is the top of the ladder sliding down the wall?
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button"></button>
+<div id="solution3" class="solution">
+    <figure class="related-rates-ladder" id="related-rates-ladder">
+        <img src="../images/sectionImages/related-rates-ladder.jpg" alt="related-rates-ladder.jpg">
+    </figure>
+    <style>
+        .related-rates-ladder::before{
+            content:'FIGURE 3';
+        }
+    </style>
+    <p>
+        In <a href="#related-rates-ladder">Figure 3</a>
+        we let \(x\) be the distance between the wall and the bottom of the ladder, 
+        and we let \(y\) be the distance between the floor and the top of the ladder. 
+        Length \(x\) increases at a rate of \(2 \undiv{ft}{sec},\) so \(\textDeriv{x}{t} = 2 \undiv{ft}{sec}.\) 
+        We want to find the rate at which \(y\) changes—that is, \(\textDeriv{y}{t}\)—when \(x = 7 \un{ft}.\)
+        We expect this rate to be negative because \(y\) is decreasing.
+    </p>
+    <p>
+        Lengths \(x\) and \(y\) form a right triangle of hypotenuse \(20 \un{ft}.\)
+        Thus, by the Pythagorean Theorem 
+        \begin{equation} 
+        x^2 + y^2 = 20^2 \pd \label{eq:ladder-xy}
+        \end{equation}
+        Differentiating both sides of \(\eqRefer{eq:ladder-xy}\) with respect to time 
+        and solving for \(\textDeriv{y}{t},\) we obtain 
+        \begin{align} 
+        2x \deriv{x}{t} + 2y \deriv{y}{t} &= 0 \nonumber \nl 
+        \deriv{y}{t} &= -\frac{x}{y} \deriv{x}{t} \pd \label{eq:ladder-diff}
+        \end{align}
+        <aside class="box-remark">
+            Instead of \(\eqRefer{eq:ladder-xy},\) we also could have written the relationship 
+            \(\sqrt{x^2 + y^2} = 20.\)
+            But this form is harder to differentiate. 
+        </aside>
+        We want to solve for \(\textDeriv{y}{t}\) when \(x = 7 \un{ft};\)
+        at this instant \(y = \sqrt{20^2 - 7^2} = \sqrt{351} \un{ft}\) by \(\eqRefer{eq:ladder-xy}.\)
+        Substituting these values, along with \(\textDeriv{x}{t} = 2 \undiv{ft}{sec},\) 
+        in \(\eqRefer{eq:ladder-diff}\) then gives 
+        \[
+        \ba 
+        \deriv{y}{t} &= -\frac{7}{\sqrt{351}}(2) = \frac{-14}{\sqrt{351}} \pd
+        \ea 
+        \]
+        Therefore, when the ladder's foot is \(7 \un{ft}\) away from the wall, 
+        the top of the ladder slides <i>down</i> the wall at a rate of 
+        \(14/\sqrt{351}\) \(\approx 0.747 \undiv{ft}{sec}.\)
+    </p>
+</div>
+<p>
+    When problems involve right triangles, we want to differentiate the simplest possible form. 
+    For example, in <a href="#ex-ladder">Example 3</a> we chose to write the Pythagorean Theorem as 
+    \(x^2 + y^2 = 20^2\) instead of \(\sqrt{x^2 + y^2} = 20.\)
+    Moreover, if the problem involves <i>multiple</i> right triangles, 
+    we want to form a relationship between their lengths by similar triangles.
+    Therefore, it is a good idea to label angles because it's easier to spot similar triangles.
+    The following examples demonstrate these points.
+</p>
+
+<div class="example-title" id="ex-shadow"> EXAMPLE 4 </div>
+<div class="example">
+    <div class="example-problem">  
+        <figure class="related-rates-shadow" id="related-rates-shadow">
+            <img src="../images/sectionImages/related-rates-shadow.jpg" alt="related-rates-shadow.jpg">
+        </figure>
+        <style>
+            .related-rates-shadow::before{
+                content:'FIGURE 4';
+            }
+        </style>
+        A \(6\)-foot man walks, at a rate of \(5\) feet per second, away from a street light that is \(20\) feet tall. 
+        The man's shadow has length \(s,\) and the distance between the man and the street light is \(x\) 
+        (<a href="#related-rates-shadow">Figure 4</a>).
+        When the man is \(7\) feet away from the light, find the rate at which his shadow's length is changing.
+        Then find the rate at which the tip of his shadow is changing.
+    </div>
+</div>
+<button onclick="toggle4()" class="solution-button"></button>
+<div id="solution4" class="solution">
+    <p>
+        We are given that the man walks at a speed of \(5 \undiv{ft}{sec},\) so this value is \(\textDeriv{x}{t}.\)
+        The objective is to find \(\textDeriv{s}{t}\) when \(x = 7 \un{ft}.\)
+        We therefore need to relate \(x\) and \(s.\)
+    </p>
+    <p>
+        <i>Shadow Length.</i> In <a href="#related-rates-shadow">Figure 4</a> 
+        the angle between the ground and light ray is \(\theta.\)
+        We find two similar right triangles:
+        <ul>
+            <li>
+                The legs of triangle 1 are \(s\) and the man's height, \(6 \un{ft}.\)
+            </li>
+            <li>
+                The legs of triangle 2 are \(s + x\) and the height of the street light, \(20 \un{ft}.\)
+            </li>
+        </ul>
+        In triangle 1, \(\tan \theta = 6/s;\) in triangle 2, \(\tan \theta = 20/(s + x).\)
+        These trigonometric ratios are equivalent, so we have 
+        \begin{equation*} 
+        \frac{6}{s} = \frac{20}{s + x} \pd 
+        \end{equation*}
+        Solving for \(s\) gives \(s = 3x/7.\)
+        Differentiating both sides with respect to time then yields 
+        \begin{equation} 
+        \deriv{s}{t} = \tfrac{3}{7} \deriv{x}{t} \pd \label{eq:shadow-ds/dt}
+        \end{equation}
+        <aside class="box-remark">
+            In \(\eqRefer{eq:shadow-ds/dt}\) no \(x\) is present.
+            Thus, the rate at which the shadow's length changes is constant; 
+            it does <i>not</i> depend on how far the man stands from the street light. 
+        </aside>
+        The problem provides \(\textDeriv{x}{t} = 5 \undiv{ft}{sec},\) so \(\eqRefer{eq:shadow-ds/dt}\) becomes 
+        \begin{equation} 
+        \deriv{s}{t} = \tfrac{3}{7}(5) = \tfrac{15}{7} \pd \label{eq:shadow-ds/dt-value}
+        \end{equation}
+        Thus, the shadow's length is increasing at a rate of \(15/7\) \(\approx 2.143 \undiv{ft}{sec}.\)
+    </p>
+    <p>
+        <i>Tip of Shadow.</i> Let \(L\) be the length of the shadow's <i>tip</i>. 
+        Then \(L = s + x;\) differentiating both sides with respect to time shows  
+        \begin{equation} 
+        \deriv{L}{t} = \deriv{s}{t} + \deriv{x}{t} \pd \label{eq:shadow-dL/dt}
+        \end{equation}
+        In \(\eqRefer{eq:shadow-dL/dt},\) we substitute the given \(\textDeriv{x}{t} = 5 \undiv{ft}{sec}\) as well as 
+        \(\textDeriv{s}{t} = \frac{15}{7} \undiv{ft}{sec}\) [from \(\eqRefer{eq:shadow-ds/dt-value}\)]:
+        \[\deriv{L}{t} = \tfrac{15}{7} + 5 = \tfrac{50}{7} \pd\]
+        Thus, the shadow's <i>tip</i> is growing at a rate of \(50/7\) \(\approx 7.143 \undiv{ft}{sec}.\)
+    </p>
+</div>
+
+<div class="example-title" id="ex-cone"> EXAMPLE 5 </div>
+<div class="example">
+    <div class="example-problem">  
+        Water is pumped, at a rate of \(5\) cubic feet per second, into an inverted circular cone 
+        of height \(6\) feet and base radius \(2\) feet.
+        Determine the rate at which the water level changes when the water is \(2\) feet deep.
+    </div>
+</div>
+<button onclick="toggle5()" class="solution-button"></button>
+<div id="solution5" class="solution">
+    <figure class="related-rates-cone" id="related-rates-cone">
+        <img src="../images/sectionImages/related-rates-cone.jpg" alt="related-rates-cone.jpg">
+    </figure>
+    <style>
+        .related-rates-cone::before{
+            content:'FIGURE 5';
+        }
+    </style>
+    <p>
+        In <a href="#related-rates-cone">Figure 5</a>
+        we let \(h\) be the water level and \(r\) be the radius of the water's circular surface.
+        Note that these quantities model the <i>water</i>, not the entire tank.
+        The volume of the water is then  
+        \begin{equation} 
+        V = \tfrac{1}{3} \pi r^2 h \pd \label{eq:cone-water-volume}
+        \end{equation}
+        Water flows into the tank at a rate of \(5 \un{ft}^3/\un{sec},\)
+        so this value is \(\textDeriv{V}{t}.\) 
+        The objective is to find \(\textDeriv{h}{t}\) when \(h = 2 \un{ft},\)
+        and we expect this rate to be positive because the water level increases as water flows in.
+        Our goal is to express \(\eqRefer{eq:cone-water-volume}\) in terms of solely \(h,\)
+        and then differentiate both sides to relate \(\textDeriv{V}{t}\) and \(\textDeriv{h}{t}.\)
+        We therefore need to express \(r\) in terms of \(h.\)
+    </p>
+    <p>
+        Since the entire tank has radius \(2 \un{ft}\) and height \(6 \un{ft},\) 
+        we construct a relationship using similar triangles:
+        \[
+        \frac{2}{6} = \frac{r}{h} \pd
+        \]
+        Then \(r = \frac{2}{6}h\) \(= \frac{1}{3}h,\) which we substitute in \(\eqRefer{eq:cone-water-volume}\) to get 
+        \[V = \tfrac{1}{3} \pi \par{\tfrac{1}{3}h}^2 h = \tfrac{1}{27} \pi h^3 \pd\]
+        Differentiating both sides with respect to time and solving for \(\textDeriv{h}{t},\) 
+        we attain
+        \begin{align} 
+        \deriv{V}{t} &= \tfrac{1}{9} \pi h^2 \deriv{h}{t} \nonumber \nl 
+        \deriv{h}{t} &= \frac{9}{\pi h^2} \deriv{V}{t} \pd \label{eq:cone-dh/dt}
+        \end{align}
+        In \(\eqRefer{eq:cone-dh/dt}\) we substitute \(h = 2 \un{ft}\) and the given \(\textDeriv{V}{t} = 5 \un{ft}^3/\un{sec} \col\)
+        \[
+        \deriv{h}{t} = \frac{9}{\pi (2)^2}(5) = \frac{45}{4 \pi} \pd
+        \]
+        Thus, the water level is increasing at a rate of \(45/(4 \pi)\) \(\approx 3.581 \undiv{ft}{sec}\)
+        when the water is \(2 \un{ft}\) deep.
+    </p>
+</div>
+
+<div class="example-title" id="ex-cars"> EXAMPLE 6 </div>
+<div class="example">
+    <div class="example-problem">  
+        Two cars are approaching an intersection.
+        Car A is driving \(30\) miles per hour due east, and car B is driving \(45\) miles per hour due north.
+        Each car maintains its speed and direction.
+        When car A is \(6\) miles west of the intersection and car B is \(8\) miles south of the intersection,
+        how quickly is the distance between the cars changing?
+    </div>
+</div>
+<button onclick="toggle6()" class="solution-button"></button>
+<div id="solution6" class="solution">
+    <figure class="related-rates-car" id="related-rates-car">
+        <img src="../images/sectionImages/related-rates-car.jpg" alt="related-rates-car.jpg">
+    </figure>
+    <style>
+        .related-rates-car::before{
+            content:'FIGURE 6';
+        }
+    </style>
+    <p>
+        In <a href="#related-rates-car">Figure 6</a> let \(x\) be the distance between car A and the intersection,
+        and let \(y\) be the distance between car B and the intersection.
+        Also let \(z\) be the distance between cars A and B.
+        Distance \(x\) is <i>decreasing</i>
+        at a rate of \(30 \undiv{mi}{hr};\) thus, \(\textDeriv{x}{t} = -30 \undiv{mi}{hr}.\)
+        Likewise, distance \(y\) is <i>decreasing</i> at a rate of \(45 \undiv{mi}{hr},\)
+        so \(\textDeriv{y}{t} = -45 \undiv{mi}{hr}.\)
+        We want to find \(\textDeriv{z}{t}\) when \(x = 6 \un{mi}\) and \(y = 8 \un{mi},\)
+        and we expect this rate to be <i>negative</i> because the two cars 
+        are moving closer to each other.
+    </p>
+    <p>
+        To relate \(x,\) \(y,\) and \(z\) we use the Pythagorean Theorem:
+        \begin{equation} 
+        z^2 = x^2 + y^2 \pd \label{eq:cars-pythag}
+        \end{equation}
+        All three quantities vary with time, so we need the Chain Rule to differentiate \(\eqRefer{eq:cars-pythag}\)
+        with respect to time.
+        Differentiating and solving for \(\textDeriv{z}{t}\) produce
+        \begin{align} 
+        2z \deriv{z}{t} &= 2x \deriv{x}{t} + 2y \deriv{y}{t} \nonumber \nl 
+        \deriv{z}{t} &= \tfrac{1}{z} \left[2x \deriv{x}{t} + 2y \deriv{y}{t}\right] \pd \label{eq:cars-pythag-diff}
+        \end{align}
+    </p>
+    <aside class="box-remark">
+        In \(\eqRefer{eq:cars-pythag}\) it's also correct to write
+        \(z = \sqrt{x^2 + y^2},\) but this equation is harder to differentiate.
+        We generally seek the <i>simplest</i> possible form to differentiate.
+    </aside>
+    <p>
+        Now we substitute: When \(x = 6 \un{mi}\) and \(y = 8 \un{mi},\)
+        \(\eqRefer{eq:cars-pythag}\) gives \(z = \sqrt{6^2 + 8^2} = 10 \un{mi}.\)
+        Substituting these quantities, along with \(\textDeriv{x}{t} = -30 \undiv{mi}{hr}\) 
+        and \(\textDeriv{y}{t} = -45 \undiv{mi}{hr},\) in \(\eqRefer{eq:cars-pythag-diff}\) gives 
+        \[\deriv{z}{t} = \tfrac{1}{10} \left[2(6)(-30) + 2(8)(-45) \right] = -108 \pd\]
+        Thus, the distance between cars A and B is <i>decreasing</i> 
+        at a rate of \(108 \undiv{mi}{hr}\) when car A is \(6 \un{mi}\) west of the intersection 
+        and car B is \(8 \un{mi}\) south of the intersection.
+    </p>
+</div>
+
+<div class="example-title" id="ex-balloon"> EXAMPLE 7 </div>
+<div class="example">
+    <div class="example-problem">  
+        A cable connects a hot air balloon to a fixed pivot point on the ground \(50\) meters away.
+        The hot air balloon then ascends straight upward at a speed of \(6\) meters per second.
+        When the balloon is \(40\) meters above the ground, 
+        find the rate of change of the angle of elevation from the pivot point to the ballon. 
+    </div>
+</div>
+<button onclick="toggle7()" class="solution-button"></button>
+<div id="solution7" class="solution">
+    <figure class="related-rates-balloon" id="related-rates-balloon">
+        <img src="../images/sectionImages/related-rates-balloon.jpg" alt="related-rates-balloon.jpg">
+    </figure>
+    <style>
+        .related-rates-balloon::before{
+            content:'FIGURE 7';
+        }
+    </style>
+    <p>
+        Drawing a sketch (<a href="#related-rates-balloon">Figure 7</a>),
+        we let \(h\) be the balloon's altitude. 
+        Angle \(\theta\) is formed between the cable and ground,
+        and the pivot point is a fixed \(50 \un{m}\) away from the balloon's ground shadow.
+        The balloon ascends at a speed of \(6 \undiv{m}{sec},\)
+        so this rate is \(\textDeriv{h}{t}.\)
+        We want to find \(\textDeriv{\theta}{t}\) when \(h = 40 \un{m};\)
+        this rate should be positive because the angle of elevation is extending 
+        as the balloon rises. 
+    </p>
+    <p>
+        We relate \(\theta\) to \(h\) using 
+        \begin{equation} 
+        \tan \theta = \tfrac{h}{50} \pd \label{eq:balloon-tan-theta}
+        \end{equation}
+        Differentiating both sides of \(\eqRefer{eq:balloon-tan-theta}\) with respect to time, 
+        we obtain 
+        \begin{equation}    
+        \sec^2 \theta \deriv{\theta}{t} = \tfrac{1}{50} \deriv{h}{t} \pd \label{eq:balloon-diff}
+        \end{equation}
+        For simplicity we express \(\eqref{eq:balloon-diff}\) solely in terms of \(h \col \)
+        Since \(\sec^2 \theta = \tan^2 \theta + 1\) and \(\tan \theta = h/50\) [\(\eqref{eq:balloon-tan-theta}\)],
+        \(\eqref{eq:balloon-diff}\) becomes 
+        \begin{align} 
+        \left[\left(\tfrac{h}{50}\right)^2 + 1\right] \deriv{\theta}{t} &= \tfrac{1}{50} \deriv{h}{t} \nonumber \nl 
+        \deriv{\theta}{t} &= \frac{1}{(h/50)^2 + 1} \left(\tfrac{1}{50} \deriv{h}{t}\right) \pd \label{eq:balloon-dtheta/dt}
+        \end{align}
+        <aside class="box-remark">
+            In \(\eqRefer{eq:balloon-dtheta/dt}\) it is also correct to write 
+            \[\deriv{\theta}{t} = \cos^2 \theta \left(\tfrac{1}{50} \deriv{h}{t}\right)\]
+            and solve for \(\cos^2\theta\) when \(h = 40 \un{m}.\)
+            But working only with \(h\) avoids this extra step.
+        </aside>
+        In \(\eqRefer{eq:balloon-dtheta/dt}\) we substitute \(h = 40 \un{m}\) and \(\textDeriv{h}{t} = 6 \undiv{m}{sec}\) to get 
+        \[\deriv{\theta}{t} = \frac{1}{(40/50)^2 + 1} \left(\tfrac{1}{50} \cdot 6\right) = \tfrac{3}{41} \pd\]
+        Thus, when the balloon is \(40 \un{m}\) above the ground, the angle of elevation is increasing 
+        at a rate of \(3/41\) \(\approx 0.073 \undiv{rad}{sec}.\)
+    </p>
+</div>

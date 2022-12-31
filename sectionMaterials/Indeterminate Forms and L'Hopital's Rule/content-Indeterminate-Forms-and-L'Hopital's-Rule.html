@@ -1,0 +1,808 @@
+<!--[[[crefId.Indeterminate-Forms-and-L'Hopital's-Rule]]]--> 
+<p>
+    In Section <!--[[[cref.Evaluating-Limits-Algebraically]]]-->, 
+    we used the methods of algebra to evaluate limits in the indeterminate form \(\indZero.\)
+    For example, 
+    \[\lim_{x \to 3} \frac{x^2 - 9}{x - 3}\]
+    is of the indeterminate form \(\indZero\) since both \((x^2 - 9)\) and \((x - 3)\) tend to \(0\) 
+    as \(x\) approaches \(3.\)
+    But we factor the numerator to get 
+    \[
+    \ba 
+    \lim_{x \to 3} \frac{(x + 3)(x - 3)}{(x - 3)}
+    &= \lim_{x \to 3} (x + 3) \nl
+    &= 6 \period  
+    \ea 
+    \]
+    Algebraic manipulation allows us to evaluate this limit, 
+    but for other limits we don't have this resource.
+    In this section we present a systematic method to evaluate limits in indeterminate 
+    forms—<span class="emph">L'Hôpital's Rule</span>.
+</p>
+<p>
+    We cover seven indeterminate forms of limits. They are 
+    \(\indZero,\) \(\indInfty,\) \(0 \times \infty,\) \(\infty - \infty,\)
+    \(0^\infty,\) \(1^\infty,\) and \(\infty^0.\) 
+    L'Hôpital's Rule applies to \(\indZero\) and \(\indInfty,\) 
+    but we manipulate the other indeterminate forms to fit these two. 
+</p>
+
+<!-- l'hopital's rule box -->
+<div class="box-title"> L'HÔPITAL'S RULE </div>
+<div class="box">
+    Let \(f\) and \(g\) be differentiable functions and \(g'(x) \ne 0\) (except possibly at \(x = a\)).
+    If both  
+    \[\lim_{x \to a} f(x) \and \lim_{x \to a} g(x)\]
+    equal \(0\) or \(\infty,\)
+    then 
+    \[\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)} \period\]
+</div>
+
+<p>
+    In words, we differentiate the numerator and denominator of the fraction  
+    whose limit is of an indeterminate form \(\indZero\) or \(\indInfty,\) and re-evaluate the limit.   
+    The notations \(\indZero\) and \(\indInfty\) 
+    are forms to model a quotient of limits, each of which tends to \(0\) or \(\infty.\)
+    These expressions are meaningless on their own, 
+    so it's incorrect to state that a limit <i>equals</i> \(\indZero\) or \(\indInfty.\)
+    L'Hôpital's Rule also applies to one-sided limits and limits at infinity.
+</p>
+
+<p>
+    As an example, consider \(\lim_{x \to 0} \sin x/x.\) 
+    Using L'Hôpital's Rule, we differentiate the numerator and denominator to get  
+    \[
+    \ba 
+    \lim_{x \to 0} \frac{\deriv{}{x}[\sin x]}{\deriv{}{x}[x]} 
+    &= \lim_{x \to 0} \frac{\cos x}{1} \nl 
+    &= 1 \period 
+    \ea 
+    \]
+</p>
+
+<p>
+    It's easy to confuse the procedure of L'Hôpital's rule with the quotient rule.
+    The procedure of L'Hôpital's rule is to differentiate the numerator and denominator 
+    separately—<span class="warning">it is NOT the quotient rule.</span>
+    You may need to use L'Hôpital's rule multiple times before obtaining an answer,
+    because the resulting limit may also be in the indeterminate form \(\indZero\) or \(\indInfty.\) 
+</p>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        For each of (i)–(v), evaluate the limit if it exists.
+        <ol type="i" class="list-alpha">
+            <!--(i)-->
+            <li>
+                <span>
+                    \(\ds \lim_{x \to 0} \frac{2x}{\sin 4x}\)
+                </span>
+            </li>
+            <!--(ii)-->
+            <li>
+                <span>
+                    \(\ds \lim_{x \to 1} \frac{\ln x}{x - 1}\)
+                </span>
+            </li>  
+            <!--(iii)-->
+            <li>
+                <span>
+                    \(\ds \lim_{x \to -2} \frac{x + 2}{2 - 2 \cos \pi x}\)
+                </span>
+            </li>
+            <!--(iv)-->
+            <li>
+                <span>
+                    \(\ds \lim_{x \to \infty} \frac{\sqrt x}{\ln x}\)
+                </span>
+            </li>
+            <!--(v)-->
+            <li>
+                <span>
+                    \(\ds \lim_{x \to 0} |x| \cot x\)
+                </span>
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"></button>
+<div id="solution1" class="solution">
+    <ol class="list-alpha">
+        <!--(i)-->
+        <li>
+            Since \(2x\) and \(\sin 4x\) both tend to \(0\) as \(x\) approaches \(0,\)
+            the limit \(\lim_{x \to 0} 2x/\sin 4x \) is in the indeterminate form \(\indZero.\)
+            Both functions are differentiable at \(x = 0,\) so we apply L'Hôpital's Rule,
+            differentiating the numerator and denominator:
+            \[
+            \ba
+            \lim_{x \to 0}\frac{2x}{\sin 4x}
+            &= \lim_{x \to 0} \frac{ \deriv{}{x}[2x]}{ \deriv{}{x}[\sin 4x]} \nl 
+            &= \lim_{x \to 0} \frac{2}{4 \cos 4x} \nl 
+            &= \boxed{\frac{1}{2}}
+            \ea
+            \]
+
+        </li>
+        <hr>
+        <!--(ii)-->
+        <li>
+            The functions \(\ln x\) and \((x - 1)\) both tend to \(0\) as \(x\) approaches \(1.\) 
+            Therefore, the limit is in the indeterminate form \(\indZero.\)
+            Since these functions are differentiable, we apply L'Hôpital's rule:
+            \[
+            \ba
+            \lim_{x \to 1}\frac{\ln x}{x - 1} 
+            &= \lim_{x \to 1} \frac{\deriv{}{x} [\ln x]}{\deriv{}{x} [x - 1]} \nl 
+            &= \lim_{x \to 1} \frac{1/x}{1} \nl
+            &= \boxed{1}
+            \ea
+            \]
+        </li>  
+        <hr>
+        <!--(iii)-->
+        <li>
+            The functions \((x + 2)\) and \((2 - 2 \cos \pi x)\) 
+            both approach \(0\) as \(x\) approaches \(-2,\)
+            so the limit is in the indeterminate form \(\indZero.\)
+            Both functions are differentiable, so we apply L'Hôpital's rule:
+            \[
+            \ba
+            \lim_{x \to -2} \frac{x + 2}{2 - 2 \cos \pi x}
+            &= \lim_{x \to -2} \frac{\deriv{}{x}[x + 2]}{\deriv{}{x}[2 - 2 \cos \pi x]} \nl
+            &= \lim_{x \to -2} \frac{1}{2 \pi \sin \pi x } \period \nl
+            \ea
+            \]
+            The graph of \(y = \frac{1}{2 \pi \sin \pi x}\)
+            has a vertical asymptote at \(x = -2,\) 
+            so the function is unbounded there. 
+            Thus, the limit does not exist. 
+        </li>
+        <hr>
+        <!--(iv)-->
+        <li>
+            As \(x \to \infty,\) 
+            \[\sqrt x \to \infty \and \ln x \to \infty \period \] 
+            Therefore, \(\lim_{x \to \infty} \sqrt x/\ln x\) is in the indeterminate form \(\indInfty.\)
+            And \(\sqrt{x}\) and \(\ln{x}\) are differentiable for all \(x \gt 0,\) 
+            so we apply L'Hôpital's rule:
+            \[
+            \ba
+            \lim_{x \to \infty} \frac{\sqrt{x}}{\ln x}
+            &= \lim_{x \to \infty}\frac{\deriv{}{x}[\sqrt{x}]}{\deriv{}{x}[\ln x]} \nl
+            &= \lim_{x \to \infty} \frac{\frac{1}{2\sqrt{x} }}{1/x} \nl
+            &= \lim_{x \to \infty} \frac{\sqrt{x}}{2} \nl
+            &= \boxed{\infty}
+            \ea
+            \]
+        </li>
+        <hr>
+        <!--(v)-->
+        <li>
+            To consider the limit of \(|x|\) as \(x\) approaches \(0,\) 
+            we rewrite \(|x|\) as the piecewise function
+            \[
+            |x|=
+            \bc
+            -x &x \lt 0 \nl
+            0 &x = 0 \nl
+            x &x \gt 0 \period 
+            \ec
+            \]
+            Therefore, 
+            \[
+            \ba
+            \lim_{x \to 0^-} |x| \cot x &= \lim_{x \to 0} -x \cot x \nl
+            \lim_{x \to 0^+} |x| \cot x &= \lim_{x \to 0} x \cot x \period 
+            \ea
+            \]
+            The limit \(\lim_{x \to 0} |x| \cot x\) is defined if these one-sided limits are equivalent.
+            The right-hand limit, 
+            \[
+            \lim_{x \to 0^+} |x| \cot x = \lim_{x \to 0} \frac{x \cos x}{\sin x} \comma 
+            \]
+            is in the indeterminate form \(\indZero.\) 
+            Since \(x \cos x\) and \(\sin x\) are both differentiable, 
+            we use L'Hôpital's Rule to find 
+            \[
+            \ba
+            \lim_{x \to 0} \frac{x \cos x}{\sin x} 
+            &= \lim_{x \to 0} \frac{\deriv{}{x} [x \cos x]}{\deriv{}{x} [\sin x]} \nl
+            &= \lim_{x \to 0} \frac{\cos x - x \sin x}{\cos x} \nl
+            &= 1 \period 
+            \ea
+            \] 
+            But the left-hand limit is 
+            \[
+            \lim_{x \to 0} \frac{-x \cos x}{\sin x} = -1 \period
+            \] 
+            The one-sided limits aren't equivalent, so the limit does not exist.
+        </li>
+    </ol>
+</div>
+
+
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        Let \(g\) be a twice-differentiable function.
+        It is known that \(g(0) = 1,\) \(g'(0) = 0,\) and \(g''(0) = 5.\) 
+        Evaluate 
+        \[ \lim_{x \to 0} \frac{g(x) - \cos x}{x^2} \period \]
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    <p>
+        Performing direct substitution shows  
+        \[g(0) - \cos 0 = 0 \and 0^2 = 0 \comma \]
+        so the limit is in the indeterminate form \(\indZero.\)
+        Therefore, we apply L'Hôpital's Rule:
+        Differentiating the numerator and denominator gives
+        \[\lim_{x \to 0} \frac{g'(x) + \sin x}{2x} \period \]
+        But direct substitution yields 
+        \[g'(0) - \cos 0 = 0 \and 2 \cdot 0 = 0 \period \]
+        Since the resulting limit is still in the indeterminate form \(\indZero,\)
+        we use L'Hôpital's Rule again to get 
+        \[
+        \ba
+        \lim_{x \to 0} \frac{g''(x) + \cos x}{2} &= \frac{g''(0) + \cos 0}{2} \nl
+        &= \frac{5 + 1}{2} \nl
+        &= \boxed{3}
+        \ea
+        \]
+    </p>
+    <p>
+        Be prepared to perform multiple iterations of L'Hôpital's Rule before getting a determinate answer.
+    </p>
+</div>
+
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">  
+        Let \(f(x) \gt 0\) be a function that has derivatives of all orders.
+        Let \(k\) be a differentiable function defined by 
+        \[k(x) = \frac{4x^2 - [f(x)]^2}{\sin(x - 1)}\] 
+        that satisfies \(\ds \lim_{x \to 1} k(x) = 4.\)
+        It is known that \(\ds \lim_{x \to 1} k(x)\) can be evaluated using L'Hôpital's Rule.
+        Find \(f(1)\) and \(f'(1).\)
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button"></button>
+<div id="solution3" class="solution">
+    <p>
+        Since \(\lim_{x \to 1} k(x)\) can be evaluated using L'Hôpital's Rule,
+        the limit must be in either of the indeterminate forms \(\indZero\) or \(\indInfty.\) 
+        The limit of the denominator is 
+        \[\lim_{x \to 1} \sin(x - 1) = 0 \comma\]
+        so \(\lim_{x \to 1} k(x)\) is in the indeterminate form \(\indZero.\)
+        Because \(k\) is differentiable, \(k\) is continuous and so
+        \[
+        \ba
+        \lim_{x \to 1} \left(4x^2 - [f(x)]^2 \right) = 4 - [f(1)]^2 &= 0 \nl
+        \therefore f(1) &= 2 \period 
+        \ea
+        \]
+        We ignore the solution \(f(1) = -2\) because \(f\) is given to be positive. 
+        We now need \(f'(1),\) 
+        which we find by evaluating \(\lim_{x \to 1} k(x)\) using L'Hôpital's Rule. 
+        Therefore, we differentiate the numerator and denominator to find  
+        \[
+        \ba
+        \lim_{x \to 1} \frac{8x - 2f(x)f'(x)}{\cos(x - 1)} &= 4 \nl
+        \frac{8 - 2f(1) f'(1)}{\cos(1 - 1)} &= 4 \nl
+        8 - 4 f'(1) &= 4 \nl 
+        \therefore f'(1) &= 1 \period 
+        \ea
+        \]
+        Thus,
+        \[
+        \boxed{
+        \ba 
+        f(1) &=2 \nl
+        f'(1) &= 1 \nl
+        \ea}
+        \]
+    </p>
+</div>
+
+<h4 id="relative-rates">Relative Rates of Growth and Decay</h4>
+<p>
+    L'Hôpital's Rule allows us to compare the relative rates of growth or decay of various functions.
+    Consider two positive functions: \(f\) and \(g.\)
+    To determine which function grows faster, 
+    we consider the limit 
+    \[L = \lim_{x \to \infty} \frac{f(x)}{g(x)} \period \]
+    This quotient initiates a battle between \(f\) and \(g:\)
+    If \(f\) grows faster than does \(g,\) then \(L\) approaches infinity.
+    But if \(g\) grows faster than does \(f,\) then \(L\) approaches \(0.\) 
+    Lastly, if \(f\) and \(g\) grow at the same rate, then \(L\) equals a nonzero constant.
+</p>
+
+<p>
+    For example, let's determinate which function grows faster: \(f(x) = x^{1/5}\) or \(g(x) = \ln x.\)
+    We consider the limit 
+    \[L = \lim_{x \to \infty} \frac{f(x)}{g(x)} = \lim_{x \to \infty} \frac{x^{1/5}}{\ln x} \comma \]
+    which is in the indeterminate form \(\indZero.\) 
+    Therefore, we apply L'Hôpital's Rule to get
+    \[
+    \ba
+    L &= \lim_{x \to \infty} \frac{\frac{1}{5} x^{-4/5}}{1/x} \nl
+    &= \lim_{x \to \infty} \frac{1}{5}x^{1/5} \nl
+    &= \infty \period 
+    \ea
+    \]
+    We conclude that \(f(x) = x^{1/5}\) grows faster than does \(g(x) = \ln x.\)
+    As \(x\) approaches infinity, \(f(x)\) tries to force \(f(x)/g(x)\) to infinity,
+    while \(g(x)\) tries to make the quotient decay to \(0.\)
+    Because the quotient \(f(x)/g(x)\) approaches infinity, 
+    \(f\) overpowers \(g\) and therefore grows faster. 
+    We may also let \(f(x) = \ln x\) and \(g(x) = x^{1/5}.\) 
+    Then \(L = 0,\) also proving \(g(x) = x^{1/5}\) grows faster. 
+</p>
+
+<!-- relative rates box -->
+<div class="box-title"> RELATIVE RATES </div>
+<div class="box">
+    Let \(f\) and \(g\) be differentiable, nonzero functions. 
+    Consider \[L = \lim_{x \to \infty} \frac{f(x)}{g(x)} \period \]
+    <ol class="list-alpha">
+        <li>
+            If \(L = \infty,\) then \(f\) grows faster than does \(g.\)
+        </li>
+        <li>
+            If \(L = 0,\) then \(g\) grows faster than does \(f.\) 
+        </li>
+        <li>
+            If \(L\) is a nonzero value, then \(f\) and \(g\) grow at the same rate.
+        </li>
+    </ol>
+</div>
+
+<div class="example-title"> EXAMPLE 4 </div>
+<div class="example">
+    <div class="example-problem">  
+        As \(x\) approaches infinity, 
+        show that \(f(x) = e^{-x}\) decays to \(0\) faster than does \(g(x) = 1/x.\)
+    </div>
+</div>
+<button onclick="toggle4()" class="solution-button"></button>
+<div>
+    <div id="solution4" class="solution">
+        <p>
+            We consider 
+            \[L = \lim_{x \to \infty} \frac{f(x)}{g(x)} \period \] 
+            If \(f\) decays faster than does \(g,\) 
+            then \(L = 0.\)
+            But if \(g\) decays faster than does \(f,\) 
+            then \(L = \infty.\)
+        </p>
+        <p>
+            We have 
+            \[
+            \ba 
+            L &= \lim_{x \to \infty} \frac{e^{-x}}{1/x} \nl
+            &= \lim_{x \to \infty} \frac{x}{e^x} \comma 
+            \ea 
+            \]
+            which is in the indeterminate form \(\indInfty.\) 
+            Then applying L'Hôpital's Rule gives  
+            \[
+            \ba 
+            \lim_{x \to \infty} \frac{\deriv{}{x}[x]}{\deriv{}{x}[e^x]} 
+            &= \lim_{x \to \infty} \frac{1}{e^x} \nl
+            &= 0 \period
+            \ea 
+            \]
+        </p>
+        <p>
+            Since \(L = 0,\) we conclude that 
+            \(f(x) = e^{-x}\) decays faster than does \(g(x) = 1/x.\) 
+        </p>
+    </div>
+</div>
+
+<p>
+    We now discuss other indeterminate forms of limits: \(0 \times \infty,\) \(0^0,\) 
+    \(1^\infty,\) and \(\infty^0.\)
+    We manipulate these forms into either \(\indZero\) or \(\indInfty\)
+    and use L'Hôpital's Rule.
+</p>
+<h4 id="0xinfty"> Indeterminate Form \(0 \times \infty\) </h4>
+<p>
+    Consider the differentiable, nonzero functions \(p\) and \(q.\) 
+    If 
+    \[ \lim_{x \to a} p(x) = 0 \and \lim_{x \to a} q(x) = \infty \comma \] 
+    then \(\lim_{x \to a}[p(x) q(x)]\) is in the indeterminate form \(0 \times \infty.\)
+    But we rewrite the limit in one of two possible ways:
+    \[\lim_{x \to a} \frac{p(x)}{1/q(x)} \and \lim_{x \to a} \frac{q(x)}{1/p(x)} \comma  \] 
+    which are in the indeterminate forms \(\indZero\) and \(\indInfty,\) respectively.
+    This manipulation forces any limit of the indeterminate form \(0 \times \infty\) 
+    into either \(\indZero\) or \(\indInfty,\)
+    for which we use L'Hôpital's Rule.  
+</p>
+
+<p>
+    As an example, consider the limit 
+    \[ L = \lim_{x \to 0^+} [x \ln x] \period \]
+    This limit represents a battle between \(x\) and \(\ln x:\) 
+    As \(x \to\) \(0^+,\) the term \(x\) tries to force the product \(x \ln x\) to \(0,\)
+    while \(\ln x\) tries to push the product to negative infinity.
+    If \(L = 0,\) then \(x\) overpowers \(\ln x;\)
+    but if \(L = \infty,\) then \(\ln x \) overpowers \(x.\) 
+    We rewrite \(L\) as
+    \[\lim_{x \to 0^+} \frac{\ln x}{1/x} \comma \]
+    which is in the indeterminate form \(\indInfty.\)
+    We then apply L'Hôpital's Rule to obtain 
+    \[
+    \ba
+    \lim_{x \to 0^+} \frac{1/x}{-1/x^2} &= \lim_{x \to 0^+} (-x) \nl
+    &= \boxed{0}
+    \ea
+    \]
+    This result concludes that as \(x \to 0^+,\)  
+    the term \(x\) overpowers \(\ln x\) and forces \(x \ln x\) to \(0.\)
+</p>
+
+<!-- table for indeterminate form 0 * infty -->
+<div class="steps-title"> INDETERMINATE FORM \(0 \times \infty\) </div>
+<div class="steps">
+    Let \(p\) and \(q\) be differentiable, nonzero functions.
+    If 
+    \[L = \lim_{x \to a}[p(x) q(x)]\] 
+    is in the indeterminate form \(0 \times \infty,\) 
+    then force \(L\) into the indeterminate form \(\indZero\) or \(\indInfty\)
+    by rewriting it as 
+    \[ \lim_{x \to a} \frac{p(x)}{1/q(x)} \or \lim_{x \to a} \frac{q(x)}{1/p(x)} \period \] 
+    Decide which form is easier to evaluate using L'Hôpital's Rule. 
+    (In some instances only one form leads to an answer.)
+</div>
+
+<div class="example-title"> EXAMPLE 5 </div>
+<div class="example">
+    <div class="example-problem">  
+        Evaluate \(\ds \lim_{x \to -\infty} xe^{x}\) if it exists.
+    </div>
+</div>
+<button onclick="toggle5()" class="solution-button"></button>
+<div>
+    <div id="solution5" class="solution">
+        <p>
+            The limit is in the indeterminate form \(0 \times \infty.\)
+            But we rewrite the limit:
+            \[
+            \lim_{x \to -\infty} xe^{x} = \lim_{x \to -\infty} \frac{x}{1/e^x} \comma 
+            \]
+            which is in the indeterminate form \(\indInfty.\)
+            Then using L'Hôpital's Rule, we obtain 
+            \[
+            \ba
+            \lim_{x \to \infty} \frac{\deriv{}{x}[x]}{\deriv{}{x}[1/e^x]} 
+            &= \lim_{x \to -\infty} \frac{1}{-1/e^x} \nl
+            &= \lim_{x \to -\infty} -e^x \nl
+            &= \box{0}
+            \ea
+            \]
+        </p>
+        <p>
+            But if we write the quotient as 
+            \[\lim_{x \to -\infty} \frac{e^x}{1/x},\]
+            which is in the indeterminate form \(\indZero,\)
+            then L'Hôpital's Rule gives 
+            \[\lim_{x \to -\infty} \frac{e^x}{-1/x^2} \period \]
+            Further applications of L'Hôpital's Rule then give
+            \[\lim_{x \to -\infty} \frac{e^x}{2/x^3} \comma 
+            \lim_{x \to -\infty} \frac{e^x}{-6/x^4} \comma \dots \comma\]
+            leading nowhere because repeated iterations are still be in the indeterminate form \(\indZero.\) 
+            In this problem only one choice, writing the quotient as \(\indInfty,\)
+            provides an answer.
+        </p>
+    </div>
+</div>
+
+<h4 id="infty-infty">Indeterminate Form \(\infty - \infty\)</h4>
+<p>
+    If 
+    \[\lim_{x \to a} p(x) = \infty \and \lim_{x \to a} q(x) = \infty \comma \]
+    then 
+    \(L = \lim_{x \to a} [p(x) - q(x)]\)
+    To find \(L,\) 
+    we rewrite the difference \([p(x) - q(x)]\) as a 
+    quotient—by factoring, rationalizing, or combining fractions—and apply L'Hôpital's Rule.
+</p>
+<p>
+    As an example, consider the limit 
+    \[L = \lim_{x \to \infty} \Big(\ln x - \sqrt x \Big). \]
+    As \(x\) approaches infinity, 
+    both \(\ln x\) and \(\sqrt x\) approach infinity.
+    Thus, \(L\) is in the indeterminate form \(\infty - \infty.\) 
+    But we factor out the term \(\ln x\) to get  
+    \[L = \lim_{x \to \infty} \ln x \left(1 - \frac{\sqrt x}{\ln x} \right) \period \]
+    As \(x \to \infty,\) you may use L'Hôpital's Rule to verify that 
+    \(\frac{\sqrt x}{\ln x} \to \infty.\)
+    Also, as \(x \to \infty,\) 
+    \[\ln x \to \infty \and 1 - \frac{\sqrt x}{\ln x} \to - \infty \period \]
+    The product of \(+\infty\) and \(-\infty\) is \(-\infty,\) so we conclude that 
+    \(L = \boxed{-\infty.}\)
+</p>
+
+<!-- table for indeterminate form infty - infty -->
+<div class="steps-title"> INDETERMINATE FORM \(\infty - \infty\) </div>
+<div class="steps">
+    If \(p\) and \(q\) are differentiable, nonzero functions such that 
+    \[ L = \lim_{x \to a} [p(x) - q(x)] \] 
+    is in the indeterminate form \(\infty - \infty,\) 
+    then rewrite \(L\) as the limit of a quotient by 
+    factoring, rationalizing, or combining fractions. 
+    Then apply L'Hôpital's Rule if needed.
+</div>
+
+<div class="example-title"> EXAMPLE 6 </div>
+<div class="example">
+    <div class="example-problem">  
+        Evaluate 
+        \(\ds \lim_{x \to 0^+} \left(\frac{1}{x} - \ln x \right)\)
+        if it exists.
+    </div>
+</div>
+<button onclick="toggle6()" class="solution-button"></button>
+<div>
+    <div id="solution6" class="solution">
+        <p>
+            As \(x \to 0^+,\) 
+            \[\frac{1}{x} \to \infty \and \ln x \to - \infty \period \] 
+            Therefore, this limit is in the indeterminate form \(\infty - \infty.\) 
+            We then combine \(1/x\) and \(\ln x\) as one fraction, and rewrite the limit as  
+            \[L = \lim_{x \to 0^+} \frac{1 - x \ln x}{x} \period \]
+            Then applying L'Hôpital's Rule to \(L\) produces
+            \[
+            \ba 
+            \lim_{x \to 0^+} \frac{\deriv{}{x} \left[1 - x \ln x\right]}{\deriv{}{x}[x]} 
+            &= 
+            \lim_{x \to 0^+} \frac{-\ln x - 1}{1} \nl
+            &= \boxed{\infty}
+            \ea 
+            \]
+        </p>
+    </div>
+</div>
+
+<h4 id="indeterminate-forms-exponents">Indeterminate Forms with Exponents: \(0^0,\) \(1^\infty,\) and \(\infty^0\)</h4>
+<p>
+    We now discuss indeterminate forms with exponents—namely 
+    \(0^0,\) \(1^\infty,\) and \(\infty^0.\)
+    To re-express these forms into \(\indZero\) or \(\indInfty,\) 
+    we use logarithms. 
+    Let \(p\) and \(q\) be differentiable functions, 
+    and let 
+    \[y = [p(x)]^{q(x)} \period \]
+    We take the natural logarithm of both sides to get 
+    \[\ln y = q(x) \ln[p(x)] \period \]
+    If \(\lim_{x \to a} y\) is in the indeterminate form \(0^0,\) \(1^\infty,\) or \(\infty^0,\)
+    then we consider  
+    \[
+    \ba 
+    L &= \lim_{x \to a} \ln y \nl 
+    &= \lim_{x \to a} q(x) \ln[p(x)] \period 
+    \ea 
+    \]
+    We may need to manipulate \(L\) to be a quotient of the indeterminate form \(\indZero\) or \(\indInfty,\)
+    as appropriate. Then 
+    \[\lim_{x \to a} y = e^L \period \]
+</p>
+
+<p>
+    As an example, consider  
+    \[\lim_{x \to 0^+} x^{1/x} \period \] 
+    As \(x\) approaches \(0,\) 
+    the base tends to \(0\) and the exponent tends to infinity.
+    Thus, this limit is in the indeterminate form \(0^\infty.\)
+    We first let \(y = x^{1/x}.\) 
+    Then we take the natural logarithm of both sides:
+    \[
+    \ba
+    \ln y &= \ln \left(x^{1/x}\right) \nl
+    &= \frac{1}{x} \ln x \nl
+    \lim_{x \to 0^+} \ln y &= \lim_{x \to 0^+} \frac{1}{x} \ln x \period 
+    \ea
+    \]
+    As \(x \to 0^+,\) 
+    \[\frac{1}{x} \to \infty \and \ln x \to -\infty \period \]
+    Since \(-\infty \times \infty = - \infty,\) 
+    we have \(\lim_{x \to 0^+} \ln y = -\infty.\) 
+    Then 
+    \[
+    \ba 
+    \lim_{x \to 0^+} y 
+    &= e^{\lim_{x \to 0^+} \ln y} \\ 
+    &= e^{-\infty} \\
+    &= \boxed{0} 
+    \ea 
+    \]
+</p>
+
+<!-- table for indeterminate forms w/ exponents -->
+<div class="steps-title"> INDETERMINATE FORMS WITH EXPONENTS </div>
+<div class="steps">
+    Suppose  
+    \[\lim_{x \to a} [p(x)]^{q(x)}\] 
+    is in the indeterminate form \(0^0, 1^{\infty},\) or \(\infty^0.\)
+    <ol class="list-num">
+        <li>
+            Let \(y = [p(x)]^{q(x)}.\)
+            It then follows that 
+            \[\ln y = q(x) \ln[p(x)] \period \]
+        </li>
+        <li>
+            Evaluate 
+            \[L = \lim_{x \to a} \ln y \period \]
+            You may need to manipulate \(L\) into 
+            the indeterminate form \(\indZero\) or \(\indInfty\)
+            and use L'Hôpital's Rule.
+        </li>
+        <li>
+            It follows that 
+            \[\lim_{x \to a} y = e^L \period\]
+        </li>
+    </ol>
+</div>
+
+<div class="example-title"> EXAMPLE 7 </div>
+<div class="example">
+    <!--example 7 problem-->
+    <div class="example-problem">  
+        Evaluate 
+        \[\lim_{x \to 0} \Big(3e^{2x} - 2\Big)^{1/({2x^2 - 5x})} \] 
+        if it exists.
+    </div>
+</div>
+<button onclick="toggle7()" class="solution-button"></button>
+<div>
+    <div id="solution7" class="solution">
+        <p>
+            As \(x \to 0,\)
+            \[\par{3e^{2x} - 2} \to 1 \and \frac{1}{2x^2 - 5x} \to \infty \period\]
+            This limit is therefore in the indeterminate form \(1^\infty.\)
+            We let 
+            \[y = \par{3e^{2x} - 2}^{1/({2x^2 - 5x})}. \]
+            Then
+            \[
+            \ba 
+            \ln y &= \ln \left[ \left( 3e^{2x} - 2 \right)^{1/({2x^2 - 5x})} \right] \nl
+            &= \frac{1}{2x^2 - 5x} \ln \left( 3e^{2x} - 2 \right) \nl
+            \lim_{x \to 0} \ln y &= \lim_{x \to 0} \frac{1}{2x^2 - 5x} \ln \left( 3e^{2x} - 2 \right) \period \nl
+            \ea
+            \]
+            The limit \(\lim_{x \to 0} \ln y\) is in the indeterminate form \(\indZero,\)
+            so we apply L'Hôpital's Rule to find  
+            \[
+            \ba
+            \lim_{x \to 0} \ln y &= \lim_{x \to 0} \frac{6e^{2x} \cdot \dfrac{1}{3e^{2x} - 2}}{4x - 5} \nl
+            &= -\frac{6}{5} \period
+            \ea
+            \]
+        </p>
+        <p>
+            Because \(\lim_{x \to 0} \ln y = -6/5,\) we have 
+            \[\ds \lim_{x \to 0} y = \boxed{e^{-6/5}}\]
+        </p>
+    </div>
+</div>
+
+<div class="example-title"> EXAMPLE 8 </div>
+<div class="example">
+    <div class="example-problem">  
+        Evaluate \(\ds \lim_{x \to \infty} (\ln x)^{1/x} \) if it exists.
+    </div>
+</div>
+<button onclick="toggle8()" class="solution-button"></button>
+<div>
+    <div id="solution8" class="solution">
+        <p>
+            This limit is in the indeterminate form \(\infty^0.\)
+            We first let 
+            \[y = \left(\ln x \right)^{1/x} \period \]
+            Then 
+            \[
+            \ba
+            \ln y &= \frac{1}{x} \ln \left(\ln x \right) \nl
+            \lim_{x \to \infty} \ln y &= \lim_{x \to \infty} \frac{1}{x} \ln \left(\ln x \right) \period \nl
+            \ea
+            \]
+            Because 
+            \(\lim_{x \to \infty} \frac{\ln \left(\ln x \right)}{x}\) 
+            is in the indeterminate form \(\indInfty,\)
+            we apply L'Hôpital's Rule rule to find  
+            \[
+            \ba
+            \lim_{x \to \infty} \ln y &= \lim_{x \to \infty} \frac{\frac{1}{x\ln x}}{1} \nl
+            &= 0 \period 
+            \ea 
+            \]
+            Since \(\lim_{x \to \infty} \ln y = 0,\) 
+            we have 
+            \[\lim_{x \to \infty} y = e^0 = \boxed{1} \]
+        </p>
+    </div>
+</div>
+
+<div class="section-summary">
+    <ul>
+        <li> 
+            Let \(f\) and \(g\) be differentiable functions and \(g'(x) \ne 0\) (except possibly at \(x = a\)).
+            If both  
+            \[\lim_{x \to a} f(x) \and \lim_{x \to a} g(x)\]
+            equal \(0\) or \(\infty,\)
+            then 
+            \[\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)} \period\]
+        </li>
+        <li>
+            L'Hôpital's Rule applies to one-sided limits and limits at infinity.
+        </li>
+        <li>
+            L'Hôpital's Rule is 
+            <span class="warning">not</span>
+            to be confused with the quotient rule:
+            differentiate the numerator and denominator separately.
+        </li>
+        <li>
+            Let \(f\) and \(g\) be differentiable, nonzero functions. 
+            Consider \[L = \lim_{x \to \infty} \frac{f(x)}{g(x)} \period \]
+            <ol class="list-alpha">
+                <li>
+                    If \(L = \infty,\) then \(f\) grows faster than does \(g.\)
+                </li>
+                <li>
+                    If \(L = 0,\) then \(g\) grows faster than does \(f.\) 
+                </li>
+                <li>
+                    If \(L\) is a nonzero value, then \(f\) and \(g\) grow at the same rate.
+                </li>
+            </ol>
+        </li>
+        <li>
+            Let \(p\) and \(q\) be differentiable, nonzero functions.
+            If 
+            \[L = \lim_{x \to a}[p(x) q(x)]\] 
+            is in the indeterminate form \(0 \times \infty,\) 
+            then force \(L\) into the indeterminate form \(\indZero\) or \(\indInfty\)
+            by rewriting it as 
+            \[ \lim_{x \to a} \frac{p(x)}{1/q(x)} \or \lim_{x \to a} \frac{q(x)}{1/p(x)} \period \] 
+            Decide which form is easier to evaluate using L'Hôpital's Rule. 
+            (In some instances only one form leads to an answer.)
+        </li>
+        <li>
+            If \(p\) and \(q\) are differentiable, nonzero functions such that 
+            \[ L = \lim_{x \to a} [p(x) - q(x)] \] 
+            is in the indeterminate form \(\infty - \infty,\) 
+            then rewrite \(L\) as the limit of a quotient by 
+            factoring, rationalizing, or combining fractions. 
+            Then apply L'Hôpital's Rule if needed.
+        </li>
+        <li>
+            Suppose  
+            \[\lim_{x \to a} [p(x)]^{q(x)}\] 
+            is in the indeterminate form \(0^0, 1^{\infty},\) or \(\infty^0.\)
+            <ol class="list-num">
+                <li>
+                    Let \(y = [p(x)]^{q(x)}.\)
+                    It then follows that 
+                    \[\ln y = q(x) \ln[p(x)] \period \]
+                </li>
+                <li>
+                    Evaluate 
+                    \[L = \lim_{x \to a} \ln y \period \]
+                    You may need to manipulate \(L\) into 
+                    the indeterminate form \(\indZero\) or \(\indInfty\)
+                    and use L'Hôpital's Rule.
+                </li>
+                <li>
+                    It follows that 
+                    \[\lim_{x \to a} y = e^L \period\]
+                </li>
+            </ol>
+        </li>
+    </ul>
+</div>

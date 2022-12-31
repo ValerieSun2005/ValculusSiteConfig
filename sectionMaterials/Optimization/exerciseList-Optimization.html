@@ -1,0 +1,1327 @@
+<section>
+    <div>
+        <style>
+            .optimization-triangle::before{
+                content:'FIGURE 1';
+            }
+        </style>
+        <figure class="optimization-triangle" id="optimization-triangle">
+            <img src="../images/sectionImages/optimization-triangle.jpg" 
+            class="optimization-triangle" alt="optimization-triangle.jpg">
+        </figure>
+        A triangle has sides of lengths \(a\) and \(b,\)
+        and the angle between them is \(\theta\) 
+        (see <a href="#optimization-triangle">Figure 1</a>).
+        The area of the triangle is 
+        \[A = \tfrac{1}{2} ab \sin \theta \pd\]
+        Using calculus, show that the area is maximized when \(\theta = 90 \degree.\)
+    </div>
+    <span>
+        We differentiate \(A\) with respect to \(\theta\) to obtain 
+        \[A'(\theta) = \tfrac{1}{2} a b \cos \theta \pd\]
+        The domain of \(A\) is \(0 \degree \leq \theta \leq 180 \degree;\) 
+        we find \(A'(\theta) = 0\) when \(\theta = 90 \degree.\)
+        For \(0 \lt \theta \lt 90 \degree,\) \(A' \gt 0;\)
+        for \(90 \degree \lt \theta \lt 180 \degree,\) \(A' \lt 0.\)
+        Thus, the First Derivative Test asserts that \(A\) has a 
+        <i>relative maximum</i> when \(\theta = 90 \degree\) 
+        because at that point \(A'\) switches sign from positive to negative. 
+        At the endpoints—\(\theta = 0 \degree\) and \(\theta = 180 \degree\)—the triangle collapses into a line, 
+        and so \(A = 0.\)
+        We therefore conclude that \(\theta = 90 \degree\) corresponds to the <i>absolute</i> maximum of \(A,\) 
+        as requested.
+        This problem shows that arranging two sides perpendicular to each other 
+        maximizes the area of the corresponding triangle. 
+    </span>
+
+    <div>
+        Find two numbers whose sum is \(30\) such that their product is maximized.
+    </div>
+    <span>
+        Let \(x\) and \(y\) be the two numbers.
+        We want to find the maximum of 
+        \begin{equation}  
+        P = xy \pd \label{eq:sum-30-prod}
+        \end{equation}
+        We have 
+        \begin{equation} 
+        x + y = 30 \cma \label{eq:sum-30-sum}
+        \end{equation}
+        from which we solve for one variable—for example, \(y = 30 - x.\)
+        We substitute this expression into \(\eqRefer{eq:sum-30-prod}\)
+        to express \(P\) solely in terms of \(x \col\)
+        \[P = x(30 - x) = 30x - x^2 \pd\]
+        We now find the critical numbers of \(P\) by equating \(P'(x) = 0.\)
+        We find 
+        \[
+        \ba 
+        P'(x) = 30 - 2x &= 0 \nl 
+        \implies x &= 15 \pd 
+        \ea 
+        \]
+        We see \(P' \gt 0\) for \(x \lt 15\) 
+        and \(P' \lt 0\) for \(x \gt 15.\)
+        Thus, the First Derivative Test asserts that \(x = 15\) corresponds to a <i>relative</i> maximum of \(P.\)
+        Because \(\lim_{x \to -\infty} P = -\infty\) and \(\lim_{x \to \infty} P = -\infty,\)
+        \(P\) needs to have a maximum value, which must occur when \(x = 15.\)
+        We therefore conclude that \(x = 15\) corresponds to the <i>absolute</i> maximum of \(P.\)
+        When \(x = 15,\) \(\eqRefer{eq:sum-30-sum}\) gives \(y = 15.\)
+        The two numbers therefore are \(\boxed{15}\) and \(\boxed{15}.\)
+    </span>
+
+    <div>
+        Find two numbers whose difference is \(20\) such that their product is minimized. 
+    </div>
+    <span>
+        If \(x\) and \(y\) represent the two numbers, then we want to minimize 
+        \begin{equation} 
+        P = xy \pd \label{eq:diff-20-prod} 
+        \end{equation}
+        We have 
+        \begin{equation} 
+        x - y = 20 \cma \label{eq:diff-20-diff}
+        \end{equation}
+        so \(y = x - 20.\) We plug this expression into \(\eqRefer{eq:diff-20-prod}\) to obtain 
+        \[P = x(x - 20) = x^2 - 20x \pd \]
+        This expression only contains terms of \(x,\) so we can now differentiate: 
+        \[P'(x) = 2x - 20 \pd\]
+        We seek the critical numbers of \(P,\)
+        so solving \(P'(x) = 0\) yields \(x = 10.\)
+        If we visualize the graph of \(y = P(x),\)
+        then we imagine an upward-opening parabola with an <i>absolute minimum</i> at \(x = 10.\)
+        Then \(\eqRefer{eq:diff-20-diff}\) gives \(y = -10.\)
+        We therefore conclude that the two numbers are 
+        \(\boxed{-10}\) and \(\boxed{10}.\)
+    </span>
+
+    <div>
+        The sum of two positive numbers is \(10.\) What is the smallest possible sum of their squares?
+    </div>
+    <span>
+        Let the numbers be \(x\) and \(y.\) We have two equations: 
+        \begin{align} 
+        x + y &= 10 \label{eq:sum-10-10} \nl 
+        S &= x^2 + y^2 \pd \label{eq:sum-10-S}
+        \end{align}
+        We want to minimize \(S.\)
+        We first express \(S\) solely in terms of one variable—say, \(x.\)
+        From \(\eqRefer{eq:sum-10-10},\) we find \(y = 10 - x.\)
+        We plug this expression into \(\eqRefer{eq:sum-10-S}\) to obtain 
+        \[S = x^2 + (10 - x)^2 = 2x^2 - 20x + 100 \pd\]
+        Differentiating, we find 
+        \[S'(x) = 4x - 20 \pd\]
+        At \(x = 5,\) \(S\) has a <i>relative minimum</i>  
+        because 
+        \[
+        \ba 
+        S'(x) &\lt 0 \for x \lt 5 \nl
+        S'(x) &\gt 0 \for x \gt 5 \pd
+        \ea 
+        \]
+        Also, \(\lim_{x \to -\infty} S = \infty\) and \(\lim_{x \to \infty} S = \infty,\)
+        so \(x = 5\) must correspond to an <i>absolute</i> minimum of \(S.\)
+        Then \(\eqRefer{eq:sum-10-10}\) gives \(y = 5,\) and the smallest possible sum is 
+        \[S = 5^2 + 5^2 = \boxed{50}\]
+    </span>
+
+    <div>
+        Two positive numbers multiply to \(14.\) What is their smallest possible sum?
+    </div>
+    <span>
+        Let \(x\) and \(y\) be the numbers.
+        We have 
+        \begin{equation} 
+        xy = 14 \cma \label{eq:14-p}
+        \end{equation}
+        and we want to minimize 
+        \begin{equation} 
+        S = x + y \pd \label{eq:14-s}
+        \end{equation}
+        To express \(S\) in terms one variable, 
+        we use \(\eqRefer{eq:14-p}\) to get \(y = 14/x.\)
+        Then, substituting this expression into \(\eqRefer{eq:14-s},\) we have  
+        \begin{equation} 
+        S = x + \frac{14}{x} \pd \label{eq:14-s-x}
+        \end{equation}
+        Differentiating \(\eqRefer{eq:14-s-x}\) yields
+        \[S'(x) = 1 - \frac{14}{x^2} \cma\]
+        and we find a positive critical number of \(x = \sqrt{14}.\)
+        For \(x \lt \sqrt{14},\) \(S' \lt 0;\) for \(x \gt \sqrt{14},\) \(S' \gt 0.\)
+        Thus, \(x = \sqrt{14}\) corresponds to a <i>relative minimum</i> of \(S.\)
+        The number \(x\) is given to be positive and so it must lie in \((0, \infty).\)
+        At the ends of this interval, from \(\eqRefer{eq:14-s-x}\) we see 
+        \[\lim_{x \to 0^+} S = \infty \and \lim_{x \to \infty} S = \infty \pd\]
+        Thus, \(x = \sqrt{14}\) must correspond to the <i>absolute minimum</i> of \(S.\)
+        Then \(\eqRefer{eq:14-p}\) gives \(y = 14/\sqrt{14} = \sqrt{14}.\)
+        The smallest possible sum is therefore
+        \[S = \sqrt{14} + \sqrt{14} = \boxed{2\sqrt{14}}\]
+    </span>
+
+    <div>
+        In a rectangular pond of uniform depth, the density of salmon per cubic meter is modeled by the function 
+        \[\rho(r) = 200r^2 e^{-4r} \cma \]
+        where \(r\) is measured in meters from the shoreline and \(\rho(r)\) is measured in salmon per cubic meter. 
+        How far from the shoreline should a fisherman fish in order to catch the most salmon?
+    </div>
+    <span>
+        The fisherman wants to fish in the area in which the density of salmon is highest.
+        Thus, we want to maximize \(\rho(r).\)
+        Its derivative is 
+        \[\rho'(r) = 400r e^{-4r} - 800r^2 e^{-4r} \pd\]
+        Letting \(\rho'(r) = 0,\) we find \(r = 0\) and \(r = 0.5.\)
+        At \(r = 0,\) \(\rho'(r)\) does not change sign, 
+        so \(\rho\) does not have an extremum there. 
+        At \(r = 0.5,\) \(\rho'(r)\) switches sign from positive to negative; 
+        thus, \(r = 0.5\) corresponds to a <i>relative</i> maximum of \(\rho.\)
+        The domain of \(\rho\) is \(0 \leq r \lt \infty.\)
+        We see \(\rho(0) = 0,\) so the fisherman should not fish at \(r = 0.\)
+        To consider \(\rho\) as \(r \to \infty,\) we use L'Hôpital's rule to find   
+        \[
+        \ba 
+        \lim_{r \to \infty} \rho(r) &= \lim_{r \to \infty} \frac{200r^2}{e^{4r}} \nl 
+        &= \lim_{r \to \infty} \frac{400r}{4e^{4r}} \nl 
+        &= \lim_{r \to \infty} \frac{400}{16e^{4r}} \nl 
+        &= 0 \pd
+        \ea 
+        \]
+        Thus, \(\rho|) has its <i>absolute</i> maximum when \(r = 0.5.\)
+        The fisherman therefore should fish at a distance of \(\boxed{0.5 \un{meter}}\) from the shoreline.
+    </span>
+
+    <div>
+        <style>
+            .optimization-physical-pendulum::before{
+                content:'FIGURE 2';
+            }
+        </style>
+        <figure class="optimization-physical-pendulum" id="optimization-physical-pendulum">
+            <img src="../images/sectionImages/optimization-physical-pendulum.jpg" 
+            class="optimization-physical-pendulum" alt="optimization-physical-pendulum.jpg">
+        </figure>
+        A uniform, thin rod of length \(30\) centimeters is pivoted at a point \(x\) centimeters from its center of gravity as it oscillates 
+        (see <a href="#optimization-physical-pendulum">Figure 2</a>). 
+        This device is called a <i>physical pendulum</i>. 
+        The equation for its period, the time it takes to complete one full revolution, in seconds, is 
+        \[T = 2 \pi \sqrt{\frac{(0.01x)^2 + 0.3^2/12}{9.8(0.01x)}} \pd \]
+        Find the value of \(x\) for which the period is minimized.
+    </div>
+    <span>
+        If \(f(x)\) has an extremum at \(x = a,\) then \(\sqrt{f(x)}\) also has an extremum at \(x = a.\)
+        Thus, we choose to minimize \(T^2\) because its derivative is easier to compute. 
+        Let \(q(x) = T^2.\) Then  
+        \[q'(x) = \frac{4 \pi^2}{9.8(0.01)} \par{(0.01)^2 - \frac{(0.3)^2}{12x^2}} \pd\]
+        We find \(q'(x) = 0\) when \(x = \sqrt{\frac{(0.3)^2}{12(0.01)^2}},\) whose value is approximately \(8.66 \un{cm}.\)
+        We now consider extreme values of \(x \col\)
+        We see \(\lim_{x \to 0^+} T = \infty\) and \(\lim_{x \to \infty} T = \infty.\)
+        Thus, \(x = \boxed{8.66 \un{cm}}\) minimizes the period of the physical pendulum.
+    </span>
+
+    <div>
+        At a party, identical speakers are on either side of a room that is \(8\) meters wide.
+        If a dancer stands \(x\) meters from one speaker, then the sound intensity she experiences is 
+        \[I = k \par{\frac{1}{x^2} + \frac{1}{(8 - x)^2}} \cma\]
+        where \(k\) is a constant of proportionality. 
+        Where in the room should the dancer stand to experience the loudest sound?
+    </div>
+    <span>
+        <figure class="optimization-speaker" id="optimization-speaker">
+            <img src="../images/sectionImages/optimization-speaker.jpg" class="optimization-speaker" alt="optimization-speaker.jpg">
+        </figure>
+        We must maximize \(I.\)
+        Differentiating gives 
+        \[\deriv{I}{x} = k \par{\frac{-2}{x^3} + \frac{2}{(8 - x)^3}} \pd\]
+        We solve for \(\textDeriv{I}{x} = 0,\) as follows:
+        \[
+        \ba 
+        k \par{\frac{-2}{x^3} + \frac{2}{(8 - x)^3}} &= 0 \nl 
+        \frac{2}{x^3} &= \frac{2}{(8 - x)^3} \nl 
+        x^3 &= (8 - x)^3 \nl  
+        x &= 4 \pd
+        \ea 
+        \]
+        The sign of \(\textDeriv{I}{x}\) switches from negative to positive when \(x = 4,\)
+        so this value corresponds to a <i>relative minimum</i> of \(I.\)
+        We want to maximize \(I,\) so we have no further consideration of this extremum. 
+        The domain of \(I\) is \(0 \lt x \lt 8;\) we see 
+        \[\lim_{x \to 0^+} I = \infty \qquad \lim_{x \to 8^-} I = \infty \pd\]
+        Thus, sound intensity is maximized at either \(x = 0\) or \(x = 8.\)
+        The dancer therefore should stand right next to either speaker.
+    </span>
+
+    <div>
+        Farmer Ana has \(24\) feet of fence to build a closed, rectangular pen for her animals. 
+        She uses the side of her farmhouse as one side of the pen. 
+        Find the maximum possible area of the pen.
+    </div>
+    <span>
+        <figure class="optimization-pen" id="optimization-pen">
+            <img src="../images/sectionImages/optimization-pen.jpg" 
+            class="optimization-pen" alt="optimization-pen.jpg">
+        </figure>
+        Drawing a sketch, we call \(\ell\) the pen's length and \(w\) pen's width. 
+        The perimeter is \(2w + \ell\) and must equal \(24 \col\)
+        \begin{equation} 
+        2w + \ell = 24 \pd \label{eq:pen-p} 
+        \end{equation}
+        Our goal is to maximize 
+        \begin{equation}  
+        A = w \ell \cma \label{eq:pen-a}
+        \end{equation}
+        which we express in terms of one variable. 
+        From \(\eqRefer{eq:pen-p},\) we find \(\ell = 24 - 2w.\)
+        We substitute this expression into \(\eqRefer{eq:pen-a}\) to obtain 
+        \begin{equation} 
+        A = w(24 - 2w) = 24w - 2w^2 \pd \label{eq:pen-Aw}
+        \end{equation}
+        Since \(A\) is now expressed in terms of \(w,\) 
+        we differentiate to find 
+        \[A'(w) = 24 - 4w \pd\]
+        At \(w = 6\) we find a critical point of \(A.\)
+        For \(w \lt 6,\) \(A' \gt 0;\) for \(w \gt 6,\) \(A' \lt 0.\)
+        Thus, \(w = 6\) corresponds to a <i>relative</i> maximum of \(A.\)
+        The question is now whether \(w = 6\) corresponds to the <i>absolute</i> maximum of \(A.\)
+        And it does, because the domain of \(A\) is \(0 \leq w \leq 12;\)
+        at each endpoint \(A = 0\) by \(\eqRefer{eq:pen-Aw}.\)
+        Then \(\eqRefer{eq:pen-p}\) gives \(\ell = 24 - 2(6) = 12,\)
+        meaning the pen's area is maximized by instating a width of \(6 \un{feet}\) 
+        and length of \(12 \un{feet}.\)
+        The area is then 
+        \[6 \un{ft} \cdot 12 \un{ft} = \boxed{72 \un{ft}^2}\]
+    </span>
+
+    <div>
+        Find the point on the line \(y = 2x\) that is closest to the point \((4, 3).\)
+    </div>
+    <span>
+        <figure class="optimization-line-nearest-point" id="optimization-line-nearest-point">
+            <img src="../images/sectionImages/optimization-line-nearest-point.jpg" 
+            class="optimization-line-nearest-point" alt="optimization-line-nearest-point.jpg">
+        </figure>
+        Let \((x, y)\) be a point on the line. 
+        The horizontal distance from \((x, y)\) to \((4, 3)\) is \(4 - x.\)
+        The vertical distance between \((x, y)\) and \((4, 3)\) is \(y - 3.\)
+        Thus, the distance from the point to the line is 
+        \begin{equation} 
+        d = \sqrt{(4 - x)^2 + (y - 3)^2} \pd \label{eq:line-distance}
+        \end{equation}
+        We want to express \(d\) entirely in terms of one variable, \(x.\)
+        Since \(y = 2x,\) \(\eqRefer{eq:line-distance}\) becomes 
+        \[d = \sqrt{(4 - x)^2 + (2x - 3)^2} \cma\]
+        the expression we want to minimize. 
+        The critical numbers of \(d\) and \(d^2\) are the same, 
+        so for simplicity we find the critical numbers of \(d^2.\)
+        Let \(q(x) = d^2;\) then 
+        \[q'(x) = -2(4 - x) + 4(2x - 3) \pd\]
+        We solve \(q'(x) = 0,\) finding \(x = 2.\)
+        Since \(q'\) changes sign from negative to positive at \(x = 2,\)
+        this value corresponds to a <i>relative minimum</i> of \(q\) (and, therefore, of \(d\)).
+        The domain of \(q\) is \(-\infty \lt x \lt \infty;\)
+        as \(x\) approaches each endpoint, \(q \to \infty.\)
+        Thus, \(x = 2\) must be the <i>absolute</i> minimum of \(q\) (and, hence, of \(d\)).
+        Then \(y = 2(2) = 4,\) so the point \(\boxed{(2, 4)}\) on the line is closest to \((4, 3).\)
+    </span>
+
+    <div>
+        Angel operates a candy business in which he sells bags of candy for \(\$9\) each. 
+        The cost, in dollars, of him producing \(x\) bags of candy is 
+        \[C(x) = x^3 - 3x^2 + 20 \pd \]
+        How many bags must Angel sell to maximize his profit? 
+    </div>
+    <span>
+        Each bag of candy Angel sells, his revenue is \(\$9\) and his cost is \(C(x).\)
+        We then use the relationship 
+        \[
+        \ba 
+        \un{profit} &= \un{revenue} - \un{cost} \nl 
+        p(x) &= 9x - (x^3 - 3x^2 + 20) = -x^3 + 3x^2 + 9x - 20 \pd 
+        \ea 
+        \]
+        We seek the maximum of \(p.\)
+        Letting \(p'(x) = 0,\) we find 
+        \[
+        \ba 
+        p'(x) = -3x^2 + 6x + 9 &= 0 \nl 
+        -3(x - 3)(x + 1) &= 0 \nl
+        \implies x &= -1 \cma x = 3 \pd
+        \ea 
+        \]
+        The domain of \(p(x)\) is \(x \geq 0,\) 
+        so we discard the solution \(x = -1.\)
+        For \(0 \lt x \lt 3,\) \(p' \gt 0;\) for \(x \gt 3,\) \(p' \lt 0.\)
+        Thus, \(x = 3\) corresponds to a <i>relative</i> maximum of \(p.\)
+        We make three remarks: 
+        <ul>
+            <li>
+                \(p(0) = -20.\)
+            </li>
+            <li>
+                \(p(3) = 7.\)
+            </li>
+            <li>
+                \(\ds \lim_{x \to \infty} p(x) = -\infty.\)
+            </li>
+        </ul>
+        Thus, \(p(3) = 7\) is the <i>absolute</i> maximum of \(p.\)
+        Angel therefore should sell \(\boxed{3}\) bags of candy to maximize his profit.
+    </span>
+
+    <div>
+        A company sells water bottles for \(\$8\) each. 
+        The company's cost function, in dollars, of manufacturing \(x\) bottles is  
+        \[C(x) = 150 + 20x - 100\sqrt x \pd\]
+        How many bottles should the company sell to maximize its profit?
+    </div>
+    <span>
+        Profit is the positive difference between revenue and cost. 
+        The company's revenue function is \(8x,\) so its profit function is 
+        \[p(x) = 8x - (150 + 20x - 100\sqrt x) = -150 - 12x + 100 \sqrt x \pd\]
+        Differentiating gives 
+        \[p'(x) = -12 + \frac{50}{\sqrt x} \pd\]
+        Solving \(p'(x) = 0\) shows \(x = 2500/144.\) 
+        The domain of \(p\) is \(x \geq 0.\) 
+        Consider the following three remarks:
+        <ul>
+            <li>
+                \(p(0) = -150.\)
+            </li>
+            <li>
+                \(p \par{\tfrac{2500}{144}} \gt 0.\)
+            </li>
+            <li>
+                \(\ds \lim_{x \to \infty} p(x) = -\infty.\)
+            </li>
+        </ul>
+        Therefore, \(x = 2500/144\) must correspond to the <i>absolute</i> maximum of \(p.\)
+        The value of \(2500/144\) is roughly \(17.361,\)
+        so the company should manufacture \(\boxed{17}\) (or \(\boxed{18}\)) water bottles.
+    </span>
+    
+    <div>
+        Each night, a restaurant receives \(100\) orders for pumpkin pie, which it sells for \(\$10\) each.   
+        The restaurant predicts that \(4\) fewer people will order the pie for each dollar the price increases. 
+        At what price should the restaurant sell the pie to maximize the revenue from its sales?
+    </div>
+    <span>
+        Revenue is the product of price and quantity. 
+        Let \(x\) be the number of dollars by which the restaurant raises the price of pumpkin pie.
+        The price function is then \((10 + x),\) and the quantity function is \((100 - 4x).\)
+        We have 
+        \[r(x) = (10 + x)(100 - 4x) = 1000 + 60x - 4x^2 \pd\]
+        Differentiating gives 
+        \[r'(x) = 60 - 8x \pd\]
+        The solution to \(r'(x) = 0\) is \(x = 7.5.\)
+        This value corresponds to a <i>relative</i> maximum of \(r\) 
+        because at \(x = 7.5,\) \(r'\) changes sign from positive to negative.
+        We note that \(\lim_{x \to -\infty} r(x) = -\infty\) and \(\lim_{x \to \infty} r(x) = -\infty.\)
+        Thus, \(x = 7.5\) must correspond to the <i>absolute</i> maximum of \(r.\)
+        The restaurant therefore should raise the pie's price by \(\boxed{\$7.5}.\)
+    </span>
+
+    <div>
+        An artist estimates that \(500\) people will attend his concert if he charges \(\$50\) per ticket. 
+        For every \($3\) increase in the ticket price, the artist estimates that \(8\) fewer people will attend. 
+        How much should the artist charge per ticket if he wants to maximize his revenue from ticket sales?
+    </div>
+    <span>
+        Revenue is the product of price and quantity.
+        If \(x\) represents the number of dollars by which the artist raises ticket prices, 
+        then the price function is \((50 + 3x)\)
+        and the quantity function is \((500 - 8x).\) 
+        We therefore have 
+        \[r(x) = (50 + 3x)(500 - 8x) \pd\]
+        Differentiating, we find 
+        \[r'(x) = 3(500 - 8x) - 8(50 + 3x) = 1100 - 48x \pd\]
+        Letting \(r'(x) = 0\) gives \(x = 1100/48.\)
+        We see that \(\lim_{x \to -\infty} r(x) = -\infty\) and \(\lim_{x \to \infty} r(x) = -\infty.\)
+        We therefore conclude that the <i>absolute</i> maximum of \(r\) occurs when \(x = 1100/48 \approx 22.92.\)
+        Thus, the artist should sell \(\boxed{523}\) (or \(\boxed{522}\)) tickets to maximize his revenue.
+    </span>
+
+    <div>
+        An open-top tank with a square base is manufactured to hold \(2000 \un{mL}\) of water.
+        What dimensions of the tank minimize its surface area? (\(1 \un{mL}\) = \(1 \un{cm}^3.\))
+    </div>
+    <span>
+        <figure class="optimization-tank" id="optimization-tank">
+            <img src="../images/sectionImages/optimization-tank.jpg" class="optimization-tank" alt="optimization-tank.jpg">
+        </figure>
+        We label each side of the tank's square base to be \(x.\)
+        Also let \(y\) be the tank's height.
+        The tank's volume is then 
+        \begin{equation} 
+        x^2 y = 2000 \pd \label{eq:tank-V}
+        \end{equation}
+        The tank has an open top, so its surface area is  
+        \begin{equation} 
+        S = x^2 + 4xy \cma \label{eq:tank-S}
+        \end{equation}
+        the expression we wish to minimize. 
+        From \(\eqRefer{eq:tank-V},\) we obtain \(y = 2000/x^2.\)
+        Substituting this expression into \(\eqRefer{eq:tank-S}\) then produces 
+        \[S = x^2 + 4x \par{\frac{2000}{x^2}}= x^2 + \frac{8000}{x} \pd\]
+        Differentiating gives 
+        \[S'(x) = 2x - \frac{8000}{x^2} \pd\]
+        We solve \(S'(x) = 0,\) as follows:
+        \[
+        \ba 
+        2x - \frac{8000}{x^2} &= 0 \nl 
+        2x^3 &= 8000 \nl 
+        x &= \sqrt[3]{4000} \approx 15.87 \un{cm} \pd 
+        \ea 
+        \]
+        Then \(y = 2000/(15.87)^2 \approx 7.94 \un{cm}.\)
+        Thus, the tank should be \(15.87 \un{cm}\) by \(15.87 \un{cm}\) by \(7.94 \un{cm}.\)
+    </span>
+
+    <div>
+        A can must be designed to hold \(500\) cubic inches of liquid. 
+        What dimensions of the can minimize the amount of material used?
+    </div>
+    <span>
+        <figure class="optimization-cylinder" id="optimization-cylinder">
+            <img src="../images/sectionImages/optimization-cylinder.jpg" class="optimization-cylinder" alt="optimization-cylinder.jpg">
+        </figure>
+        Let \(r\) be the can's radius and \(h\) be its height. 
+        The volume of the can is 
+        \begin{equation} 
+        \pi r^2 h = 500 \pd \label{eq:can-volume}
+        \end{equation}
+        The surface area is 
+        \begin{equation} 
+        S = 2 \pi r^2 + 2 \pi r h \pd \label{eq:can-S}
+        \end{equation}
+        (To remember this formula, note that the cylinder's bases are circles of area \(\pi r^2.\) 
+        The cylinder is wrapped by a rectangular sheet of area \(2 \pi rh.\))
+        In \(\eqRefer{eq:can-volume}\) we get \(h = 500/(\pi r^2),\) 
+        which we plug into \(\eqRefer{eq:can-S}\) to get 
+        \[S = 2\pi r^2 + \frac{1000}{r} \pd\]
+        Differentiating gives 
+        \[S'(r) = 4 \pi r - \frac{1000}{r^2} \cma\]
+        and the solution to \(S'(r) = 0\) is \(r = \sqrt[3]{250/\pi}\) \(\approx 4.301 \un{in}.\)
+        You may verify that \(r = \sqrt[3]{250/\pi}\) corresponds to a <i>relative</i> minimum of \(S.\)
+        Also note that \(\lim_{r \to 0^+} S = \infty\) and \(\lim_{r \to \infty} S = \infty.\)
+        Thus, \(r = \sqrt[3]{250/\pi}\) must correspond to the <i>absolute</i> minimum of \(S.\)
+        Then \(h \approx 8.602 \un{in}.\)
+        We conclude that the cylinder should have radius \(4.301 \un{in}\) and height \(8.602 \un{in}.\)
+    </span>
+
+    <div>
+        <style>
+            .optimization-theta-1::before{
+                content:'FIGURE 3';
+            }
+        </style>
+        <figure class="optimization-theta-1" id="optimization-theta-1">
+            <img src="../images/sectionImages/optimization-theta-1.jpg" 
+            class="optimization-theta-1" alt="optimization-theta-1.jpg">
+        </figure>
+        In <a href="#optimization-theta-1">Figure 3</a>, what value of \(x\) maximizes \(\theta \ques\)
+    </div>
+    <span>
+        The three angles 
+        \[\andThree{\theta}{\tan^{-1} \par{\frac{5}{3x}}}{\tan^{-1} \par{\frac{2x + 2}{8}}}\]
+        must sum to \(\pi.\)
+        Thus, we find 
+        \[\theta = \pi - \tan^{-1} \par{\frac{5}{3x}} - \tan^{-1} \par{\frac{2x + 2}{8}} \pd\]
+        The absolute maximum of \(\theta\) occurs when \(\boxed{x \approx 3.523}.\)
+    </span>
+
+    <div>
+        <style>
+            .optimization-theta-2::before{
+                content:'FIGURE 4';
+            }
+        </style>
+        <figure class="optimization-theta-2" id="optimization-theta-2">
+            <img src="../images/sectionImages/optimization-theta-2.jpg" 
+            class="optimization-theta-2" alt="optimization-theta-2.jpg">
+        </figure>
+        In <a href="#optimization-theta-2">Figure 4</a>, determine the value of \(x\) such that \(\theta\) is minimized.
+    </div>
+    <span>
+        <figure class="optimization-theta-2-sol" id="optimization-theta-2-sol">
+            <img src="../images/sectionImages/optimization-theta-2-sol.jpg" 
+            class="optimization-theta-2-sol" alt="optimization-theta-2-sol.jpg">
+        </figure>
+        Let the vertices of the top-right triangle be \(A,\) \(B,\) and \(C.\)
+        Note that angles \(\theta\) and \(\angle ABC\) must sum to \(\pi.\)
+        Consequently, \(m\angle ABC = \pi - \theta.\)
+        Moreover, \(\angle ABC\) and \(\angle BAC\) are complementary angles, and therefore sum to \(\pi/2.\)
+        Thus, 
+        \[m\angle BAC = \frac{\pi}{2} - (\pi - \theta) = \theta - \frac{\pi}{2} \pd\]
+        We then find 
+        \[\theta - \frac{\pi}{2} = \tan^{-1} \par{\frac{x^2 + 1}{x + 1}} \pd\]
+        Solving for \(\theta\) yields 
+        \[\theta = \frac{\pi}{2} + \tan^{-1} \par{\frac{x^2 + 1}{x + 1}} \cma\]
+        whose minimum occurs when \(\boxed{x \approx 0.414}.\)
+    </span>
+
+    <div>
+        A window is constructed using \(16\) meters of framing materials.
+        Its bottom is a complete rectangle and its top is the arc of a semicircle. 
+        What dimensions of the window let in the most light?
+    </div>
+    <span>
+        <figure class="optimization-window" id="optimization-window">
+            <img src="../images/sectionImages/optimization-window.jpg" class="optimization-window" alt="optimization-window.jpg">
+        </figure>
+        We seek the maximum possible area of the window. 
+        Sketching the problem, we let \(r\) be the semicircle's radius 
+        and \(h\) be the rectangle's height. 
+        Also note that the rectangle's length is \(2r.\)
+        The equation for the perimeter is then  
+        \begin{equation} 
+        4r + 2h + \pi r = 16 \pd \label{eq:window-P}
+        \end{equation}
+        We want to maximize 
+        \begin{equation} 
+        A = 2r h + \tfrac{1}{2} \pi r^2 \pd \label{eq:window-A}
+        \end{equation}
+        To express \(A\) in terms of one variable, 
+        we use \(\eqRefer{eq:window-P}\) to get 
+        \begin{equation} 
+        h = 8 - \tfrac{1}{2}r(4 + \pi) \pd \label{eq:window-h}
+        \end{equation}
+        Plugging this expression into \(\eqRefer{eq:window-A}\) then yields 
+        \[
+        \ba 
+        A &= 2r \par{8 - \tfrac{1}{2}r(4 + \pi)} + \tfrac{1}{2} \pi  r^2 \nl 
+        &= 16r - r^2 \par{4 + \tfrac{\pi}{2}} \pd
+        \ea 
+        \]
+        Differentiating, we find 
+        \[A'(r) = 16 - 2r \par{4 + \tfrac{\pi}{2}} \pd\]
+        We want the critical numbers of \(A,\) so we let \(A'(r) = 0 \col\)
+        \[16 - 2r\par{4 + \tfrac{\pi}{2}} = 0 \implies r = \frac{8}{4 + \frac{\pi}{2}} \pd\]
+        The numerical value of \(r\) is roughly \(1.436 \un{meters}.\)
+        Then the rectangle's length is \(2r \approx 2.872 \un{meters},\) 
+        and \(\eqRefer{eq:window-h}\) gives its height to be \(h \approx 2.872 \un{meters}.\)
+        These dimensions maximize the window's area.
+    </span>
+
+    <div>
+        <style>
+            .optimization-trough::before{
+                content:'FIGURE 5';
+            }
+        </style>
+        <figure class="optimization-trough" id="optimization-trough">
+            <img src="../images/sectionImages/optimization-trough.png" class="optimization-trough" alt="optimization-trough.png">
+        </figure>
+        A trapezoidal trough of length \(L\) is designed.
+        Three sides of the trapezoidal face have length \(1\) (<a href="#optimization-trough">Figure 5</a>).
+        What value of \(\theta\) maximizes the trough's volume?
+    </div>
+    <span>
+        We first determine the area of the trough's trapezoidal face. 
+        This trapezoid has two triangles and a square.
+        Each triangle has area \(\tfrac{1}{2} \sin \theta \cos \theta,\)
+        and the square has area \(1 \cdot \cos \theta.\)
+        Thus, the area of the trapezoidal face is 
+        \[
+        \ba 
+        A &= 2 \par{\tfrac{1}{2} \sin \theta \cos \theta} + \cos \theta \nl 
+        &= \sin \theta \cos \theta + \cos \theta \pd 
+        \ea 
+        \]
+        We use the identity \(\sin \theta \cos \theta = \tfrac{1}{2} \sin 2 \theta\) to obtain 
+        \[
+        A = \tfrac{1}{2} \sin 2 \theta + \cos \theta \pd \label{eq:trough-A}
+        \]
+        The trough's volume is then 
+        \begin{equation} 
+        V = (\tfrac{1}{2} \sin 2 \theta + \cos \theta) \, L \pd \label{eq:trough-V}
+        \end{equation}
+        Differentiating \(\eqRefer{eq:trough-V}\) yields 
+        \begin{equation} 
+        V'(\theta) = L(\cos 2 \theta - \sin \theta) \pd \label{eq:trough-V'}
+        \end{equation}
+        We locate the critical numbers of \(V\) by letting \(V'(\theta) = 0.\) 
+        We want to write \(V'(\theta)\) entirely in terms of one trigonometric 
+        function—the simplest being sine.
+        Combining the double-angle identity for cosine with the Pythagorean Identity, we find  
+        \[
+        \ba 
+        \cos 2 \theta &= \cos^2 \theta - \sin^2 \theta \nl
+        &= (1 - \sin^2 \theta) - \sin^2 \theta \nl 
+        &= 1 - 2 \sin^2 \theta \pd
+        \ea 
+        \]
+        \(\eqRefer{eq:trough-V'}\) then becomes 
+        \[V'(\theta) = L(1 - 2 \sin^2 \theta - \sin \theta) \pd\]
+        We equate this expression to \(0,\) finding 
+        \[-2 \sin^2 \theta - \sin \theta + 1 = 0 \cma\]
+        from which we get 
+        \[\sin \theta = \tfrac{1}{2} \qquad \sin \theta = -1 \pd\]
+        In the first case \(\theta = \pi/6.\)
+        The second case yields \(\theta = 3\pi/2,\) a clear extraneous solution in this context—and so we discard it.
+        We note that \(V'\) changes sign from positive to negative when \(\theta = \pi/6,\)
+        so this value corresponds to a relative maximum of \(V.\)
+        The domain of \(V\) is \(0 \leq \theta \leq \pi/2,\)
+        and at each endpoint the trough collapses into a straight line.
+        So we conclude that \(\theta = \boxed{\pi/6}\) corresponds to the <i>absolute maximum</i>
+        of \(V,\) maximizing the volume of the trough.
+    </span>
+
+    <div>
+        A rectangle is inscribed in the semicircle \(y = \sqrt{r^2 - x^2}.\)
+        What is the rectangle's maximum possible area in terms of \(r \ques\)
+    </div>
+    <span>
+        <figure class="optimization-rectangle-inscribe" id="optimization-rectangle-inscribe">
+            <img src="../images/sectionImages/optimization-rectangle-inscribe.jpg" 
+            class="optimization-rectangle-inscribe" alt="optimization-rectangle-inscribe.jpg">
+        </figure>
+        Let \((x, y)\) be one vertex of the rectangle.
+        Then the mirror vertex is \((-x, y)\) and so the rectangle's area is 
+        \begin{equation} 
+        A = 2xy \pd \label{eq:rectangle-area}
+        \end{equation}
+        But \(y = \sqrt{r^2 - x^2},\) so \(\eqRefer{eq:rectangle-area}\) becomes 
+        \begin{equation} 
+        A = 2x \sqrt{r^2 - x^2} \pd \label{eq:rectangle-area-x}
+        \end{equation}
+        We differentiate \(\eqRefer{eq:rectangle-area-x}\) to get 
+        \[A'(x) = 2 \sqrt{r^2 - x^2} - \frac{2x^2}{\sqrt{r^2 - x^2}} \pd\]
+        Solving \(A'(x) = 0\) gives \(x = r/\sqrt 2,\)
+        which corresponds to a <i>relative maximum</i> of \(A\) because 
+        \(A'\) changes sign from positive to negative at that value.
+        At the endpoints—\(x = 0\) and \(x = r\)—the rectangle collapses into a line, and therefore has area \(0.\)
+        We then conclude that \(x = r/\sqrt 2\) corresponds to the <i>absolute maximum</i> of \(A.\)
+        Then the area, by \(\eqRefer{eq:rectangle-area-x},\) is 
+        \[2 \par{\frac{r}{\sqrt 2}} \sqrt{r^2 - \par{\frac{r}{\sqrt 2}}^2} = \boxed{r^2}\]
+        Thus, the maximum possible area of an inscribed rectangle is \(r^2.\)
+    </span>
+
+    <div>
+        Determine the area of the largest trapezoid that can be inscribed in a semicircle of radius \(2.\)
+    </div>
+    <span>
+        <figure class="optimization-trapezoid" id="optimization-trapezoid">
+            <img src="../images/sectionImages/optimization-trapezoid.jpg" 
+            class="optimization-trapezoid" alt="optimization-trapezoid.jpg">
+        </figure>
+        The trapezoid has a rectangle and two triangles.
+        The rectangle's area is \(2xy,\) and each triangle's area is \(\tfrac{1}{2}(2 - x)y.\)
+        And \(y = \sqrt{4 - x^2},\) so the trapezoid's area is 
+        \[
+        \ba
+        A &= 2x \sqrt{4 - x^2} + (2 - x) \sqrt{4 - x^2} \nl 
+        &= (x + 2) \sqrt{4 - x^2} \pd 
+        \ea
+        \]
+        Differentiating \(A,\) we find 
+        \[A'(x) = \frac{-2(x^2 + x - 2)}{\sqrt{4 - x^2}} \pd\]
+        The solution to \(A'(x) = 0\) is \(x = 1.\)
+        This value corresponds to the <i>absolute</i> maximum of \(A\) 
+        because at the endpoints—\(x = 0\) and \(x = 2\)—the trapezoid collapses into a line, of area \(0.\)
+        Then the maximum area is \(A = \boxed{3 \sqrt 3}.\)
+    </span>
+
+    <div>
+        Find the area of the largest rectangle that can be inscribed in the ellipse 
+        \(x^2/a^2 + y^2/b^2 = 1.\)
+    </div>
+    <span>
+        <figure class="optimization-ellipse" id="optimization-ellipse">
+            <img src="../images/sectionImages/optimization-ellipse.jpg" 
+            class="optimization-ellipse" alt="optimization-ellipse.jpg">
+        </figure>
+        The rectangle has a base of \(2x\) and a height \(2y.\)
+        Thus, its area is  
+        \begin{equation} 
+        A = 4xy \pd \label{eq:ellipse-area}
+        \end{equation}
+        In \(x^2/a^2 + y^2/b^2 = 1\) we solve for \(y \col\)
+        \[y = b \sqrt{1 - \frac{x^2}{a^2}} = \frac{b}{a} \sqrt{a^2 - x^2} \pd\]
+        Then \(\eqRefer{eq:ellipse-area}\) becomes 
+        \[A = 4x \frac{b}{a} \sqrt{a^2 - x^2} \pd\]
+        Differentiating, we find 
+        \[A'(x) = \frac{4b(a^2 - 2x^2)}{a \sqrt{a^2 - x^2}} \pd\]
+        The solution to \(A'(x) = 0\) is \(a/\sqrt 2,\)
+        which corresponds to a <i>relative maximum</i> of \(A\) 
+        because \(A'\) changes sign from positive to negative at that point.
+        If \(x = 0\) or \(x = a,\) then \(A = 0.\)
+        Thus, \(x = a/\sqrt 2\) must also correspond to the <i>absolute maximum</i> of \(A.\)
+        Then \(y = b/\sqrt 2,\) and \(\eqRefer{eq:ellipse-area}\) gives the maximum area to be 
+        \[A = 4 \par{\frac{a}{\sqrt 2}} \par{\frac{b}{\sqrt 2}} = \boxed{2ab}\]
+    </span>
+
+
+    <div>
+        Consider a sheet of cardboard of length \(15\) inches and width \(20\) inches. 
+        Squares of length \(x\) are cut from the corners and folded up to form a box. 
+        What value of \(x\) maximizes the box's volume?
+    </div>
+    <span>
+        <figure class="optimization-folded-box" id="optimization-folded-box">
+            <img src="../images/sectionImages/optimization-folded-box.jpg" class="optimization-folded-box" alt="optimization-folded-box.jpg">
+        </figure>
+        We draw a sketch of the situation. 
+        The squares in each corner of the sheet have side lengths \(x.\)
+        The resulting folded up box then has length \((15 - 2x),\) width \((20 - 2x),\) and height \(x.\)
+        Its volume is then 
+        \begin{equation} 
+        V = x(15 - 2x)(20 - 2x) = 4x^3 - 70x^2 + 300x \pd \label{eq:box-v}
+        \end{equation}
+        Differentiating gives 
+        \[V'(x) = 12x^2 - 140x + 300 \cma\]
+        and the solutions to \(V'(x) = 0\) are \(x \approx 2.829\) and \(x \approx 8.838.\)
+        The latter solution causes one side of the box to be negative, so we scrap it.
+        You may also verify that \(x = 2.829\) corresponds to a <i>relative</i> maximum of \(V.\)
+        The domain of \(V\) is \(0 \leq x \leq 15/2,\) and at the endpoints \(V = 0.\)
+        Thus, \(x = 2.829\) must correspond to the <i>absolute</i> maximum of \(V.\)
+        We conclude that squares of length \(\boxed{2.829 \un{inches}}\) 
+        should be cut from the box's corners.
+        \(\eqRefer{eq:box-v}\) gives the maximum volume to be 
+        \[V(2.829) \approx 379.038 \un{cubic inches} \pd\]
+    </span>
+
+    <div>
+        Dani is located two miles due east of Hena. 
+        Hena begins to jog due north at \(6\) miles per hour,
+        and Dani starts jogging due west at \(8\) miles per hour.
+        After how many minutes are the two girls closest together?
+    </div>
+    <span>
+        <figure class="optimization-joggers" id="optimization-joggers">
+            <img src="../images/sectionImages/optimization-joggers.jpg" 
+            class="optimization-joggers" alt="optimization-joggers.jpg">
+        </figure>
+        Let \(x\) represent the distance from Dani to Hena's original position. 
+        Let \(y\) be Hena's distance from her original position. 
+        Hena jogs at \(6\) miles per hour; 
+        if \(t\) is time in hours, then \(y = 6t.\)
+        Dani starts two miles due east of Hena's original position and jogs at \(8\) miles per hour, 
+        so \(x = 2 - 8t.\)
+        The distance between the girls is then 
+        \[d = \sqrt{x^2 + y^2} = \sqrt{(2 - 8t)^2 + (6t)^2} \pd\]
+        We need to minimize \(d,\) but it is easier to minimize \(d^2.\)
+        Let \(q(t) = d^2.\) 
+        Then 
+        \[q'(t) = -16(2 - 8t) + 12(6t) \pd\]
+        Solving \(q'(t) = 0\) shows 
+        \[t = \frac{32}{12(6) + 16(8)} = 0.16 \pd\]
+        The domain of \(q\) is \(t \geq 0.\)
+        We find \(q(0) = 4\) and \(q(0.16) = 1.44.\)
+        Also, \(\lim_{t \to \infty} q = \infty.\)
+        We therefore are convinced that \(t = 0.16\) corresponds to the <i>absolute</i> minimum of \(q.\)
+        And \(0.16\) hour is \(0.16 \cdot 60 = 9.6\) minutes, 
+        so Dani and Hena are closest together after \(\boxed{9.6 \un{minutes}}.\)
+    </span>
+
+    <div>
+        At \(3\) <label class="time">pm</label>, 
+        Car A arrives at an intersection and heads due north at \(45\) miles per hour.
+        Car B travels due east at \(55\) miles per hour and arrives at the same intersection at 
+        \(4\) <label class="time">pm</label>.
+        Each car maintains its speed and direction. 
+        Find the time after \(3\) <label class="time">pm</label> 
+        during which the two cars are closest together.
+    </div>
+    <span>
+        <figure class="optimization-cars" id="optimization-cars">
+            <img src="../images/sectionImages/optimization-cars.jpg" 
+            class="optimization-cars" alt="optimization-cars.jpg">
+        </figure>
+        Let \(x\) be the distance from the intersection to Car B, 
+        and let \(y\) be the distance between the intersection and Car A. 
+        Since Car A travels at \(45\) miles per hour, 
+        its distance function with respect to time is \(y = 55t\) 
+        (where \(t\) is in hours after \(3\) <label class="time">pm</label>). 
+        To write Car B's distance function, we note that the car approaches the intersection 
+        one hour <i>after</i> <label class="time">3 pm</label>. 
+        We therefore write \(x = 55 - 55t.\)
+        The Pythagorean Theorem gives the distance function to be  
+        \[d = \sqrt{x^2 + y^2} = \sqrt{(45t)^2 + (55 - 55t)^2} \pd\]
+        We need to minimize \(d,\) but for convenience we choose to minimize \(d^2\) 
+        because both functions have the same critical numbers. 
+        Let \(q(t) = d^2;\) then 
+        \[q'(t) = 90(45t) - 110(55 - 55t) \pd\]
+        Solving \(q'(t) = 0\) gives 
+        \[t = \frac{110(55)}{90(45) + 110(55)} = 0.599 \pd\]
+        The domain of \(q\) is \(t \geq 0.\)
+        Using a calculator, we find \(q(0) = 3025\) and \(q(0.599) = 1212.995.\)
+        Also, \(\lim_{t \to \infty} q = \infty.\)
+        This analysis asserts that \(t = 0.599\) must correspond to the 
+        <i>absolute</i> minimum of \(q\) (and, therefore, of \(d\)).
+        Since \(0.599\) hour is \(0.599 \cdot 60 = 35.94\) minutes, 
+        we conclude that the cars are closest together at \(\boxed{\text{3:36}}\) <label class="time">pm</label>.
+    </span>
+
+    <div>
+        In the first quadrant, a line of negative slope passes through the point \((1, 4).\) 
+        Determine the equation of the line such that the area bounded by the line, the \(x\)-axis, and the \(y\)-axis is minimized.
+    </div>
+    <span>
+        <figure class="optimization-line-area" id="optimization-line-area">
+            <img src="../images/sectionImages/optimization-line-area.jpg" 
+            class="optimization-line-area" alt="optimization-line-area.jpg">
+        </figure>
+        Let \(b\) be the triangle's base and \(h\) be the triangle's height. 
+        We want to minimize 
+        \begin{equation} 
+        A = \tfrac{1}{2} bh \pd \label{eq:line-area}
+        \end{equation}
+        Drawing a picture, we label two points: \((0, h)\) and \((b, 0).\)
+        We write the preliminary equation for the line as 
+        \begin{equation} 
+        y - 4 = m(x - 1) \pd \label{eq:line-line}
+        \end{equation}
+        We want to express \(\eqRefer{eq:line-area}\) 
+        in terms of the slope \(m,\) which we vary to minimize \(A.\)
+        The \(y\)-intercept is \((0, h);\) 
+        plugging this point into \(\eqRefer{eq:line-line}\) then shows 
+        \[h - 4 = m(0 - 1) \implies h = 4 - m \pd\]
+        The \(x\)-intercept is \((b, 0),\) from which \(\eqRefer{eq:line-line}\) provides 
+        \[0 - 4 = m(b - 1) \implies b = 1 - \tfrac{4}{m} \pd\]
+        Now we express \(\eqRefer{eq:line-area}\) in terms of the slope, \(m \col\)
+        \[
+        \ba 
+        A &= \frac{1}{2} \par{1 - \frac{4}{m}} (4 - m) \nl 
+        &= 4 - \frac{m}{2} - \frac{8}{m} \pd 
+        \ea 
+        \]
+        We differentiate to get 
+        \[
+        A'(m) = -\frac{1}{2} + \frac{8}{m^2} \pd 
+        \]
+        Solving \(A'(m) = 0,\) we find \(m = -4\) and \(m = 4.\)
+        We discard the latter solution because the slope is given to be negative.
+        The domain of \(A\) is \(m \lt 0.\)
+        We see \(\lim_{m \to -\infty} A = \infty,\)
+        so \(A\) must have an absolute minimum—and it must occur when \(m = -4.\)
+        The equation of the line is, from \(\eqRefer{eq:line-line},\) 
+        \[\boxed{y - 4 = -4(x - 1)}\]
+        Then \(A = 8.\)
+    </span>
+
+    <div>
+        Two airports share the same latitude and are located \(200\) miles apart. 
+        They must be connected by wire to a common hub \(50\) miles south. 
+        Where should the hub be placed to minimize the amount of wire used?
+    </div>
+    <span>
+        <figure class="optimization-airport" id="optimization-airport">
+            <img src="../images/sectionImages/optimization-airport.jpg" class="optimization-airport" alt="optimization-airport.jpg">
+        </figure>
+        We call the airports "Airport A" and "Airport B."
+        Let \(x\) be the longitudinal distance from Airport A to the hub;
+        then the distance between Airport A and the hub is 
+        \[d_1 = \sqrt{x^2 + 50^2} \pd\]
+        The distance between Airport B and the hub is then 
+        \[d_2 = \sqrt{(200 - x)^2 + 50^2} \pd\]
+        We sum these distances to get the total amount of wire used: 
+        \[
+        \ba 
+        d &= d_1 + d_2 \nl 
+        &= \sqrt{x^2 + 50^2} + \sqrt{(200 - x)^2 + 50^2} \pd 
+        \ea 
+        \]
+        We differentiate \(d \col\)  
+        \[d'(x) = \frac{x}{\sqrt{x^2 + 50^2}} + \frac{x - 200}{\sqrt{(200 - x)^2 + 50^2}} \pd\]
+        Using a calculator, we find \(d'(x) = 0\) when \(x = 100.\) 
+        This value corresponds to the <i>absolute minimum</i> of \(d.\)
+        Thus, the hub should be placed \(\boxed{100 \un{mi}}\) east of Airport A. 
+    </span>
+
+    <div>
+        Tower A is \(30\) feet tall and stands \(45\) feet due west of tower B, of height \(22\) feet.
+        A power station on the ground is wired to the top of each tower. 
+        Where should the station be located to minimize the amount of wire used?
+    </div>
+    <span>
+        <figure class="optimization-towers" id="optimization-towers">
+            <img src="../images/sectionImages/optimization-towers.jpg" class="optimization-towers" alt="optimization-towers.jpg">
+        </figure>
+        The power station must be placed between towers A and B to minimize the amount of wiring.
+        Let \(x\) be the horizontal distance between tower A and the power station. 
+        Then \(45 - x\) is the horizontal distance between tower B and the power station. 
+        The total amount of wire is then 
+        \[
+        \ba 
+        d &= d_1 + d_2 \nl 
+        &= \sqrt{x^2 + 30^2} + \sqrt{(45 - x)^2 + 22^2} \pd
+        \ea 
+        \]
+        We differentiate to find 
+        \[d'(x) = \frac{x}{\sqrt{x^2 + 900}} + \frac{x - 45}{\sqrt{x^2 - 90x + 2509}} \pd\]
+        Using a calculator, the solution to \(d'(x) = 0\) is \(x = 675/26.\)
+        This value corresponds to the <i>absolute minimum</i> of \(d;\)
+        thus, the station should be placed \(675/26 \approx 25.962 \un{ft}\)
+        east of tower A.
+    </span>
+
+
+    <div>
+        A poster is designed to have \(1\)-inch margins on the sides and \(2\)-inch margins on the top and bottom. 
+        The poster must have \(100\) square inches of display area. 
+        What dimensions minimize the poster's perimeter? 
+    </div>
+    <span>
+        <figure class="optimization-poster" id="optimization-poster">
+            <img src="../images/sectionImages/optimization-poster.jpg" class="optimization-poster" alt="optimization-poster.jpg">
+        </figure>
+        Let \(w\) be the poster's width and \(\ell\) be the poster's length. 
+        Since the poster must have \(100\) square inches of display area,
+        we write 
+        \begin{equation} 
+        (w - 2)(\ell - 4) = 100 \pd \label{eq:poster-area}
+        \end{equation}
+        We want to minimize the <i>perimeter</i>,  
+        \begin{equation} 
+        P = 2w + 2 \ell \pd \label{eq:poster-perimeter}
+        \end{equation}
+        From \(\eqRefer{eq:poster-area}\) we solve for one variable—say, \(\ell.\)
+        Doing so gives 
+        \begin{equation} 
+        \ell = 4 + \frac{100}{w - 2} \cma \label{eq:poster-length}
+        \end{equation}
+        which we substitute into \(\eqRefer{eq:poster-perimeter}\) to obtain 
+        \begin{equation} 
+        P(w) = 2w + 8 + \frac{200}{w - 2} \pd \label{eq:poster-perimeter-w}
+        \end{equation}
+        Differentiating \(P,\)  
+        \[P'(w) = 2 - \frac{200}{(w - 2)^2} \pd\]
+        Letting \(P'(w) = 0\) then yields \(w = 12,\)
+        which corresponds to a <i>relative minimum</i> of \(P\) because 
+        \(P'\) changes sign from negative to positive at \(w = 12.\)
+        Now we test extreme values of \(w \col\)
+        The domain of \(P(w)\) is \(w \gt 2.\) 
+        From \(\eqRefer{eq:poster-perimeter-w},\) 
+        \(\lim_{w \to 2^+} P(w) = \infty\) and \(\lim_{w \to \infty} P(w) = \infty.\)
+        We therefore conclude that \(w = 12\) corresponds to the <i>absolute minimum</i> of \(P.\)
+        Then \(\eqRefer{eq:poster-length}\) shows  
+        \[\ell = 4 + \frac{100}{12 - 2} = 14 \pd \]
+        Thus, the poster should be \(\boxed{12 \un{in}}\) by \(\boxed{14 \un{in}}.\) 
+    </span>
+
+    <div>
+        A rectangular sports stadium is constructed such that an outfield surrounds the playing field on three sides.
+        The outfield must be \(4\) feet wide on the north side of the playing field,
+        and the outfield must be \(5\) feet wide on the west and east sides of the playing field.
+        The area of the playing field must be \(10000\) square feet. 
+        What dimensions of the playing field minimize the perimeter of the stadium? 
+    </div>
+    <span>
+        <figure class="optimization-stadium" id="optimization-stadium">
+            <img src="../images/sectionImages/optimization-stadium.jpg" class="optimization-stadium" alt="optimization-stadium.jpg">
+        </figure>
+        Let \(w\) be the stadium's width \(\ell\) be its length.
+        In terms of these quantities, 
+        the area of the playing field is the product of \((w - 10)\) and \((\ell - 4).\) 
+        The area is given to be \(10000,\) so we have 
+        \begin{equation} 
+        (w - 10)(\ell - 4) = 10000 \pd \label{eq:stadium-area}
+        \end{equation}
+        The perimeter of the stadium is 
+        \begin{equation} 
+        P = 2w + 2 \ell \cma \label{eq:stadium-perimeter} 
+        \end{equation}
+        the quantity we want to minimize.
+        From \(\eqRefer{eq:stadium-area}\) we solve for one variable—say, \(\ell.\)
+        Doing so gives 
+        \begin{equation} 
+        \ell = 4 + \frac{10000}{w - 10} \cma \label{eq:stadium-length} 
+        \end{equation}
+        which we substitute into \(\eqRefer{eq:stadium-perimeter}\) to obtain 
+        \[P(w) = 2w + 8 + \frac{20000}{w - 10} \pd\]
+        Differentiating then gives 
+        \[P'(w) = 2 - \frac{20000}{(w - 10)^2} \pd\]
+        We solve \(P'(w) = 0\) for \(w \col\) 
+        \[
+        \ba 
+        2 - \frac{20000}{(w - 10)^2} &= 0 \nl 
+        (w - 10)^2 &= 10000 \nl 
+        w &= 110 \pd 
+        \ea 
+        \]
+        The value \(w = 110\) corresponds to a <i>relative minimum</i>
+        of \(P\) because \(P'\) switches sign from negative to positive at that point. 
+        The domain of \(P\) is \(w \gt 10;\)
+        we observe that \(\lim_{w \to 10^+} P(w) = \infty\) and \(\lim_{w \to \infty} P(w) = \infty.\)
+        Thus, we conclude that \(w = 110\) must be the location of the <i>absolute minimum</i> of \(P.\)
+        Then \(\eqRefer{eq:stadium-length}\) provides 
+        \[\ell = 4 + \frac{10000}{110 - 10} = 104 \pd\]
+        The stadium therefore should be \(\boxed{110 \un{ft}}\) by \(\boxed{104 \un{ft}}.\) 
+    </span>
+
+    <div>
+        Regan is decorating the top surface of a rectangular cake. 
+        She applies a \(2\)-centimeter margin of frosting on the sides, 
+        a \(1\)-centimeter margin on the top, and a \(3\)-centimeter margin on the bottom.
+        Regan wants the area without frosting to be \(284\) square centimeters. 
+        What dimensions of the cake minimize its perimeter?
+    </div>
+    <span>
+        <figure class="optimization-cake" id="optimization-cake">
+            <img src="../images/sectionImages/optimization-cake.jpg" class="optimization-cake" alt="optimization-cake.jpg">
+        </figure>
+        Let \(w\) be the cake's width and \(\ell\) be the cake's length. 
+        The area without frosting has width \((w - 4)\) and length \((\ell - 4).\)
+        The product of these quantities is \(284,\) so we have 
+        \begin{equation} 
+        (w - 4)(\ell - 4) = 284 \pd \label{eq:cake-area}
+        \end{equation}
+        We want to minimize the <i>perimeter</i>,
+        \begin{equation} 
+        P = 2w + 2 \ell \pd \label{eq:cake-perimeter}
+        \end{equation}
+        In \(\eqRefer{eq:cake-area}\) we solve for one variable—say, \(w.\)
+        We then get 
+        \begin{equation} 
+        w = 4 + \frac{284}{\ell - 4} \cma \label{eq:cake-w}
+        \end{equation}
+        which we substitute into \(\eqRefer{eq:cake-perimeter}\) to obtain 
+        \[P(\ell) = 2 \ell + 8 + \frac{568}{\ell - 4} \pd\]
+        Differentiating then gives 
+        \[P'(\ell) = 2 - \frac{568}{(\ell - 4)^2} \pd\]
+        We now solve for \(\ell\) in \(P'(\ell) = 0,\) as follows:
+        \[
+        \ba 
+        2 - \frac{568}{(\ell - 4)^2} &= 0 \nl 
+        \ell &= 4 + \sqrt{284} \pd 
+        \ea 
+        \]
+        This value of \(\ell\) corresponds to a <i>relative minimum</i> of \(P\)
+        because \(P'\) changes sign from negative to positive at that point.
+        Further note that the domain of \(P\) is \(\ell \gt 4.\)
+        We find \(\lim_{\ell \to 4^+} P = \infty\) and \(\lim_{\ell \to \infty} P = \infty.\)
+        This analysis asserts that \(\ell = 4 + \sqrt{284}\) corresponds to the <i>absolute</i> minimum of \(P.\)
+        From \(\eqRefer{eq:cake-w},\)
+        \[W = 4 + \frac{284}{(4 + \sqrt{284}) - 4} = 4 + \sqrt{284} \pd\]
+        The value of \(4 + \sqrt{284}\) is roughly \(20.852,\)
+        so Regan's cake should have dimensions
+        \(\boxed{20.852 \un{cm}}\) by \(\boxed{20.852 \un{cm}}.\)
+    </span>
+
+    <div>
+        An oil refinery is located on the north bank of a pond that extends \(3\) miles south. 
+        Pipes are connected from the refinery to a storage facility located across the pond and \(10\) miles east of the refinery. 
+        The cost of installing pipe is twice as expensive in water than on land. 
+        What path should the pipe follow to minimize the cost of pipe installation? 
+    </div>
+    <span>
+        <figure class="optimization-refinery" id="optimization-refinery">
+            <img src="../images/sectionImages/optimization-refinery.jpg" class="optimization-refinery" alt="optimization-refinery.jpg">
+        </figure>
+        The pipe runs on land and then water. 
+        Let \(x\) be the distance of pipe on land. 
+        Then the distance of pipe in the water is \(\sqrt{9 + (10 - x)^2}.\)
+        Since the cost of installing pipe in water is double that on land, the cost function is 
+        \[C(x) = x + 2 \sqrt{9 + (10 - x)^2} \pd\]
+        The derivative is 
+        \[C'(x) = 1 + \frac{2(x - 10)}{\sqrt{9 + (10 - x)^2}} \cma\]
+        and \(C'(x) = 0\) when \(x = 8.268.\)
+        This value can be confirmed to correspond to the <i>absolute minimum</i> of \(C.\)
+        Thus, the pipe should be laid on land for \(8.268\) miles before 
+        being turned into the river and connected directly to the storage facility.
+    </span>
+
+    <div>
+        Eliza stands on the west bank of a long river that extends \(2\) feet east.
+        Eliza's house is across the river and \(12\) feet south of her.
+        She first runs due south before jumping into the water and swimming directly to her house.
+        She runs at \(5\) feet per second and swims at \(2\) feet per second.
+        Determine the distance Eliza should run before jumping into the water,
+        given that she wants to return home as quickly as possible.
+    </div>
+    <span>
+        <figure class="optimization-river" id="optimization-river">
+            <img src="../images/sectionImages/optimization-river.jpg" class="optimization-river" alt="optimization-river.jpg">
+        </figure>
+        Recall that 
+        \[\text{time} = \frac{\text{distance}}{\text{speed}} \pd\]
+        The first portion of Eliza's trip is running; let \(x\) be the distance she runs. 
+        Since she runs at \(5\) feet per second, the time for which she runs is  
+        \[t_1 = \frac{x}{5} \pd\]
+        The second part of Eliza's trip is swimming;
+        the distance she swims is \(\sqrt{2^2 + (12 - x)^2}.\)
+        Her swimming speed is \(2\) feet per second, so the time she takes to swim is 
+        \[t_2 = \frac{\sqrt{4 + (12 - x)^2}}{2} \pd\]
+        The total time \(T\) of her journey is the sum of \(t_1\) and \(t_2 \col\)
+        \[T = \frac{x}{5} + \frac{\sqrt{4 + (12 - x)^2}}{2} \pd\]
+        The absolute minimum of \(T\) occurs when \(x = 11.127.\)
+        Thus, Eliza should run \(\boxed{11.127 \un{ft}}\) 
+        before jumping into the water and swimming directly home. 
+    </span>
+
+    <div>
+        Find the area of the largest isosceles triangle that can be inscribed in a circle of radius \(r.\)
+    </div>
+    <span>
+        <figure class="optimization-circle-r" id="optimization-circle-r">
+            <img src="../images/sectionImages/optimization-circle-r.jpg" class="optimization-circle-r" alt="optimization-circle-r.jpg">
+        </figure>
+        We draw a diagram of the problem. 
+        To find the area \(A\) of triangle \(\Delta PQR,\) we can double the area of one of its halves—say, \(\Delta PQS \col\)
+        \begin{equation} 
+        A = \par{\overline{PS}} \par{\overline{QS}} \pd \label{eq:circle-r-area} 
+        \end{equation}
+        We want to express \(A\) in terms of \(x\) and \(r\) (where \(r\) is constant).
+        We further see that \(\overline{PS} = \overline{PO} + \overline{OS},\)
+        where \(\overline{PO}\) is simply \(r.\)
+        Let \(x\) be the length \(\overline{QS} = \overline{SR};\) then by the Pythagorean Theorem
+        \[\overline{OS} = \sqrt{r^2 - x^2} \pd\]
+        Therefore, \(\eqRefer{eq:circle-r-area}\) becomes 
+        \begin{equation} 
+        A = x \par{r + \sqrt{r^2 - x^2}} \pd \label{eq:circle-r-area-x}
+        \end{equation}
+        Differentiating, we obtain 
+        \[\deriv{A}{x} = r + \frac{r^2 - 2x^2}{\sqrt{r^2 - x^2}} = 0 \pd\]
+        Rearranging to solve for \(x,\) we get 
+        \[
+        \ba 
+        \par{\frac{r^2 - 2x^2}{\sqrt{r^2 - x^2}}}^2 &= (-r)^2 \nl 
+        \frac{r^4 - 4r^2 x^2 + 4x^4}{r^2 - x^2} &= r^2 \nl 
+        r^4 - 4r^2 x^2 + 4x^4 &= r^4 - r^2 x^2 \nl 
+        x^2 &= \tfrac{3}{4} r^2 \nl 
+        x &= \tfrac{\sqrt{3}}{2}r \pd 
+        \ea 
+        \]
+        Note that the domain of \(A\) in context is \(0 \leq x \leq r.\)
+        At \(x = 0\) or \(x = r,\) the triangle collapses into a line, of area \(0.\)
+        Therefore, \(x = r \sqrt{3}/2\) (which gives \(A \gt 0\)) must correspond to the <i>absolute</i> maximum of \(A.\)
+        \(\eqRefer{eq:circle-r-area-x}\) then becomes 
+        \[
+        \ba 
+        A &= \frac{r \sqrt{3}}{2} \par{r + \sqrt{r^2 - \frac{3}{4}r^2}} \nl 
+        &= \boxed{\frac{3 \sqrt{3}}{4} r^2}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        Find the point on the graph of \(y = x^3\) such that its combined distance 
+        to the points \((-1, 4),\) \((2, 7),\) and \((5, 3)\) is minimized.
+    </div>
+    <span>
+        <figure class="optimization-x3" id="optimization-x3">
+            <img src="../images/sectionImages/optimization-x3.jpg" 
+            class="optimization-x3" alt="optimization-x3.jpg">
+        </figure>
+        Let \(d_1,\) \(d_2,\) and \(d_3\) 
+        represent the distances from the point \((x, x^3)\) to all three points. 
+        The distance is then 
+        \[
+        \ba
+        d &= d_1 + d_2 + d_3 \nl 
+        &= \sqrt{(x + 1)^2 + (x^3 - 4)^2} + \sqrt{(x - 2)^2 + (x^3 - 7)^2} + \sqrt{(x - 5)^2 + (x^3 - 3)^2} \pd  
+        \ea
+        \] 
+        Using a calculator, we find the <i>absolute minimum</i> of \(d\)
+        to occur when \(x \approx 1.741.\)
+        Then \(x^3 \approx 5.277\) and so the point is \(\boxed{(1.741, 5.277)}.\)
+    </span>
+
+    <div>
+        In the \(xy\)-plane, three houses are located at \((2, 5),\) \((4, 3),\) and \((6, 2).\)
+        These houses are connected by pipes to the neighborhood's wastewater treatment plant, 
+        which must be plotted on a paved pathway whose shape is the graph of \(y = \sqrt x.\)
+        Where on the graph should the plant be built to minimize the amount of piping used?
+    </div>
+    <span>
+        <figure class="optimization-sqrtx" id="optimization-sqrtx">
+            <img src="../images/sectionImages/optimization-sqrtx.jpg" 
+            class="optimization-sqrtx" alt="optimization-sqrtx.jpg">
+        </figure>
+        Let \(d_1,\) \(d_2,\) and \(d_3\) 
+        represent the distances from the point \((x, \sqrt x)\) to all three houses. 
+        The total amount of piping used, \(\ell,\) is the sum of these distances:
+        \[
+        \ba
+        \ell &= d_1 + d_2 + d_3 \nl 
+        &= \sqrt{(x - 2)^2 + (\sqrt x - 5)^2} + \sqrt{(x - 4)^2 + (\sqrt x - 3)^2} + \sqrt{(x - 6)^2 + (\sqrt x - 2)^2} \pd  
+        \ea
+        \] 
+        Using a calculator, we find the <i>absolute minimum</i> of \(\ell\)
+        to occur when \(x = 4.675.\)
+        Then \(y = \sqrt{4.675} = 2.162.\)
+        Thus, the plant should be built at \(\boxed{(4.675, 2.162).}\)
+    </span>
+
+    <div>
+        A miniature, quarter-elliptical ceiling is supported by two beams at its ends—one 
+        of height \(3\) inches and the other of height \(5\) inches—which are located \(4\) inches apart. 
+        A rope is tied around the base of each beam and hooked up to a shared position on the ceiling. 
+        Find the location of this common position such that the least amount of rope is used. 
+    </div>
+    <span>
+        <figure class="optimization-ceiling-elliptical" id="optimization-ceiling-elliptical">
+            <img src="../images/sectionImages/optimization-ceiling-elliptical.jpg" 
+            class="optimization-ceiling-elliptical" alt="optimization-ceiling-elliptical.jpg">
+        </figure>
+        Let point \(P\) represent the base of Beam A, 
+        point \(Q\) represent the base of Beam B, and 
+        point \(C\) represent the location of the shared spot on the ceiling. 
+        We call \(x\) the <i>horizontal</i> distance from \(P\) to \(C\)  
+        and \(h\) the <i>vertical</i> distance between these points. 
+        The elliptical ceiling has a semimajor axis of length \(4\) inches 
+        and a semiminor axis of length \(2\) inches. 
+        Thus, the ellipse's equation is 
+        \[
+        \frac{x^2}{4^2} + \frac{y^2}{2^2} = 1 \pd 
+        \]
+        We solve for \(y\) in this equation:
+        \begin{equation} 
+        y = 2 \sqrt{1 - \frac{x^2}{16}} \pd \label{eq:ceiling-ellipse-y}
+        \end{equation}
+        We therefore have, as a result of \(\eqRefer{eq:ceiling-ellipse-y},\)
+        \[h = 3 + y = 3 + 2 \sqrt{1 - \frac{x^2}{16}} \pd\]
+        Then 
+        \[\ell_1 = \sqrt{x^2 + h^2} = \sqrt{x^2 + \par{3 +  2 \sqrt{1 - \frac{x^2}{16}}}^2} \pd\]
+        Also, 
+        \[\ell_2 = \sqrt{(4 - x)^2 + h^2} = \sqrt{(4 - x)^2 + \par{3 +  2 \sqrt{1 - \frac{x^2}{16}}}^2} \pd\]
+        The total rope used, \(\ell,\) is the sum of \(\ell_1\) and \(\ell_2 \col\)
+        \[\ell = \sqrt{x^2 + \par{3 +  2 \sqrt{1 - \frac{x^2}{16}}}^2} + \sqrt{(4 - x)^2 + \par{3 +  2 \sqrt{1 - \frac{x^2}{16}}}^2} \pd\]
+        If we graph \(y = \ell(x),\) then we find the absolute minimum to occur when \(x = 4.\)
+        Thus, the rope should be connected to a point directly above Beam B.
+    </span>
+
+    <div>
+        <style>
+            .optimization-light::before{
+                content:'FIGURE 6';
+            }
+        </style>
+        <figure class="optimization-light" id="optimization-light">
+            <img src="../images/sectionImages/optimization-light.jpg" class="optimization-light" alt="optimization-light.jpg">
+        </figure>
+        In <a href="#optimization-light">Figure 6</a>,
+        a ray of light starts in the air at point \(P,\)
+        is refracted into a medium of water at point \(O,\) 
+        and travels to point \(Q.\)
+        Fermat's Principle states that the light ray follows the fastest route to point \(Q.\)
+        Let \(v_1\) be the light's speed in air and \(v_2\) be its speed in water. 
+        Show that 
+        \[\frac{\sin \theta_1}{v_1} = \frac{\sin \theta_2}{v_2} \pd\]
+        This formula is <i>Snell's Law</i>, a fundamental equation in the study of optics. 
+    </div>
+    <span>
+        Recall that \(\text{time} = \text{distance}/\text{speed}.\)
+        When the light ray travels from \(P\) to \(O,\) 
+        the time is 
+        \[t_1 = \frac{\sqrt{x^2 + a^2}}{v_1} \pd\]
+        Likewise, traveling from \(O\) to \(Q\) takes time 
+        \[t_2 = \frac{\sqrt{(\ell - x)^2 + b^2}}{v_2} \pd\]
+        Then the total time is 
+        \[
+        \ba 
+        T &= t_1 + t_2 \nl 
+        &= \frac{\sqrt{x^2 + a^2}}{v_1} + \frac{\sqrt{(\ell - x)^2 + b^2}}{v_2} \pd 
+        \ea 
+        \]
+        Differentiating, we obtain 
+        \begin{equation} 
+        T'(x) = \frac{x}{v_1 \sqrt{x^2 + a^2}} - \frac{\ell - x}{v_2 \sqrt{(\ell - x)^2 + b^2}} \pd \label{eq:snell}
+        \end{equation}
+        We see 
+        \[\sin \theta_1 = \frac{x}{\sqrt{x^2 + a^2}} \qquad \sin \theta_2 = \frac{\ell - x}{\sqrt{(\ell - x)^2 + b^2}} \pd \]
+        Then \(\eqRefer{eq:snell}\) becomes 
+        \[T'(x) = \frac{\sin \theta_1}{v_1} - \frac{\sin \theta_2}{v_2} \pd\]
+        Solving \(T'(x) = 0\) then yields 
+        \[\frac{\sin \theta_1}{v_1} = \frac{\sin \theta_2}{v_2} \cma\]
+        as requested. We assume that this situation confers the absolute minimum of \(T.\)
+    </span>
+
+</section>

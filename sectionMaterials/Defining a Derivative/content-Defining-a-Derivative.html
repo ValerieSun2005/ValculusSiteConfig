@@ -1,0 +1,107 @@
+<!--[[[crefId.Defining-a-Derivative]]]--> 
+<p>
+    <figure class="fig-1">
+        <img src="../images/sectionImages/2/tangent-line.jpg" alt="Fig. 1.">
+    </figure>
+    <style>
+        .fig-1::before{
+            content:'FIGURE 1';
+        }
+    </style> 
+    When you drive a car, the speedometer tells you your <i>instantaneous</i> speed—your 
+    change in position at an exact moment. 
+    A <span class="emph">derivative</span> is the tool we use in calculus to model this behavior. 
+    We might define a derivative as measuring a function's <i>sensitivity to change</i> at a certain moment. 
+    In this section we introduce a derivative and construct tangent lines. 
+</p>
+<h4 id="definition-of-derivative">Definition of a Derivative</h4>
+<p>
+    The graph of a function \(f\) is shown in Figure 1. 
+    A line intersects the graph of \(y = f(x)\) at the point \(P(x, f(x)).\)
+    We call this line a <span class="emph">tangent line</span> to \(y = f(x)\) at \(P.\)
+    Loosely speaking, a tangent line "just touches" a curve at a given point. 
+    We can't say the tangent line only touches the graph at \(P,\) however,
+    because the line could strike the curve anywhere farther away.
+    <figure class="fig-2">
+        <img src="../images/sectionImages/2/secant-line.jpg" alt="Fig. 2.">
+    </figure>
+    <style>
+        .fig-2::before{
+            content:'FIGURE 2';
+        }
+    </style>
+</p>
+<p>
+    The slope of a tangent line is called the <span class="emph">derivative</span>.
+    We calculate the derivative of \(f\) at \(x\) by constructing a <span class="emph">secant line</span>—a line that 
+    intersects the graph of \(y = f(x)\) at \(P\) and another nearby point \(Q;\)
+    see Figure 2.
+    If the horizontal distance between \(P\) and \(Q\) is \(h,\) 
+    then the vertical distance is \(f(x + h) - f(x).\)
+    Therefore, the slope of the secant line is 
+    \[m_{PQ} = \frac{\Delta y}{\Delta x} = \frac{f(x + h) - f(x)}{h} \period\]
+</p>
+<p>
+    If \(Q\) is made closer to \(P\)—that is, \(h\) is smaller—then the secant line better resembles the tangent line \(P.\)
+    If \(h\) is <i>infinitely</i> close to \(0,\) 
+    then the secant line collapses into a tangent line; see Animation 1.
+    Therefore, we find the slope of the tangent line by taking the <i>limit</i> of \(m_{PQ}\) as \(h \to 0.\)
+    We denote a derivative as either \(\deriv{y}{x}\) or \(f'(x).\)
+    Thus, 
+    \begin{equation} 
+    f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h} \period \label{eq:lim-defn}  
+    \end{equation}
+    <figure class="anm-1">
+        <video controls>
+            <source src="../images/sectionImages/2/tangent-animation.mp4" type="video/mp4" alt="Animation 1">
+        </video>
+    </figure>
+    <style>
+        .anm-1::before{
+            content:'ANIMATION 1';
+        }
+    </style>
+    We can also write 
+    \[\deriv{y}{x} = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h} \period\]
+    Loosely speaking, \(\dd x\) can be thought of as an infinitely small \(\Delta x,\) 
+    and \(\dd y\) is similar to an infinitely small \(\Delta y.\)
+    We call these terms <span class="emph">differentials</span>. 
+    Thus, \(\deriv{y}{x}\) is, roughly speaking, the slope composed of these differentials.
+</p>
+
+<!-- table for definition of derivative-->
+<div class="box-title"> LIMIT DEFINITION OF A DERIVATIVE </div>
+<div class="box">
+    The slope of the line tangent to the graph of \(y = f(x)\) at \((x, f(x))\) is 
+    \[f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h} \period \]
+</div>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        Let \(f(x) = 1/x.\)
+        <ol class="list-alpha">
+            <li>
+                Find \(f'(2).\) Interpret this value.
+            </li>
+            <li>
+                Write an equation of the line tangent to the graph of \(y = f(x)\) at \(x = 2.\)
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button">  </button>
+<div id="solution1" class="solution">
+    <ol class="list-alpha">
+        <li>
+            The expression \(f'(2)\) represents the derivative of \(f(x)\) at \(x = 2.\)
+            We use \(\eqRefer{eq:lim-defn}\) to find 
+            \[
+            \ba 
+            f'(2) &= \lim_{h \to 0} \frac{f(2 + h) - f(2)}{h} \nl 
+            &= \lim_{h \to 0} \frac{\frac{1}{2 + h} - \frac{1}{2}}{h}
+            \ea 
+            \]
+        </li>
+    </ol>
+</div>

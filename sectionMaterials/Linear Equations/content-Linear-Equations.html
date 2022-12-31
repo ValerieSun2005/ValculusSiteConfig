@@ -1,0 +1,223 @@
+<!--[[[crefId.Linear-Equations]]]--> 
+<p>
+    In this section, we solve differential equations of the form 
+    \begin{equation}
+    y' + P(x) y = Q(x) \pd \label{eq:linear}
+    \end{equation}
+    We call equations in this form 
+    <span class="emph">first-order linear differential equations</span>.
+    In particular, \(\eqRefer{eq:linear}\) is the <i>standard form</i>
+    of a first-order linear differential equation.
+    This section covers the method of <i>integrating factors</i>, 
+    in which we manipulate the left side of \(\eqRefer{eq:linear}\) 
+    to be the derivative of a product of functions.
+</p>
+
+<h4 id="strategy">Strategy</h4>
+<p>
+    In \(\eqRefer{eq:linear},\) we multiply both sides by a function \(\mu(x) \col\) 
+    \begin{equation}
+    \mu(x) y' + P(x) \mu(x) y = Q(x) \mu(x) \pd \label{eq:linear-mu}
+    \end{equation}
+    We choose \(\mu(x)\) to satisfy \(\mu'(x) = P(x) \mu(x).\)
+    Then \(\eqRefer{eq:linear-mu}\) becomes 
+    \begin{equation}
+    \mu(x) y' + \mu'(x) y = Q(x) \mu (x) \cma \label{eq:linear-mu-d}
+    \end{equation}
+    where the left side matches the Product Rule expansion of \([y \mu(x)]'.\)
+    Thus, we rewrite \(\eqRefer{eq:linear-mu-d}\) as
+    \[
+    \deriv{}{x} [y \mu(x)] = Q(x) \mu(x) \cma 
+    \]
+    and integrating both sides yields 
+    \begin{align}
+    y \mu(x) &= C + \int Q(x) \mu(x) \di x \nonumber \nl 
+    y &= \frac{C}{\mu(x)} + \frac{1}{\mu(x)} \int Q(x) \mu(x) \di x \label{eq:linear-equation-y} \pd 
+    \end{align}
+    We call \(\mu(x)\) <i>an</i> <span class="emph">integrating factor</span>. 
+    Since we choose \(\mu(x)\) to satisfy \(\mu'(x) = P(x) \mu(x),\)
+    we solve for \(\mu(x)\) using Separation of Variables, as follows:
+    \begin{align}
+    \deriv{\mu}{x} &= P(x) \mu(x) \nonumber \nl 
+    \frac{1}{\mu} \dd \mu &= P(x) \di x \nonumber \nl
+    \ln|\mu| &= \int P(x) \di x \nonumber \nl 
+    \mu(x) &= e^{\int P(x) \di x} \pd \label{eq:mu}
+    \end{align}
+    Substituting \(\eqRefer{eq:mu}\) into \(\eqRefer{eq:linear-equation-y}\) then produces 
+    a general solution to \(\eqRefer{eq:linear}\)—namely,
+    \begin{equation}
+    y = Ce^{-\int P(x) \di x} + e^{-\int P(x) \di x} \int Q(x) e^{\int P(x) \di x} \di x \pd \label{eq:linear-sol}
+    \end{equation}
+</p>
+
+<p>
+    We omit the constant of integration in \(\mu(x) = e^{\int P(x) \di x}\) because we only need <i>one</i>
+    integrating factor.
+    \(\eqRefer{eq:linear-sol}\) should not be memorized; instead,
+    you must understand the procedure of using an integrating factor.
+</p>
+
+    <!-- steps for solving linear eq -->
+    <div class="steps-title">SOLVING FIRST-ORDER LINEAR DIFFERENTIAL EQUATIONS</div>
+    <div class="steps">
+        Consider the first-order linear differential equation 
+        \[y' + P(x) y = Q(x) \pd\]
+        <ol class="list-num">
+            <li>
+                Multiply both sides of the equation by an <span class="emph">integrating factor</span>,
+                \[\mu(x) = e^{\int P(x) \di x} \cma\]
+                to obtain 
+                \[y' e^{\int P(x) \di x} + P(x) e^{\int P(x) \di x} y = Q(x) e^{\int P(x) \di x} \pd\]
+                The left side is the derivative of the product \(y e^{\int P(x) \di x}.\)
+            </li>
+            <li>
+                Integrate both sides to get 
+                \[y e^{\int P(x) \di x} = C + \int Q(x) e^{\int P(x) \di x} \di x \pd\]
+            </li>
+            <li>
+                Solve for \(y.\)
+            </li>
+        </ol>
+    </div>
+</p>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        Solve
+        \[
+        y' + 2x y = e^{-x^2} \pd 
+        \]
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button">  </button>
+<div id="solution1" class="solution">
+    <p>
+        This equation a first-order linear differential equation,
+        matching \(\eqRefer{eq:linear}\)
+        with \(P(x) = 2x\) and \(Q(x) = e^{-x^2}.\)
+        We can't separate the equation, so we instead multiply by an 
+        <i>integrating factor</i>
+        to transform the left side into a Product Rule expansion.
+    </p>
+    <p>
+        Since \(P(x) = 2x,\) an integrating factor is 
+        \[\mu(x) = e^{\int 2x \di x} = e^{x^2} \pd\]
+        (We neglect any constant of integration because we need 
+        only <i>one</i> integrating factor, so we choose the simplest.)
+        Multiplying both sides of the differential equation by \(\mu(x) = e^{x^2}\) gives 
+        \begin{equation}
+        e^{x^2} y' + 2xy e^{x^2} = 1 \pd \label{eq:ex-2x-multiplied}
+        \end{equation}
+        The left side of \(\eqRefer{eq:ex-2x-multiplied}\) is the Product Rule expansion of \(\par{y e^{x^2}}',\)
+        so we rewrite the equation as 
+        \[\par{ye^{x^2}}' = 1 \pd \]
+        Integrating both sides then gives 
+        \[ye^{x^2} = x + C \implies \boxed{y = e^{-x^2}(x + C)}\]
+    <p>
+</div>
+
+<div class="example-title" id="example-y'-coeff"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        Using an integrating factor, solve the initial-value problem 
+        \[x^3 y' + x^2y = x \cma y(1) = 2 \pd\]
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button">  </button>
+<div id="solution2" class="solution">
+    The equation doesn't match the form of \(\eqRefer{eq:linear},\) 
+    so we divide both sides by \(x^3\) to get 
+    \begin{equation}
+    y' + \frac{1}{x} y = \frac{1}{x^2} \pd \label{eq:ex-x2y}
+    \end{equation}
+    We then see \(P(x) = 1/x.\)
+    An integrating factor is then 
+    \[\mu(x) = e^{\int(1/x) \di x} = e^{\ln|x|} = x \pd\]
+    Multiplying both sides of \(\eqRefer{eq:ex-x2y}\) by \(\mu(x) = x\) then yields 
+    \begin{equation}
+    xy' + y = \frac{1}{x} \cma \label{eq:ex-x2y-mu-mult}
+    \end{equation}
+    where the left side is the Product Rule expansion of \((xy)'.\)
+    We then rewrite \(\eqRefer{eq:ex-x2y-mu-mult}\) as 
+    \[(xy)' = \frac{1}{x} \cma\]
+    and we integrate both sides to get 
+    \begin{equation}
+    xy = \ln|x| + C \pd \label{eq:x2y-mu-integrated}
+    \end{equation}
+    We are given \(y(1) = 2,\) 
+    so substituting this point into \(\eqRefer{eq:x2y-mu-integrated}\) gives 
+    \[1(2) = \ln 1 + C \implies C = 2 \pd\]
+    Thus, \(\eqRefer{eq:x2y-mu-integrated}\) becomes 
+    \[
+    xy = \ln|x| + 2 \implies \boxed{y = \frac{1}{x} \ln|x| + \frac{2}{x}}
+    \]
+</div>
+
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">  
+        Solve
+        \[y' + 2y \cos x = \cos x \pd\]
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button">  </button>
+<div id="solution3" class="solution">
+    Comparing this equation to \(\eqRefer{eq:linear},\)
+    we see \(P(x) = 2 \cos x\) and \(Q(x) = \sin x.\)
+    We then choose an integrating factor to be 
+    \[\mu(x) = e^{\int P(x) \di x} = e^{\int 2 \cos x \di x} = e^{2 \sin x} \pd\]
+    Multiplying both sides of the differential equation by this factor, we get 
+    \begin{equation}
+    y' e^{2 \sin x} + 2 e^{2 \sin x} (\cos x) y = e^{2 \sin x} \cos x \pd \label{eq:ex-2cosx-multiplied}
+    \end{equation}
+    The left side of \(\eqRefer{eq:ex-2cosx-multiplied}\) is,
+    by the Product Rule, the derivative of \(y e^{2 \sin x}.\)
+    We then rewrite \(\eqRefer{eq:ex-2cosx-multiplied}\) and integrate:
+    \begin{align}
+    \par{y e^{2 \sin x}}' &= e^{2 \sin x} \cos x \nonumber \nl 
+    ye^{2 \sin x} &= \int e^{2 \sin x} \cos x \di x \pd \label{eq:ex-2cosx-condensed}
+    \end{align}
+    The integral on the right side of \(\eqRefer{eq:ex-2cosx-condensed}\)
+    can be evaluated by substituting 
+    \[u = 2 \sin x \lspace \dd u = 2 \cos x \di x \pd\]
+    Then the integral becomes 
+    \[\tfrac{1}{2} \int e^u \di u = \tfrac{1}{2} e^{u} + C = \tfrac{1}{2} e^{2 \sin x} + C \pd\]
+    Thus, \(\eqRefer{eq:ex-2cosx-condensed}\) is 
+    \[ye^{2 \sin x} = \tfrac{1}{2} e^{2 \sin x} + C \implies \boxed{y = \tfrac{1}{2} + Ce^{-2 \sin x}}\]
+
+</div>
+
+<!--section summary-->
+<div class="section-summary">
+    <p>
+    A first-order linear differential equation takes the form 
+    \[y' + P(x) y = Q(x) \pd\]
+    </p>
+    <ul>
+        <li>
+            You may need to rewrite a differential equation to match this form.
+            (See <a href="#example-y'-coeff">Example 2</a>.)
+        </li>
+        <li>
+            To find a solution of a first-order linear differential equation, 
+            use the following steps.
+            <ol class="list-num">
+                <li>
+                    Multiply both sides of the equation by an <span class="emph">integrating factor</span>,
+                    \[\mu(x) = e^{\int P(x) \di x} \cma\]
+                    to obtain 
+                    \[y' e^{\int P(x) \di x} + P(x) e^{\int P(x) \di x} y = Q(x) e^{\int P(x) \di x} \pd\]
+                    The left side is the derivative of the product \(y e^{\int P(x) \di x}.\)
+                </li>
+                <li>
+                    Integrate both sides to get 
+                    \[y e^{\int P(x) \di x} = C + \int Q(x) e^{\int P(x) \di x} \di x \pd\]
+                </li>
+                <li>
+                    Solve for \(y.\)
+                </li>
+            </ol>
+        </li>
+    </ul>
+</div>

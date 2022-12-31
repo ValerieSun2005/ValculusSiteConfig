@@ -1,0 +1,326 @@
+<section>
+    <p>GRID</p>
+    <p class="columns">3</p>
+    <p class="directions">find the derivative</p>
+
+    <div>
+        \(\ds x \sin x\)
+    </div>
+    <span>
+        The expression \(x \sin x\) is a product of two functions,
+        \[f(x) = x \qquad g(x) = \sin x \pd\]
+        Note that \(f'(x) = 1\) and \(g'(x) = \cos x.\)
+        Thus, the Product Rule gives the derivative of \(x \sin x \) to be 
+        \[f'g + fg' = \boxed{\sin x + x \cos x}\]
+    </span>
+
+    <div>
+        \(\ds x^2 \cos x\)
+    </div>
+    <span>
+        The expression \(x^2 \cos x\) is a product of 
+        \[f(x) = x^2 \qquad g(x) = \cos x \pd\]
+        Differentiating \(f\) and \(g\) give 
+        \[f'(x) = 2x \qquad g'(x) = -\sin x \pd\]
+        Then the Product Rule gives the derivative of \(x^2 \cos x\) to be 
+        \[
+        f'g + fg' = \boxed{2x \cos x - x^2 \sin x}
+        \]
+    </span>
+
+    <div>
+        \(\ds (\sin x) \sqrt{x} \)
+    </div>
+    <span>
+        We have a product with 
+        \[f(x) = \sin x \qquad g(x) = \sqrt{x} = x^{1/2} \pd\]
+        Then 
+        \[f'(x) = \cos x \qquad g'(x) = \tfrac{1}{2} x^{-1/2} \pd\]
+        Thus, the derivative of \((\sin x) \sqrt{x}\) is 
+        \[
+        \ba 
+        f'g + fg' &= \sqrt{x} \cos x + \tfrac{1}{2} x^{-1/2} \sin x \nl 
+        &= \boxed{\sqrt{x} \cos x + \frac{1}{2 \sqrt{x}} \sin x}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds x \ln x\)
+    </div>
+    <span>
+        In this product, we have 
+        \[
+        \baat{2} 
+        f(x) &= x \lspace g(x) &&= \ln x \nl 
+        f'(x) &= 1 \lspace g'(x) &&= \tfrac{1}{x} \pd
+        \eaat  
+        \]
+        The derivative of \(x \ln x\) is then 
+        \[f'g + fg' = \boxed{\ln x + 1}\]
+    </span>
+
+    <div>
+        \(\ds e^x \sin x\)
+    </div>
+    <span>
+        The derivative of \(e^x\) is \(e^x,\)
+        and the derivative of \(\sin x\) is \(\cos x.\)
+        Therefore, the Product Rule shows the derivative of \(e^x \sin x\) to be 
+        \[\boxed{e^x \sin x + e^x \cos x}\]
+    </span>
+
+    <div>
+        \(\ds \frac{1}{x}\tan x\)
+    </div>
+    <span>
+        We rewrite the expression as \(x^{-1} \tan x.\)
+        We may use the Product Rule by writing 
+        \[
+        \baat{2} 
+        f(x) &= x^{-1} \quad \lspace g(x) &&= \tan x \nl 
+        f'(x) &= -x^{-2} \lspace g'(x) &&= \sec^2 x \pd 
+        \eaat
+        \]
+        Thus, the derivative is 
+        \[
+        \ba 
+        f'g + fg' &= -x^{-2} \tan x + x^{-1} \sec^2 x \nl 
+        &= \boxed{-\tfrac{1}{x^2} \tan x + \tfrac{1}{x} \sec^2 x} 
+        \ea 
+        \]
+        It is also valid to use the Quotient Rule. 
+    </span>
+
+    <div>
+        \(\ds \frac{\sin x}{x + 4}\)
+    </div>
+    <span>
+        The expression is a quotient, \(f/g,\) of two functions:
+        \[f(x) = \sin x \lspace g(x) = x + 4 \pd\]
+        We note that \(f'(x) = \cos x\) and \(g'(x) = 1.\)
+        By the Quotient Rule, the derivative of \(\sin x/(x + 4)\) is 
+        \[
+        \ba 
+        \frac{f'g - fg'}{g^2} &= \frac{(\cos x)(x + 4) - (\sin x)(1)}{x^2} \nl 
+        &= \boxed{\frac{(x + 4) \cos x - \sin x}{(x + 4)^2}}
+        \ea 
+        \] 
+    </span>
+
+    <div>
+        \(\ds \frac{\cos x}{x^2 + 4}\)
+    </div>
+    <span>
+        We have a quotient \(f/g\) with 
+        \[f(x) = \cos x \lspace g(x) = x^2 + 4 \pd\]
+        The derivatives of these functions are \(f'(x) = -\sin x\) and \(g'(x) = 2x.\)
+        Thus, the derivative of \(\cos x/(x^2 + 4)\) is 
+        \[
+        \ba 
+        \frac{f'g - fg'}{g^2} 
+        &= \frac{(- \sin x)(x^2 + 4) - (\cos x)(2x)}{(x^2 + 4)^2} \nl 
+        &= \boxed{\frac{-(x^2 + 4) \sin x - 2x \cos x}{(x^2 + 4)^2}}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \frac{x^2}{\tan x}\)
+    </div>
+    <span>
+        Using the Quotient Rule
+        with 
+        \[
+        \baat{2} 
+        f(x) &= x^2 \lspace g(x) &&= \tan x \nl 
+        f'(x) &= 2x \lspace g'(x) &&= \sec^2 x \cma 
+        \eaat 
+        \]
+        we obtain 
+        \[
+        \ba 
+        \frac{f'g - fg'}{g^2} &= \boxed{\frac{2x \tan x - x^2 \sec^2 x}{\tan^2 x}}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \frac{\cos x}{2x - 6}\)
+    </div>
+    <span>
+        The derivative of the numerator is \((- \sin x),\)
+        and the derivative of the denominator is \(2.\)
+        Thus, the Quotient Rule gives the derivative of \(\cos x/(2x - 6)\) to be 
+        \[
+        \ba 
+        \frac{(-\sin x)(2x - 6) - (\cos x)(2)}{(2x - 6)^2} 
+        = \boxed{\frac{(6 - 2x) \sin x - 2 \cos x}{(2x - 6)^2}}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \frac{\cot x}{5\sqrt{x} - 3}\)
+    </div>
+    <span>
+        The derivative of the numerator is \((-\csc^2 x),\)
+        and the derivative of the denominator is \(5/(2 \sqrt x).\)
+        Thus, the Quotient Rule gives the derivative of \(\cot x/(5\sqrt{x} - 3)\) to be 
+        \[
+        \ba 
+        \frac{(-\csc^2 x)(5\sqrt{x} - 3) - (\cot x) \par{\frac{5}{2 \sqrt x}} }{(5\sqrt{x} - 3)^2}
+        = \boxed{\frac{(3 - 5 \sqrt{x}) \csc^2 x - \frac{5 \cot x}{2 \sqrt x}}{(5\sqrt{x} - 3)^2}}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds x^2 e^x \cos x\)
+    </div>
+    <span>
+        We have a product of three terms,
+        but we can apply the Product Rule by grouping two of the factors. 
+        For example, let 
+        \[f(x) = x^2 e^x \qquad g(x) = \cos x \pd\]
+        Then 
+        \[f'(x) = 2x e^x + x^2 e^x \qquad g'(x) = -\sin x \pd\]
+        The derivative of \(x^2 e^x \cos x\) is then 
+        \[
+        \ba 
+        f'(x)g(x) + f(x)g'(x) &= (2x e^x + x^2 e^x) \cos x + (x^2 e^x) (-\sin x) \nl 
+        &= \boxed{2xe^x + x^2 e^x \cos x - x^2 e^x \sin x}
+        \ea
+        \]
+    </span>
+</section>
+
+<section>
+    <div>
+        Let \(f\) be a differentiable function that satisfies \(f(3) = 2.\) 
+        The line \(y = 2 + \frac{1}{2}(x - 3)\) is tangent to the graph of \(y = f(x)\) 
+        at \(x = 3.\)
+        Let \(k(x) = 2x^2 f(x).\)
+        Find \(k'(3).\)
+    </div>
+    <span>
+        We differentiate \(k\) using the Product Rule to get 
+        \[
+        \ba 
+        k'(x) &= 4x f(x) + 2x^2 f'(x) \nl 
+        k'(3) &= 12 f(3) + 18 f'(3) \pd 
+        \ea 
+        \]
+        We are given \(f(3) = 2.\)
+        The tangent line to the graph of \(y = f(x)\) at \(x = 3\) 
+        has slope \(1/2,\) so \(f'(3) = 1/2.\)
+        Plugging in these values gives 
+        \[k'(3) = 12(2) + 18 \par{\tfrac{1}{2}} = \boxed{33} \]
+    </span>
+
+    <div>
+        Let \(f\) and \(g\) be differentiable functions such that 
+        \(f(2) = 2,\) \(f'(2) = -1,\) \(g(2) = 3,\) and \(g'(2) = -4.\)
+        Find \(k'(2).\) 
+        <ol class="list-alpha">
+            <li>
+                \(\ds k(x) = f(x) g(x)\)
+            </li>
+            <li>
+                \(\ds k(x) = \frac{f(x)}{g(x)}\)
+            </li>
+            <li>
+                \(\ds k(x) = \frac{g(x)}{f(x)}\)
+            </li>
+            <li>
+                \(\ds k(x) = \frac{f(x)}{g(x) + f(x)}\)
+            </li>
+        </ol>
+    </div>
+    <span>
+        <ol class="list-alpha">
+            <li>
+                The Product Rule gives 
+                \[k'(x) = f'(x) g(x) + f(x) g'(x) \pd\]
+                Plugging in \(x = 2,\) we obtain 
+                \[
+                \ba 
+                k'(2) &= f'(2) g(2) + f(2) g'(2) \nl 
+                &= (-1)(3) + (2)(-4) \nl 
+                &= \boxed{-11}
+                \ea 
+                \]
+            </li>
+            <hr>
+            <li>
+                Using the Quotient Rule, we obtain 
+                \[k'(x) = \frac{f'(x) g(x) - f(x) g'(x)}{[g(x)]^2}\]
+                When \(x = 2,\) we have 
+                \[
+                \ba 
+                k'(2) &= \frac{f'(2) g(2) - f(2) g'(2)}{[g(2)]^2} \nl 
+                &= \frac{(-1)(3) - (2)(-4)}{3^2} \nl
+                &= \boxed{\frac{5}{9}}
+                \ea 
+                \]
+            </li>
+            <hr>
+            <li>
+                The Quotient Rule gives 
+                \[
+                \ba 
+                k'(x) &= \frac{g'(x) f(x) - g(x) f'(x)}{[f(x)]^2} \nl 
+                k'(2) &= \frac{g'(2) f(2) - g(2) f'(2)}{[f(2)]^2} \nl 
+                &= \frac{(-4)(2) - (3)(-1)}{2^2} \nl 
+                &= \boxed{-\frac{5}{4}}
+                \ea 
+                \]
+            </li>
+            <hr>
+            <li>
+                Let us use \(f\) and \(g\) as abbreviations of \(f(x)\) and \(g(x),\) respectively. 
+                We differentiate \(k,\) getting 
+                \[
+                \ba 
+                k'(x) &= \frac{f'(g + f) - f(g' + f')}{(g + f)^2} \scol \nl 
+                k'(2) &= \frac{(-1)(3 + 2) - (2)(-4 - 1)}{(2 + 3)^2} \nl 
+                &= \boxed{\frac{1}{5}}
+                \ea 
+                \]
+            </li>
+        </ol>
+    </span>
+
+
+    <!-- <div>
+        Let \(f\) and \(g\) be differentiable functions. 
+        Selected values of \(f(x)\) and \(g(x)\) and their derivatives,
+        \(f'(x)\) and \(g'(x),\) are shown in the table below.
+        <table class="table-full-width">
+            <tr>
+                <td class="table-function-label">
+                    \(x\)
+                </td>
+                <td>
+                    \(1\)
+                </td>
+                <td>
+                    \(12\)
+                </td>
+            </tr>
+            <tr>
+                <td class="table-function-label">
+                    \(f(x)\)
+                </td>
+                <td>
+                    \(1\)
+                <td>
+                    \(5\)
+                </td>
+            </tr>
+        </table>
+        Find 
+    </div>
+    <span>
+    </span> -->
+</section>

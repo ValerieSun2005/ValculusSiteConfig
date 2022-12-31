@@ -1,0 +1,526 @@
+<!--[[[crefId.Improper-Integrals]]]--> 
+<p>
+    Up to this point, we have covered integrals that featured finite bounds or were well defined over the interval over which we integrated.
+    In this section, however, we discuss integrals \(\int_a^b f(x) \di x\) in which \([a, b]\) is infinite 
+    or in which \(f\) <i>does</i> have an infinite discontinuity in \([a, b].\)
+    We call these integrals <span class="emph">improper integrals</span>, examples of which are
+    \[\int_1^\infty \frac{1}{x^2} \di x \and \int_{-1}^0 \frac{1}{x^2} \di x \period\]
+</p>
+<p>
+    This section discusses 
+    <a href="#type-I-improper-integrals" class="page-anchor">Type I Improper Integrals</a>,
+    <a href="#p-integrals" class="page-anchor">\(p\)-Integrals</a>, 
+    <a href="#type-II-improper-integrals" class="page-anchor">Type II Improper Integrals</a>, and 
+    <a href="#comparison-testing" class="page-anchor">Comparison Testing</a>.
+</p>
+
+<h4 id="type-I-improper-integrals">Type I Improper Integrals</h4>
+<figure class="type-i-improper" id="type-i-improper">
+    <img src="../images/sectionImages/type-i-improper.jpg" alt="type-i-improper">
+</figure>
+<style>
+    .type-i-improper::before{
+        content:'FIGURE 1';
+    }
+</style>
+<p>
+    A <span class="emph">Type I</span> improper integral has one or more infinite limits of integration.
+    For example, 
+    \[\andThree
+    {\int_1^\infty \frac{1}{x} \di x}{\int_{-\infty}^1 \frac{1}{\sqrt[3]{x}} \di x}{\int_{-\infty}^\infty \tan^{-1} x \di x}
+    \]
+    are Type I improper integrals.
+    To evaluate the improper integral \(\int_a^\infty f(x) \di x,\) we 
+    write replace the \(\infty\) with a variable \(k\) that approaches infinity; that is, 
+    \[\int_a^\infty f(x) \di x = \lim_{k \to \infty} \int_a^k f(x) \di x \period\]
+    We <i>first</i> evaluate \(\int_a^k f(x) \di x\)
+    and <i>then</i> take the limit of the resulting expression.
+    Geometrically, allowing \(k\) to grow shifts the line \(x = k\) 
+    farther to the right, thus expanding Region \(R;\) 
+    see <a href="#type-i-improper">Figure 1</a>.
+</p>
+<aside class="box-tip">
+    We say a limit that approaches \(-\infty\) or \(+\infty\)
+    does <i>not</i> exist.
+</aside>
+<p>
+    If \(\lim_{k \to \infty} \int_a^k f(x) \di x\) exists, 
+    then we say \(\int_a^\infty f(x) \di x\) is <span class="emph">convergent</span>.
+    But if this limit doesn't exist, then we call the improper integral <span class="emph">divergent</span>.
+    In other words, \(\int_a^\infty f(x) \di x\) <i>converges</i> if Region \(R\) has <i>finite</i> area;
+    and the integral <i>diverges</i> if the area does not approach a fixed value.
+</p>
+<p>
+    Consider the integral \(\int_1^\infty (1/x^2) \di x.\)
+    We replace the \(\infty\) with a variable \(k\) and take the limit as \(k \to \infty,\) yielding 
+    \[\lim_{k \to \infty} \int_1^k \frac{1}{x^2} \di x \period\]
+    Taking an antiderivative and plugging in bounds, we have 
+    \[\lim_{k \to \infty} -\frac{1}{x} \Big|_1^k 
+    = \lim_{k \to \infty} \par{-\frac{1}{k} + \frac{1}{1}} = \boxed{1}\]
+    Since this limit exists (and is finite), we say that \(\int_1^\infty (1/x^2) \di x\) <i>converges</i>.
+</p>
+<figure class="divergent-improper-integral-cos" id="divergent-improper-integral-cos">
+    <img src="../images/sectionImages/divergent-improper-integral-cos.jpg" alt="divergent-improper-integral-cos">
+</figure>
+<style>
+    .divergent-improper-integral-cos::before{
+        content:'FIGURE 2';
+    }
+</style>
+<p>
+    A common misconception is that divergent improper integrals represent infinite areas.
+    But the integral \(\int_0^\infty \cos x \di x\) <i>diverges</i> 
+    because the area bounded by the \(x\)-axis and the graph of \(y = \cos x\) does not approach any final value as \(x \to \infty;\)
+    see <a href="#divergent-improper-integral-cos">Figure 2</a>.
+    Mathematically, we find 
+    \[\lim_{k \to \infty} \int_0^k \cos x \di x = \lim_{k \to \infty} \sin x \Big|_0^k = \lim_{k \to \infty} \par{\sin k - \sin 0} \period\]
+    Because \(\lim_{k \to \infty} \sin k\) doesn't exist, \(\int_0^\infty \cos x \di x\) diverges.  
+</p>
+
+<!--box type I improper integrals-->
+<div class="box-title"> TYPE I IMPROPER INTEGRALS </div>
+<div class="box">
+    A <span class="emph">Type I</span> improper integral has one or more infinite bounds. 
+    <ol class="list-alpha">
+        <li>
+            If \(\int_a^k f(x) \di x\) exists for all \(k \geq a,\)
+            then 
+            \[\int_a^\infty f(x) \di x = \lim_{k \to \infty} \int_a^k f(x) \di x \period\]
+        </li>
+        <li>
+            If \(\int_{k}^b\) exists for all \(k \leq b,\)
+            then 
+            \[\int_{-\infty}^b f(x) \di x = \lim_{k \to -\infty} \int_k^b f(x) \di x \period\]
+        </li>
+        <li>
+            If \(c\) is any real number, then 
+            \[\int_{-\infty}^\infty f(x) \di x = \int_{-\infty}^c f(x) \di x + \int_c^\infty f(x) \di x \period\]
+        </li>
+    </ol>
+    An improper integral <span class="emph">converges</span>
+    if its corresponding limit exists;
+    otherwise, it <span class="emph">diverges</span>.
+    In part (c), the improper integral converges if and only if both limits exist.
+</div>
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        Evaluate \(\ds \int_0^\infty e^{-x} \di x.\)
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"></button>
+<div id="solution1" class="solution">
+    We insert a variable \(k\) for the upper bound, obtaining 
+    \[
+    \ba 
+    \lim_{k \to \infty} \int_0^k e^{-x} \di x &= \lim_{k \to \infty} -e^{-x} \Big|_0^k \nl 
+    &= \lim_{k \to \infty} -e^{-k} + e^0 \nl  
+    &= \boxed{1}
+    \ea 
+    \]
+</div>  
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        Evaluate \(\ds \int_{-\infty}^1 \frac{1}{\sqrt[3]{x}} \di x.\)
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    We rewrite the integrand as \(x^{-1/3},\) and we insert a variable \(k\) that tends to \(-\infty.\)
+    We then have 
+    \[
+    \ba 
+    \lim_{k \to -\infty} \int_k^1 x^{-1/3} \di x &= \lim_{k \to -\infty} \frac{3}{2} x^{2/3} \Big|_k^1 \nl 
+    &= \frac{3}{2} - \lim_{k \to -\infty} \frac{3}{2} k^{2/3} \pd 
+    \ea 
+    \]
+    The limit \(\lim_{k \to -\infty} \par{3k^{2/3}/2}\) is unbounded (and therefore does not exist).
+    Thus, \(\int_{-\infty}^1 (1/\sqrt[3]{x}) \di x\) <span class="emph">diverges</span>.
+</div>  
+
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">  
+        Evaluate \(\ds \int_1^\infty \frac{1}{x} \di x.\)
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button"></button>
+<div id="solution3" class="solution">
+    We rewrite the integral as the limit 
+    \[\lim_{k \to \infty} \int_1^k \frac{1}{x} \di x \period\]
+    After antidifferentiating, we obtain    
+    \[\lim_{k \to \infty} \ln \abs{x} \Big|_1^k = \lim_{k \to \infty} \ln k - \ln 1 = \infty \period\]
+    Since the limit equals \(\infty\) (and therefore does not exist), the improper integral \(\int_1^\infty (1/x) \di x\) 
+    <span class="emph">diverges</span>.
+</div>  
+
+<figure class="infinite-v-finite-area" id="infinite-v-finite-area">
+    <img src="../images/sectionImages/infinite-v-finite-area.jpg" alt="infinite-v-finite-area">
+</figure>
+<style>
+    .infinite-v-finite-area::before{
+        content:'FIGURE 3';
+    }
+</style>
+
+<h4 id="p-integrals">\(p\)-Integrals</h4>
+<p>
+    We have discovered a paradoxical fact:
+    \(\int_1^\infty (1/x^2) \di x\) converges, but \(\int_1^\infty (1/x) \di x\) diverges.
+    (See <a href="#infinite-v-finite-area">Figure 3</a>.)
+    We now generalize: Consider the family of integrals 
+    \[I = \int_1^\infty \frac{1}{x^p} \di x \period\]
+    Of course, \(I\) diverges if \(p = 1.\) 
+    For \(p \ne 1,\) we rewrite the integrand as \(x^{-p}.\) The improper integral then becomes   
+    \[\lim_{k \to \infty} \frac{x^{1 - p}}{1 - p} \Big|_1^k = \lim_{k \to \infty} \frac{k^{1 - p}}{1 - p} - \frac{1}{1 - p} \period\]
+    If \(p \lt 1,\) then 
+    \[k^{1 - p} \to \infty \as k \to \infty\]
+    and so \(I\) diverges.
+    In contrast, if \(p \gt 1,\) then 
+    \[k^{1 - p} \to 0 \as k \to \infty \comma \]
+    and 
+    \[I = 0 - \frac{1}{1 - p} = \frac{1}{p - 1} \pd \]
+</p>
+<p>
+    For example, \(\int_1^\infty (1/x^3) \di x\) is a \(p\)-integral with \(p = 3.\)
+    Since \(p \gt 1,\) the integral <i>converges</i> and equals 
+    \[\frac{1}{3 - 1} = \frac{1}{2} \pd\]
+    Conversely, \(\int_1^\infty (1/\sqrt x) \di x\) has \(p = 1/2\) and therefore <i>diverges</i>. 
+</p>
+
+<!--box type I improper integrals-->
+<div class="box-title"> \(p\)-INTEGRALS </div>
+<div class="box">
+    Let 
+    \[I = \int_1^\infty \frac{1}{x^p} \di x \period\]
+    <ol class="list-alpha">
+        <li>
+            If \(p \leq 1,\) then \(I\) diverges.
+        </li>
+        <li>
+            If \(p \gt 1,\) then \(I\) converges and equals \(1/(p - 1).\)
+        </li>
+    </ol>
+</div>
+
+<div class="example-title"> EXAMPLE 4 </div>
+<div class="example">
+    <div class="example-problem">  
+        Consider the family of integrals 
+        \[I = \int_1^\infty \frac{1}{x^{4b + 2}} \di x \period\]
+        For what values of \(b\) does \(I\) converge,
+        and for what values of \(b\) does \(I\) diverge?
+    </div>
+</div>
+<button onclick="toggle4()" class="solution-button"></button>
+<div id="solution4" class="solution">
+    We have a \(p\)-integral with \(p = 4b + 2.\)
+    If \(p \leq 1,\) then \(I\) diverges. 
+    Solving, we find 
+    \[4b + 2 \leq 1 \implies b \leq -\frac{1}{4} \period\]
+    If \(p \gt 1,\) then \(I\) converges and so we find 
+    \[4b + 2 \gt 1 \implies b \gt -\frac{1}{4} \period\]
+    Thus, \(I\) converges for \(\boxed{b \gt -1/4}\) and diverges for \(\boxed{b \leq -1/4.}\)
+</div>  
+
+<figure class="type-ii-improper" id="type-ii-improper">
+    <img src="../images/sectionImages/type-ii-improper.jpg" alt="type-ii-improper">
+</figure>
+<style>
+    .type-ii-improper::before{
+        content:'FIGURE 4';
+    }
+</style>
+
+<h4 id="type-II-improper-integrals">Type II Improper Integrals</h4>
+<p> 
+    A <span class="emph">Type II</span> improper integral 
+    features a discontinuity at a bound of integration.
+    <a href="#type-ii-improper">Figure 4</a> shows the graph of \(y = f(x),\)
+    and the area of Region \(R\) is \(\int_a^b f(x) \di x.\) 
+    This is an example of a <i>Type II</i> improper integral 
+    since the upper bound is the location of a vertical asymptote of \(f.\)
+    We can therefore write 
+    \[\int_a^b f(x) \di x = \lim_{k \to b^-} \int_a^k f(x) \di x \period\]
+    For example, \(\int_1^3 \di x/(x - 3)\) is a Type II improper integral because the graph of \(y = 1/(x - 3)\) 
+    has a vertical asymptote at \(x = 3.\)
+    So we find
+    \[
+    \ba 
+    \int_1^3 \frac{1}{x - 3} \di x &= \lim_{k \to 3^-} \int_1^k \frac{1}{x - 3} \di x \nl
+    &= \lim_{k \to 3^-} \ln \abs{x - 3} \Big|_1^k \nl 
+    &= \lim_{k \to 3^-} \ln(k - 3) - \ln 2 \period
+    \ea 
+    \]
+    Since \(\lim_{k \to 3^-} \ln(k - 3)\) does not exist, \(\int_1^3 \di x/(x - 3)\) diverges.
+</p>
+
+<!--box type II improper integrals-->
+<div class="box-title"> TYPE II IMPROPER INTEGRALS </div>
+<div class="box">
+    A <span class="emph">Type II</span> improper integral takes the form \(\int_a^b f(x) \di x\)
+    where \(f(x)\) has a discontinuity in \([a, b].\)
+    <ol class="list-alpha">
+        <li>
+            If \(f\) is continuous over \([a, b)\) and discontinuous at \(x = b,\) then 
+            \[\int_a^b f(x) \di x = \lim_{k \to b^-} \int_a^k f(x) \di x \period\]
+        </li>
+        <li>
+            If \(f\) is continuous over \((a, b]\) and discontinuous at \(x = a,\) then 
+            \[\int_a^b f(x) \di x = \lim_{k \to a^+} \int_k^b f(x) \di x \period\]
+        </li>
+        <li>
+            If \(f\) has a discontinuity at \(x = c,\) where \(a \lt c \lt b,\) 
+            and \(\int_a^c f(x) \di x\) and \(\int_c^b f(x) \di x\) are convergent, then 
+            \[\int_a^b f(x) \di x = \int_a^c f(x) \di x + \int_c^b f(x) \di x \period\]
+        </li>
+    </ol>
+</div>
+
+<div class="example-title"> EXAMPLE 5 </div>
+<div class="example">
+    <div class="example-problem">  
+        Evaluate \(\ds \int_0^1 \ln x \di x.\)
+    </div>
+</div>
+<button onclick="toggle5()" class="solution-button"></button>
+<div id="solution5" class="solution">
+    The graph of \(y = \ln x\) has a vertical asymptote at \(x = 0.\)
+    Thus, we rewrite the integral as the limit 
+    \[\lim_{k \to 0^+} \int_k^1 \ln x \di x \period\]
+    We integrate \(\int \ln x \di x\) by parts using 
+    \[
+    \baat{2} 
+    u &= \ln x \lspace \dd v &= \di x \nl 
+    \dd u &= \frac{1}{x} \di x \lspace v &= x \period
+    \eaat 
+    \]
+    We find 
+    \[\int \ln x \di x = uv - \int v \di u = x \ln x - x + C \pd \] 
+    Thus, the improper integral is 
+    \[
+    \lim_{k \to 0^+} \par{x \ln x - x} \Big|_k^1 
+    = -1 - \lim_{k \to 0^+} \par{k \ln k - k} \period
+    \]
+    We use L'Hôpital's Rule to find \(\lim_{k \to 0^+} k \ln k\) because it's of the indeterminate form \(0 \times \infty.\)
+    We force the product into a quotient and then differentiate the numerator and denominator:
+    \[\lim_{k \to 0^+} k \ln k = \lim_{k \to 0^+} \frac{\ln k}{1/k} = \lim_{k \to 0^+} \frac{1/k}{-1/k^2} = \lim_{k \to 0^+} (-k) = 0 \period\]
+    Consequently, 
+    \[
+    \ba 
+    \int_0^1 \ln x \di x &= -1 - \lim_{k \to 0^+} \par{k \ln k - k} \nl 
+    &= -1 + 0 = \boxed{-1}
+    \ea 
+    \]
+</div> 
+
+<figure class="graph-1-x2" id="graph-1-x2">
+    <img src="../images/sectionImages/graph-1-x^2.jpg" alt="graph-1-x2">
+</figure>
+<style>
+    .graph-1-x2::before{
+        content:'FIGURE 5';
+    }
+</style>
+<p>
+    From this point on, you must determine whether an integral is improper.
+    For example, \(\int_{-1}^1 (1/x^2) \di x\) looks innocent.
+    It is tempting to write 
+    \[\int_{-1}^1 \frac{1}{x^2} \di x = - \frac{1}{x} \Big|_{-1}^1 = -2 \period \]
+    This answer is, of course, <i>nonsense</i> because \(1/x^2\) is strictly positive.
+    The Fundamental Theorem of Calculus requires the integrand to be <i>continuous</i> over \([-1, 1],\)
+    but the graph of \(y = 1/x^2\) has a vertical asymptote at \(x = 0\) (<a href="#graph-1-x2">Figure 5</a>).
+    Instead, we break the integral at \(x = 0\) into a sum of limits: 
+    \[\lim_{k \to 0^-} \int_{-1}^k \frac{1}{x^2} \di x + \lim_{k \to 0^+} \int_k^1 \frac{1}{x^2} \di x \period\]
+    Both limits must exist; otherwise, \(\int_{-1}^1 (1/x^2) \di x\) diverges.
+    The first limit becomes 
+    \[\lim_{k \to 0^-} -\frac{1}{x} \Big|_{-1}^k = \lim_{k \to 0^-} \par{-\frac{1}{k} + 1} \period \]
+    Since \(\lim_{k \to 0^-} (1/k)\) does not exist, \(\lim_{k \to 0^-} \int_{-1}^k (1/x^2  ) \di x\)
+    does not exist. Consequently, \(\int_{-1}^1 (1/x^2) \di x\) diverges.
+</p>
+
+<div class="example-title"> EXAMPLE 6 </div>
+<div class="example">
+    <div class="example-problem">  
+        Evaluate \(\ds \int_0^6 \frac{1}{x^2 - 6x + 9} \di x.\)
+    </div>
+</div>
+<button onclick="toggle6()" class="solution-button"></button>
+<div id="solution6" class="solution">
+    <p>
+        We re-express the integrand as 
+        \[\int_0^6 \frac{1}{(x - 3)^2} \di x \period\]
+        The graph of \(y = 1/(x - 3)^2\) has a vertical asymptote at \(x = 3,\)
+        so the integral is improper.
+        We write the integral as 
+        \[\lim_{k \to 3^-} \int_0^k \frac{1}{(x - 3)^2} \di x + \lim_{k \to 3^+} \int_k^6 \frac{1}{(x - 3)^2} \di x \period\]
+        Both limits must exist; otherwise, \(\int_0^6 \dd x/(x^2 - 6x + 9)\) is divergent.
+        The first limit becomes  
+        \[\lim_{k \to 3^-} -\frac{1}{x - 3} \Big|_0^k = \lim_{k \to 3^-} -\frac{1}{k - 3} - \frac{1}{3} \period\]
+        Because \(\lim_{k \to 3^-} 1/(k - 3)\) doesn't exist, 
+        \(\int_0^6 \dd x/(x^2 - 6x + 9)\) 
+        <span class="emph">diverges</span>.
+    </p>
+</div> 
+
+<h4 id="comparison-testing">Comparison Testing</h4>
+<p>
+    Some functions have no elementary antiderivatives. 
+    For example, the integrand of \(\int_1^\infty (\abs{\sin x}/x^{3/2}) \di x\) has no elementary antiderivative. 
+    To determine whether this integral converges or diverges, we see 
+    \[
+    \baat{2}
+    0 &\leq \abs{\sin x} &&\leq 1 \nl 
+    0 &\leq \frac{\abs{\sin x}}{x^{3/2}} && \leq \frac{1}{x^{3/2}} \period 
+    \eaat
+    \]
+    If these expressions form improper integrals, then this inequality still holds—namely,
+    \[0 \leq \int_1^\infty \frac{\abs{\sin x}}{x^{3/2}} \di x \leq \int_1^\infty \frac{1}{x^{3/2}} \di x \period\]
+    The integral \(\int_1^\infty (1/x^{3/2}) \di x\) converges because it is a \(p\)-integral of \(p = 3/2 \gt 1.\)
+    Accordingly, \(\int_1^\infty (\abs{\sin x}/x^{3/2}) \di x\) is bounded by two finite numbers and therefore also converges.
+</p>
+<figure class="improp-integral-comparison-test" id="improp-integral-comparison-test">
+    <img src="../images/sectionImages/improp-integral-comparison-test.jpg" alt="improp-integral-comparison-test">
+</figure>
+<style>
+    .improp-integral-comparison-test::before{
+        content:'FIGURE 6';
+    }
+</style>
+<p>
+    To generalize this idea, let \(f(x)\) and \(g(x)\) be continuous functions for all \(x \geq a.\) 
+    If 
+    \[0 \leq f(x) \leq g(x)\]
+    and \(\int_a^\infty g(x) \di x\) converges, 
+    then \(\int_a^\infty f(x) \di x\) also converges because \(\int_a^\infty f(x) \di x\) is bounded between two finite numbers.
+    A visual representation is shown by 
+    <a href="#improp-integral-comparison-test">Figure 6</a>.
+    By contrast, if 
+    \[0 \leq g(x) \leq f(x)\]
+    and \(\int_a^\infty g(x) \di x\) diverges, then \(\int_a^\infty f(x) \di x\) also diverges 
+    due to being "greater than infinity."
+</p>
+
+<!--comparison test improper integrals-->
+<div class="box-title"> COMPARISON TESTS FOR IMPROPER INTEGRALS </div>
+<div class="box">
+    <ol class="list-alpha">
+        <li>
+            If \(0 \leq f(x) \leq g(x)\) and \(\int_a^\infty g(x) \di x\) converges, 
+            then \(\int_a^\infty f(x) \di x\) converges.
+        </li>
+        <li>
+            If \(0 \leq g(x) \leq f(x)\) and \(\int_a^\infty g(x) \di x\) diverges, 
+            then \(\int_a^\infty f(x) \di x\) diverges.
+        </li>
+    </ol>
+</div>
+
+<div class="example-title"> EXAMPLE 7 </div>
+<div class="example">
+    <div class="example-problem">  
+        Determine whether \(\ds \int_3^\infty \frac{\ln x}{x^{5/2}} \di x \) converges or diverges.
+    </div>
+</div>
+<button onclick="toggle7()" class="solution-button"></button>
+<div id="solution7" class="solution">
+    <p>
+        For \(x \geq 3,\) we have \(0 \lt \ln x \lt x.\)
+        Therefore, 
+        \[
+        \baat{2}
+        0 &\lt \frac{\ln x}{x^{5/2}} &&\lt \frac{x}{x^{5/2}} \nl
+        0 &\lt \frac{\ln x}{x^{5/2}} &&\lt \frac{1}{x^{3/2}} \period 
+        \eaat 
+        \]
+        We then have 
+        \[0 \lt \int_3^\infty \frac{\ln x}{x^{5/2}} \di x \lt \int_3^\infty \frac{1}{x^{3/2}} \di x \period\]
+        Note that \(\int_3^\infty (1/x^{3/2}) \di x\) is a \(p\)-integral of \(p = 3/2 \gt 1;\)
+        thus, it converges. 
+        By the Comparison Test, \(\int_3^\infty (\ln x/x^{5/2}) \di x\) also converges.
+    </p>
+</div> 
+
+<div class="section-summary">
+    <ul>
+        <li>
+            A <span class="emph">Type I</span> improper integral has one or more infinite bounds. 
+            It takes any of the forms 
+            \[
+            \andThree{\int_a^\infty f(x) \di x}{\int_{-\infty}^b f(x) \di x}{\int_{-\infty}^\infty f(x) \di x} \period
+            \]
+        </li>
+        <li>
+            To evaluate a Type I improper integral, replace the infinite bound of integration
+            with a variable \(k\) and take the infinite limit. 
+            <ol class="list-alpha">
+                <li>
+                    If \(\int_a^k f(x) \di x\) exists for all \(k \geq a,\)
+                    then 
+                    \[\int_a^\infty f(x) \di x = \lim_{k \to \infty} \int_a^k f(x) \di x \period\]
+                </li>
+                <li>
+                    If \(\int_{k}^b\) exists for all \(k \leq b,\)
+                    then 
+                    \[\int_{-\infty}^b f(x) \di x = \lim_{k \to -\infty} \int_k^b f(x) \di x \period\]
+                </li>
+                <li>
+                    If \(c\) is any real number, then 
+                    \[\int_{-\infty}^\infty f(x) \di x = \int_{-\infty}^c f(x) \di x + \int_c^\infty f(x) \di x \period\]
+                </li>
+            </ol>
+            An improper integral <span class="emph">converges</span>
+            if its corresponding limit exists;
+            otherwise, it <span class="emph">diverges</span>.
+            In part (c), the improper integral converges if and only if both limits exist.
+        </li>
+        <li>
+            A <span class="emph">Type II</span> improper integral takes the form \(\int_a^b f(x) \di x\)
+            where \(f(x)\) has a discontinuity in \([a, b].\)
+            <ol class="list-alpha">
+                <li>
+                    If \(f\) is continuous over \([a, b)\) and discontinuous at \(x = b,\) then 
+                    \[\int_a^b f(x) \di x = \lim_{k \to b^-} \int_a^k f(x) \di x \period\]
+                </li>
+                <li>
+                    If \(f\) is continuous over \((a, b]\) and discontinuous at \(x = a,\) then 
+                    \[\int_a^b f(x) \di x = \lim_{k \to a^+} \int_k^b f(x) \di x \period\]
+                </li>
+                <li>
+                    If \(f\) has a discontinuity at \(x = c,\) where \(a \lt c \lt b,\) 
+                    and \(\int_a^c f(x) \di x\) and \(\int_c^b f(x) \di x\) are convergent, then 
+                    \[\int_a^b f(x) \di x = \int_a^c f(x) \di x + \int_c^b f(x) \di x \period\]
+                </li>
+            </ol>
+        </li>
+        <li>
+            A <span class="emph">\(p\)-integral</span> takes the form 
+            \[I = \int_1^\infty \frac{1}{x^p} \di x \period\]
+            <ol class="list-alpha">
+                <li>
+                    If \(p \leq 1,\) then \(I\) diverges.
+                </li>
+                <li>
+                    If \(p \gt 1,\) then \(I\) converges and equals \(1/(p - 1).\)
+                </li>
+            </ol>
+        </li>
+        <li>
+            A comparison test allows you to determine the convergence or divergence of an improper integral 
+            by comparing it with another improper integral.
+            <ol class="list-alpha">
+                <li>
+                    If \(0 \leq f(x) \leq g(x)\) and \(\int_a^\infty g(x) \di x\) converges, 
+                    then \(\int_a^\infty f(x) \di x\) converges.
+                </li>
+                <li>
+                    If \(0 \leq g(x) \leq f(x)\) and \(\int_a^\infty g(x) \di x\) diverges, 
+                    then \(\int_a^\infty f(x) \di x\) diverges.
+                </li>
+            </ol>
+        </li>
+    </ul>
+</div>

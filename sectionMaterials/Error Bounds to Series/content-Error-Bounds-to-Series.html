@@ -1,0 +1,531 @@
+<!--[[[crefId.Error-Bounds-to-Series]]]--> 
+<p>
+    This section covers errors and error bounds of series.
+    We'll discuss the 
+    <a href="#alternating-series-error-bound" class="page-anchor">Alternating Series Error Bound</a>, 
+    <a href="#taylors-remainder-theorem" class="page-anchor">Taylor's Remainder Theorem</a>
+    (also called the Lagrange Error Bound), 
+    and 
+    <a href="#integral-test" class="page-anchor">Error Bounds with the Integral Test</a>.
+</p>
+<p>
+    Consider the convergent series \(S = \sum_{n = k}^{\infty} a_n,\)
+    and consider the partial sum \(S_N = \sum_{n = k}^N a_n.\)
+    Since \(S\) is convergent, we have \(S_N \to S\) as \(N \to \infty.\)
+    In words, as we include more terms to the partial sum,
+    its value approaches \(S.\)
+    Therefore, we use this partial sum as an estimate to the value of the infinite sum—namely,
+    \[S \approx S_N \period \]
+    The terms of \(S_N\) leave out \(R_N = \sum_{n = N + 1}^\infty a_n;\) that is,
+    \[
+    \ba 
+    S &= S_N + R_N \\
+    \sum_{n = k}^\infty a_n
+    &= \sum_{n = k}^N a_n + \sum_{n = N + 1}^\infty a_n \\ 
+    &= \underbrace{\par{a_k + a_{k + 1} + a_{k + 2} + \cdots + a_N}}_{\textrm{estimate}}
+    + \underbrace{\par{a_{N + 1} + a_{N + 2} + a_{N + 3} + \cdots}}_{\textrm{excluded in estimate}} \period 
+    \ea 
+    \]
+    We call \(R_N\) the 
+    <span class="emph">error</span> (also called 
+    the <span class="emph">remainder</span>) 
+    of \(S_N.\)
+    We write this fact as 
+    \[
+    R_N = S - S_N \period
+    \]
+    For example, consider the infinite series \(S = \sum_{n = 1}^\infty a_n.\)
+    Assume the partial sum \(S_9 = \sum_{n = 1}^9 a_n\) 
+    is used to approximate \(S.\)
+    If \(S = 5\) and \(S_9 = 5.5,\)
+    then the error is 
+    \[
+    \ba
+    R_9 &= S - S_9 \\
+    &= 5- 5.5  \\ 
+    &= -0.5 \period  
+    \ea 
+    \]
+    In other words, \(S_9\) overapproximates \(S\) by \(0.5.\)
+</p>
+<p>
+    An 
+    <span class="emph">error bound</span> (not to be confused with the 
+    <i>error</i>)
+    is a number that is greater than or equal to the magnitude of the error.
+    For example, suppose a partial sum \(S_N\) approximates an infinite series \(S.\) 
+    If an error bound to \(S_N\) is \(K,\) 
+    then the value of \(S_N\) differs from the value of \(S\) by no more than \(K.\)
+    Therefore, 
+    \[S_N - K \leq S \leq S_N + K \period\]
+</p>
+<h4 id="alternating-series-error-bound">Alternating Series Error Bound</h4>
+<p>
+    Consider the infinite, convergent alternating series 
+    \[S = \sum_{n = k}^\infty (-1)^n \, b_n \comma b_n \gt 0 \period\]
+    Suppose the partial sum 
+    \(S_N = \sum_{n = k}^{N} (-1)^n \, b_n \) approximates \(S.\) 
+    Then an error bound to \(S_N\) 
+    is the absolute value of the first unused term—namely, \(b_{N + 1}.\)
+    In other words, the value of \(S_N\) differs from the value of \(S\)
+    by <i>no more than</i> \(b_{N + 1}.\)
+    Mathematically, we express this fact by
+    \[\underbrace{\left|S - S_N\right|}_{\textrm{magnitude of error}} 
+    \leq \underbrace{b_{N + 1}}_{\textrm{next term}}. \]
+    But this fact only applies for alternating series; 
+    it is 
+    <span class="warning">not</span>
+    true for series in general.
+</p>
+
+<!-- alternating series error bound box -->
+<div class="box-title"> ALTERNATING SERIES ERROR BOUND </div>
+<div class="box">
+    Consider the convergent alternating series 
+    \[S = \sum_{n = k}^\infty (-1)^n \, b_n \comma b_n \gt 0 \period \]
+    Suppose \(S_N = \sum_{n = k}^N (-1)^n \, b_n \) is used to estimate \(S.\) 
+    Then the Alternating Series Error Bound gives  
+    \[\abs{S - S_N} \leq b_{N + 1} \period \]
+
+</div>
+
+<!--example 1-->
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <!--example 1 problem-->
+    <div class="example-problem">  
+        The infinite series \(\ds S = \sum_{n = 1}^\infty \frac{(-1)^{n + 1}}{n^2 + 2}\) 
+        is approximated by the partial sum \(\ds S_5 = \sum_{n = 1}^5 \frac{(-1)^{n + 1}}{n^2 + 2}.\)
+        Use the Alternating Series Error Bound to find a value \(K\) such that \( \left| S - S_5 \right| \leq K.\)
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button">  </button>
+<!--example 1 solution-->
+<div>
+    <div id="solution1" class="solution">
+        <p>
+            The partial sum \(S_5\) neglects all the terms of \(S\) past \(n = 5.\)
+            The term of \(S\) that corresponds to \(n = 6\) is \(-1/38,\) the first term left out.
+            As a result, its magnitude is an error bound for \(S_5,\)
+            by the Alternating Series Error Bound. 
+            We then get 
+            \[
+            \ba 
+            \abs{S - S_5} &\leq \abs{-\frac{1}{38}} \\
+            \therefore K &= \box{\frac{1}{38}}
+            \ea
+            \]
+        </p>
+    </div>
+</div>
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        Consider the alternating harmonic series
+        \[S = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots + \frac{(-1)^{n + 1}}{n} + \cdots \period\]
+        This series converges, and the partial sum \(S_3 = 1 - 1/2 + 1/3\) is used to estimate \(S.\)
+        <ol class="list-alpha">
+            <li>
+                Determine an error bound to \(S_3.\) 
+            </li>
+            <li>
+                Construct an interval in which the value of \(S\) must reside. 
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button">  </button>
+<div id="solution2" class="solution">
+    <ol class="list-alpha">
+        <li>
+            The series \(S\) is alternating, so we apply the Alternating Series Error Bound.
+            Since \(S_3\) is the sum of the first three terms of \(S,\) 
+            the error to \(S_3\) is no greater than the magnitude of the fourth term, \(\abs{-1/4} = 1/4.\)
+            Thus, \(S_3\) differs from \(S\) by no more than \(\boxed{1/4.}\)
+        </li>
+        <hr>
+        <li>
+            The partial sum \(S_3\) either underestimates or overestimates the value of \(S\) by no more than \(1/4.\)
+            Accordingly, a lower bound of \(S\) is \(\par{S_3 - 1/4}\)
+            and an upper bound of \(S\) is \(\par{S_3 + 1/4}.\)
+            Therefore, 
+            \[S_3 - \frac{1}{4} \leq S \leq S_3 + \frac{1}{4} \period \]  
+            Also, \(S_3 = 1 - 1/2 + 1/3 = 5/6.\)
+            We then get  
+            \[S_3 - \frac{1}{4} = \frac{7}{12} \and S_3 + \frac{1}{4} = \frac{13}{12} \comma \]
+            so our interval is 
+            \[\boxed{\frac{7}{12} \leq S \leq \frac{13}{12}}\]
+        </li>
+    </ol>
+</div>
+
+<!--example 3-->
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
+    <!--example 3 problem-->
+    <div class="example-problem">  
+        The alternating series \(\ds S = \sum_{n = 1}^\infty \frac{(-1)^n}{2\sqrt{n + 3}} \)
+        converges and is approximated by the partial sum 
+        \(\ds S_N = \sum_{n = 1}^N \frac{(-1)^n}{2\sqrt{n + 3}} . \)
+        Find the values of \(N\) such that the error of \(S_N\) is no greater than \(0.1.\) 
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button">  </button>
+<!--example 3 solution-->
+<div>
+    <div id="solution3" class="solution">
+        <p>
+            By the Alternating Series Error Bound, an error bound to \(S_N\) is 
+            \[\abs{\frac{(-1)^{N + 1}}{2 \sqrt{(N + 1) + 3}}} \period \]
+            We set this value to be less than or equal to \(0.1.\)
+            We then obtain
+            \[
+            \ba 
+            \left| \frac{(-1)^{N + 1}}{2 \sqrt{(N + 1) + 3}} \right| &\leq 0.1 \\
+            \frac{1}{2 \sqrt{N + 4}} &\leq 0.1 \\
+            N &\geq 21 \period \\
+            \ea 
+            \]
+            In words, for \(\box{N \geq 21,}\) the partial sum \(S_N\) differs from \(S\) by no more than \(0.1.\)
+            We may also say that \(S_N\) correctly approximates \(S\) to one decimal place.
+        </p>
+    </div>
+</div>
+
+<h4 id="taylors-remainder-theorem">Taylor's Remainder Theorem</h4>
+<p>
+    <span class="emph">Taylor's Remainder Theorem</span>, 
+    also called the Lagrange Error Bound,
+    enables us to bound errors to power series.
+    Consider a function \(f\) whose derivatives all exist. 
+    Then the \(n\)th-degree Taylor series of \(f\) centered at \(a\) is 
+    \[T_n(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x - a)^2 + \frac{f^{(3)}(a)}{3!}(x - a)^3 + \cdots + \frac{f^{(n)}(a)}{n!}(x - a)^n \period \]
+    We treat \(T_n(x)\) as an approximation to \(f(x).\)
+    Then Taylor's Remainder Theorem provides the error bound 
+    \[\abs{f(x) - T_n(x)} \leq \abs{\frac{M}{(n + 1)!} (x - a)^{n + 1}} \comma \]
+    where \(M\) is the maximum value of \(\abs{f^{(n + 1)}}\) on the interval between \(a\) and \(x.\)
+    This formula mirrors the "next term" concept from the Alternating Series Error Bound,
+    as shown by the presence of \((n + 1).\) 
+</p>
+
+<!-- lagrange error bound box -->
+<div class="box-title"> TAYLOR'S REMAINDER THEOREM </div>
+<div class="box">
+    Suppose \(f\) is a function that has derivatives of all orders. 
+    Let \(T_n(x)\) denote the \(n\)th-degree Taylor series of \(f(x)\) centered at \(x = a.\) 
+    By Taylor's Remainder Theorem, 
+    \[\abs{f(x) - T_n(x)} \leq \abs{\frac{M}{(n + 1)!} (x - a)^{n + 1}} \comma\]
+    where \(M\) is the maximum value of \(\abs{f^{(n + 1)}}\) on the interval between \(a\) and \(x.\)
+</div>
+
+<div class="example-title"> EXAMPLE 4 </div>
+<div class="example">
+    <div class="example-problem">  
+        (Calculator required.)
+        Consider a function \(f\) that has derivatives of all orders and satisfies 
+        \(f(1) = 4.\) 
+        The given table provides values of \(f^{(k)}(1)\) for selected \(k.\)
+        <table class="table-vertical">
+            <tr>
+                <td class="label-cell">
+                    \(k\)
+                </td>
+                <td class="label-cell">
+                    \(f^{(k)}(1)\)
+                </td>
+            </tr>
+            <tr>
+                <td> 
+                    \(1\)
+                </td>
+                <td>
+                    \(-2\)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    \(2\)
+                </td>
+                <td>
+                    \(16\)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    \(3\)
+                </td>
+                <td>
+                    \(3\)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    \(4\)
+                </td>
+                <td>\(-1\)</td>
+            </tr>
+        </table>
+
+        It is known that \(\abs{f^{(5)}(x)} \leq 50 \) for all \(1 \leq x \leq 1.2.\)
+        <ol class="list-alpha">
+            <li>
+                Write a fourth-degree Taylor series for \(f(x)\) centered at \(x = 1,\)
+                and use it to estimate \(f(1.2).\)
+            </li>
+            <li>
+                Use Taylor's Remainder Theorem to bound the error to your approximation in part (a).
+            </li>
+            <li>
+                Construct an interval in which the value of \(f(1.2)\) must reside.
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle4()" class="solution-button">  </button>
+<div id="solution4" class="solution">
+    <p>
+        <ol class="list-alpha">
+            <li>
+                We have \(f(1) = 4,\) \(f'(1) = -2,\) \(f''(1) = 16,\)
+                \(f^{(3)}(1) = 3,\) and \(f^{(4)}(1) = -1.\)
+                Then the fourth-degree Taylor series to \(f(x)\) centered at \(x = 1\) is 
+                \[
+                \ba 
+                T_4(x) &= f(1) + f'(1)(x - 1) + \frac{f''(1)}{2!}(x - 1)^2 + \frac{f^{(3)}(1)}{3!}(x - 1)^3 + \frac{f^{(4)}(1)}{4!}(x - 1)^4 \\
+                &= 4 -2(x - 1) + 8(x - 1)^2 + \frac{1}{2}(x - 1)^3 -\frac{1}{24}(x - 1)^4 \period 
+                \ea 
+                \] 
+                Then we approximate \(f(1.2)\) to be  
+                \[ 
+                \ba 
+                f(1.2) \approx T_4(1.2) &= 4 -2(1.2-1) + 8(1.2-1)^2 + \frac{1}{2}(1.2-1)^3 -\frac{1}{24}(1.2-1)^4 \\
+                &\approx \box{3.924}
+                \ea 
+                \] 
+            </li>
+            <hr>
+            <li>
+                We bound the error to \(T_4(1.2)\) using Taylor's Remainder Theorem: 
+                \[\abs{f(1.2) - T_4(1.2)} \leq \abs{\frac{M(x - a)^{n+1}}{(n+1)!}} \period \] 
+                The degree of our Taylor series is \(4,\) so \(n = 4.\) 
+                We then have \(x = 1.2;\) and the series is centered at \(1,\) so \(a = 1.\) 
+                Since \(\abs{f^{(5)}} \leq 50 \) for all \(1 \leq x \leq 1.2,\) we let \(M = 50.\) 
+                Substituting in these values gives 
+                \[
+                \abs{f(1.2) - T_4(1.2)} \leq \abs{\frac{50(1.2-1)^{4+1}}{(4+1)!}} \approx \box{0.00013} 
+                \]
+                Our estimate to \(f(1.2)\) has a maximum error of \(0.000013.\) 
+            </li>
+            <hr>
+            <li>
+                Our estimate, \(T_4(1.2),\) either overestimates or underestimates the value of \(f(1.2)\)
+                by no more than \(0.000013.\)
+                Therefore, a lower bound on \(f(1.2)\) is 
+                \[3.924 - 0.000013 = 3.923987 \comma \]
+                and an upper bound on \(f(1.2)\) is 
+                \[3.924 + 0.000013 = 3.924013 \period \]
+                The value of \(f(1.2)\) must lie between these numbers, so our interval is 
+                \[\boxed{3.923987 \leq f(1.2) \leq 3.924013}\]
+            </li>
+        </ol>
+    </p>
+</div>
+
+<div class="example-title"> EXAMPLE 5 </div>
+<div class="example">
+    <div class="example-problem">  
+        (Calculator required.) Consider the fourth-degree Maclaurin series to \(\cos x:\) 
+        \[T_4(x) = 1 - \frac{x^2}{2} + \frac{x^4}{4!} \period \]
+        <ol class="list-alpha">
+            <li>
+                Compute \(T_4(0.7).\)
+            </li>
+            <li>
+                Using Taylor's Remainder Theorem, find a value \(K\) such that 
+                \(\abs{\cos 0.7 - T_4(0.7)} \leq K.\)
+            </li>
+            <li>
+                Construct an interval in which the value of \(\cos 0.7\) must reside.
+            </li>
+        </ol>
+    </div>
+</div>
+<button onclick="toggle5()" class="solution-button">  </button>
+<div>
+    <div id="solution5" class="solution">
+        <ol class="list-alpha">
+            <li>
+                We find 
+                \[T_4(0.7) = 1 - \frac{(0.7)^2}{2} + \frac{(0.7)^4}{4!} \approx \boxed{0.765}\]
+            </li>
+            <hr>
+            <li>
+                Note that \(K\) is an error bound to \(T_4(0.7).\)
+                Using Taylor's Remainder Theorem, we get  
+                \[K = \abs{\frac{M}{(n + 1)!} (x - a)^{n + 1}} \period \]
+                We have \(x = 0.7.\)
+                Because the series is centered at \(0,\) \(a = 0.\)
+                Since the degree of the Maclaurin series is four, \(n = 4.\)
+                Now we find \(M:\)
+                The fifth derivative of \(\cos x\) is \(- \sin x.\)
+                The maximum value of \(\abs{- \sin x}\) for 
+                \(0 \leq x \leq 0.7\) is \(\sin 0.7.\)
+                Thus, we assign \(M = \sin 0.7.\)
+                Our error bound becomes 
+                \[
+                \ba 
+                K &= \abs{\frac{\sin 0.7}{(4 + 1)!} (0.7 - 0)^{4 + 1}} \\ 
+                &= \frac{\sin 0.7}{5!}(0.7)^5 \\
+                &\approx \boxed{0.00009}
+                \ea 
+                \]
+                Alternatively, since sinusoidal functions are bounded between \(-1\) and \(1,\)
+                it's possible to let \(M = 1\) for simplicity. 
+                This choice results in a larger error bound: 
+                \[K = \frac{1}{5!}(0.7)^5 \approx 0.0014 \period\]
+                Setting \(M\) to a number larger than \(\sin 0.7\) is practical if we don't know the value of \(\sin 0.7.\)
+                Imagine working with series without a calculator—then 
+                letting \(M = 1\) is a convenient option, but it results in a less precise error bound.  
+            </li>
+            <hr>
+            <li>
+                The maximum error of \(T_4(0.7)\) is no greater than \(0.00009.\) 
+                Consequently, the lower bound of the interval is 
+                \[
+                \ba 
+                T_4(0.7) - K &\approx 0.765 - 0.00009 \\
+                &= 0.76491 \period
+                \ea 
+                \]
+                The upper bound is 
+                \[
+                \ba 
+                T_4(0.7) + K &\approx 0.765 + 0.00009 \\ 
+                &= 0.76509 \period
+                \ea 
+                \]
+                Thus, we have
+                \[\boxed{0.76491 \leq \cos 0.7 \leq 0.76509} \]
+            </li>
+        </ol>
+    </div>
+</div>
+
+<p>
+    For alternating power series, it's possible to instead use the Alternating Series Error Bound to bound the error. 
+    For example, the third-degree Maclaurin series to \(\sin x\) is 
+    \[T_3(x) = x - \frac{x^3}{3!} \period\]
+    If \(T_3(x)\) is used to estimate \(\sin 0.4,\)
+    then the magnitude of the first dropped term is 
+    \[\abs{\frac{(0.4)^5}{5!}} \approx 8.533 \times 10^{-5} \period \]
+    This value is an error bound to \(T_3(x).\)
+    Conversely, if we use Taylor's Remainder Theorem, 
+    we have \(x = 0.4,\) \(a = 0,\) and \(n = 3.\) 
+    Moreover, the fourth derivative of \(\sin x\) is \(\sin x,\) whose maximum value on \(0 \leq x \leq 0.4\) is \(\sin 0.4.\)
+    Therefore, Taylor's Remainder Theorem gives 
+    \[\abs{\frac{\sin 0.4}{4!} (0.4)^4} \approx 4.154 \times 10^{-4} \period \]
+    Both results are valid error bounds to \(T_3(x),\) 
+    but the Alternating Series Error Bound is more precise.
+</p>
+
+<h4 id="integral-test">Error Bounds with the Integral Test</h4>
+<p>
+    Consider the convergent series 
+    \[S = \sum_{n = k}^\infty a_n \comma \]
+    and let \(f\) be a function that satisfies \(f(n) = a_n.\)
+    Further suppose that \(f(x)\) is positive, continuous, and decreasing for \(x \geq k.\)
+    Let the partial sum \(S_N = \sum_{n = k}^N a_n\) be an approximation to \(S.\)
+    <!--figure 1-->
+    <figure class="fig-1">
+        <img src="../images/sectionImages/10/integral-test-error-bound-riemann-sum.jpg" alt="Fig.1">
+    </figure>
+    <style>
+        .fig-1::before{
+            content:'FIGURE 1';
+        }
+    </style>
+    Then the remainder in the estimate is 
+    \[R_N = \sum_{n = N + 1}^\infty a_n = a_{N + 1} + a_{N + 2} + a_{N + 3} + \cdots \period\] 
+    The terms of \(S\) represent a right-hand Riemann sum of the graph of \(y = f(x)\) (Figure 1).
+    Since \(f\) is decreasing, the rectangles underestimate the area under the graph. 
+    It's then apparent that 
+    \[R_N = \sum_{n = N + 1}^\infty a_n \leq \int_N^\infty f(x) \di x \period\]
+    Therefore, \(\int_N^\infty f(x) \di x\) is an error bound to \(S_N.\)
+</p>
+
+<!-- error bound with integral test box -->
+<div class="box-title"> ERROR BOUND BY THE INTEGRAL TEST </div>
+<div class="box">
+    Suppose the series 
+    \[S = \sum_{n = k}^\infty a_n\]
+    is approximated by the partial sum \(S_N = \sum_{n = k}^N a_n.\)
+    Consider a function \(f\) such that \(f(n) = a_n.\)
+    If \(f(x)\) is continuous, positive, and decreasing for \(x \geq k,\)
+    then the Integral Test provides the error bound  
+    \[\abs{S - S_N} \leq \int_N^\infty f(x) \di x \period\]
+</div>
+
+<div class="example-title"> EXAMPLE 6 </div>
+<div class="example">
+    <div class="example-problem">  
+        The series \(\ds S = \sum_{n = 1}^\infty \frac{1}{n^3} \)
+        is approximated by the partial sum 
+        \(\ds S_3 = \sum_{n = 1}^3 \frac{1}{n^3}.\)
+        Using the Integral Test, find a value \(K\) such that \(\abs{S - S_3} \leq K.\)
+    </div>
+</div>
+<button onclick="toggle6()" class="solution-button">  </button>
+<div>
+    <div id="solution6" class="solution">
+        <p>
+            When \(S\) is approximated by \(S_3,\) the remainder is 
+            \[\sum_{n = 4}^\infty \frac{1}{n^3} = 
+            \frac{1}{4^3} + \frac{1}{5^3} + \frac{1}{6^3} + \cdots \period \]
+            It then follows that 
+            \[\sum_{n = 4}^\infty \frac{1}{n^3} \leq \int_3^\infty \frac{1}{x^3} \di x \comma\]
+            so an error bound to \(S_3\) is \(\int_3^\infty 1/x^3 \di x.\)
+            Evaluating this integral, we get 
+            \[
+            \ba 
+            \int_3^\infty \frac{1}{x^3} \di x &= - \frac{1}{2x^2} \Big|_3^\infty \\
+            &= \frac{1}{18} \period 
+            \ea 
+            \]
+            Thus, \(\boxed{K = 1/18.}\)
+        </p>
+    </div>
+</div>
+
+<div class="example-title"> EXAMPLE 7 </div>
+<div class="example">
+    <div class="example-problem">  
+        The series \(\ds S = \sum_{n = 1}^\infty \frac{1}{n^2}\)
+        is approximated by the partial sum \(\ds S_N = \sum_{n = 1}^N \frac{1}{n^2}.\)
+        Find the values of \(N\) such that \(S_N\) estimates \(S\) correct to two decimal places.
+    </div>
+</div>
+<button onclick="toggle7()" class="solution-button">  </button>
+<div>
+    <div id="solution7" class="solution">
+        <p>
+            For \(S_N\) to estimate \(S\) correct to two decimal places,
+            the error of \(S_N\) must be less than \(0.01.\)
+        </p>
+        <p>
+            Since \(1/x^2\) is continuous, positive, and decreasing for \(x \geq 1,\)
+            \(\sum 1/n^2\) meets the conditions of the Integral Test. 
+            Therefore, the test gives the error bound 
+            \[\abs{S - S_N} \leq \int_N^\infty \frac{1}{x^2} \di x \period\]
+            We evaluate this integral:
+            \[\int_N^\infty \frac{1}{x^2} \di x = - \frac{1}{x} \Big|_N^\infty = \frac{1}{N} \period \]
+            This result is an error bound to \(S_N.\) 
+            Now we set it to be less than \(0.01:\)
+            \[\frac{1}{N} \lt 0.01 \implies N \gt 100 \period\]
+        </p>
+        <p>
+            Thus, for \(\boxed{N \gt 100,}\) the partial sum \(S_N\) 
+            estimtes \(S\) correct to two decimal places.
+        </p>
+    </div>
+</div>

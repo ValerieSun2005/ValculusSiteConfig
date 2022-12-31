@@ -1,0 +1,346 @@
+<section>
+    <p>GRID</p>
+    <p class="columns">3</p>
+    <p class="directions">evaluate the integral</p>
+
+    <div>
+        \(\ds \int \sin x \cos^2 x \di x\)
+    </div>
+    <span>
+        Since the integrand has the extra factor \(\sin x,\) 
+        we substitute 
+        \[
+        \ba 
+        u &= \cos x \nl 
+        \dd u &= - \sin x \di x \period 
+        \ea 
+        \]
+        The integral then becomes 
+        \[
+        \ba 
+        -\int u^2 \di u 
+        &= -\frac{u^3}{3} + C \nl 
+        &= \boxed{-\frac{\cos^3 x}{3} + C}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int \sin^3 x \cos^4 x \di x\)
+    </div>
+    <span>
+        The power of sine is odd, so we save an extra term \(\sin x.\)
+        We then use \(\sin^2 x = 1 - \cos^2 x\) to rewrite the integrand in terms of cosine:
+        \[
+        \ba 
+        \int \sin^3 x \cos^4 x \di x 
+        &= \int \sin x \sin^2 x \cos^4 x \di x \nl 
+        &= \int \sin x (1 - \cos^2 x) \cos^4 x \di x \period 
+        \ea 
+        \]
+        Substituting \(u = \cos x,\) we get \(\dd u = - \sin x \di x\)
+        and the integral becomes 
+        \[
+        \ba 
+        \int - (1 - u^2) \, u^4 \di u 
+        &= \int u^6 - u^4 \di u \nl 
+        &= \frac{u^7}{7} - \frac{u^5}{5} + C \nl 
+        &= \boxed{\frac{\cos^7 x}{7} - \frac{\cos^5 x}{5} + C}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int \sin^2 x \di x\)
+    </div>
+    <span>
+        We rewrite the integrand using the power-reduction formula for sine:
+        \[\sin^2 x = \frac{1}{2} (1 - \cos 2x) \period\]
+        Then the integral becomes  
+        \[
+        \ba 
+        \int \frac{1}{2} (1 - \cos 2x) \di x 
+        &= \frac{1}{2} \par{x - \frac{1}{2} \sin 2x} + C \nl 
+        &= \boxed{\frac{1}{2} x - \frac{1}{4} \sin 2x + C}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int \sin^4 x \di x\)
+    </div>
+    <span>
+        We use the power-reduction formula for sine,
+        \[\sin^2 x = \frac{1}{2} (1 - \cos 2x) \period \]
+        to rewrite the integral as  
+        \[\int \left(\frac{1}{2}(1 - \cos 2x)\right)^2 \di x 
+        = \frac{1}{4} \int 1 - 2 \cos 2x + \cos^2 2x \di x \period \]
+        Now we use the power-reduction formula 
+        \[\cos^2 2x = \frac{1}{2} (1 + \cos 4x)\]
+        to get 
+        \[
+        \ba 
+        \frac{1}{4} \int 1 - 2 \cos 2x + \frac{1}{2} (1 + \cos 4x) \di x 
+        &= \frac{1}{4} \left(\frac{3}{2} x - \sin 2x + \frac{1}{8} \sin 4x \right) + C \nl
+        &= \boxed{\frac{3}{8} x - \frac{1}{4} \sin 2x + \frac{1}{32} \sin 4x + C}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int \cos^3 x \sin^4 x \di x\)
+    </div>
+    <span>
+        The power of cosine is odd, so we preserve an extra factor \(\cos x.\)
+        We then use \(\cos^2 x = 1 - \sin^2 x\) to rewrite the integrand in terms of sine:
+        \[
+        \int \cos x \cos^2 x \sin^4 x \di x 
+        = \int \cos x (1 - \sin^2 x) \sin^4 x \di x \period 
+        \]
+        We then let \(u = \sin x\) because then \(\dd u = \cos x \di x\) 
+        and the integral becomes 
+        \[
+        \ba 
+        \int (1 - u^2) \, u^4 \di u 
+        &= \int u^4 - u^6 \nl 
+        &= \frac{u^5}{5} - \frac{u^7}{7} + C \nl 
+        &= \boxed{\frac{\sin^5 x}{5} - \frac{\sin^7 x}{7} + C}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int \sec^2 x \tan x \di x\)
+    </div>
+    <span>
+        <p>
+            <b>Solution 1.</b>
+            We substitute \(u = \tan x\) because then \(\dd u = \sec^2 x \di x\)
+            and the integral becomes 
+            \[
+            \ba 
+            \int u \di u &= \frac{u^2}{2} + C \nl 
+            &= \boxed{\frac{\tan^2 x}{2} + C} 
+            \ea 
+            \]
+        </p>
+        <p>
+            <b>Solution 2.</b>
+            We rewrite the integral as 
+            \[\int \sec x \sec x \tan x \di x \period\]
+            Then we substitute 
+            \[
+            \ba 
+            u &= \sec x \nl 
+            \dd u &= \sec x \tan x \di x \period 
+            \ea 
+            \]
+            The integral then becomes 
+            \[
+            \ba 
+            \int u \di u &= \frac{u^2}{2} + C \nl 
+            &= \boxed{\frac{\sec^2 x}{2} + C} 
+            \ea 
+            \]
+        </p>
+    </span>
+
+    <div>
+        \(\ds \int \sec^3 x \tan^3 x \di x\)
+    </div>
+    <span>
+        The power of tangent is odd, so we preserve the extra factor \(\sec x \tan x \col\) 
+        \[\int \sec x \tan x \sec^2 x \tan^2 x \di x \period\]
+        We now use \(\tan^2 x = \sec^2 x - 1\) to find 
+        \[\int \sec x \tan x \sec^2 x (\sec^2 x - 1) \di x \period\]
+        We now substitute 
+        \[
+        \ba 
+        u &= \sec x \nl 
+        \dd u &= \sec x \tan x \di x \period 
+        \ea 
+        \]
+        The integral then becomes 
+        \[
+        \ba 
+        \int u^2 \, (u^2 - 1) \di u 
+        &= \int u^4 - u^2 \di u \nl 
+        &= \frac{u^5}{5} - \frac{u^3}{3} + C \nl 
+        &= \boxed{\frac{\sec^5 x}{5} - \frac{\sec^3 x}{3} + C}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int \sin^5 x \sec^6 x \di x\)
+    </div>
+    <span>
+        The integral is equivalent to 
+        \[\int \tan^5 x \sec x \di x \period\]
+        Since the power of tangent is odd, we save the factor \(\sec x \tan x\) 
+        and use \(\tan^2 x = \sec^2 x - 1\) to express the remaining factoring in terms of \(\sec x \col\)
+        \[
+        \ba 
+        \int \tan^5 x \sec x \di x &= \int \tan^4 x \sec x \tan x \di x \nl 
+        &= \int (\sec^2 x - 1)^2 \sec x \tan x \di x \period 
+        \ea 
+        \]
+        We now substitute 
+        \[
+        \ba 
+        u &= \sec x \nl 
+        \dd u &= \sec x \tan x \di x \period 
+        \ea 
+        \]
+        The integral becomes 
+        \[
+        \ba 
+        \int (u^2 - 1)^2 \di u 
+        &= \int u^4 - 2u^2 + 1 \di u \nl 
+        &= \frac{u^5}{5} - \frac{2u^3}{3} + u + C \nl 
+        &= \boxed{\frac{\sec^5 x}{5} - \frac{2 \sec^3 x}{3} + \sec x + C}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int \sec^4 x \di x\)
+    </div>
+    <span>
+        We rewrite the integral as 
+        \[\int \sec^2 x (1 + \tan^2 x) \di x \period\]
+        We now substitute
+        \[
+        \ba 
+        u &= \tan x \nl 
+        \dd u &= \sec^2 x \di x \period
+        \ea 
+        \]
+        The integral then becomes 
+        \[
+        \ba 
+        \int 1 + u^2 \di u 
+        &= u + \frac{u^3}{3} + C \nl 
+        &= \boxed{\tan x + \frac{\tan^3 x}{3} + C}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int \csc^4 x \cot x \di x\)
+    </div>
+    <span>
+        <p>
+            Since the power of cosecant is even, we keep an extra factor \(\csc^2 x\)
+            and use \(\csc^2 x = 1 + \cot^2 x \col\)
+            \[
+            \ba 
+            \int \csc^4 x \cot x \di x &=
+            \int \csc^2 x \csc^2 x \cot x \di x \nl 
+            &= \int \csc^2 x (1 + \cot^2 x) \cot x \di x \period 
+            \ea 
+            \]
+            We now substitute 
+            \[
+            \ba 
+            u &= \cot x \nl 
+            \dd u &= - \csc^2 x \di x \period 
+            \ea 
+            \]
+            The integral then becomes 
+            \[
+            \ba 
+            - \int (1 + u^2) \, u \di u 
+            &= \int -u -u^3 \di u \nl 
+            &= -\frac{u^2}{2} - \frac{u^4}{4} + C \nl 
+            &= \boxed{- \frac{\cot^2 x}{2} - \frac{\cot^4 x}{4} + C}
+            \ea 
+            \]
+        </p>
+ 
+        <p>
+            An alternative solution is writing the integral as 
+            \[\int \csc^3 x \csc x \cot x \di x \period\]
+            Substituting \(u = \csc x,\) we get \(\dd u = - \csc x \cot x \di x\)
+            and the integral becomes 
+            \[\int -u^3 \di u = -\frac{u^4}{4} + C = \boxed{\frac{\csc^4 x}{4} + C}\]
+        </p>
+    </span>
+
+    <div>
+        \(\ds \int \csc^4 x \cot^3 x \di x\)
+    </div>
+    <span>
+        The power of cosecant is even, so we save an extra factor \(\csc^2 x\)
+        and use \(\csc^2 x = 1 + \cot^2 x\) to express the remaining factors in terms of \(\cot x \col\)
+        \[
+        \int \csc^2 x \csc^2 x \cot^3 x \di x 
+        = \int \csc^2 x (1 + \cot^2 x) \cot^3 x \di x \period 
+        \]
+        Substituting \(u = \cot x\) gives \(\dd u = - \csc^2 x \di x\) and so the integral becomes 
+        \[
+        \ba 
+        -\int (1 + u^2) u^3 \di u 
+        &= \int -u^3 - u^5 \di u \nl 
+        &= -\frac{u^4}{4} - \frac{u^6}{6} + C \nl 
+        &= \boxed{-\frac{\cot^4 x}{4} - \frac{\cot^6 x}{6} + C}
+        \ea 
+        \]
+        <!--add alternate solution-->
+    </span>
+
+    <div>
+        \(\ds \int \tan^3 x \di x\)
+    </div>
+    <span>
+        We rewrite the integral as 
+        \[
+        \ba 
+        \int \tan x \tan^2 x \di x 
+        &= \int \tan x \left(\sec^2 x - 1\right) \di x \nl
+        &= \int \tan x \sec^2 x \di x - \int \tan x \di x \period 
+        \ea 
+        \]
+        The right integral is \(\int \tan x \di x = \ln \abs{\sec x} + C,\)
+        and we write the left integral as 
+        \[\int \sec x \cdot \sec x \tan x \di x \period \]
+        Substituting \(u = \sec x,\) we get \(\dd u = \sec x \tan x \di x\)
+        and the integral becomes 
+        \[
+        \ba 
+        \int u \di u &= \frac{u^2}{2} + C \nl 
+        &= \frac{\sec^2 x}{2} + C \period 
+        \ea 
+        \]
+        Therefore, 
+        \[
+        \ba 
+        \int \tan^3 x \di x &= \int \tan x \sec^2 x \di x - \int \tan x \di x \nl 
+        &= \boxed{\frac{\sec^2 x}{2} - \ln \abs{\sec x} + C}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \int \tan^4 x \di x\)
+    </div>
+    <span>
+        We use \(\tan^2 x = \sec^2 x - 1\) to write the integral as   
+        \[
+        \ba 
+        \int \tan^2 x \tan^2 x \di x 
+        &= \int \tan^2 x (\sec^2 x - 1) \di x \nl 
+        &= \int \tan^2 x \sec^2 x \di x - \int \tan^2 x \di x \nl 
+        &= \int \tan^2 x \sec^2 x \di x - \int \sec^2 x \di x + \int \di x \period
+        \ea 
+        \]
+        To evaluate \(\int \tan^2 x \sec^2 x \di x,\)
+        we let \(u = \tan x\) because then \(\dd u = \sec^2 x \di x\) 
+        and the integral becomes \(\int u^2 \di u = \frac{1}{3} u^3 + C = \frac{1}{3} \tan^3 x + C.\)
+        Therefore, 
+        \[
+        \int \tan^2 x \sec^2 x \di x - \int \sec^2 x \di x + \int \di x
+        = \boxed{\frac{\tan^3 x}{3} - \tan x + x + C}
+        \]
+    </span>
+</section>

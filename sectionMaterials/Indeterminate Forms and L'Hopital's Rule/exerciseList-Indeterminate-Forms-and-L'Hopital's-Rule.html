@@ -1,0 +1,749 @@
+<section>
+    <p>GRID</p>
+    <p class="columns">3</p>
+    <p class="directions">evaluate the limit if it exists</p>
+
+    <div>
+        \(\ds \lim_{x \to 0} \frac{2x}{\sin x }\)
+    </div>
+    <span>
+        As \(x \to 0,\) 
+        \[2x \to 0 \and \sin x \to 0 \period \]
+        Therefore, this limit is in the indeterminate form \(\indZero\) and so 
+        we apply L'Hôpital's Rule to find  
+        \[
+        \ba 
+        \lim_{x \to 0} \frac{2x}{\sin x} &= \lim_{x \to 0} \frac{\frac{\dd}{\dd x}[2x]}{\frac{\dd }{\dd x}[\sin x]} \nl
+        &= \lim_{x \to 0} \frac{2}{\cos x} \nl
+        &= \boxed{2}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to 2} \frac{x - 2}{3\sin(x - 2)}\)
+    </div>
+    <span>
+        This limit is in the indeterminate form \(\indZero.\)
+        We therefore apply L'Hôpital's Rule by differentiating the numerator and denominator to find  
+        \[
+        \ba 
+        \lim_{x \to 2} \frac{x - 2}{3\sin(x - 2)}
+        &= \lim_{x \to 2} \frac{1}{3\cos(x - 2)} \nl 
+        &= \boxed{1/3}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to \infty} \frac{\sqrt[3]{x + 3}}{\ln x}\)
+    </div>
+    <span>
+        The limit is in the indeterminate form \(\indInfty,\) so
+        we apply L'Hôpital's Rule to obtain 
+        \[
+        \ba 
+        \lim_{x \to \infty} \frac{\frac{1}{3} (x + 3)^{-2/3}}{1/x} 
+        &= \lim_{x \to \infty} \frac{x}{3(x + 3)^{2/3}} \nl 
+        &= \boxed{\infty}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to 4} \frac{x - 4}{8x - 16 - x^2} \)
+    </div>
+    <span>
+        The limit is in the indeterminate form \(\indZero,\)
+        so applying L'Hôpital's Rule shows 
+        \[
+        \ba 
+        \lim_{x \to 4} \frac{x - 4}{8x - 16 - x^2}
+        &= \lim_{x \to 4} \frac{\frac{\dd}{\dd x}(x - 4)}{\frac{\dd}{\dd x}(8x - 16 - x^2)} \nl
+        &= \lim_{x \to 4} \frac{1}{8 - 2x} \period \nl
+        \ea 
+        \]
+        The graph of \(y = 1/(8 - 2x)\) has a vertical asymptote at \(x = 4,\)
+        so the curve is unbounded there.
+        Thus, the limit does not exist.
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to \pi/2} \tan(x) \left(x - \frac{\pi}{2}\right)\)
+    </div>
+    <span>
+        We rewrite the limit as 
+        \[
+        \lim_{x \to \pi/2} \frac{\sin x \left(x - \frac{\pi}{2}\right)}{\cos x} \comma
+        \]
+        which is in the indeterminate form \(\indZero.\) Therefore, applying L'Hôpital's Rule gives
+        \[
+        \ba 
+        \lim_{x \to \pi/2} \frac{\cos(x) \left(x - \frac{\pi}{2}\right) + \sin x}{-\sin x} 
+        &= \frac{\cos(\frac{\pi}{2}) (\frac{\pi}{2} - \frac{\pi}{2}) + \sin \frac{\pi}{2} }{-\sin \frac{\pi}{2}} \nl
+        &= \boxed{-1}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to \infty} x^2e^{-x}\)
+    </div>
+    <span>
+        We rewrite the limit as 
+        \[ \lim_{x \to \infty} \frac{x^2}{e^x} \comma \]
+        which is in the indeterminate form \(\indInfty.\) Therefore, applying L'Hôpital's Rule gives 
+        \[\lim_{x \to \infty} \frac{2x}{e^x} \period \]
+        But this limit is still in the indeterminate form \(\indZero,\) so we apply L'Hôpital's Rule again
+        to get  
+        \[\lim_{x \to \infty} \frac{2}{e^x} = \boxed{0}\]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to 0} x^3 \csc x\)
+    </div>
+    <span>
+        We rewrite the limit as 
+        \[
+        \lim_{x \to 0} \frac{x^3}{\sin x} \comma 
+        \]
+        which is in the indeterminate form \(\indZero.\)
+        Therefore, applying L'Hôpital's Rule gives 
+        \[\lim_{x \to 0} \frac{3x^2}{\cos x} = \boxed{0} \]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to -\infty} x^2e^{3x}\)
+    </div>
+    <span>
+        The limit is in the indeterminate form \(0 \times \infty.\)
+        But we rewrite the product as a quotient: 
+        \[
+        \ba
+        \lim_{x \to -\infty} \frac{x^2}{1/e^{3x}} \comma 
+        \ea
+        \]
+        which is in the indeterminate form \(\indInfty.\)
+        Applying L'Hôpital's Rule, we get 
+        \[
+        \ba
+        \lim_{x \to -\infty} \frac{2x}{-3/e^{3x}} &= \lim_{x \to -\infty} \frac{2}{9/e^{3x}} \nl
+        &= \boxed{0}
+        \ea
+        \]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to 2^-} \tan(x - 2) \ln(2 - x) \)
+    </div>
+    <span>
+        This limit is in the indeterminate form \(0 \times \infty.\)
+        Thus, we rewrite the limit as 
+        \[\lim_{x \to 2^-} \frac{\ln(2 - x)}{1/\tan(x - 2)} 
+        = \lim_{x \to 2^-} \frac{\ln(2 - x)}{\cot(x - 2)} \comma \]
+        which is in the indeterminate form \(\indInfty.\) 
+        Then we apply L'Hôpital's Rule to get
+        \[ 
+        \lim_{x \to 2^-} \frac{1/(2 - x)}{-\csc^2(x - 2)} 
+        = \lim_{x \to 2^-} \frac{\sin^2(x - 2)}{x - 2} \period \nl  
+        \]
+        This new limit is in the indeterminate form \(\indZero,\) 
+        so we use L'Hôpital's Rule again to get 
+        \[
+        \lim_{x \to 2^-} \frac{-2 \sin(x - 2) \cos(x - 2)}{1} = \boxed{0}
+        \]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to \infty} [x^2 - e^x] \)
+    </div>
+    <span>
+        As \(x \to \infty,\) \(x^2 \to \infty \) and \(e^x \to \infty.\) 
+        Thus, the limit is in the indeterminate form \(\infty - \infty.\) 
+        We then factor out the term \(x^2\) to get  
+        \[ \lim_{x \to \infty} x^2 \left(1 - \frac{e^x}{x^2}\right) \period \]
+        As \(x \to \infty,\) \(e^x/x^2 \to \infty\) (L'Hôpital's Rule verifies this). 
+        Thus, as \(x \to \infty,\) 
+        \[x^2 \to \infty \and \par{1 - e^x/x^2} \to -\infty \period\] 
+        The product of \(+\infty\) and \(-\infty\) is \(-\infty,\) so 
+        \[\lim_{x \to \infty} \Big(x^2 - e^x \Big) = \boxed{-\infty} \]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to \infty} \Big(\sqrt{x^2 + 4x} - x \Big) \)
+    </div>
+    <span>
+        As \(x \to \infty,\) 
+        \[\sqrt{x^2 + 4x} \to \infty \and x \to \infty \period \] 
+        Both terms tend to infinity, so the limit of their difference is in the indeterminate form 
+        \(\infty - \infty.\) 
+        But we re-express the difference by rationalizing:
+        \[
+        \ba 
+        \sqrt{x^2 + 4x} - x &= \frac{\sqrt{x^2 + 4x} - x}{1} \cdot \frac{\sqrt{x^2 + 4x} + x}{\sqrt{x^2 + 4x} + x} \nl
+        &= \frac{x^2 + 4x - x^2}{\sqrt{x^2 + 4x} + x} \nl
+        &= \frac{4x}{\sqrt{x^2 + 4x} + x} \period 
+        \ea
+        \]
+        As \(x \to \infty,\) 
+        this quotient is in the indeterminate form \(\indInfty.\) 
+        We may use L'Hôpital's Rule, but using algebra produces a cleaner solution. 
+        Factoring out the term \(x^2\) from the radicand in the denominator, we get 
+        \[
+        \ba 
+        \lim_{x \to \infty} \frac{4x}{\sqrt{x^2} \sqrt{1 + 4x/x^2} + x} 
+        &= \lim_{x \to \infty} \frac{4x}{|x| \sqrt{1 + 4x/x^2} + x } \nl 
+        &= \lim_{x \to \infty} \frac{4x}{x \left(\sqrt{1 + 4x/x^2} + 1\right)} \nl  
+        &= \lim_{x \to \infty} \frac{4}{\sqrt{1 + 4/x} + 1} \nl 
+        &= \boxed{2}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to 1^+} \left(\frac{1}{x - 1} - \frac{1}{\ln x} \right)\)
+    </div>
+    <span>
+        As \(x \to 1^+,\) 
+        \[\frac{1}{x - 1} \to \infty \and \frac{1}{\ln x} \to \infty \period \]
+        The limit is therefore in the indeterminate form \(\infty - \infty,\) 
+        so we obtain a commmon denominator to merge the fractions: 
+        \[
+        \ba 
+        \frac{1}{x - 1} - \frac{1}{\ln x} &= \frac{\ln x - (x - 1)}{(x - 1) \ln x} \nl
+        &= \frac{1 + \ln x - x}{(x - 1) \ln x} \period 
+        \ea 
+        \]
+        As \(x \to 1^+,\) 
+        \[(1 + \ln x - x) \to 0 \and (x - 1) \ln x \to 0 \period\]
+        Thus, the quotient is in the indeterminate form \(\indZero,\) 
+        so we apply L'Hôpital's Rule to find 
+        \[
+        \ba 
+        \lim_{x \to 1^+} \frac{1 + \ln x - x}{(x - 1) \ln x} &= \lim_{x \to 1^+} \frac{1/x - 1}{\ln x + (x - 1)/x} \nl
+        &= \lim_{x \to 1^+} \frac{1 - x}{x \ln x + x - 1}. 
+        \ea 
+        \]
+        A second application of L'Hôpital's Rule shows   
+        \[
+        \ba 
+        \lim_{x \to 1^+} \frac{1 - x}{x \ln x + x - 1} &= \lim_{x \to 1^+} \frac{-1}{2 + \ln x} \nl 
+        &= \boxed{-\frac{1}{2}}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to 0} \left(\csc x - \frac{2}{x}\right)\)
+    </div>
+    <span>
+        We rewrite the limit as 
+        \[\lim_{x \to 0} \left( \frac{1}{\sin x} - \frac{2}{x} \right) \period \]
+        As \(x \to 0,\) 
+        \[\frac{1}{\sin x} \to \infty \and \frac{2}{x} \to \infty \period \] 
+        Thus, the limit is in the indeterminate form \(\infty - \infty.\) 
+        But we rewrite the difference by obtaining a common denominator:
+        \[\lim_{x \to 0} \frac{x - 2 \sin x}{x \sin x} \comma \]
+        which is in the indeterminate form \(\indZero.\) 
+        Therefore, we apply L'Hôpital's Rule to get 
+        \[\lim_{x \to 0} \frac{1 - 2 \cos x}{\sin x + x \cos x} \period \]
+        As \(x \to 0,\)
+        \[1 - 2 \cos x \to -1 \and \sin x + x \cos x \to 0 \comma\]
+        so the limit does not exist.
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to 1^+} \left(\frac{1}{\ln x} - \frac{2}{\sqrt{x - 1}} \right)\)
+    </div>
+    <span>
+        The terms \(1/\ln x\) and \(2/\sqrt{x - 1}\) 
+        both approach \(\infty\) as \(x \to 1^+.\) 
+        Therefore, the limit is in the indeterminate form 
+        \(\infty - \infty.\) 
+        Obtaining a common denominator, we rewrite the difference as 
+        \[\frac{\sqrt{x - 1} - 2 \ln x}{\sqrt{x - 1} \ln x} \period \]
+        The limit of this quotient as \(x \to 1^+\) 
+        is in the indeterminate form \(\indZero.\) 
+        We then apply L'Hôpital's Rule to get 
+        \[\lim_{x \to 1^+} \frac{\dfrac{x - 4 \sqrt{x - 1}}{2x\sqrt{x - 1}}}{\dfrac{2x + x \ln x - 2}{2x \sqrt{x - 1}}} 
+        = \lim_{x \to 1^+} \frac{x - 4 \sqrt{x - 1}}{2x + x \ln x - 2} \period \]
+        Performing direct substitution gives the form \(1/0,\) 
+        so the limit does not exist.
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to 1^+} \left(\frac{2}{3x - 3} \right)^{\ln x }\)
+    </div>
+    <span>
+        As \(x \to 1^+,\) 
+        \[\frac{2}{3x - 3} \to \infty \and \ln x \to 0 \comma \] 
+        so this limit is in the indeterminate form \(\infty^0.\) 
+        We let 
+        \[y = \left(\frac{2}{3x - 3}\right)^{\ln x} \period \]
+        Then 
+        \[ 
+        \ba 
+        \ln y &= \ln(x) \ln \left(\frac{2}{3x - 3}\right) \nl
+        &= \ln \left(\frac{2}{3x - 3} + x \right) \period 
+        \ea 
+        \]
+        We then find 
+        \[
+        \ba 
+        \lim_{x \to 1^+} \ln y &= \lim_{x \to 1^+} \ln \left(\frac{2}{3x - 3} + x \right) \nl
+        &= \ln \left(\lim_{x \to 1^+} \left(\frac{2}{3x - 3} + x \right) \right) \nl
+        &= \ln \infty \nl
+        &= \infty \period 
+        \ea 
+        \]
+
+        It then follows that 
+        \[\lim_{x \to 1^+} y = e^\infty \] 
+        or that the limit does not exist. 
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to 1^+} \left(1 + \ln x \right)^{2/(x - 1)}\)
+    </div>
+    <span>
+        As \(x \to 1^+,\) 
+        \[(1 + \ln x) \to 1 \and \frac{2}{x - 1} \to \infty \period \] 
+        Thus, this limit is in the indeterminate form \(1^\infty.\) 
+        We let 
+        \[y = (1 + \ln x)^{2/(x - 1)}\] 
+        because then 
+        \[
+        \ba 
+        \ln y &= \frac{2}{x - 1} \ln(1 + \ln x) \nl 
+        \lim_{x \to 1^+} \ln y &= \lim_{x \to 1^+} \frac{2 \ln(1 + \ln x)}{x - 1} \comma 
+        \ea 
+        \]
+        which is in the indeterminate form \(\indZero.\) 
+        We then use L'Hôpital's Rule to get 
+        \[
+        \ba 
+        \lim_{x \to 1^+} \ln y &= \lim_{x \to 1^+} \frac{2/(x(1 + \ln x))}{1} \nl
+        &= \frac{2}{1(1 + 0)} \nl 
+        &= 2 \period 
+        \ea 
+        \]
+        Therefore,
+        \[\lim_{x \to 1^+} y = \boxed{e^2} \]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to 0^-} \left(1 + \sin x\right)^{1/x^2}\)
+    </div>
+    <span>
+        As \(x \to 0^-,\)
+        \[(1 + \sin x) \to 1 \and \frac{1}{x^2} \to \infty \period \]
+        Therefore, this limit is in the indeterminate form \(1^\infty.\) 
+        We let 
+        \[y = (1 + \sin x)^{1/x^2} \period \]
+        Then 
+        \[
+        \ba 
+        \ln y &= \frac{1}{x^2} \ln(1 + \sin x) \nl
+        \lim_{x \to 0^-} \ln y &= \lim_{x \to 0^-} \frac{\ln(1 + \sin x)}{x^2} \comma  \nl
+        \ea 
+        \]
+        which is in the indeterminate form \(\indZero.\) 
+        Applying L'Hôpital's Rule gives 
+        \[
+        \lim_{x \to 0^-} \ln y = \lim_{x \to 0^-} \frac{\cos x/(1 + \sin x)}{2x} \period 
+        \]
+        Direct substitution yields the form \(1/0,\) 
+        so the limit is infinite. 
+        We then consider the sign of \(\frac{\cos x/(1 + \sin x)}{2x}\) 
+        to determine whether it is \(-\infty\) or \(+\infty:\) 
+        For \(x \lt 0,\) 
+        \[
+        \ba 
+        \cos x &\gt 0 \nl 
+        (1 + \sin x) &\gt 0 \nl
+        2x &\lt 0 \period  
+        \ea 
+        \]
+        This sign of this expression takes the formation  
+        \[\frac{(+)/(+)}{(-)} \comma \]
+        which yields a negative sign. 
+        Thus, 
+        \[\lim_{x \to 0^-} \ln y = -\infty \period \] 
+        Then  
+        \[\lim_{x \to 0^-} y = e^{-\infty} = \boxed{0} \period \]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to 0^+} \left(\tan x \right)^x\)
+    </div>
+    <span>
+        As \(x \to 0^+,\) \(\tan x\to 0\) and \(x \to 0.\) 
+        Therefore, this limit is in the indeterminate form \(0^0.\) 
+        We let 
+        \[ y = (\tan x)^x \] 
+        since 
+        \[
+        \ba 
+        \ln y &= x \ln(\tan x) \nl 
+        \lim_{x \to 0^+} \ln y &= \lim_{x \to 0^+} x \ln(\tan x). \nl
+        \ea 
+        \]
+        This resulting limit is in the indeterminate form \(0 \times \infty.\) 
+        Therefore, we re-express the product as a quotient:
+        \[x \ln(\tan x) = \frac{\ln(\tan x)}{1/x} \comma \]
+        whose limit as \(x \to 0^+\) is in the indeterminate form \(\indZero.\) 
+        So we apply L'Hôpital's Rule to find  
+        \[
+        \ba 
+        \lim_{x \to 0^+} \ln y &= \lim_{x \to 0^+} \frac{\sec^2 x / \tan x}{-1/x^2} \nl
+        &= \lim_{x \to 0^+} \frac{-x^2}{\sin x \cos x } \nl 
+        &= \lim_{x \to 0^+} \frac{-2x}{\cos^2 x - \sin^2 x} \nl
+        &= 0 \period 
+        \ea 
+        \]
+        Since \(\lim_{x \to 0^+} \ln y = 0,\) 
+        \[\lim_{x \to 0^+} y = e^0 = \boxed{1}\]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to \infty} \left(\sqrt{x}\right)^{e^{-x}}\)
+    </div>
+    <span>
+        The limit is in the indeterminate form \(\infty^0\) 
+        since as \(x \to \infty,\) 
+        \[\sqrt x \to \infty \and e^{-x} \to 0 \period \]
+        We let 
+        \[y = \left(\sqrt{x}\right)^{e^{-x}}\] 
+        because 
+        \[
+        \ba 
+        \ln y &= e^{-x} \ln \sqrt{x} \nl 
+        &= e^{-x} \left(\frac{1}{2} \ln x\right) \nl 
+        = \frac{\ln x}{2e^x} \period 
+        \ea 
+        \]
+        The limit \(\lim_{x \to \infty} \ln y\) is in the indeterminate form \(\indInfty,\) 
+        so using L'Hôpital's Rule shows 
+        \[
+        \ba 
+        \lim_{x \to \infty} \ln y &= \lim_{x \to \infty} \frac{1/x}{2e^x} \nl
+        &= 0 \period 
+        \ea 
+        \]
+        Since \(\lim_{x \to \infty} \ln y = 0,\)  
+        \[\lim_{x \to \infty} y = e^0 = \boxed{1} \]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to 0^+} \left(\csc x \right)^{x}\)
+    </div>
+    <span>
+        The limit is in the indeterminate form \(\infty^0.\)
+        We let 
+        \[y = \left(\csc x \right)^x\]
+        because then 
+        \[\ln y = x \ln(\csc x) \comma \]
+        and \(\lim_{x \to 0^+} \ln y\) is in the indeterminate form \(0 \times \infty.\)
+        But we rewrite the limit as 
+        \[\lim_{x \to 0^+} \frac{\ln(\csc x)}{1/x} \comma \]
+        which is in the indeterminate form \(\indInfty.\)
+        Therefore, applying L'Hôpital's Rule gives 
+        \[
+        \ba 
+        \lim_{x \to 0^+} \ln y 
+        &= \lim_{x \to 0^+} \frac{-\csc(x)\cot(x)/\csc(x)}{-1/x^2} \nl
+        &= \lim_{x \to 0^+} x^2 \cot x \nl
+        &= \lim_{x \to 0^+} \frac{x^2 \cos x}{\sin x} \comma 
+        \ea 
+        \]
+        which is in the indeterminate form \(\indZero.\)
+        Thus, applying L'Hôpital's Rule again produces 
+        \[
+        \ba 
+        \lim_{x \to 0^+} \ln(y) 
+        &= \lim_{x \to 0^+} \frac{2x\cos x - x^2 \sin x}{\cos x} \nl
+        &= 0 \period 
+        \ea 
+        \]
+        Since \(\lim_{x \to 0^+} \ln y= 0,\) 
+        \[\lim_{x \to 0^+} y = e^0 = \boxed{1}\]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to 0^+} \left(x\right)^{1/\ln x}\)
+    </div>
+    <span>
+        As \(x \to 0^+,\) \(x \to 0\) and \(1/\ln x \to 0.\) 
+        Thus, this limit is in the indeterminate form \(0^0.\) 
+        We let 
+        \[y = x^{1/ \ln x}\]
+        because then  
+        \[
+        \ba 
+        \ln y &= \left(\frac{1}{\ln x} \right) \ln x = 1 \nl
+        \lim_{x \to 0^+} \ln y &= 1 \period 
+        \ea 
+        \]
+        Therefore,
+        \[\lim_{x \to 0^+} y = e^1 = \boxed{e} \]
+    </span>
+
+    <div>
+        \(\ds \lim_{x \to 0^+} \left(1 + \frac{2}{x}\right)^{1/(x \ln x)}\)
+    </div>
+    <span>
+        As \(x \to 0^+,\) 
+        \[\left(1 + \frac{2}{x}\right) \to \infty \and 
+        \frac{1}{x \ln x} \to 0 \period \] 
+        Therefore, this limit is in the indeterminate form \(\infty^0.\) 
+        We let 
+        \[y = \left(1 + \frac{2}{x}\right)^{1/(x \ln x)} \comma \]
+        and then 
+        \[
+        \ba 
+        \ln y &= \frac{1}{x \ln x} \ln \left(1 + \frac{2}{x}\right) \nl
+        \lim_{x \to 0^+} \ln y &= \lim_{x \to 0^+} \frac{1}{x} \ln \left(1 + \frac{2}{x} - x \right) \period 
+        \ea 
+        \]
+
+        As \(x \to 0^+,\)
+        \(1/x \to \infty\) and \((1 + 2/x - x) \to \infty.\)  
+        Thus, \(\lim_{x \to 0^+} \ln y = \infty.\)  
+        Then 
+        \[\lim_{x \to 0^+} y = e^\infty = \infty \comma \]
+        or we say that \(\lim_{x \to 0^+} y\) does not exist.
+    </span>
+</section>
+<section>
+    <div>
+        Let \(g\) be a twice-differentiable function. 
+        It is known that \(g(4) = 2\) and \(g'(4) = 6.\)
+        Find 
+        \[\lim_{x \to 4} \frac{2 - g(x)}{\sin(x - 4)}\] if it exists.
+    </div>
+    <span>
+        Because \(g\) is differentiable, \(g\) is continuous 
+        and so \(\lim_{x \to 4} g(x) = g(4).\) 
+        Therefore, as \(x \to 4,\) 
+        \[2 - g(x) \to 2 - g(4) = 0 \and \sin(x - 4) \to 0 \period\]
+        Thus, the limit is in the indeterminate form \(\indZero,\)
+        so we use L'Hôpital's Rule to find   
+        \[
+        \ba 
+        \lim_{x \to 4} \frac{2 - g(x)}{\sin(x - 4)} 
+        &= \lim_{x \to 4} \frac{-g'(x)}{\cos(x - 4)} \nl
+        &= \frac{-g'(4)}{\cos 0} \nl
+        &= \boxed{-6}
+        \ea
+        \]
+    </span>
+
+    <div>
+        Let \(f\) and \(g\) be twice-differentiable functions.
+        It is known that 
+        \(\ds \lim_{x \to \infty} f(x) = 0,\)
+        \(\ds \lim_{x \to \infty} g(x) = 0,\)
+        \(\ds \lim_{x \to \infty} f'(x) = 5,\)
+        and 
+        \(\ds \lim_{x \to \infty} g'(x) = 8.\)
+        Find 
+        \[\lim_{x \to \infty} \left(\frac{f(x)}{g(x)}\right)^2\]
+        if it exists.
+    </div>
+    <span>
+        We rewrite the limit as 
+        \[
+        \left(\lim_{x \to \infty} \frac{f(x)}{g(x)} \right)^2 \period 
+        \]
+        As \(x \to \infty,\) \(f(x) \to 0\) and \(g(x) \to 0.\) 
+        Thus, \(\lim_{x \to \infty} f(x)/g(x)\) is in the indeterminate form \(\indZero.\)
+        So we apply L'Hôpital's Rule—differentiating \(f\) and \(g\)— to find 
+        \[
+        \ba 
+        \left(\lim_{x \to \infty} \frac{f(x)}{g(x)} \right)^2 &= \left(\lim_{x \to \infty} \frac{f'(x)}{g'(x)} \right)^2 \nl
+        &= \left(\frac{5}{8}\right)^2 \nl 
+        &= \boxed{\frac{25}{64}}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        Let \(f\) be a twice-differentiable function. It is known that 
+        \(\ds \lim_{x \to 0} f(x) = 3,\) 
+        \(\ds \lim_{x \to 0} f'(x) = 0,\) and 
+        \(\ds \lim_{x \to 0} f''(x) = 1.\) 
+        Find 
+        \[\lim_{x \to 0} \frac{4f(x) - 12 \cos x}{x^2}\]  
+        if it exists.
+    </div>
+    <span>
+        As \(x \to 0,\) 
+        \[[4f(x) - 12 \cos(x)] \to 0 \and x^2 \to 0 \period \] 
+        Therefore, the limit is in the indeterminate form \(\indZero.\) 
+        Applying L'Hôpital's Rule then shows 
+        \[
+        \ba 
+        \lim_{x \to 0} \frac{4f(x) - 12 \cos(x)}{x^2} &= \lim_{x \to 0} \frac{4f'(x) + 12 \sin x}{2x} \nl 
+        &= \lim_{x \to 0} \frac{4f''(x) + 12 \cos x}{2} \nl
+        &= \frac{4(1) + 12 \cos 0}{2} \nl
+        &= \boxed{8}
+        \ea 
+        \]
+    </span>
+
+    <div>
+        Let \(p\) be a twice-differentiable function.
+        Let \(q\) be a twice-differentiable function defined by  
+        \[q(x) = \frac{2[p(x)]^3 + 4}{x^2 - 6x}\]
+        that satisfies \(\ds \lim_{x \to 0} q(x) = 12.\)
+        It is known that  \(\ds \lim_{x \to 0} q(x)\) can be evaluated using L'Hôpital's Rule.
+        Find \(p(0)\) and \(p'(0).\)
+    </div>
+    <span>
+        To apply L'Hôpital's Rule, 
+        \(\lim_{x \to 0} q(x)\) must either be in the indeterminate form \(\indZero\) or \(\indInfty.\) 
+        Since \(p\) is differentiable, \(p\) is continuous and so \(\lim_{x \to 0} p(x) = p(0).\)
+        The denominator approaches \(0\) as \(x\) approaches \(0,\) so 
+        \(\lim_{x \to 0} q(x)\) is in the indeterminate form \(\indZero.\)
+        Thus, 
+        \[
+        \ba 
+        \lim_{x \to 0} (2[p(x)]^3 + 4) &= \lim_{x \to 0} (x^2 - 6x) = 0 \nl
+        2p(0)^3 + 4 &= 0 \nl
+        p(0) &= -\sqrt[3]{2} \period \nl
+        \ea 
+        \]
+
+        Applying L'Hôpital's Rule gives 
+        \[
+        \ba 
+        \lim_{x \to 0} q(x) 
+        &= \lim_{x \to 0} \frac{6[p(x)]^2 \cdot p'(x)}{2x - 6} \nl
+        &= \frac{6[p(0)]^2 \cdot p'(0)}{-6} \nl
+        &= -(2)^{2/3} \cdot  p'(0) \nl
+        \ea 
+        \]
+        We're given that \(\lim_{x \to 0} q(x) = 12,\) so
+        \[
+        -(2)^{2/3} \cdot  p'(0) \implies p'(0) = -12 \sqrt[3]{4} \period 
+        \]
+
+        To summarize,
+        \[
+        \boxed{
+        \ba 
+        p(0) &= -\sqrt[3]{2} \nl
+        p'(0) &= -12 \sqrt[3]{4}
+        \ea
+        }
+        \]
+    </span>
+
+    <div>
+        Consider the family of functions \(k(x) = \ln(x)/x^p.\) 
+        Evaluate \(\ds \lim_{x \to \infty} k(x)\) for 
+        <ol class="list-alpha">
+            <li>
+                \(p \gt 0\)
+            </li>
+            <li>
+                \(p \lt 0.\)
+            </li>
+        </ol>
+    </div>
+    <span>
+        <ol class="list-alpha">
+            <li>
+                If \(p > 0,\) then as \(x \to \infty,\)
+                \[\ln x \to \infty \and x^p \to \infty \period\]
+                Therefore, \(\lim_{x \to \infty} k(x)\) 
+                is in the indeterminate form \(\indInfty.\)
+                We then apply L'Hôpital's Rule to find 
+                \[
+                \ba 
+                \lim_{x \to \infty} \frac{\ln x}{x^p} 
+                &= \lim_{x \to \infty} \frac{1/x}{px^{p - 1}} \nl 
+                &= \lim_{x \to \infty} \frac{1}{px} \nl 
+                &= \boxed{0}
+                \ea 
+                \]
+            </li>
+            <li>
+                Let us introduce a new variable \(q\) such that 
+                \(q = -p.\) 
+                We then have 
+                \[\lim_{x \to \infty} k(x) = \lim_{x \to \infty} x^q \ln x \comma q \gt 0 \period\]  
+                As \(x \to \infty,\) \(x^q\) and \(\ln x\) both approach \(\infty,\) 
+                so their product is also \(\infty.\) Therefore, 
+                \[\lim_{x \to \infty} k(x) = \infty\]
+                (or alternatively, \(\lim_{x \to \infty} k(x)\) does not exist).
+            </li>
+        </ol>
+    </span>
+
+    <div>
+        Determine whether \(f(x) = 2 \sqrt[3]{x}\) or \(g(x) = \ln(x - 4)\) grows fastest.
+    </div>
+    <span>
+        We analyze the quotient of \(f\) and \(g\) as \(x\) approaches infinity; 
+        that is, we consider either 
+        \[\lim_{x \to \infty} \frac{f(x)}{g(x)} \or \lim_{x \to \infty} \frac{g(x)}{f(x)} \period\] 
+        This solution considers the former case, but the latter option is of course equally valid.
+        We let 
+        \[L = \lim_{x \to \infty} \frac{2 \sqrt[3]{x}}{\ln(x - 4)} \period \]
+        If \(L = \infty,\) then \(f(x) = 2 \sqrt[3] x\) grows fastest; 
+        if \(L = 0,\) then \(g(x) = \ln(x - 4)\) grows fastest; 
+        and if \(L\) is a finite, positive number, then 
+        \(f\) and \(g\) grow at the same rate. 
+        Now we calculate \(L:\) It is in the indeterminate form \(\indInfty,\)
+        so we apply L'Hôpital's Rule to get  
+        \[
+        \ba 
+        L &= \lim_{x \to \infty} \frac{\frac{\dd}{\dd x}[2 \sqrt[3]{x}]}{\frac{\dd}{\dd x} \ln(x - 4)} \nl
+        &= \lim_{x \to \infty} \frac{\frac{2}{3} x^{-2/3}}{1/(x - 4)} \nl
+        &= \lim_{x \to \infty} \frac{2(x - 4)}{3x^{2/3}} \nl
+        &= \infty \period 
+        \ea 
+        \]
+        Since \(L = \infty,\) \(f(x) = 2 \sqrt[3]{x}\) grows faster than does \(g(x) = \ln(x - 4).\)
+    </span>
+
+    <div>
+        Determine whether \(f(x) = 2x^6 - 4x^5 + 2\) or \(g(x) = e^x\) grows fastest.
+    </div>
+    <span>
+        We analyze either 
+        \[\frac{f(x)}{g(x)} = \frac{2x^6 - 4x^5 + 2}{e^x} 
+        \or \frac{g(x)}{f(x)} = \frac{e^x}{2x^6 - 4x^5 + 2} \period \]
+        This solution uses the former case, but it's equally easy to consider the latter case.
+        Let \[L = \lim_{x \to \infty} \frac{2x^6 - 4x^5 + 2}{e^x} \period \]
+        If \(L = \infty,\) then \(f\) grows fastest; if \(L = 0,\) then \(g\) grows fastest.
+        The limit is in the indeterminate form \(\indInfty,\) so we apply L'Hôpital's Rule to get 
+        \[\lim_{x \to \infty} \frac{12x^5 - 20x^4}{e^x} \period\]
+        If we continue applying L'Hôpital's Rule, then the numerator reduces to zero while the denominator remains intact.
+        Six more applications of L'Hôpital's Rule yields 
+        \[\lim_{x \to \infty} \frac{0}{e^x} = 0 \comma\]
+        so \(g(x) = e^x\) grows faster than does \(f(x) = 2x^6 - 4x^5 + 2.\)
+    </span>
+
+    <div>
+        Show that \(x^n\) grows faster than does \(\ln x\) for all positive \(n.\)
+    </div>
+    <span>
+        Let us consider the ratio \(r(x) = x^n/\ln x.\) 
+        We're given that \(x^n\) grows faster than does \(\ln x,\) 
+        so we must show that \(\lim_{x \to \infty} r(x) = \infty:\) 
+        Since \(x^n\) and \(\ln x\) both tend to infinity as \(x\) approaches infinity,
+        \(\lim_{x \to \infty} r(x)\) is in the indeterminate form \(\indInfty.\) 
+        But we apply L'Hôpital's Rule to find 
+        \[
+        \ba 
+        \lim_{x \to \infty} r(x) &= \frac{nx^{n - 1}}{1/x} \nl
+        &= nx^n.
+        \ea 
+        \]
+        For all \(n > 0,\) \(nx^n\) approaches infinity as \(x\) grows large.
+        Thus, \(\lim_{x \to \infty} r(x) = \infty,\) proving that \(x^n\) grows faster than does \(\ln x.\)
+    </span>
+</section>
+

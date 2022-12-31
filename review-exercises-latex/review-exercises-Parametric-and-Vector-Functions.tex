@@ -1,0 +1,163 @@
+\documentclass[letterstyle,12pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[nomarginpar, margin=0.5in]{geometry}
+\usepackage{tabularx}
+\usepackage[document]{ragged2e}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{mlmodern}
+\usepackage{float}
+\usepackage{supertabular}
+% \usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\linespread{1.3} % Set line spacing 
+\usepackage{pgfplots}
+\usepackage{bigstrut}
+\usepackage[ngerman]{babel}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\newcounter{qcounter}
+\usepackage{multicol}
+\pgfplotsset{compat = newest}
+\usepackage{fancyhdr}
+\everymath{\displaystyle}
+\definecolor{agua}{RGB}{90,160,254}
+\newcommand{\nspace}{\hspace{2.52mm}}
+
+\newcommand\Tstrut{\smash[b]{\strut}}
+\newcommand\Bstrut{\smash[t]{\strut}}
+\newcommand{\dd}{\text{d}}
+\newcommand{\di}{\, \text{d}}
+
+\newcommand{\oldchoices}[1]{
+\vspace{0.8em} 
+\begin{enumerate}[label=(\Alph*)]
+\setlength\itemsep{1em} #1 \interlinepenalty10000 
+\end{enumerate}
+}
+
+\newcommand{\choices}[5]{
+\vspace{0.8em} 
+\begin{enumerate}[label=(\Alph*)]
+\setlength\itemsep{1em} 
+\item
+#1 
+\item 
+#2
+\item
+#3
+\item
+#4
+\item
+#5
+\end{enumerate}
+}
+
+
+\newcommand{\choicesline}[5]{    
+\vspace{2em} \break 
+\begin{tabularx}{0.95 \textwidth} { 
+>{\arraybackslash}X 
+>{\arraybackslash}X 
+>{\arraybackslash}X 
+>{\arraybackslash}X 
+>{\arraybackslash}X }
+(A) \; #1
+& 
+(B) \; #2
+& 
+(C) \; #3
+& 
+(D) \; #4
+&
+(E) \; #5 
+\end{tabularx}
+\vspace{2em} \break
+}
+
+\pgfplotsset{every axis/.append style={
+    axis on top = true,
+    width = \textwidth,  
+    height =  \textwidth,
+    clip=false, 
+    axis line style = ultra thick, 
+    axis lines = middle,
+    label style={font=\Huge}, %x- and y-label sizes
+    x label style={at={(axis description cs:1.04,0.03)},anchor=north},
+    y label style={at={(axis description cs:-0.135,1.13)}}
+    every tick label/.append style={font=\Huge},
+    every major tick/.append style={very thick, major tick length=10pt},
+    tick style = {xticklabel style={yshift=-0.2em, anchor=south}}
+    }}
+\pgfplotsset{tick style = {xticklabel style={yshift=-4ex, anchor=south}}}
+\newcommand{\drawOrigin}{\draw (0, 0) node[left, below, xshift = -0.9em] {\Large $O$}} % draws the "O" marking the origin
+
+\newcommand{\plotCircle}[4]{\draw #1 circle (#4 pt) [#2, fill = #3]}
+
+\newcommand{\qspace}[1]{\begin{spacing}{1.8}#1\end{spacing}}
+\newcommand{\ans}[1]{{\color{black} #1}}
+
+\newenvironment{question}
+    {\begin{minipage}{0.9 \textwidth}
+        \item
+    }
+    { 
+    \end{minipage} \vspace{4ex}
+    }
+    %
+
+\newcommand{\bq}{\begin{question}}
+\newcommand{\eq}{\end{question}}
+
+\newcommand{\ques}[1]{\begin{minipage}{0.9 \textwidth} \item #1 \end{minipage} \vspace{4ex}}
+\newcommand{\romanlist}[1]{\begin{enumerate}[label=\Roman*., leftmargin=15mm] #1 \end{enumerate}}
+
+   
+\pagestyle{fancy}
+\lhead{\begin{figure}[H] \vspace{10ex} \includegraphics[scale=0.1]{logo-light.png} \vspace{-7.3ex} \end{figure}}
+\rhead{\large \textsc{Review Exercises—Parametric and Vector Functions}}
+\fancyfoot{}
+\lfoot{\copyright \textsc{Valculus} 2023}
+\cfoot{\textbf{-\thepage-}}
+
+\geometry{
+    head = 1.1in,
+    bottom = 1.3in,
+    left = 0.5in,
+    right = 0.5in
+    }
+    
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headsep}{0.9in}
+
+\begin{document}
+\begin{center}
+    {\bf
+    \MakeUppercase{Parametric and Vector Functions\\[1ex]
+    NUMBER OF QUESTIONS—0 \\[1ex] 
+    NO CALCULATOR \\[5ex]
+    }}
+\end{center}
+
+\begin{list}{\textbf{\arabic{qcounter}.}~}{\usecounter{qcounter}}
+\setlength\itemsep{3em}
+
+\ques{
+t
+}
+
+\end{list}
+
+\clearpage 
+
+\twocolumn
+
+\begin{supertabular}{ll}
+% e.g., 1 & B \\
+
+\end{supertabular}
+\end{document}

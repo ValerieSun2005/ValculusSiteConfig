@@ -1,0 +1,330 @@
+<section>
+    <p>GRID</p>
+    <p class="columns">2</p>
+    <p class="directions">determine whether \(f(x)\) is continuous at the given value of \(x\)</p>
+
+    <div>
+        \(\ds f(x) = 3^{x + 4} \comma x = 2\)
+    </div>
+    <span>
+        Using exponent laws, we find  
+        \[
+        3^{x + 4} = 3^x \cdot 3^4 = 81(3)^x \period
+        \]
+        Exponential functions are continuous for all real numbers,
+        so \(f(x)\) is <u>continuous</u> at \(x = 2\). 
+    </span>
+
+    <!-- <div>
+        \(\ds f(x) = \sqrt{2 - 4x} \comma x = \frac{1}{2}\)
+    </div>
+    <span>
+        The function \(\sqrt{2 - 4x}\) is defined only for \(x \leq 1/2.\)
+        Radical functions are continuous over all values in their domain.
+        Because \(x = 1/2\) is in the domain of \(f(x),\) 
+        the function is continuous there.
+    </span> -->
+
+    <div>
+        \(\ds f(x) = \log_3(x - 3) \comma x = 3\)
+    </div>
+    <span>
+        The function \(\log_3(x - 3)\) is defined only for \(x \gt 3.\)
+        Logarithmic functions are continuous in their domain.
+        Because \(x = 3\) isn't included in the domain of \(\log_3(x - 3),\) 
+        the function is <u>discontinuous</u> there.
+    </span>
+
+    <div>
+        \(
+        \ds 
+        f(x)=
+        \begin{cases}
+        x^2 - 3x &x \lt -1 \nl 
+        \sin(x + 1) &x \geq -1 \comma 
+        \end{cases}
+        \;
+        x = -1
+        \)    
+    </div>
+    <span>
+        If \(f\) is continuous at \(x = -1\), then
+        \(\lim_{x \to -1} f(x) = f(-1).\)
+        We take the one-sided limits to obtain 
+        \[ 
+        \begin{aligned} 
+        \lim_{x \to -1^-} f(x) &=(-1)^2 - 3(-1) \nl
+        &= 4 \comma \nl
+        \lim_{x \to -1^+} f(x) &= \sin(-1 + 1) \nl
+        &= 0 \period \nl
+        \end{aligned} 
+        \]
+        Because the one-sided limits are not equivalent, 
+        \(\lim_{x \to -1} f(x)\) does not exist
+        and so \(f\) is 
+        <u>discontinuous</u>
+        at \(x = -1\).
+    </span>
+
+    <div>
+        \(
+        \ds 
+        f(x)=
+        \begin{cases}
+        \sqrt{1 - x} &x \leq 1 \nl
+        \log_4(x) &x \gt 1 \comma 
+        \end{cases}  
+        \; 
+        x = 1
+        \)
+    </div>
+    <span>
+        If \(f\) is continuous at \(x = 1,\) then  
+        \[\lim_{x \to 1} f(x) = f(1) = 0 \period \]
+        We consider the one-sided limits:
+        \[
+        \begin{aligned} 
+        \lim_{x \to 1^-} f(x) &= \sqrt{1 - 1} \nl
+        &= 0 \comma \nl 
+        \lim_{x \to 1^+} f(x) &= \log_4(1) \nl
+        &= 0 \period \nl
+        \end{aligned} 
+        \] 
+        Thus, because \(\lim_{x \to 1} f(x) = f(1),\) we confirm that 
+        \(f(x)\) is 
+        <u>continuous</u>
+        at \(x = 1.\)
+    </span>
+
+</section>
+<section>
+    <p>GRID</p>
+    <p class="columns">2</p>
+    <p class="directions">classify the discontinuity of \(f(x)\) at the given \(x\)</p>
+
+    <div>
+        \(\ds f(x) = \frac{1}{x-2} \comma x = 2\)
+    </div>
+    <span>
+        The graph of \(y = 1/(x - 2)\) has a vertical asymptote at \(x = 2.\)
+        Thus, \(f\) has an <u>infinite discontinuity</u> at \(x = 2.\)
+    </span>
+
+    <div>
+        \(\ds f(x) = \frac{x^2 - 5x + 6}{x - 3} \comma x = 3\)
+    </div>
+    <span>
+        We factor the numerator of \(f(x)\) to get 
+        \[f(x) = \frac{(x - 3)(x - 2)}{x - 3} = x - 2 \comma x \ne 3 \period\]
+        Thus, \(x = 3\) is the location of a <u>removable discontinuity</u> of \(f(x).\)
+    </span>
+    
+    <div>
+        \(\ds f(x) = \frac{\abs{x}}{x} \comma x = 0\)
+    </div>
+    <span>
+        For \(x \lt 0,\) \(f(x) = -1.\)
+        For \(x \gt 0,\) \(f(x) = 1.\)
+        Thus, at \(x = 0\) the graph of \(y = f(x)\) has a break—a jump from \(-1\) to \(1.\)
+        Hence, \(f(x)\) has a <u>jump discontinuity</u> at \(x = 0.\)
+    </span>
+</section>
+<section>
+    <div>
+        Let 
+        \[
+        g(x)=
+        \begin{cases}
+        k^2 - 4x &x \leq 2 \nl 
+        kx &x \gt 2 \period 
+        \end{cases} 
+        \]
+        Find \(k\) for which \(g(x)\) is continuous at \(x = 2.\)
+    </div>
+    <span>
+        If \(g\) is continuous at \(x = 2,\) then 
+        \[\lim_{x \to 2} g(x) = g(2) = k^2 - 8 \period\]
+        The left-hand limit is  
+        \[
+        \begin{aligned} 
+        \lim_{x \to 2^-} g(x) &= k^2 - 4(2) \nl
+        &= k^2 - 8 \period 
+        \end{aligned}
+        \]
+        The right-hand limit is  
+        \[
+        \begin{aligned} 
+        \lim_{x \to 2^+} g(x) &= (2)x \nl
+        &= 2k \period 
+        \end{aligned}
+        \]
+        We equate these limits to find \(k \col\)
+        \[
+        \begin{aligned} 
+        k^2 - 8 &= 2k \nl
+        k^2 - 2k -8 &= 0 \comma 
+        \end{aligned}
+        \]
+        whose solutions are 
+        \[\boxed{k = -2 \and k = 4}\]
+    </span>
+
+    <div>
+        Let 
+        \[
+        f(x)=
+        \begin{cases}
+        8k - x^2 &x \lt 4 \nl 
+        k^2 \sqrt{x} - k^3 &x \geq 4. 
+        \end{cases} 
+        \]
+        Find \(k\) for which \(f(x)\) is continuous at \(x = 4\).
+    </div>
+    <span>
+        The left-hand limit is 
+        \[
+        \begin{aligned} 
+        \lim_{x \to 4^-} f(x) &= 8k - (4)^2 \nl 
+        &= 8k - 16 \period 
+        \end{aligned}
+        \]
+        The right-hand limit is 
+        \[
+        \begin{aligned} 
+        \lim_{x \to 4^+} f(x) &= k^2 \sqrt{4} - k^3 \nl 
+        &= 2k^2 - k^3 \period 
+        \end{aligned}
+        \]
+        We equate these expressions to find 
+        \[
+        \begin{aligned} 
+        2k^2 - k^3 &= 8k - 16 \nl
+        k^3 - 2k^2 + 8k - 16 &= 0 \nl
+        k^2(k - 2) + 8(k - 2) &= 0 \nl
+        (k^2 + 8)(k - 2) &= 0 \nl 
+        k &= 2 \period 
+        \end{aligned}
+        \]
+        Thus, for \(\boxed{k = 2,}\) \(f(x)\) is continuous at \(x = 4.\)
+    </span>
+
+    <div>
+        Let 
+        \[
+        k(x)=
+        \begin{cases}
+        6 - x &x \leq p \nl 
+        x^2 + 4 &x \gt p \period 
+        \end{cases} 
+        \]
+        Find \(p\) for which \(k(x)\) is continuous at \(x = p.\)
+    </div>
+    <span>
+        The left-hand limit of \(k\) is 
+        \[\lim_{x \to p^-} k(x) = 6 - p \period \]
+        Moreover, the right-hand limit is 
+        \[\lim_{x \to p^+} k(x) = p^2 + 4 \period \]
+        Equating these expressions and solving for \(p\) produce
+        \[
+        \begin{aligned} 
+        6 - p &= p^2 + 4 \nl 
+        p^2 + p - 2 &= 0 \comma  
+        \end{aligned}
+        \]
+        whose the solutions are 
+        \[\boxed{p = -2 \and p = 1}\]
+    </span>
+
+    <div>
+        Let 
+        \[
+        f(x)=
+        \begin{cases}
+        e^{2x} + 7 &x \leq q \nl 
+        5e^x + 1 &x \gt q \period 
+        \end{cases} 
+        \]
+        Find \(q\) for which \(f(x)\) is continuous at \(x = q\).
+    </div>
+    <span>
+        The one-sided limits of \(f\) are 
+        \[
+        \ba 
+        \lim_{x \to q^-} f(x) &= e^{2q} + 7 \comma \nl
+        \lim_{x \to q^+} f(x) &= 5e^q + 1 \period
+        \ea 
+        \]
+        We equate these expressions to obtain 
+        \[
+        \begin{aligned}
+        e^{2q} + 7 &= 5e^q + 1 \\
+        e^{2q} - 5e^q + 6 &= 0 \comma \\
+        \end{aligned}
+        \]
+        which we factor as 
+        \[(e^q - 3)(e^q - 2) \period \]
+        Now we equate each factor to \(0\) to solve for \(q \col\)
+        \[
+        \baat{2}
+        e^q - 3 &= 0 \lspace e^q - 2&&=0 \nl
+        e^q &= 3 \lspace e^q &&= 2 \nl 
+        q &= \ln 3 \lspace q &&= \ln 2 \period 
+        \eaat 
+        \] 
+        Therefore, \(q = \ln 2\) and \(q = \ln 3\) permit \(k(x)\) to be continuous at \(x = q.\)
+    </span>
+    <div>
+        Let 
+        \[
+        f(x) = 
+        \bc 
+        4x + 2 &x \lt 2 \nl 
+        ax + b &2 \leq x \lt 5 \nl 
+        \sqrt{6 - x} &x \leq 5 \period
+        \ec 
+        \]
+        Find \(a\) and \(b\) such that \(f(x)\) is continuous.
+    </div>
+    <span>
+        <!-- <p> -->
+            The piecewise function \(f\) has splits at \(x = 2\) and \(x = 5.\)
+            If \(f\) is continuous, then it's continuous at these splits. 
+            Thus, we need
+            \[\lim_{x \to 2} f(x) = f(2) \and \lim_{x \to 5} f(x) = f(5) \period\]
+        <!-- </p> -->
+        <!-- <p> -->
+            The left-hand limit of \(\lim_{x \to 2} f(x)\) is 
+            \[\lim_{x \to 2^-} f(x) = 4(2) + 2 = 10 \comma\]
+            and its right-hand limit is 
+            \[\lim_{x \to 2^+} f(x) = 2a + b \period\]
+            These one-sided limits must be equal, so we have 
+            \begin{equation} 
+            2a + b = 10 \period \label{eq:f(x)-3-piecewise-eq-1}
+            \end{equation}
+        <!-- </p>
+        <p> -->
+            Moreover, the left-hand limit of \(\lim_{x \to 5} f(x)\) is 
+            \[\lim_{x \to 5^-} f(x) = 5a + b \comma\]
+            and its right-hand limit is 
+            \[\lim_{x \to 5^+} f(x) = \sqrt{6 = 5} = 1 \period\]
+            These one-sided limits must be equal, so we find 
+            \begin{equation} 
+            5a + b = 1 \period \label{eq:f(x)-3-piecewise-eq-2}
+            \end{equation}
+        <!-- </p>
+        <p> -->
+            We now have a system of equations with 
+            \(\eqReferTwo{eq:f(x)-3-piecewise-eq-1}{eq:f(x)-3-piecewise-eq-2}\)—namely,
+            \[
+            \ba 
+            2a + b &= 10 \nl 
+            5a + b &= 1 \comma
+            \ea 
+            \]
+            whose solution is 
+            \[a = -3 \and b = 16 \period\]
+            Thus, for \(\boxed{a = -3}\) and \(\boxed{b = 16,}\)
+            \(f(x)\) is continuous.
+        <!-- </p> -->
+    </span>
+</section>

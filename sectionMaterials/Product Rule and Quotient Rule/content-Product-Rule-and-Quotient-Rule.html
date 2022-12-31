@@ -1,0 +1,145 @@
+<!--[[[crefId.Product-and-Quotient-Rules]]]--> 
+<p>
+    This section discusses the differentiation of products and quotients of functions.
+
+</p>
+<h4 id="product-rule">Product Rule</h4>
+
+<p>
+    The <span class="emph">product rule</span> 
+    enables us to differentiate functions in the form \(f(x)g(x).\) 
+    For convenience, we will write \(f(x)\) as \(f\) and \(g(x)\) as \(g.\)
+    Also assume that these functions are differentiable. 
+    <aside class="box-caution">
+        The derivative of a product of two functions 
+        isn't the product of their derivatives. Thus, \((fg)' \ne f' g'.\)
+    </aside>
+    If primes represent derivatives with respect to \(x,\) then the product rule states  
+    \[(fg)' = f' g + f g' \period\]
+    Notice the alternating pattern of the primes.
+</p>
+<div class="box-title"> PRODUCT RULE </div>
+<div class="box">
+    If \(f\) and \(g\) are differentiable functions, then 
+    \[(fg)' = f' g + fg' \period\]
+</div>
+
+
+<div class="example-title"> EXAMPLE 1 </div>
+<div class="example">
+    <div class="example-problem">  
+        Let \(p(x) = x^2 \cdot 3x.\) 
+        Using the product rule, find \(p'(x).\)
+    </div>
+</div>
+<button onclick="toggle1()" class="solution-button"></button>
+<div id="solution1" class="solution">
+    <p>
+        We have 
+        \[
+        \baat{2}
+        f(x) &= x^2 \lspace g(x) &&= 3x \nl 
+        f'(x) &= 2x \lspace g'(x) &&= 3 \period 
+        \eaat  
+        \]
+        Then the product rule gives  
+        \[
+        \ba 
+        p'(x) &= f'(x) g(x) + f(x) g'(x) \nl 
+        &= 2x \cdot 3x + x^2 \cdot 3 \nl 
+        &= \boxed{9x^2}
+        \ea 
+        \]
+    </p>
+    <p>
+        We confirm this answer to be correct if we rewrite \(p\) as 
+        \[p(x) = 3x^3 \period\]
+        This is a polynomial, which we differentiate using the power rule:
+        \[p'(x) = 3(3 \cdot x^2) = 9x^2 \period\]
+    </p>
+</div>
+
+<div class="example-title"> EXAMPLE 2 </div>
+<div class="example">
+    <div class="example-problem">  
+        Let \(a\) be a differentiable function that satisfies 
+        \(a(3) = 3\) and \(a'(3) = 2.\)
+        Let \(k(x) = x^2 \cdot a(x).\) 
+        Find \(k'(3).\)
+    </div>
+</div>
+<button onclick="toggle2()" class="solution-button"></button>
+<div id="solution2" class="solution">
+    We have 
+    \[
+    \ba 
+    k'(x) &= 2x \cdot a(x) + x^2 \cdot a'(x) \nl 
+    k'(3) &= 6 a(3) + 9 a'(3) \period  
+    \ea 
+    \]
+    Plugging in the given values of \(a(3)\) and \(a'(3)\) gives 
+    \[k'(3) = 6 \cdot 3 + 9 \cdot 2 = \boxed{36}\]
+</div>
+
+<div class="example-title"> EXAMPLE 3 </div>
+<div class="example">
+    <div class="example-problem">  
+        Find \(\ds \deriv{}{x} [e^x \sin x].\)
+    </div>
+</div>
+<button onclick="toggle3()" class="solution-button"></button>
+<div id="solution3" class="solution">
+    The derivative of \(e^x\) is \(e^x,\)
+    and the derivative of \(\sin x\) is \(\cos x.\)
+    Thus, we have 
+    \[
+    \baat{2} 
+    f(x) &= e^x \lspace g(x) &&= \sin x \nl 
+    f'(x) &= e^x \lspace g'(x) &&= \cos x \period 
+    \eaat 
+    \]
+    So the product rule gives 
+    \[f(x) g'(x) + f'(x) g(x) = \boxed{e^x \cos x + e^x \sin x}\]
+</div>
+
+<h4 id="product-rule">Quotient Rule</h4>
+<aside class="box-caution">
+    A derivative of a quotient isn't a quotient of derivatives; that is,
+    \((f/g)' \ne f'/g'.\) 
+</aside>
+<p>
+    To differentiate expressions in the form \(f(x)/g(x),\)
+    where \(f\) and \(g\) are differentiable functions, 
+    we need the 
+    <span class="emph">quotient rule</span>.
+    The quotient rule states that 
+    \[\par{\frac{f}{g}}' = \frac{f'g - fg'}{g^2} \comma\]
+    given that \(g \ne 0.\)
+    A mnemonic for memorizing the quotient rule is 
+    "Low <i>Dee</i> High minus High <i>Dee</i> Low, all over the square of what's below,"
+    where "Dee High" references \(f'\) and "Dee Low" is \(g'.\)
+</p>
+
+<div class="example-title"> EXAMPLE 4 </div>
+<div class="example">
+    <div class="example-problem">  
+        Find \(\ds \deriv{}{x} \par{\frac{\sin x}{x}} \period \)
+    </div>
+</div>
+<button onclick="toggle4()" class="solution-button"></button>
+<div id="solution4" class="solution">
+    <p>
+        We have 
+        \[
+        \baat{2} 
+        f(x) &= \sin x \lspace g(x) &&= x \nl 
+        f'(x) &= \cos x \lspace g'(x) &&= 1 \period
+        \eaat
+        \]
+        Thus, using the quotient rule, we have 
+        \[
+        \frac{g(x)f'(x) - f(x)g'(x)}{[g(x)]^2} 
+        = \boxed{\frac{x \cos x - \sin x}{x^2}}
+        \]
+    </p>
+</div>
